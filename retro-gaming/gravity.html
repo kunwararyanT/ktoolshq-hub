@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Cube | RetroGrid Games</title>
+    <meta name="description" content="Play Gravity Cube for free. An endless, physics-based flying arcade game. No downloads, 100% offline.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8f0; overflow: hidden; touch-action: none; margin: 0; user-select: none; }
+        .pixel-font { font-family: 'Press Start 2P', cursive; }
+        #game-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 100vh; background: #020617; border-left: 2px solid #22c55e; border-right: 2px solid #22c55e; box-shadow: 0 0 30px rgba(34, 197, 94, 0.15); }
+        canvas { display: block; width: 100%; height: 100%; }
+        .overlay { position: absolute; inset: 0; background: rgba(2, 6, 23, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; text-align: center; padding: 20px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 py-3 px-4 z-20 absolute top-0 w-full flex justify-between items-center">
+        <a href="/index.html" class="pixel-font text-xs text-green-400 hover:text-green-300 transition">&lt; BACK TO GRID</a>
+    </nav>
+
+    <!-- Game Container -->
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Start Screen Overlay -->
+        <div id="start-screen" class="overlay">
+            <h1 class="pixel-font text-2xl text-green-500 mb-4 tracking-widest">GRAVITY CUBE</h1>
+            <p class="text-slate-300 mb-8 text-xs md:text-sm leading-relaxed max-w-xs">
+                Tap the screen or press Spacebar to jump.<br><br>
+                Navigate through the green pipes.<br>
+                Hitting a pipe costs a life.<br>
+                Hitting the floor/ceiling is fatal.<br>
+                You have <span class="text-green-400 font-bold">3 Lives</span>.
+            </p>
+            <button id="start-btn" class="pixel-font bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded shadow-[0_0_15px_rgba(34,197,94,0.5)] transition-all transform hover:scale-105">LIFT OFF</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h2 class="pixel-font text-3xl text-red-500 mb-2 tracking-widest">CRASHED</h2>
+            <p class="pixel-font text-lg text-white mb-6">SCORE: <span id="final-score" class="text-green-400">0</span></p>
+            <button id="restart-btn" class="pixel-font bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded shadow-[0_0_15px_rgba(34,197,94,0.5)] transition-all transform hover:scale-105">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- The 100% Offline Game Engine -->
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        const startScreen = document.getElementById('start-screen');
+        const gameOverScreen = document.getElementById('game-over-screen');
+        const finalScore = document.getElementById('final-score');
+        
+        const startBtn = document.getElementById('start-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Audio System
+        let audioCtx;
+        let isAudioInitialized = false;
+
+        function initAudio() {
+            if (isAudioInitialized) return;
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+            isAudioInitialized = true;
+        }
+
+        function playSound(freq, type, duration, vol = 0.1, sweep = false) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = type;
+            
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            if (sweep) {
+                // Creates the classic "jump" swoop sound
+                osc.frequency.exponentialRampToValueAtTime(freq * 1.5, audioCtx.currentTime + duration);
+            }
+            
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + 0.01);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        // BGM Logic (Steady, slightly tense rhythm)
+        let bgmInterval;
+        let bgmTick = 0;
+        function startBGM() {
+            if (!audioCtx) return;
+            if (bgmInterval) clearInterval(bgmInterval);
+            bgmInterval = setInterval(() => {
+                let freq = bgmTick % 2 === 0 ? 98.00 : 123.47; // G2 to B2
+                playSound(freq, 'triangle', 0.1, 0.03);
+                bgmTick++;
+            }, 500); 
+        }
+
+        function stopBGM() {
+            if (bgmInterval) clearInterval(bgmInterval);
+        }
+
+        // Game State Variables
+        let width, height;
+        let cube, pipes, score, lives, isGameOver;
+        let invincibilityTimer = 0;
+
+        // FPS Limiter Variables
+        let lastTime = 0;
+        const fps = 60;
+        const frameInterval = 1000 / fps;
+        let accumulator = 0;
+        let animationFrameId;
+        let physicsTicks = 0; 
+
+        // Handle Resizing
+        function resize() {
+            width = canvas.parentElement.clientWidth;
+            height = canvas.parentElement.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Controls (Tap or Spacebar)
+        function triggerJump(e) {
+            if (e) e.preventDefault();
+            if (isGameOver) return;
+            
+            // Apply upward force
+            cube.vy = cube.jumpPower;
+            playSound(300, 'sine', 0.15, 0.1, true); // Jump sound
+        }
+
+        canvas.addEventListener('touchstart', triggerJump, { passive: false });
+        canvas.addEventListener('mousedown', triggerJump);
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') triggerJump(e);
+        });
+
+        // Setup Game
+        function initGame() {
+            cube = {
+                x: 60,
+                y: height / 2,
+                size: 24,
+                vy: 0,
+                gravity: 0.45,
+                jumpPower: -7.5,
+                angle: 0
+            };
+            
+            pipes = [];
+            score = 0;
+            lives = 3;
+            invincibilityTimer = 0;
+            physicsTicks = 0;
+            isGameOver = false;
+
+            startScreen.classList.add('hidden');
+            gameOverScreen.classList.add('hidden');
+
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            startBGM();
+
+            lastTime = performance.now();
+            accumulator = 0;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        // Fixed Time-Step Game Loop
+        function gameLoop(currentTime) {
+            if (isGameOver) return;
+            animationFrameId = requestAnimationFrame(gameLoop);
+
+            let deltaTime = currentTime - lastTime;
+            if (deltaTime > 250) deltaTime = 250; 
+            lastTime = currentTime;
+            accumulator += deltaTime;
+
+            while (accumulator >= frameInterval) {
+                updatePhysics();
+                accumulator -= frameInterval;
+            }
+            
+            draw();
+        }
+
+        function updatePhysics() {
+            physicsTicks++;
+            if (invincibilityTimer > 0) invincibilityTimer--;
+
+            // Apply Gravity
+            cube.vy += cube.gravity;
+            cube.y += cube.vy;
+
+            // Calculate Tilt (Rotates up when jumping, down when falling)
+            // Clamp rotation between -25 and +45 degrees
+            cube.angle = Math.min(Math.PI / 4, Math.max(-Math.PI / 6, (cube.vy * 0.08)));
+
+            // Floor and Ceiling Collision (Instant Death)
+            if (cube.y + cube.size / 2 > height || cube.y - cube.size / 2 < 40) { // 40px buffer for top nav
+                triggerGameOver();
+                return;
+            }
+
+            // Pipe Spawning Logic
+            // The gap gets tighter as the score increases (min gap is 100px)
+            let pipeSpeed = 3.5;
+            let currentGap = Math.max(100, 180 - (score * 3)); 
+
+            // Spawn a new pipe every 100 frames
+            if (physicsTicks % 100 === 0) {
+                // Randomize vertical position of the gap
+                let topPipeHeight = Math.random() * (height - currentGap - 120) + 60;
+                
+                pipes.push({
+                    x: width,
+                    y: 0,
+                    width: 45,
+                    height: topPipeHeight,
+                    passed: false
+                });
+                
+                pipes.push({
+                    x: width,
+                    y: topPipeHeight + currentGap,
+                    width: 45,
+                    height: height - (topPipeHeight + currentGap),
+                    passed: true // Only the top pipe tracks the score to avoid double counting
+                });
+            }
+
+            // Update Pipes & Check Collisions
+            for (let i = pipes.length - 1; i >= 0; i--) {
+                let p = pipes[i];
+                p.x -= pipeSpeed;
+
+                // Pipe Collision (AABB)
+                if (invincibilityTimer <= 0) {
+                    if (cube.x + cube.size / 2 > p.x && 
+                        cube.x - cube.size / 2 < p.x + p.width && 
+                        cube.y + cube.size / 2 > p.y && 
+                        cube.y - cube.size / 2 < p.y + p.height) {
+                        
+                        lives--;
+                        if (lives <= 0) {
+                            triggerGameOver();
+                            return;
+                        } else {
+                            playSound(150, 'sawtooth', 0.5, 0.4); // Damage sound
+                            invincibilityTimer = 90; // 1.5 seconds i-frames
+                        }
+                    }
+                }
+
+                // Scoring (When cube passes the right edge of a top pipe)
+                if (!p.passed && p.x + p.width < cube.x - cube.size / 2) {
+                    p.passed = true;
+                    score++;
+                    playSound(880, 'square', 0.1, 0.1); // Score ding
+                }
+
+                // Remove off-screen pipes
+                if (p.x + p.width < 0) {
+                    pipes.splice(i, 1);
+                }
+            }
+        }
+
+        function triggerGameOver() {
+            isGameOver = true;
+            stopBGM();
+            playSound(100, 'sawtooth', 0.8, 0.4); 
+            finalScore.innerText = score;
+            gameOverScreen.classList.remove('hidden');
+        }
+
+        // Rendering
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw Pipes (Neon Green)
+            ctx.fillStyle = '#22c55e';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#22c55e';
+            for (let p of pipes) {
+                ctx.fillRect(p.x, p.y, p.width, p.height);
+                
+                // Draw pipe caps for retro detail
+                if (p.y === 0) {
+                    // Top pipe cap at bottom
+                    ctx.fillRect(p.x - 4, p.height - 15, p.width + 8, 15);
+                } else {
+                    // Bottom pipe cap at top
+                    ctx.fillRect(p.x - 4, p.y, p.width + 8, 15);
+                }
+            }
+
+            // Draw Cube (Neon Orange)
+            if (invincibilityTimer === 0 || Math.floor(Date.now() / 100) % 2 === 0) {
+                ctx.fillStyle = (invincibilityTimer > 0) ? '#ffffff' : '#f97316'; 
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = (invincibilityTimer > 0) ? '#ffffff' : '#f97316';
+                
+                ctx.save();
+                ctx.translate(cube.x, cube.y);
+                ctx.rotate(cube.angle);
+                
+                // Draw centered around the translation point
+                ctx.fillRect(-cube.size / 2, -cube.size / 2, cube.size, cube.size);
+                
+                // Little eye detail
+                ctx.fillStyle = '#ffffff';
+                ctx.shadowBlur = 0;
+                ctx.fillRect(cube.size / 4, -cube.size / 4, 4, 4);
+                
+                ctx.restore();
+            }
+            
+            ctx.shadowBlur = 0;
+
+            // Draw Canvas Native UI (Score)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+            ctx.font = "bold 60px 'Press Start 2P', monospace";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(score, width / 2, height / 2);
+
+            // Draw Canvas Native UI (Lives)
+            ctx.fillStyle = '#22c55e'; 
+            ctx.font = "12px 'Press Start 2P', monospace";
+            ctx.textAlign = "right";
+            ctx.textBaseline = "top";
+            let hearts = "";
+            for(let i=0; i<lives; i++) hearts += "♥ ";
+            ctx.fillText(hearts, width - 15, 60);
+        }
+
+        // Button Listeners
+        startBtn.addEventListener('click', initGame);
+        restartBtn.addEventListener('click', initGame);
+    </script>
+</body>
+</html>
