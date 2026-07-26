@@ -64,18 +64,21 @@
     <!-- Optional CRT Scanline Effect for nostalgia -->
     <div class="scanline"></div>
 
-    <!-- Navigation -->
-    <nav class="bg-slate-900 border-b border-slate-800 py-4 px-6 z-20">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="font-bold text-xl tracking-wide flex items-center gap-3">
+    <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
+    <header class="w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <!-- Clickable Logo / Home Button -->
+            <a href="https://ktoolshq.com" class="flex items-center gap-3 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
                 <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 7 18.5 7s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                 <span class="pixel-font text-sm text-blue-400 mt-1">RetroGrid</span>
-            </div>
-            <div class="text-sm font-medium text-slate-400 hidden md:block">
+            </a>
+
+            <div class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 hidden md:block">
                 No Downloads. 100% Free.
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Workspace -->
     <main class="flex-grow max-w-6xl mx-auto w-full px-4 py-12 z-20">
