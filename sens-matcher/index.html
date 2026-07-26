@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Cross-Game Sensitivity & eDPI Converter (Valorant, CS2, Fortnite, Minecraft)</title>
+  <meta name="description" content="Instantly convert your mouse sensitivity between Valorant, CS2, Fortnite, Minecraft, Roblox, Apex Legends, and more. Calculate true eDPI and cm/360 to keep your muscle memory intact.">
+  <meta name="keywords" content="valorant to cs2 sens, sensitivity converter, fortnite sensitivity calculator, roblox sens to valorant, minecraft sensitivity converter, apex legends sens, edpi calculator, cm/360 calculator, free gaming tool">
+  
+  <!-- Replace with your actual Search Console & GA4 tags later -->
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+  
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { 
+            neon: { cyan: '#06b6d4', purple: '#8b5cf6', pink: '#ec4899' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    .neon-text { text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+    .neon-border { box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); }
+  </style>
+
+  <!-- SEO FAQ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert Valorant sensitivity to CS2?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert your Valorant sensitivity to CS2 (Counter-Strike 2), you multiply your Valorant sensitivity by 3.18. This free tool calculates it instantly while also matching your cm/360 desk distance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert my sensitivity to Fortnite?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fortnite uses a percentage-based slider which calculates differently than Source engine games. Our tool uses the exact 0.005555 Yaw multiplier to perfectly translate your Valorant or CS2 sensitivity into your Fortnite slider percentage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert sensitivity for Roblox and Minecraft?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! While Roblox and Minecraft have unique sensitivity scaling, this tool applies mathematically accurate linear approximations (Roblox Yaw: 0.016, Minecraft Approx: 0.0054) so you can keep your aim consistent across all platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is cm/360 in gaming?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "cm/360 is the physical distance in centimeters that you must move your mouse across your mousepad to perform a full 360-degree rotation in-game. It is the most accurate way to ensure your muscle memory is identical across different games."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-neon-cyan selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🎯</span>
+        <span class="font-extrabold text-lg tracking-tight text-white">
+          Sens<span class="text-neon-cyan neon-text">Matcher</span>
+        </span>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-neon-purple/10 text-neon-purple border border-neon-purple/30">
+        1:1 Engine Conversion
+      </span>
+    </div>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 space-y-8">
+    
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Cross-Game <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">Sensitivity Matcher</span>
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Convert your mouse sensitivity perfectly between top titles like Valorant, CS2, Fortnite, and Minecraft. Match engine Yaw and calculate your true cm/360°.
+      </p>
+    </div>
+
+    <!-- The Calculator Interface -->
+    <div class="neon-border bg-zinc-900/80 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative overflow-hidden">
+      <!-- Glow Effect -->
+      <div class="absolute -top-20 -left-20 w-64 h-64 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-neon-purple/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+        
+        <!-- Left Side: FROM -->
+        <div class="space-y-5 bg-zinc-950 p-6 rounded-2xl border border-zinc-800">
+          <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2">Convert From</h2>
+          
+          <div class="space-y-2">
+            <label class="text-xs font-semibold text-zinc-400">Select Game</label>
+            <select id="gameFrom" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition appearance-none">
+              <option value="0.07">Valorant</option>
+              <option value="0.022" selected>Counter-Strike 2 (CS2) / Apex / Rust</option>
+              <option value="0.0066">Overwatch 2 / CoD / Destiny 2</option>
+              <option value="0.005729">Rainbow Six Siege</option>
+              <option value="0.005555">Fortnite (Slider %)</option>
+              <option value="0.016">Roblox</option>
+              <option value="0.0054">Minecraft (Approx)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-zinc-400">In-Game Sens</label>
+              <input type="number" id="sensFrom" value="1.0" step="0.01" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white font-mono focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition">
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-zinc-400">Mouse DPI</label>
+              <input type="number" id="dpiInput" value="800" step="50" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white font-mono focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: TO -->
+        <div class="space-y-5 bg-zinc-950 p-6 rounded-2xl border border-zinc-800">
+          <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2">Convert To</h2>
+          
+          <div class="space-y-2">
+            <label class="text-xs font-semibold text-zinc-400">Target Game</label>
+            <select id="gameTo" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition appearance-none">
+              <option value="0.07" selected>Valorant</option>
+              <option value="0.022">Counter-Strike 2 (CS2) / Apex / Rust</option>
+              <option value="0.0066">Overwatch 2 / CoD / Destiny 2</option>
+              <option value="0.005729">Rainbow Six Siege</option>
+              <option value="0.005555">Fortnite (Slider %)</option>
+              <option value="0.016">Roblox</option>
+              <option value="0.0054">Minecraft (Approx)</option>
+            </select>
+          </div>
+
+          <!-- Live Output Readout -->
+          <div class="mt-4 pt-4 flex flex-col items-center justify-center space-y-1">
+            <div class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Exact Matched Sens</div>
+            <div id="outputSens" class="text-5xl sm:text-6xl font-black text-white font-mono tracking-tight drop-shadow-md">
+              0.314
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Metrics Banner -->
+      <div class="grid grid-cols-2 gap-4 mt-6 border-t border-zinc-800/50 pt-6">
+        <div class="flex flex-col items-center justify-center bg-zinc-950/50 rounded-xl p-4 border border-zinc-800/50">
+          <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">Target eDPI</span>
+          <span id="outputEdpi" class="text-2xl font-black text-neon-cyan font-mono">251.2</span>
+        </div>
+        <div class="flex flex-col items-center justify-center bg-zinc-950/50 rounded-xl p-4 border border-zinc-800/50">
+          <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">Physical cm/360°</span>
+          <span id="outputCm" class="text-2xl font-black text-neon-purple font-mono">51.95 cm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Ad Slot -->
+    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs my-8">
+      [AdSense In-Content Banner Slot]
+    </div>
+
+    <!-- SEO FAQ Section -->
+    <section class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 shadow-xl mt-8">
+      <h2 class="text-2xl font-black text-white tracking-tight mb-6 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">How do I convert Valorant sensitivity to CS2?</h3>
+          <p class="text-sm text-zinc-400 mt-2">To convert your Valorant sensitivity to CS2 (Counter-Strike 2), you multiply your Valorant sensitivity by 3.18. This free tool calculates it instantly using pure engine Yaw math to ensure perfect accuracy.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">How do I convert my sensitivity to Fortnite?</h3>
+          <p class="text-sm text-zinc-400 mt-2">Fortnite uses a percentage-based slider which calculates differently than Source engine games. Our tool uses the exact 0.005555 Yaw multiplier to perfectly translate your current mouse sensitivity into your Fortnite slider percentage.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">Can I convert sensitivity for Roblox and Minecraft?</h3>
+          <p class="text-sm text-zinc-400 mt-2">Yes! While Roblox and Minecraft have unique sensitivity scaling algorithms, this tool applies mathematically accurate linear approximations so you can keep your aim and flick shots consistent across all titles.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">What is cm/360 in gaming?</h3>
+          <p class="text-sm text-zinc-400 mt-2">cm/360 is the physical distance in centimeters that you must move your mouse across your mousepad to perform a full 360-degree rotation in-game. Pro players use this metric to ensure their muscle memory is perfectly synced regardless of FOV or engine changes.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 SensMatcher • A free gaming utility.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculator Engine Script -->
+  <script>
+    const gameFrom = document.getElementById('gameFrom');
+    const sensFrom = document.getElementById('sensFrom');
+    const dpiInput = document.getElementById('dpiInput');
+    const gameTo = document.getElementById('gameTo');
+    
+    const outputSens = document.getElementById('outputSens');
+    const outputEdpi = document.getElementById('outputEdpi');
+    const outputCm = document.getElementById('outputCm');
+
+    function calculateSens() {
+      const yawFrom = parseFloat(gameFrom.value);
+      const yawTo = parseFloat(gameTo.value);
+      const inputSens = parseFloat(sensFrom.value) || 0;
+      const dpi = parseFloat(dpiInput.value) || 0;
+
+      if (inputSens === 0 || dpi === 0) {
+        outputSens.innerText = "0.000";
+        outputEdpi.innerText = "0";
+        outputCm.innerText = "0.00 cm";
+        return;
+      }
+
+      // 1. Calculate Engine Target Sens ( Formula: Old Sens * (Old Yaw / New Yaw) )
+      const convertedSens = inputSens * (yawFrom / yawTo);
+      
+      // Precision handling for display
+      if (convertedSens < 0.01) {
+        outputSens.innerText = convertedSens.toFixed(5);
+      } else {
+        outputSens.innerText = convertedSens.toFixed(3);
+      }
+
+      // 2. Calculate eDPI for Target Game
+      const eDPI = convertedSens * dpi;
+      outputEdpi.innerText = Math.round(eDPI);
+
+      // 3. Calculate True Physical cm/360
+      // Formula: (360 / (Target Sens * Target Yaw * DPI)) * 2.54 (inches to cm conversion)
+      const countsPer360 = 360 / (yawTo * convertedSens);
+      const inchesPer360 = countsPer360 / dpi;
+      const cmPer360 = inchesPer360 * 2.54;
+      
+      outputCm.innerText = cmPer360.toFixed(2) + " cm";
+    }
+
+    // Attach event listeners to all inputs to update live
+    gameFrom.addEventListener('change', calculateSens);
+    sensFrom.addEventListener('input', calculateSens);
+    dpiInput.addEventListener('input', calculateSens);
+    gameTo.addEventListener('change', calculateSens);
+
+    // Initial calculation on load
+    calculateSens();
+  </script>
+</body>
+</html>
