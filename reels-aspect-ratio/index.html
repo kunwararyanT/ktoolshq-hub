@@ -44,15 +44,18 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
 
-  <!-- Header / Navigation -->
-  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+  <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
+  <header class="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+      
+      <!-- Clickable Logo / Home Button -->
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
         <span class="text-2xl">📐</span>
         <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
           RatioCraft
         </span>
-      </div>
+      </a>
+
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
         2026 Video Specs
       </span>
@@ -231,9 +234,9 @@
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
       <p>© 2026 RatioCraft • A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
       <div class="flex space-x-4">
-        <a href="about.html" class="hover:text-zinc-300">About</a>
-        <a href="privacy.html" class="hover:text-zinc-300">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-zinc-300">Terms of Service</a>
+        <a href="about.html" class="hover:text-zinc-300 transition-colors">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition-colors">Terms of Service</a>
       </div>
     </div>
   </footer>
