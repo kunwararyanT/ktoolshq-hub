@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Viral Hook Scorer & Reel Script Analyzer (2026)</title>
+  <meta name="description" content="Analyze your short-form video hooks for Instagram Reels, TikTok, and YouTube Shorts. Instant AI-style score for retention, power words, curiosity gaps, and pacing. 100% free and local.">
+  <meta name="keywords" content="reel hook scorer, instagram reels hook analyzer, tiktok script retention score, short form hook generator, video hook length calculator, high retention hook analyzer 2026">
+  
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
+  
+  <!-- Official Canonical URL -->
+  <link rel="canonical" href="https://free-hook-scorer.vercel.app/">
+
+  <!-- Google tag (gtag.js) - Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWG0JPEPNW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VWG0JPEPNW');
+  </script>
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: '#8b5cf6',
+              600: '#7c3aed',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+  </style>
+
+  <!-- Google Schema Markup for Free Web App -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HookCraft",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "description": "A free, client-side script analyzer and retention scorer for Instagram Reels, TikTok, and YouTube Shorts."
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-violet-500 selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🪝</span>
+        <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+          HookCraft
+        </span>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">
+        2026 Retention Engine
+      </span>
+    </div>
+  </header>
+
+  <!-- Top AdSense Leaderboard Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Application Container -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 space-y-10">
+    
+    <!-- Hero Section -->
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Free Reel Retention & Hook Scorer
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">
+        Test your 3-second video hooks against modern viral psychology. Identify missing curiosity gaps, power words, and pacing issues before you record.
+      </p>
+    </div>
+
+    <!-- Main Workspace (Grid layout) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Column (7 Cols) -->
+      <div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+        
+        <!-- Preset Selector -->
+        <div class="space-y-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400">
+            Quick Preset Test
+          </label>
+          <div class="grid grid-cols-3 gap-2">
+            <button onclick="loadPreset('negative')" class="text-xs bg-zinc-800 hover:bg-zinc-700 p-2.5 rounded-xl border border-zinc-700/60 transition text-zinc-300 font-medium">
+              🚫 Negative Bias
+            </button>
+            <button onclick="loadPreset('curiosity')" class="text-xs bg-zinc-800 hover:bg-zinc-700 p-2.5 rounded-xl border border-zinc-700/60 transition text-zinc-300 font-medium">
+              💡 Curiosity Gap
+            </button>
+            <button onclick="loadPreset('weak')" class="text-xs bg-zinc-800 hover:bg-zinc-700 p-2.5 rounded-xl border border-zinc-700/60 transition text-zinc-300 font-medium">
+              ⚠️ Weak Hook
+            </button>
+          </div>
+        </div>
+
+        <!-- Text Area Input -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <label for="hookInput" class="block text-xs font-semibold text-zinc-300">
+              Your 3-Second Script / On-Screen Text
+            </label>
+            <span id="charCounter" class="text-xs text-zinc-500 font-mono">0 words | 0 chars</span>
+          </div>
+          <textarea id="hookInput" rows="4" oninput="analyzeHook()" placeholder="e.g. Stop making this huge editing mistake if you want higher video retention..." class="w-full bg-zinc-950 border border-zinc-800 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 rounded-2xl p-4 text-base font-medium text-white placeholder-zinc-600 outline-none transition resize-none"></textarea>
+        </div>
+
+        <!-- Interactive Settings -->
+        <div class="grid grid-cols-2 gap-4 border-t border-zinc-800/80 pt-4">
+          <div>
+            <label for="platformSelect" class="block text-xs font-semibold text-zinc-400 mb-1">Target Format</label>
+            <select id="platformSelect" onchange="analyzeHook()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-2.5 text-xs text-zinc-200 outline-none focus:border-violet-500">
+              <option value="reels">Instagram Reels</option>
+              <option value="tiktok">TikTok Video</option>
+              <option value="shorts">YouTube Shorts</option>
+            </select>
+          </div>
+          <div>
+            <label for="deliverySpeed" class="block text-xs font-semibold text-zinc-400 mb-1">Pacing Style</label>
+            <select id="deliverySpeed" onchange="analyzeHook()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-2.5 text-xs text-zinc-200 outline-none focus:border-violet-500">
+              <option value="fast">Fast Speaking (160 wpm)</option>
+              <option value="normal">Normal Pace (130 wpm)</option>
+              <option value="text">On-Screen Text Only</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Clear & Copy Buttons -->
+        <div class="flex gap-3">
+          <button onclick="clearText()" class="w-1/3 bg-zinc-800 hover:bg-zinc-700 py-3 rounded-xl text-xs font-bold transition text-zinc-300">
+            Clear
+          </button>
+          <button onclick="copyHook()" class="w-2/3 bg-violet-600 hover:bg-violet-500 py-3 rounded-xl text-xs font-bold transition text-white shadow-lg shadow-violet-600/20">
+            Copy Script
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Results Column (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Score Dashboard Card -->
+        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-6 text-center relative overflow-hidden">
+          
+          <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Viral Potential Score</span>
+          
+          <!-- Score Gauge -->
+          <div class="flex flex-col items-center justify-center my-2">
+            <div id="scoreBadge" class="text-6xl font-black text-violet-400 font-mono tracking-tight transition-all duration-300">
+              0
+            </div>
+            <div id="scoreRating" class="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1">
+              Awaiting Input
+            </div>
+          </div>
+
+          <!-- Score Breakdown Progress Bars -->
+          <div class="space-y-3 text-left border-t border-zinc-800/80 pt-4 text-xs">
+            
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-zinc-400">Power Words & Emotion</span>
+                <span id="powerScoreVal" class="font-mono text-violet-400 font-bold">0%</span>
+              </div>
+              <div class="w-full bg-zinc-950 rounded-full h-2 border border-zinc-800">
+                <div id="powerScoreBar" class="bg-violet-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-zinc-400">Curiosity Gap Trigger</span>
+                <span id="curiosityVal" class="font-mono text-violet-400 font-bold">0%</span>
+              </div>
+              <div class="w-full bg-zinc-950 rounded-full h-2 border border-zinc-800">
+                <div id="curiosityBar" class="bg-indigo-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-zinc-400">3-Second Pace & Length</span>
+                <span id="paceVal" class="font-mono text-violet-400 font-bold">0%</span>
+              </div>
+              <div class="w-full bg-zinc-950 rounded-full h-2 border border-zinc-800">
+                <div id="paceBar" class="bg-emerald-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Dynamic Actionable Tips Box -->
+        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-violet-400 flex items-center gap-1.5">
+            <span>⚡</span> Optimization Feedback
+          </h3>
+          <ul id="feedbackList" class="text-xs text-zinc-400 space-y-2 list-disc list-inside leading-relaxed">
+            <li>Type or paste a hook script above to get instant retention suggestions.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Sidebar / In-Content Ad Space -->
+    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense In-Content Banner Slot]
+    </div>
+
+    <!-- Programmatic SEO Section -->
+    <section class="border-t border-zinc-800 pt-12 space-y-8 text-zinc-300">
+      
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-white">
+          Why the First 3 Seconds Decide Your Reel Retention
+        </h2>
+        <p class="text-sm leading-relaxed text-zinc-400">
+          In 2026, short-form algorithms on <strong class="text-zinc-200">Instagram Reels, TikTok, and YouTube Shorts</strong> measure viewer drop-off within the first 1.5 to 3 seconds. If your hook fails to trigger immediate curiosity, negative bias, or clear value, users instantly swipe away. Using a dedicated <strong class="text-zinc-200">viral hook analyzer</strong> allows creators and editors to optimize script pacing and word density before hitting record.
+        </p>
+      </div>
+
+      <!-- Quick Reference Table -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white">
+          Viral Hook Psychology Framework (2026 Reference)
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-zinc-800 text-zinc-400 uppercase font-bold">
+                <th class="py-3 px-4">Hook Archetype</th>
+                <th class="py-3 px-4">Psychological Trigger</th>
+                <th class="py-3 px-4">Ideal Word Count</th>
+                <th class="py-3 px-4">Example Pattern</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60 text-zinc-300">
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Negative Loss Aversion</td>
+                <td class="py-3 px-4 text-violet-400 font-mono font-bold">Fear of Mistakes</td>
+                <td class="py-3 px-4">6 – 12 words</td>
+                <td class="py-3 px-4">"Stop doing [X] if you want [Y]..."</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Curiosity Gap</td>
+                <td class="py-3 px-4 text-violet-400 font-mono font-bold">Incomplete Information</td>
+                <td class="py-3 px-4">8 – 14 words</td>
+                <td class="py-3 px-4">"This simple secret changed how I..."</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Contrarian Statement</td>
+                <td class="py-3 px-4 text-violet-400 font-mono font-bold">Pattern Interrupt</td>
+                <td class="py-3 px-4">5 – 10 words</td>
+                <td class="py-3 px-4">"Everything you know about [Topic] is wrong..."</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Visual / Action Lead</td>
+                <td class="py-3 px-4 text-violet-400 font-mono font-bold">Immediate Payoff</td>
+                <td class="py-3 px-4">4 – 8 words</td>
+                <td class="py-3 px-4">"Here is what happens when you..."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-lg font-semibold text-white">Frequently Asked Questions</h3>
+        
+        <div class="space-y-3 text-sm">
+          <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4">
+            <h4 class="font-bold text-white mb-1">What is the optimal word length for a 3-second hook?</h4>
+            <p class="text-zinc-400 text-xs leading-relaxed">
+              At standard speaking speeds (130 to 160 words per minute), a 3-second spoken hook should contain between 7 and 12 words. For on-screen text, keep it under 10 words so viewers can read it in a single glance without pausing.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4">
+            <h4 class="font-bold text-white mb-1">How do power words increase video watch time?</h4>
+            <p class="text-zinc-400 text-xs leading-relaxed">
+              Power words like "stop," "secret," "mistake," "truth," and "exposed" stimulate subconscious emotional processing in viewers, forcing them to hold attention long enough for the main content payload to deliver.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer with Legal Compliance Links -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-12">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 HookCraft • A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Client-Side Scoring Engine Logic -->
+  <script>
+    const powerWordsList = [
+      'stop', 'never', 'secret', 'mistake', 'truth', 'exposed', 'proven', 'hacks', 'hack',
+      'crazy', 'hidden', 'free', 'simple', 'fast', 'easiest', 'nobody', 'everyone', 'system',
+      'method', 'worst', 'best', 'unpopular', 'illegal', 'warning', 'don\'t', 'avoid', 'fail',
+      'wrong', 'guaranteed', 'instant', 'trick', 'banned', 'quietly', 'actually', 'insane'
+    ];
+
+    const curiosityPhrases = [
+      'how to', 'why you', 'this is', 'the reason', 'what happens', 'i tried', 'stop doing',
+      'do not', 'if you', 'this simple', 'here is why', 'you need to', 'thing about'
+    ];
+
+    const presets = {
+      negative: "Stop making this huge video editing mistake if you want higher retention...",
+      curiosity: "This simple 3-second editing secret changed how my videos rank forever...",
+      weak: "Hey guys today I am going to talk about a few cool editing tips I like..."
+    };
+
+    function loadPreset(key) {
+      document.getElementById('hookInput').value = presets[key];
+      analyzeHook();
+    }
+
+    function clearText() {
+      document.getElementById('hookInput').value = '';
+      analyzeHook();
+    }
+
+    function copyHook() {
+      const text = document.getElementById('hookInput').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      alert('Hook copied to clipboard!');
+    }
+
+    function analyzeHook() {
+      const text = document.getElementById('hookInput').value.trim();
+      const speed = document.getElementById('deliverySpeed').value;
+      
+      const words = text ? text.split(/\s+/).filter(w => w.length > 0) : [];
+      const wordCount = words.length;
+      const charCount = text.length;
+
+      document.getElementById('charCounter').textContent = `${wordCount} words | ${charCount} chars`;
+
+      if (wordCount === 0) {
+        resetScore();
+        return;
+      }
+
+      // 1. Power Words Score (Max 35 points)
+      let powerCount = 0;
+      const lowerText = text.toLowerCase();
+      powerWordsList.forEach(word => {
+        if (lowerText.includes(word)) powerCount++;
+      });
+      const powerScore = Math.min(35, powerCount * 12);
+
+      // 2. Curiosity Gap Score (Max 35 points)
+      let curiosityCount = 0;
+      curiosityPhrases.forEach(phrase => {
+        if (lowerText.includes(phrase)) curiosityCount++;
+      });
+      const curiosityScore = Math.min(35, (curiosityCount * 15) + (text.includes('?') ? 10 : 0));
+
+      // 3. Pacing & Length Score (Max 30 points)
+      let paceScore = 0;
+      let targetMin = 6;
+      let targetMax = 14;
+
+      if (speed === 'text') { targetMin = 4; targetMax = 10; }
+      if (speed === 'fast') { targetMin = 7; targetMax = 16; }
+
+      if (wordCount >= targetMin && wordCount <= targetMax) {
+        paceScore = 30;
+      } else if (wordCount < targetMin) {
+        paceScore = Math.max(5, 30 - ((targetMin - wordCount) * 5));
+      } else {
+        paceScore = Math.max(5, 30 - ((wordCount - targetMax) * 4));
+      }
+
+      // Calculate Total Score (0 - 100)
+      const totalScore = Math.min(100, Math.round(powerScore + curiosityScore + paceScore));
+
+      // Update UI Elements
+      document.getElementById('scoreBadge').textContent = totalScore;
+      
+      // Update Ratings & Badges
+      const ratingElem = document.getElementById('scoreRating');
+      if (totalScore >= 80) {
+        ratingElem.textContent = "🔥 Viral Potential";
+        ratingElem.className = "text-xs font-bold uppercase tracking-widest text-emerald-400 mt-1";
+      } else if (totalScore >= 50) {
+        ratingElem.textContent = "⚡ Moderate Retention";
+        ratingElem.className = "text-xs font-bold uppercase tracking-widest text-amber-400 mt-1";
+      } else {
+        ratingElem.textContent = "⚠️ High Drop-Off Risk";
+        ratingElem.className = "text-xs font-bold uppercase tracking-widest text-rose-400 mt-1";
+      }
+
+      // Update Individual Bars
+      const pPct = Math.round((powerScore / 35) * 100);
+      const cPct = Math.round((curiosityScore / 35) * 100);
+      const lPct = Math.round((paceScore / 30) * 100);
+
+      document.getElementById('powerScoreVal').textContent = `${pPct}%`;
+      document.getElementById('powerScoreBar').style.width = `${pPct}%`;
+
+      document.getElementById('curiosityVal').textContent = `${cPct}%`;
+      document.getElementById('curiosityBar').style.width = `${cPct}%`;
+
+      document.getElementById('paceVal').textContent = `${lPct}%`;
+      document.getElementById('paceBar').style.width = `${lPct}%`;
+
+      // Build Actionable Suggestions
+      buildFeedback(wordCount, powerCount, curiosityCount, lowerText, targetMin, targetMax);
+    }
+
+    function buildFeedback(wordCount, powerCount, curiosityCount, text, targetMin, targetMax) {
+      const feedbackList = document.getElementById('feedbackList');
+      feedbackList.innerHTML = '';
+
+      const tips = [];
+
+      if (wordCount < targetMin) {
+        tips.push(`Your hook is slightly too short (${wordCount} words). Add a clear benefit or problem statement.`);
+      } else if (wordCount > targetMax) {
+        tips.push(`Your hook is wordy (${wordCount} words). Cut fluff words so viewers can process it within 3 seconds.`);
+      } else {
+        tips.push(`Great pacing! ${wordCount} words fits naturally into a 3-second opening window.`);
+      }
+
+      if (powerCount === 0) {
+        tips.push(`Add strong emotional triggers (e.g. "Stop", "Secret", "Mistake", "Avoid") to stop the scroll.`);
+      } else {
+        tips.push(`Good emotional punch! Detected ${powerCount} high-intent power word(s).`);
+      }
+
+      if (curiosityCount === 0) {
+        tips.push(`Open an "unclosed loop" by using phrases like "Here is why...", "This simple trick...", or asking a direct question.`);
+      }
+
+      if (text.startsWith("hey") || text.startsWith("hi guys") || text.startsWith("welcome back")) {
+        tips.push(`🚨 <strong>Remove pleasantries!</strong> Starting with "Hey guys" causes immediate viewer drop-off. Lead directly with the hook.`);
+      }
+
+      tips.forEach(tip => {
+        const li = document.createElement('li');
+        li.innerHTML = tip;
+        feedbackList.appendChild(li);
+      });
+    }
+
+    function resetScore() {
+      document.getElementById('scoreBadge').textContent = '0';
+      document.getElementById('scoreRating').textContent = 'Awaiting Input';
+      document.getElementById('scoreRating').className = 'text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1';
+      
+      document.getElementById('powerScoreVal').textContent = '0%';
+      document.getElementById('powerScoreBar').style.width = '0%';
+      document.getElementById('curiosityVal').textContent = '0%';
+      document.getElementById('curiosityBar').style.width = '0%';
+      document.getElementById('paceVal').textContent = '0%';
+      document.getElementById('paceBar').style.width = '0%';
+
+      document.getElementById('feedbackList').innerHTML = '<li>Type or paste a hook script above to get instant retention suggestions.</li>';
+    }
+  </script>
+</body>
+</html>
