@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Exact-Match SEO Meta Tags -->
+    <title>Free Bank Statement PDF Password Remover | 100% Offline & Private</title>
+    <meta name="description" content="Instantly remove passwords from your bank statements and credit card PDFs. 100% free, client-side processing. Your files never leave your device.">
+    <meta name="keywords" content="free bank statement password remover, unlock pdf offline, client-side pdf password remover, remove hdfc pdf password">
+    <link rel="canonical" href="https://yourdomain.com/en/free-pdf-password-remover">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
+    
+    <!-- PDF-Lib for Client-Side Processing -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <!-- Google Fonts: Inter for that premium Fintech look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .drag-active { border-color: #3b82f6; background-color: #eff6ff; }
+    </style>
+
+    <!-- JSON-LD SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Local PDF Unlocker",
+      "url": "https://yourdomain.com",
+      "description": "A 100% offline browser utility to remove passwords from encrypted bank statements and PDFs without uploading data to any server.",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-slate-900 text-white py-4 px-6 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="font-bold text-xl tracking-wide flex items-center gap-2">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                SecurePDF Utilities
+            </div>
+            <div class="text-sm font-medium text-slate-300">
+                <!-- Language Switcher Stub -->
+                <span class="cursor-pointer hover:text-white transition">EN</span> | 
+                <span class="cursor-pointer hover:text-white transition">HI</span> | 
+                <span class="cursor-pointer hover:text-white transition">ES</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-12">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Unlock Your Bank Statements <span class="text-blue-600">Instantly</span></h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Remove passwords from your financial PDFs locally in your browser. <strong>Zero uploads. Zero servers. 100% Privacy.</strong></p>
+        </div>
+
+        <!-- The Tool Interface -->
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
+            
+            <!-- Drag & Drop Zone -->
+            <div id="drop-zone" class="border-2 border-dashed border-slate-300 rounded-xl p-10 text-center transition-all duration-200 hover:bg-slate-50 cursor-pointer">
+                <svg class="w-12 h-12 mx-auto text-slate-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <p class="text-slate-600 font-medium mb-1">Drag and drop your encrypted PDF here</p>
+                <p class="text-slate-400 text-sm">or click to browse your files</p>
+                <input type="file" id="file-input" class="hidden" accept=".pdf">
+            </div>
+
+            <!-- File Info & Password Input (Hidden until file is loaded) -->
+            <div id="processing-zone" class="hidden mt-6">
+                <div class="flex items-center justify-between bg-slate-50 p-4 rounded-lg border border-slate-200 mb-6">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                        <div>
+                            <p id="file-name" class="font-semibold text-slate-800">statement.pdf</p>
+                            <p class="text-xs text-slate-500">Encrypted Document</p>
+                        </div>
+                    </div>
+                    <button id="remove-file" class="text-slate-400 hover:text-red-500 text-sm font-medium transition">Remove</button>
+                </div>
+
+                <div class="flex flex-col gap-2 mb-6">
+                    <label for="pdf-password" class="text-sm font-semibold text-slate-700">Document Password (e.g., DOB or Account Digits)</label>
+                    <input type="password" id="pdf-password" class="px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Enter password to unlock...">
+                </div>
+
+                <button id="unlock-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    Unlock & Download PDF
+                </button>
+                <p id="status-message" class="text-center text-sm mt-3 font-medium hidden"></p>
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-center">
+            <div class="p-4">
+                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-blue-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Military-Grade Processing</h3>
+                <p class="text-sm text-slate-600 mt-1">Your password and files are processed strictly inside your device's memory.</p>
+            </div>
+            <div class="p-4">
+                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-green-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Zero Server Uploads</h3>
+                <p class="text-sm text-slate-600 mt-1">We do not have a database. It is mathematically impossible for us to save your data.</p>
+            </div>
+            <div class="p-4">
+                <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-purple-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Instant Unlocking</h3>
+                <p class="text-sm text-slate-600 mt-1">Because there is no upload wait time, your file is unlocked in milliseconds.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- SEO-Optimized FAQ Section -->
+    <section class="max-w-4xl mx-auto px-4 py-12 border-t border-slate-200 mt-8">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-slate-900 mb-3">Frequently Asked Questions</h2>
+            <p class="text-slate-600">Everything you need to know about unlocking financial PDFs securely.</p>
+        </div>
+
+        <div class="space-y-6">
+            <!-- FAQ 1: Safety (Crucial for Trust) -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Is it safe to unlock my bank statement online?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    Most online PDF unlockers require you to upload your sensitive financial data to their servers, which is a major security risk. <strong>Our tool is different.</strong> It uses client-side JavaScript to process the file entirely within your device's memory (RAM). Your PDF never leaves your computer, making it 100% safe and private.
+                </p>
+            </div>
+
+            <!-- FAQ 2: HDFC Bank -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">How do I remove the password from an HDFC bank statement?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    HDFC bank statement PDFs are typically protected by a password consisting of your Customer ID. To permanently remove it, simply drag your HDFC statement into our tool, enter your Customer ID password once, and download the unlocked version for easy access.
+                </p>
+            </div>
+
+            <!-- FAQ 3: SBI Bank -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">What is the password for an SBI bank statement PDF?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    SBI (State Bank of India) usually protects account statements with a password made of your Date of Birth and the last 4 digits of your registered mobile number (e.g., DDMMYY1234). Enter this into our local tool to strip the encryption instantly.
+                </p>
+            </div>
+
+            <!-- FAQ 4: ICICI / Axis Bank -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">How to unlock ICICI or Axis Bank e-statements?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    ICICI and Axis Bank usually use a combination of the first 4 letters of your name (in lowercase) followed by your Date of Birth (DDMM). Once you unlock the file using our utility, you can send it to your accountant or CA without needing to share your personal password.
+                </p>
+            </div>
+            
+            <!-- FAQ 5: Bulk Processing -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Can I remove the password from multiple PDFs at once?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    Currently, our tool processes one file at a time instantly in your browser. Because there is no upload time, you can quickly drag, unlock, and download multiple months of statements in just a few seconds. 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Bulletproof Legal Disclaimer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-sm mt-auto">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="mb-4">
+                <strong>Legal Disclaimer:</strong> This utility is provided for personal use only. By using this tool, you certify that you are the legal owner of the uploaded document and have the authorized right to remove its encryption. This tool performs all actions locally on your device via JavaScript; no files, passwords, or personal data are transmitted to, collected by, or stored on our servers.
+            </p>
+            <div class="flex justify-center gap-6">
+                <a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                <a href="/terms.html" class="hover:text-white transition">Terms of Service</a>
+                <a href="/about.html" class="hover:text-white transition">About Us</a>
+            </div>
+            <p class="mt-6">&copy; 2026 SecurePDF Utilities. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Client-Side Processing Logic -->
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const processingZone = document.getElementById('processing-zone');
+        const fileNameDisplay = document.getElementById('file-name');
+        const removeFileBtn = document.getElementById('remove-file');
+        const unlockBtn = document.getElementById('unlock-btn');
+        const passwordInput = document.getElementById('pdf-password');
+        const statusMessage = document.getElementById('status-message');
+
+        let currentFile = null;
+
+        // --- Drag and Drop Handlers ---
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-active');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-active'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-active');
+            if (e.dataTransfer.files.length) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        // --- File Management ---
+        function handleFile(file) {
+            if (file.type !== 'application/pdf') {
+                alert('Please upload a valid PDF file.');
+                return;
+            }
+            currentFile = file;
+            fileNameDisplay.textContent = file.name;
+            dropZone.classList.add('hidden');
+            processingZone.classList.remove('hidden');
+            passwordInput.value = '';
+            statusMessage.classList.add('hidden');
+        }
+
+        removeFileBtn.addEventListener('click', () => {
+            currentFile = null;
+            fileInput.value = '';
+            processingZone.classList.add('hidden');
+            dropZone.classList.remove('hidden');
+        });
+
+        // --- PDF Processing Engine (100% Local) ---
+        unlockBtn.addEventListener('click', async () => {
+            const password = passwordInput.value.trim();
+            if (!password) {
+                showStatus('Please enter the document password.', 'text-red-500');
+                return;
+            }
+
+            try {
+                showStatus('Unlocking document locally...', 'text-blue-500');
+                
+                // Read the file into memory
+                const arrayBuffer = await currentFile.arrayBuffer();
+                
+                // Load the PDF using the password
+                const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { password: password });
+                
+                // Save the PDF (this automatically strips the encryption in pdf-lib)
+                const unlockedPdfBytes = await pdfDoc.save();
+                
+                // Create a downloadable blob
+                const blob = new Blob([unlockedPdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                
+                // Trigger instant download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = url;
+                downloadLink.download = currentFile.name.replace('.pdf', '_unlocked.pdf');
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                // Clean up memory
+                URL.revokeObjectURL(url);
+                showStatus('Success! Unlocked file downloaded safely.', 'text-green-600');
+
+            } catch (error) {
+                console.error(error);
+                if (error.message.includes('Invalid password') || error.message.includes('password')) {
+                    showStatus('Incorrect password. Please try again.', 'text-red-500');
+                } else {
+                    showStatus('Encryption type not supported or file is corrupted.', 'text-red-500');
+                }
+            }
+        });
+
+        function showStatus(msg, colorClass) {
+            statusMessage.textContent = msg;
+            statusMessage.className = `text-center text-sm mt-3 font-medium ${colorClass}`;
+            statusMessage.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
