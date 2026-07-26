@@ -75,10 +75,12 @@
     </div>
   </noscript>
 
-  <!-- TOP HEADER -->
-  <header class="p-3 bg-zinc-900/90 backdrop-blur border-b border-zinc-800 flex items-center justify-between z-20">
+  <!-- TOP HEADER (Sticky with Clickable Logo pointing to Hub) -->
+  <header class="w-full p-3 bg-zinc-900/90 backdrop-blur border-b border-zinc-800 flex items-center justify-between sticky top-0 z-50">
     <div class="flex items-center gap-2">
-      <span class="text-xl font-black tracking-wider text-red-500">DOMSCROOL</span>
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
+        <span class="text-xl font-black tracking-wider text-red-500">DOMSCROOL</span>
+      </a>
       <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded-full font-bold">LIVE SALE</span>
     </div>
 
@@ -98,7 +100,7 @@
     </button>
   </header>
 
-  <!-- MAIN INFINITE FEED (Added min-h-0 fix) -->
+  <!-- MAIN INFINITE FEED -->
   <main id="feedContainer" role="feed" aria-busy="false" class="flex-1 min-h-0 overflow-y-scroll snap-y snap-mandatory no-scrollbar w-full max-w-md mx-auto relative bg-zinc-950 border-x border-zinc-800">
     <!-- Dynamic Product Cards Load Here -->
   </main>
@@ -335,7 +337,6 @@
       const feed = document.getElementById('feedContainer');
       const card = document.createElement('article');
       
-      // FIX APPLIED HERE: Replaced min-h-[calc(...)] with min-h-full flex-shrink-0
       card.className = "snap-start w-full min-h-full flex-shrink-0 flex flex-col justify-end p-5 relative border-b border-zinc-900";
       
       card.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.1)), url('${p.img}')`;
