@@ -71,17 +71,23 @@
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col items-center">
 
-    <!-- Top Navigation -->
-    <nav class="w-full bg-slate-950 border-b border-slate-800 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
-                CreatorUtilityPro
-            </div>
-            <div class="text-sm text-slate-400">
-                100% Local Browser Processing
-            </div>
+    <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
+    <header class="w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <!-- Clickable Logo / Home Button -->
+            <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
+                <span class="text-2xl">📱</span>
+                <span class="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+                    SafeZone Visualizer
+                </span>
+            </a>
+
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 hidden sm:block">
+                100% Local Processing
+            </span>
         </div>
-    </nav>
+    </header>
 
     <!-- AdSense Placeholder (Top Leaderboard) -->
     <div class="w-full max-w-4xl h-24 bg-slate-800 mt-6 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 text-sm">
@@ -133,7 +139,7 @@
             </div>
 
             <!-- AdSense Placeholder (Sidebar) -->
-            <div class="w-full h-[600px] bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center text-slate-500 text-sm sticky top-6">
+            <div class="w-full h-[600px] bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center text-slate-500 text-sm sticky top-28">
                 [AdSense Vertical Skyscraper - High CPC Area]
             </div>
 
@@ -232,11 +238,11 @@
     <!-- Footer for Legal Compliance -->
     <footer class="w-full border-t border-slate-800 bg-slate-950 py-8">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 text-sm text-slate-500">
-            <p>© 2026 A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+            <p>© 2026 CreatorUtilityPro • A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
             <div class="space-x-4 mt-4 md:mt-0">
-                <a href="about.html" class="hover:text-slate-300">About</a>
-                <a href="privacy.html" class="hover:text-slate-300">Privacy Policy</a>
-                <a href="terms.html" class="hover:text-slate-300">Terms of Service</a>
+                <a href="about.html" class="hover:text-slate-300 transition">About</a>
+                <a href="privacy.html" class="hover:text-slate-300 transition">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-slate-300 transition">Terms of Service</a>
             </div>
         </div>
     </footer>
