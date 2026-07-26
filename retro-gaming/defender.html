@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Defender | RetroGrid Games</title>
+    <meta name="description" content="Play Star Defender for free. A classic vertical space shooter. No downloads, 100% offline.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8f0; overflow: hidden; touch-action: none; margin: 0; }
+        .pixel-font { font-family: 'Press Start 2P', cursive; }
+        #game-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 100vh; background: #020617; border-left: 2px solid #06b6d4; border-right: 2px solid #06b6d4; box-shadow: 0 0 30px rgba(6, 182, 212, 0.15); }
+        canvas { display: block; width: 100%; height: 100%; }
+        .overlay { position: absolute; inset: 0; background: rgba(2, 6, 23, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; text-align: center; padding: 20px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 py-3 px-4 z-20 absolute top-0 w-full flex justify-between items-center">
+        <a href="/index.html" class="pixel-font text-xs text-cyan-400 hover:text-cyan-300 transition">&lt; BACK TO GRID</a>
+    </nav>
+
+    <!-- Game Container -->
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Start Screen Overlay -->
+        <div id="start-screen" class="overlay">
+            <h1 class="pixel-font text-2xl text-cyan-400 mb-4 tracking-widest">STAR DEFENDER</h1>
+            <p class="text-slate-300 mb-8 text-xs md:text-sm leading-relaxed max-w-xs">
+                Drag on screen or move mouse to move.<br><br>
+                Ship fires automatically.<br>
+                Destroy the falling red geometry.<br>
+                You have <span class="text-cyan-400 font-bold">3 Shields (Lives)</span>.
+            </p>
+            <button id="start-btn" class="pixel-font bg-cyan-600 hover:bg-cyan-500 text-white py-3 px-6 rounded shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all transform hover:scale-105">ENGAGE</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h2 class="pixel-font text-3xl text-red-500 mb-2 tracking-widest">HULL BREACH</h2>
+            <p class="pixel-font text-lg text-white mb-6">SCORE: <span id="final-score" class="text-cyan-400">0</span></p>
+            <button id="restart-btn" class="pixel-font bg-cyan-600 hover:bg-cyan-500 text-white py-3 px-6 rounded shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all transform hover:scale-105">REDEPLOY</button>
+        </div>
+    </div>
+
+    <!-- The 100% Offline Game Engine -->
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        const startScreen = document.getElementById('start-screen');
+        const gameOverScreen = document.getElementById('game-over-screen');
+        const finalScore = document.getElementById('final-score');
+        
+        const startBtn = document.getElementById('start-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Audio System
+        let audioCtx;
+        let isAudioInitialized = false;
+
+        function initAudio() {
+            if (isAudioInitialized) return;
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+            isAudioInitialized = true;
+        }
+
+        function playSound(freq, type, duration, vol = 0.1) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + 0.01);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        // BGM Logic
+        let bgmInterval;
+        let bgmTick = 0;
+        function startBGM() {
+            if (!audioCtx) return;
+            if (bgmInterval) clearInterval(bgmInterval);
+            bgmInterval = setInterval(() => {
+                let freq = bgmTick % 4 === 0 ? 110 : 82.41; 
+                playSound(freq, 'sawtooth', 0.1, 0.02);
+                bgmTick++;
+            }, 300); 
+        }
+
+        function stopBGM() {
+            if (bgmInterval) clearInterval(bgmInterval);
+        }
+
+        // Game State Variables
+        let width, height;
+        let player, bullets, enemies, score, lives, isGameOver;
+        let targetX; 
+        let invincibilityTimer = 0; // Tracks i-frames after getting hit
+
+        // FPS Limiter Variables
+        let lastTime = 0;
+        const fps = 60;
+        const frameInterval = 1000 / fps;
+        let accumulator = 0;
+        let animationFrameId;
+        let physicsTicks = 0; 
+
+        // Handle Resizing safely
+        function resize() {
+            width = canvas.parentElement.clientWidth;
+            height = canvas.parentElement.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+            
+            if (!player) {
+                targetX = width / 2;
+            } else {
+                player.y = height - 80;
+            }
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Controls (Mouse and Touch)
+        canvas.addEventListener('touchmove', (e) => {
+            if(isGameOver) return;
+            e.preventDefault();
+            targetX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+        }, { passive: false });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if(isGameOver) return;
+            targetX = e.clientX - canvas.getBoundingClientRect().left;
+        });
+
+        // Setup Game
+        function initGame() {
+            player = {
+                x: width / 2,
+                y: height - 80,
+                size: 20
+            };
+            targetX = width / 2;
+            
+            bullets = [];
+            enemies = [];
+            score = 0;
+            lives = 3;
+            invincibilityTimer = 0;
+            physicsTicks = 0;
+            isGameOver = false;
+
+            startScreen.classList.add('hidden');
+            gameOverScreen.classList.add('hidden');
+
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            startBGM();
+
+            lastTime = performance.now();
+            accumulator = 0;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        // Fixed Time-Step Game Loop
+        function gameLoop(currentTime) {
+            if (isGameOver) return;
+            animationFrameId = requestAnimationFrame(gameLoop);
+
+            let deltaTime = currentTime - lastTime;
+            if (deltaTime > 250) deltaTime = 250; 
+            lastTime = currentTime;
+            accumulator += deltaTime;
+
+            while (accumulator >= frameInterval) {
+                updatePhysics();
+                accumulator -= frameInterval;
+            }
+            
+            draw();
+        }
+
+        function updatePhysics() {
+            physicsTicks++;
+            if (invincibilityTimer > 0) invincibilityTimer--;
+
+            // Move Player Smoothly
+            player.x += (targetX - player.x) * 0.2;
+            if (player.x < player.size) player.x = player.size;
+            if (player.x > width - player.size) player.x = width - player.size;
+
+            // Auto-Fire 
+            if (physicsTicks % 12 === 0) { 
+                bullets.push({ x: player.x, y: player.y - player.size, width: 4, height: 16, speed: 12 });
+                playSound(880, 'square', 0.05, 0.03); 
+            }
+
+            // Update Bullets
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                bullets[i].y -= bullets[i].speed;
+                if (bullets[i].y < 0) bullets.splice(i, 1);
+            }
+
+            // Enemy Spawning Logic (Capped difficulty)
+            // Starts at 1 enemy per second, maxes out at roughly 3 enemies per second
+            let spawnRate = Math.max(18, 60 - Math.floor(score / 20)); 
+            if (physicsTicks % spawnRate === 0) {
+                let size = 15 + Math.random() * 10;
+                
+                // Capped speed boost to keep it playable
+                let speedBoost = Math.min(5, (score / 100)); 
+                let enemySpeed = 2 + Math.random() * 2 + speedBoost;
+
+                enemies.push({
+                    x: Math.random() * (width - size * 2) + size,
+                    y: -30,
+                    size: size,
+                    speed: enemySpeed
+                });
+            }
+
+            // Update Enemies & Check Collisions
+            for (let i = enemies.length - 1; i >= 0; i--) {
+                let e = enemies[i];
+                e.y += e.speed;
+
+                // Check collision with player
+                let distToPlayer = Math.hypot(player.x - e.x, player.y - e.y);
+                if (distToPlayer < player.size + e.size - 5) { 
+                    
+                    if (invincibilityTimer <= 0) {
+                        lives--;
+                        if (lives <= 0) {
+                            triggerGameOver();
+                            return;
+                        } else {
+                            // Player took damage but survived
+                            playSound(150, 'sawtooth', 0.5, 0.3); // Heavy damage sound
+                            invincibilityTimer = 90; // 1.5 seconds of invincibility (60 fps * 1.5)
+                            enemies.splice(i, 1); // Destroy the enemy that hit you
+                            continue;
+                        }
+                    }
+                }
+
+                // Check collision with bullets
+                let enemyDestroyed = false;
+                for (let j = bullets.length - 1; j >= 0; j--) {
+                    let b = bullets[j];
+                    if (b.x > e.x - e.size && b.x < e.x + e.size && 
+                        b.y < e.y + e.size && b.y > e.y - e.size) {
+                        
+                        playSound(150, 'sawtooth', 0.15, 0.1); 
+                        score += 10;
+                        bullets.splice(j, 1);
+                        enemies.splice(i, 1);
+                        enemyDestroyed = true;
+                        break; 
+                    }
+                }
+
+                if (!enemyDestroyed && e.y > height + e.size) {
+                    enemies.splice(i, 1);
+                }
+            }
+        }
+
+        function triggerGameOver() {
+            isGameOver = true;
+            stopBGM();
+            playSound(100, 'sawtooth', 0.8, 0.3); // Big crash
+            finalScore.innerText = score;
+            gameOverScreen.classList.remove('hidden');
+        }
+
+        // Rendering
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw Bullets 
+            ctx.fillStyle = '#fde047';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#fde047';
+            for (let b of bullets) {
+                ctx.fillRect(b.x - b.width / 2, b.y, b.width, b.height);
+            }
+
+            // Draw Enemies 
+            ctx.fillStyle = '#ef4444';
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#ef4444';
+            for (let e of enemies) {
+                ctx.beginPath();
+                ctx.arc(e.x, e.y, e.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Draw Player Ship (Flickers if invincible)
+            if (invincibilityTimer === 0 || Math.floor(Date.now() / 100) % 2 === 0) {
+                ctx.fillStyle = (invincibilityTimer > 0) ? '#ffffff' : '#06b6d4'; // Flash white if hurt
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = (invincibilityTimer > 0) ? '#ffffff' : '#06b6d4';
+                
+                ctx.beginPath();
+                ctx.moveTo(player.x, player.y - player.size); 
+                ctx.lineTo(player.x - player.size, player.y + player.size); 
+                ctx.lineTo(player.x + player.size, player.y + player.size); 
+                ctx.closePath();
+                ctx.fill();
+            }
+            
+            ctx.shadowBlur = 0;
+
+            // Draw Canvas Native Score (Center)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+            ctx.font = "bold 60px 'Press Start 2P', monospace";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(score, width / 2, height / 2);
+
+            // Draw Canvas Native Lives (Top Right)
+            ctx.fillStyle = '#06b6d4';
+            ctx.font = "14px 'Press Start 2P', monospace";
+            ctx.textAlign = "right";
+            ctx.textBaseline = "top";
+            
+            let hearts = "";
+            for(let i=0; i<lives; i++) hearts += "♥ ";
+            ctx.fillText(hearts, width - 20, 60);
+        }
+
+        // Button Listeners
+        startBtn.addEventListener('click', initGame);
+        restartBtn.addEventListener('click', initGame);
+    </script>
+</body>
+</html>
