@@ -81,3 +81,5 @@
       "source": "/sens-matcher/:path*",
       "destination": "https://sens-matcher-ten.vercel.app/:path*"
     }
+  ]
+}
