@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>K Tools HQ — Free Web Utilities for Creators, Gamers & Power Users</title>
+  <meta name="description" content="A centralized suite of free, 100% client-side web tools. Calculate aspect ratios, test monitor Hz, unlock PDFs, check safe zones, and more with zero server lag.">
+  <meta name="keywords" content="web utilities, creator tools, gaming tools, pdf unlocker, safe zone visualizer, aspect ratio calculator, shadowban checker, hz test">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ktoolshq.com/">
+  <meta property="og:title" content="K Tools HQ — Free Digital Utilities Engine">
+  <meta property="og:description" content="Centralized hub for creator, gaming, and privacy web utilities. Built for zero-latency browser processing.">
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS & Lucide Icons CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "K Tools HQ",
+    "url": "https://ktoolshq.com/",
+    "description": "Centralized suite of browser-based utility tools."
+  }
+  </script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+          K
+        </div>
+        <span class="font-black text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+          K TOOLS<span class="text-indigo-500">HQ</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+        <a href="#tools" class="hover:text-white transition-colors">All Utilities</a>
+        <a href="/about.html" class="hover:text-white transition-colors">About Studio</a>
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+      </nav>
+
+      <div class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        100% Client-Side
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-12 px-4 text-center max-w-4xl mx-auto space-y-6">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold border border-indigo-500/20">
+      <i data-lucide="zap" class="w-3.5 h-3.5"></i> High-Performance Browser Utilities
+    </div>
+    
+    <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+      Utility Tools Engineered for <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Speed & Privacy</span>
+    </h1>
+    
+    <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+      Free digital software suite for video editors, content creators, competitive gamers, and power users. Zero server uploads, zero data storage.
+    </p>
+
+    <!-- Search & Category Controls -->
+    <div class="pt-4 max-w-xl mx-auto space-y-4">
+      <div class="relative">
+        <i data-lucide="search" class="w-5 h-5 absolute left-4 top-3.5 text-zinc-500"></i>
+        <input type="text" id="searchInput" oninput="filterTools()" placeholder="Search any tool (e.g. aspect ratio, pdf, sens)..." 
+               class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all shadow-xl">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center justify-center gap-2 flex-wrap text-xs font-medium text-zinc-400">
+        <button onclick="setCategory('all')" class="cat-btn px-4 py-1.5 rounded-xl bg-indigo-600 text-white font-bold" data-cat="all">All Tools</button>
+        <button onclick="setCategory('creator')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="creator">Creator & Video</button>
+        <button onclick="setCategory('gaming')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="gaming">Gaming & Hardware</button>
+        <button onclick="setCategory('utility')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="utility">Utilities & Security</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top AdSense Unit Placeholder -->
+  <div class="max-w-6xl mx-auto px-4 w-full mb-8">
+    <div class="w-full h-24 bg-zinc-900/40 rounded-2xl border border-zinc-800/80 flex items-center justify-center text-xs text-zinc-600 uppercase tracking-widest font-mono">
+      <!-- Google AdSense Header Banner -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2943193093838118"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- Main Tools Grid -->
+  <main id="tools" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+    <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamic Tool Cards Load Here -->
+    </div>
+
+    <!-- No Search Results Found State -->
+    <div id="noResults" class="hidden text-center py-16 space-y-3">
+      <i data-lucide="slash" class="w-10 h-10 text-zinc-600 mx-auto"></i>
+      <p class="text-zinc-400 font-medium">No matching utility tools found.</p>
+      <button onclick="resetSearch()" class="text-xs text-indigo-400 underline font-bold">Clear search filter</button>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="border-t border-zinc-800 bg-zinc-950 mt-20 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-2">
+          <span class="font-extrabold text-white text-base">K TOOLS HQ</span>
+          <span class="text-xs text-zinc-500">v2.0</span>
+        </div>
+        <p class="text-xs text-zinc-500">© 2026 K Tools HQ. Operated by a registered freelance enterprise.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-400 font-medium">
+        <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="/contact.html" class="hover:text-white transition-colors">Contact / Request Tool</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Engine -->
+  <script>
+    // -------------------------------------------------------------
+    // MASTER TOOLS DATABASE
+    // To add future tools, simply add a new object to this array!
+    // -------------------------------------------------------------
+    const toolsDatabase = [
+      {
+        title: "Reels & Video Safe Zone Visualizer",
+        desc: "Preview vertical video layouts with 2026 UI danger zones for Instagram Reels, TikTok, and YT Shorts.",
+        category: "creator",
+        path: "/safe-zone",
+        icon: "layout-template",
+        badge: "Popular"
+      },
+      {
+        title: "Aspect Ratio & Pixel Calculator",
+        desc: "Calculate precise resolution scaling and social media video dimensions without stretching.",
+        category: "creator",
+        path: "/reels-aspect-ratio",
+        icon: "scaling",
+        badge: "Essential"
+      },
+      {
+        title: "Free Hook Scorer",
+        desc: "Analyze and score social media video hooks for maximum audience retention and engagement.",
+        category: "creator",
+        path: "/hook-scorer",
+        icon: "sparkles",
+        badge: "New"
+      },
+      {
+        title: "Multi-Language Shadowban Checker",
+        desc: "Check account visibility and potential shadowbans across social algorithms instantly.",
+        category: "creator",
+        path: "/shadowban-checker",
+        icon: "eye-off",
+        badge: "Utility"
+      },
+      {
+        title: "Domscrool Shopping Simulator",
+        desc: "Satirical 3 AM impulse buying simulator featuring infinite feeds, fake checkouts, and spin wheels.",
+        category: "utility",
+        path: "/dom-scroll",
+        icon: "shopping-bag",
+        badge: "Interactive"
+      },
+      {
+        title: "Secure PDF Password Unlocker",
+        desc: "Unlock and strip password protection from PDF documents 100% locally in your browser.",
+        category: "utility",
+        path: "/pdf-unlocker",
+        icon: "file-key-2",
+        badge: "Privacy"
+      },
+      {
+        title: "Image EXIF Metadata Remover",
+        desc: "Strip hidden camera location, date, and hardware EXIF data from images before sharing.",
+        category: "utility",
+        path: "/remove-metadata",
+        icon: "shield-check",
+        badge: "Security"
+      },
+      {
+        title: "Monitor Hz & Mouse Polling Rate Test",
+        desc: "Diagnose refresh rates (Hz) and test real-time mouse polling responsiveness.",
+        category: "gaming",
+        path: "/hz-and-polling",
+        icon: "activity",
+        badge: "Gaming"
+      },
+      {
+        title: "FPS Sens Matcher & Converter",
+        desc: "Convert mouse sensitivity between Valorant, CS2, Apex Legends, and Overwatch.",
+        category: "gaming",
+        path: "/sens-matcher",
+        icon: "crosshair",
+        badge: "Pro Tools"
+      },
+      {
+        title: "Retro Arcade Gaming Portal",
+        desc: "Lightweight retro arcade gaming portal engineered for browser performance.",
+        category: "gaming",
+        path: "/retro-gaming",
+        icon: "gamepad-2",
+        badge: "Arcade"
+      }
+    ];
+
+    let activeCategory = 'all';
+
+    function renderTools(tools) {
+      const grid = document.getElementById('toolsGrid');
+      const noResults = document.getElementById('noResults');
+      grid.innerHTML = '';
+
+      if (tools.length === 0) {
+        noResults.classList.remove('hidden');
+        return;
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      tools.forEach(tool => {
+        const card = document.createElement('a');
+        card.href = tool.path;
+        card.className = "group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:border-indigo-500/50 hover:bg-zinc-800/50 transition-all duration-200 flex flex-col justify-between space-y-4 shadow-lg hover:shadow-indigo-500/5";
+        
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="${tool.icon}" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-400 group-hover:bg-indigo-500/10 group-hover:text-indigo-300 transition-colors">
+                ${tool.badge}
+              </span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors leading-snug">
+              ${tool.title}
+            </h3>
+            
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              ${tool.desc}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-semibold text-zinc-500 group-hover:text-indigo-400 transition-colors">
+            <span>Launch Utility</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterTools() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = toolsDatabase.filter(tool => {
+        const matchesQuery = tool.title.toLowerCase().includes(query) || tool.desc.toLowerCase().includes(query);
+        const matchesCat = activeCategory === 'all' || tool.category === activeCategory;
+        return matchesQuery && matchesCat;
+      });
+      renderTools(filtered);
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = "cat-btn px-4 py-1.5 rounded-xl bg-indigo-600 text-white font-bold";
+        } else {
+          btn.className = "cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400";
+        }
+      });
+      filterTools();
+    }
+
+    function resetSearch() {
+      document.getElementById('searchInput').value = '';
+      setCategory('all');
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', () => {
+      renderTools(toolsDatabase);
+    });
+  </script>
+</body>
+</html>
