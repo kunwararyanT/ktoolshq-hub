@@ -86,15 +86,18 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-blue-500 selection:text-white">
 
-  <!-- Header -->
-  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+  <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
+  <header class="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+      
+      <!-- Clickable Logo / Home Button -->
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
         <span class="text-2xl">⚡</span>
         <span class="font-extrabold text-lg tracking-tight text-white">
           Hardware<span class="text-blue-500">Test</span>
         </span>
-      </div>
+      </a>
+
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
         High-Precision Engine V2
       </span>
@@ -194,7 +197,7 @@
   <!-- Footer -->
   <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-      <p>© 2026 HardwareTest • High-Precision Utility Engine.</p>
+      <p>© 2026 HardwareTest • A free utility provided by your registered freelance video editing enterprise.</p>
       <div class="flex space-x-4">
         <a href="about.html" class="hover:text-zinc-300 transition">About</a>
         <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
