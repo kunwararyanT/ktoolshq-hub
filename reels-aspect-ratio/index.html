@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86MCB11MES"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-86MCB11MES');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Instagram Reels & Video Aspect Ratio Calculator (2026 Specs)</title>
+  <meta name="description" content="Free online video aspect ratio calculator. Quickly calculate dimensions for Instagram Reels (9:16), YouTube (16:9), Shorts, and TikTok. Instant pixel scaling for video editors.">
+  <meta name="keywords" content="instagram reels aspect ratio, video aspect ratio calculator, 9:16 aspect ratio in pixels, instagram video aspect ratio, facebook video aspect ratio, aspect ratio calculator pixels">
+  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjiGzcSB6B3dPU3tdQWILE" />
+  <link rel="canonical" href="https://reels-aspect-ratio.vercel.app/">
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: '#6366f1',
+              600: '#4f46e5',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">📐</span>
+        <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+          RatioCraft
+        </span>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        2026 Video Specs
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Application Container -->
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 py-10 space-y-12">
+    
+    <!-- Hero Section -->
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        Video Aspect Ratio & Pixel Calculator
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">
+        Calculate precise pixel dimensions for Instagram Reels, TikTok, YouTube, and digital displays without distorting your video.
+      </p>
+    </div>
+
+    <!-- Interactive Calculator Card -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-8">
+      
+      <!-- Social Platform Presets -->
+      <div class="space-y-3">
+        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400">
+          Quick Platform Presets
+        </label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <button onclick="setPreset(1080, 1920, '9:16')" class="preset-btn bg-zinc-800/80 hover:bg-indigo-600/20 hover:border-indigo-500/50 border border-zinc-700/60 p-3 rounded-xl text-left transition group">
+            <div class="text-xs font-bold text-zinc-200 group-hover:text-indigo-300">IG Reels / TikTok</div>
+            <div class="text-[11px] text-zinc-400">9:16 (1080×1920)</div>
+          </button>
+
+          <button onclick="setPreset(1920, 1080, '16:9')" class="preset-btn bg-zinc-800/80 hover:bg-indigo-600/20 hover:border-indigo-500/50 border border-zinc-700/60 p-3 rounded-xl text-left transition group">
+            <div class="text-xs font-bold text-zinc-200 group-hover:text-indigo-300">YouTube / HD</div>
+            <div class="text-[11px] text-zinc-400">16:9 (1920×1080)</div>
+          </button>
+
+          <button onclick="setPreset(1080, 1350, '4:5')" class="preset-btn bg-zinc-800/80 hover:bg-indigo-600/20 hover:border-indigo-500/50 border border-zinc-700/60 p-3 rounded-xl text-left transition group">
+            <div class="text-xs font-bold text-zinc-200 group-hover:text-indigo-300">IG Portrait Post</div>
+            <div class="text-[11px] text-zinc-400">4:5 (1080×1350)</div>
+          </button>
+
+          <button onclick="setPreset(1080, 1080, '1:1')" class="preset-btn bg-zinc-800/80 hover:bg-indigo-600/20 hover:border-indigo-500/50 border border-zinc-700/60 p-3 rounded-xl text-left transition group">
+            <div class="text-xs font-bold text-zinc-200 group-hover:text-indigo-300">Square Post</div>
+            <div class="text-[11px] text-zinc-400">1:1 (1080×1080)</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dimension Input Controls -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-zinc-800/80 pt-8">
+        
+        <!-- Controls Left -->
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="widthInput" class="block text-xs font-semibold text-zinc-400 mb-2">Width (px)</label>
+              <input type="number" id="widthInput" value="1080" oninput="calculateFromWidth()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
+            </div>
+            <div>
+              <label for="heightInput" class="block text-xs font-semibold text-zinc-400 mb-2">Height (px)</label>
+              <input type="number" id="heightInput" value="1920" oninput="calculateFromHeight()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
+            </div>
+          </div>
+
+          <!-- Calculated Display Stats -->
+          <div class="bg-zinc-950 p-4 rounded-2xl border border-zinc-800/80 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-zinc-400">Calculated Ratio</div>
+              <div id="ratioDisplay" class="text-xl font-black text-indigo-400">9:16</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-zinc-400">Total Megapixels</div>
+              <div id="mpDisplay" class="text-sm font-bold text-zinc-300">2.07 MP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Visual Aspect Ratio Preview Box -->
+        <div class="flex flex-col items-center justify-center bg-zinc-950/60 rounded-2xl p-6 border border-zinc-800/80 min-h-[220px]">
+          <span class="text-xs text-zinc-400 mb-3 font-medium">Aspect Ratio Preview</span>
+          <div class="w-full h-40 flex items-center justify-center">
+            <div id="previewBox" class="bg-indigo-600/20 border-2 border-indigo-500 rounded-lg flex items-center justify-center transition-all duration-300 shadow-lg shadow-indigo-500/10 max-h-full max-w-full">
+              <span id="previewLabel" class="text-xs font-extrabold text-indigo-300 px-2">9:16</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Programmatic SEO Section -->
+    <section class="border-t border-zinc-800 pt-12 space-y-8 text-zinc-300">
+      
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-white">
+          What is the Instagram Reels Aspect Ratio?
+        </h2>
+        <p class="text-sm leading-relaxed text-zinc-400">
+          The official <strong class="text-zinc-200">Instagram Reels aspect ratio is 9:16</strong>. The ideal resolution for exporting Instagram Reels, YouTube Shorts, and TikTok clips is <strong class="text-zinc-200">1080 x 1920 pixels</strong>. Maintaining a 9:16 vertical frame ensures your media displays full-screen on mobile devices without black bars or accidental cropping.
+        </p>
+      </div>
+
+      <!-- Quick Reference Table -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white">
+          Standard Social Media Video Aspect Ratios (2026 Reference)
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-zinc-800 text-zinc-400 uppercase font-bold">
+                <th class="py-3 px-4">Platform / Format</th>
+                <th class="py-3 px-4">Aspect Ratio</th>
+                <th class="py-3 px-4">Recommended Pixels</th>
+                <th class="py-3 px-4">Use Case</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60 text-zinc-300">
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Instagram Reels aspect ratio</td>
+                <td class="py-3 px-4 text-indigo-400 font-mono font-bold">9:16</td>
+                <td class="py-3 px-4">1080 × 1920 px</td>
+                <td class="py-3 px-4">Full-screen vertical feed</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Instagram Portrait Post</td>
+                <td class="py-3 px-4 text-indigo-400 font-mono font-bold">4:5</td>
+                <td class="py-3 px-4">1080 × 1350 px</td>
+                <td class="py-3 px-4">Maximum feed real estate</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">YouTube Video aspect ratio</td>
+                <td class="py-3 px-4 text-indigo-400 font-mono font-bold">16:9</td>
+                <td class="py-3 px-4">1920 × 1080 / 3840 × 2160</td>
+                <td class="py-3 px-4">Standard HD / 4K Widescreen</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Facebook Video aspect ratio</td>
+                <td class="py-3 px-4 text-indigo-400 font-mono font-bold">1:1 or 9:16</td>
+                <td class="py-3 px-4">1080 × 1080 / 1080 × 1920</td>
+                <td class="py-3 px-4">Feed clips & Facebook Reels</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-lg font-semibold text-white">Frequently Asked Questions</h3>
+        
+        <div class="space-y-3 text-sm">
+          <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4">
+            <h4 class="font-bold text-white mb-1">How do I calculate pixel aspect ratio without losing quality?</h4>
+            <p class="text-zinc-400 text-xs leading-relaxed">
+              To rescale video dimensions without stretching, divide your target width by the original aspect ratio factor or use our automated calculator above to lock the proportion automatically.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4">
+            <h4 class="font-bold text-white mb-1">What happens if I upload 16:9 video to Instagram Reels?</h4>
+            <p class="text-zinc-400 text-xs leading-relaxed">
+              Instagram will add thick black bars above and below a 16:9 widescreen video to fit it into the vertical player. For best engagement, re-crop your timeline to 9:16 (1080x1920) in editing software like DaVinci Resolve or Premiere Pro.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer with Legal Links -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 RatioCraft • A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    let lockedRatioWidth = 9;
+    let lockedRatioHeight = 16;
+
+    function setPreset(w, h, ratioLabel) {
+      document.getElementById('widthInput').value = w;
+      document.getElementById('heightInput').value = h;
+      
+      const parts = ratioLabel.split(':');
+      lockedRatioWidth = parseInt(parts[0]);
+      lockedRatioHeight = parseInt(parts[1]);
+      
+      updateDisplays(w, h, ratioLabel);
+    }
+
+    function gcd(a, b) {
+      return b === 0 ? a : gcd(b, a % b);
+    }
+
+    function calculateFromWidth() {
+      const w = parseInt(document.getElementById('widthInput').value) || 0;
+      if (w <= 0) return;
+      
+      const h = Math.round((w * lockedRatioHeight) / lockedRatioWidth);
+      document.getElementById('heightInput').value = h;
+      
+      updateDisplays(w, h);
+    }
+
+    function calculateFromHeight() {
+      const h = parseInt(document.getElementById('heightInput').value) || 0;
+      if (h <= 0) return;
+      
+      const w = Math.round((h * lockedRatioWidth) / lockedRatioHeight);
+      document.getElementById('widthInput').value = w;
+      
+      updateDisplays(w, h);
+    }
+
+    function updateDisplays(w, h, overrideRatioStr = null) {
+      let ratioStr = overrideRatioStr;
+      if (!ratioStr) {
+        const divisor = gcd(w, h);
+        const simpW = w / divisor;
+        const simpH = h / divisor;
+        ratioStr = `${simpW}:${simpH}`;
+        
+        lockedRatioWidth = simpW;
+        lockedRatioHeight = simpH;
+      }
+
+      document.getElementById('ratioDisplay').textContent = ratioStr;
+      
+      const mp = ((w * h) / 1000000).toFixed(2);
+      document.getElementById('mpDisplay').textContent = `${mp} MP`;
+
+      const previewBox = document.getElementById('previewBox');
+      const previewLabel = document.getElementById('previewLabel');
+      
+      previewLabel.textContent = `${w} × ${h} (${ratioStr})`;
+
+      const maxDim = 150;
+      if (w >= h) {
+        previewBox.style.width = `${maxDim}px`;
+        previewBox.style.height = `${Math.max(30, Math.round((h / w) * maxDim))}px`;
+      } else {
+        previewBox.style.height = `${maxDim}px`;
+        previewBox.style.width = `${Math.max(30, Math.round((w / h) * maxDim))}px`;
+      }
+    }
+
+    updateDisplays(1080, 1920, "9:16");
+  </script>
+</body>
+</html>
