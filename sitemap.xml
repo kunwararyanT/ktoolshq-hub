@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Root Pages -->
+  <url>
+    <loc>https://ktoolshq.com/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/about.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/privacy.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/terms.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Hub Directories (Micro-SaaS & Gaming) -->
+  <url>
+    <loc>https://ktoolshq.com/retro-gaming/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/dom-scroll/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/hook-scorer/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/hz-and-polling/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/pdf-unlocker/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/reels-aspect-ratio/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/remove-metadata/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/safe-zone/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/sens-matcher/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/shadowban-checker/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
