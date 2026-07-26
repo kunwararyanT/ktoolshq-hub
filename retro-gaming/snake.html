@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Snake | RetroGrid Games</title>
+    <meta name="description" content="Play Pixel Snake for free. A classic, endless retro arcade game. No downloads, 100% offline.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8f0; overflow: hidden; touch-action: none; margin: 0; }
+        .pixel-font { font-family: 'Press Start 2P', cursive; }
+        /* Keeping a square-ish aspect ratio for Snake is usually best */
+        #game-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 100vh; background: #1e293b; border-left: 2px solid #eab308; border-right: 2px solid #eab308; box-shadow: 0 0 30px rgba(234, 179, 8, 0.15); }
+        canvas { display: block; width: 100%; height: 100%; }
+        .overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; text-align: center; padding: 20px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 py-3 px-4 z-20 absolute top-0 w-full flex justify-between items-center">
+        <a href="/index.html" class="pixel-font text-xs text-yellow-400 hover:text-yellow-300 transition">&lt; BACK TO GRID</a>
+    </nav>
+
+    <!-- Game Container -->
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Start Screen Overlay -->
+        <div id="start-screen" class="overlay">
+            <h1 class="pixel-font text-2xl text-yellow-400 mb-4 tracking-widest">PIXEL SNAKE</h1>
+            <p class="text-slate-300 mb-8 text-xs md:text-sm leading-relaxed max-w-xs">
+                Use Arrow Keys or Swipe on screen to change direction.<br><br>
+                Eat the <span class="text-yellow-400 font-bold">yellow dots</span> to grow.<br>
+                Don't bite your own tail.<br>
+                Don't hit the walls.
+            </p>
+            <button id="start-btn" class="pixel-font bg-yellow-600 hover:bg-yellow-500 text-slate-900 py-3 px-6 rounded shadow-[0_0_15px_rgba(202,138,4,0.5)] transition-all transform hover:scale-105">START GAME</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h2 class="pixel-font text-3xl text-red-500 mb-2 tracking-widest">GAME OVER</h2>
+            <p class="pixel-font text-lg text-white mb-6">LENGTH: <span id="final-score" class="text-yellow-400">0</span></p>
+            <button id="restart-btn" class="pixel-font bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded shadow-[0_0_15px_rgba(22,163,74,0.5)] transition-all transform hover:scale-105">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- The 100% Offline Game Engine -->
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        const startScreen = document.getElementById('start-screen');
+        const gameOverScreen = document.getElementById('game-over-screen');
+        const finalScore = document.getElementById('final-score');
+        
+        const startBtn = document.getElementById('start-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Internal Web Audio API Synthesizer
+        let audioCtx;
+        let isAudioInitialized = false;
+
+        function initAudio() {
+            if (isAudioInitialized) return;
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+            isAudioInitialized = true;
+        }
+
+        function playSound(freq, type, duration, vol = 0.1) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            // Envelope to prevent audio clicking
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + 0.01);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        // BGM Logic - A deeper, slower rhythmic baseline for Snake
+        let bgmInterval;
+        let bgmTick = 0;
+
+        function startBGM() {
+            if (!audioCtx) return;
+            if (bgmInterval) clearInterval(bgmInterval);
+            bgmInterval = setInterval(() => {
+                let freq = bgmTick % 2 === 0 ? 110 : 146.83; // Low A to D
+                playSound(freq, 'triangle', 0.2, 0.03);
+                bgmTick++;
+            }, 400); 
+        }
+
+        function stopBGM() {
+            if (bgmInterval) clearInterval(bgmInterval);
+        }
+
+        // Grid & Game Variables
+        let width, height;
+        const gridSize = 20; // 20x20 pixel grid cells
+        let cols, rows;
+        let snake = [];
+        let food = {};
+        let dx = 1, dy = 0; // Current direction
+        let nextDx = 1, nextDy = 0; // Buffered direction to prevent rapid self-collision
+        let score = 0;
+        let isGameOver = false;
+
+        // FPS / Tick Rate Variables
+        let lastTime = 0;
+        let tickRate = 120; // Lower is faster (ms per frame). Snake gets faster as it eats.
+        let accumulator = 0;
+        let animationFrameId;
+
+        // Swipe Detection Variables
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        // Initialize Canvas & Grid Dimensions
+        function resize() {
+            width = canvas.parentElement.clientWidth;
+            height = canvas.parentElement.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Calculate how many grid cells fit in the view
+            cols = Math.floor(width / gridSize);
+            rows = Math.floor(height / gridSize);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Keyboard Controls (Buffering input to prevent 180-degree turns before tick)
+        window.addEventListener('keydown', (e) => {
+            if (isGameOver) return;
+            if ((e.code === 'ArrowUp' || e.code === 'KeyW') && dy === 0) { nextDx = 0; nextDy = -1; }
+            if ((e.code === 'ArrowDown' || e.code === 'KeyS') && dy === 0) { nextDx = 0; nextDy = 1; }
+            if ((e.code === 'ArrowLeft' || e.code === 'KeyA') && dx === 0) { nextDx = -1; nextDy = 0; }
+            if ((e.code === 'ArrowRight' || e.code === 'KeyD') && dx === 0) { nextDx = 1; nextDy = 0; }
+        });
+
+        // Touch Swipe Controls for Mobile
+        canvas.addEventListener('touchstart', (e) => {
+            if (isGameOver) return;
+            e.preventDefault(); // Prevent scrolling
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: false });
+
+        canvas.addEventListener('touchend', (e) => {
+            if (isGameOver) return;
+            e.preventDefault();
+            let touchEndX = e.changedTouches[0].screenX;
+            let touchEndY = e.changedTouches[0].screenY;
+            handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+        }, { passive: false });
+
+        function handleSwipe(startX, startY, endX, endY) {
+            let diffX = endX - startX;
+            let diffY = endY - startY;
+            
+            // Require a minimum swipe distance to avoid accidental taps
+            if (Math.abs(diffX) < 30 && Math.abs(diffY) < 30) return;
+
+            // Determine primary axis of the swipe
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                // Horizontal Swipe
+                if (diffX > 0 && dx === 0) { nextDx = 1; nextDy = 0; } // Right
+                else if (diffX < 0 && dx === 0) { nextDx = -1; nextDy = 0; } // Left
+            } else {
+                // Vertical Swipe
+                if (diffY > 0 && dy === 0) { nextDx = 0; nextDy = 1; } // Down
+                else if (diffY < 0 && dy === 0) { nextDx = 0; nextDy = -1; } // Up
+            }
+        }
+
+        // Setup Game State
+        function initGame() {
+            // Start snake in the middle
+            let startX = Math.floor(cols / 2);
+            let startY = Math.floor(rows / 2);
+            
+            snake = [
+                { x: startX, y: startY },
+                { x: startX - 1, y: startY },
+                { x: startX - 2, y: startY }
+            ];
+            
+            dx = 1; dy = 0;
+            nextDx = 1; nextDy = 0;
+            score = 3; // Starting length
+            tickRate = 120; // Reset speed
+            isGameOver = false;
+
+            spawnFood();
+
+            startScreen.classList.add('hidden');
+            gameOverScreen.classList.add('hidden');
+
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            startBGM();
+
+            lastTime = performance.now();
+            accumulator = 0;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        function spawnFood() {
+            let valid = false;
+            while (!valid) {
+                food.x = Math.floor(Math.random() * cols);
+                food.y = Math.floor(Math.random() * rows);
+                
+                // Ensure food doesn't spawn on top of the snake body
+                valid = true;
+                for (let part of snake) {
+                    if (part.x === food.x && part.y === food.y) {
+                        valid = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Fixed Time-Step Game Loop (Grid Logic)
+        function gameLoop(currentTime) {
+            if (isGameOver) return;
+            animationFrameId = requestAnimationFrame(gameLoop);
+
+            let deltaTime = currentTime - lastTime;
+            if (deltaTime > 250) deltaTime = 250; 
+            lastTime = currentTime;
+            accumulator += deltaTime;
+
+            // Only update game state when enough time has passed (tickRate)
+            while (accumulator >= tickRate) {
+                updateLogic();
+                accumulator -= tickRate;
+            }
+            
+            // Drawing can happen every frame for smoothness, though snake jumps grids
+            draw();
+        }
+
+        function updateLogic() {
+            // Apply buffered direction
+            dx = nextDx;
+            dy = nextDy;
+
+            // Calculate new head position
+            let head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+            // 1. Wall Collision Check
+            if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+                triggerGameOver();
+                return;
+            }
+
+            // 2. Self Collision Check
+            for (let i = 0; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    triggerGameOver();
+                    return;
+                }
+            }
+
+            // Move snake forward
+            snake.unshift(head);
+
+            // 3. Food Check
+            if (head.x === food.x && head.y === food.y) {
+                // Ate food!
+                score++;
+                playSound(880, 'sine', 0.1, 0.1); // High pitched "beep"
+                spawnFood();
+                
+                // Slightly increase speed up to a maximum cap
+                if (tickRate > 50) {
+                    tickRate -= 2; 
+                }
+            } else {
+                // Didn't eat food, remove tail block
+                snake.pop();
+            }
+        }
+
+        function triggerGameOver() {
+            isGameOver = true;
+            stopBGM();
+            
+            // Retro descending death sound
+            playSound(200, 'sawtooth', 0.3, 0.2);
+            setTimeout(() => playSound(150, 'sawtooth', 0.4, 0.2), 150);
+            setTimeout(() => playSound(100, 'sawtooth', 0.5, 0.2), 300);
+            
+            finalScore.innerText = score;
+            gameOverScreen.classList.remove('hidden');
+        }
+
+        // Rendering
+        function draw() {
+            // Fill background
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(0, 0, width, height);
+
+            // Optional: Draw faint grid lines for true retro feel
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= cols; i++) {
+                ctx.beginPath();
+                ctx.moveTo(i * gridSize, 0);
+                ctx.lineTo(i * gridSize, height);
+                ctx.stroke();
+            }
+            for (let j = 0; j <= rows; j++) {
+                ctx.beginPath();
+                ctx.moveTo(0, j * gridSize);
+                ctx.lineTo(width, j * gridSize);
+                ctx.stroke();
+            }
+
+            // Offset to draw inside the grid lines cleanly
+            const offset = 1;
+            const size = gridSize - 2;
+
+            // Draw Food (Yellow glowing pixel)
+            ctx.fillStyle = '#facc15';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#facc15';
+            ctx.fillRect((food.x * gridSize) + offset, (food.y * gridSize) + offset, size, size);
+
+            // Draw Snake
+            ctx.shadowBlur = 0; // Turn off shadow for body performance
+            for (let i = 0; i < snake.length; i++) {
+                // Head is brighter green, body is slightly darker
+                ctx.fillStyle = i === 0 ? '#4ade80' : '#22c55e';
+                ctx.fillRect((snake[i].x * gridSize) + offset, (snake[i].y * gridSize) + offset, size, size);
+            }
+
+            // Draw Canvas Native Score Background Logo
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.font = "bold 60px 'Press Start 2P', monospace";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(score, width / 2, height / 2);
+        }
+
+        // Button Listeners
+        startBtn.addEventListener('click', initGame);
+        restartBtn.addEventListener('click', initGame);
+
+    </script>
+</body>
+</html>
