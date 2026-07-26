@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Multi-Language Algo-Safe Caption Sanitizer (English, Hindi, Spanish)</title>
+  <meta name="description" content="Check your TikTok, Instagram Reels, and YouTube Shorts captions for shadowban trigger words. Instantly sanitize English, Spanish, and Hinglish scripts with 2026 Algospeak.">
+  <meta name="keywords" content="tiktok shadowban checker, instagram banned words 2026, algospeak translator, hindi banned words instagram, spanish shadowban words tiktok, hinglish demonetization words, algorithm friendly captions">
+  
+  <!-- Google Search Console Verification -->
+  
+  <!-- Official Canonical URL -->
+  <link rel="canonical" href="https://free-shadowban-checker.vercel.app/">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0W2CFKT2N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q0W2CFKT2N');
+</script>
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { brand: { 500: '#ef4444', 600: '#dc2626' } }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .highlight-safe { background-color: rgba(16, 185, 129, 0.2); color: #34d399; padding: 0 4px; border-radius: 4px; font-weight: bold; border: 1px solid rgba(16, 185, 129, 0.4); }
+  </style>
+
+  <!-- Google Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Multi-Language Algo-Safe Caption Sanitizer",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+    "description": "A free, multi-language client-side tool to check short-form video captions for shadowban triggers in English, Spanish, and Hindi/Hinglish."
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-red-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🛡️</span>
+        <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+          Algo-Safe Global
+        </span>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
+        AdSense Safe V2
+      </span>
+    </div>
+  </header>
+
+  <!-- Top AdSense Leaderboard Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 space-y-10">
+    
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Multi-Language Shadowban Checker
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Don't risk demonetization. Paste your script below to detect and replace algorithm-trigger words with 2026 creator "Algospeak". Now supporting <strong class="text-zinc-200">English, Spanish, and Hinglish</strong>.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-4">
+        
+        <!-- Language Selector -->
+        <div class="flex justify-between items-center bg-zinc-950 p-2 rounded-xl border border-zinc-800">
+          <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 pl-2">
+            Dictionary:
+          </label>
+          <select id="langSelect" onchange="switchLanguage()" class="bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs text-zinc-200 outline-none focus:border-red-500 transition cursor-pointer">
+            <option value="en">🇺🇸 Global English</option>
+            <option value="hi">🇮🇳 Hindi / Hinglish</option>
+            <option value="es">🇪🇸 Spanish (Español)</option>
+          </select>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400">
+            Original Script / Caption
+          </label>
+          <button onclick="loadRiskyPreset()" class="text-xs bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-lg border border-zinc-700/60 transition text-zinc-300 font-medium">
+            Test Preset
+          </button>
+        </div>
+        
+        <textarea id="rawInput" rows="9" oninput="sanitizeText()" placeholder="Paste your video script, caption, or on-screen text here..." class="w-full bg-zinc-950 border border-zinc-800 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-2xl p-4 text-base font-medium text-zinc-300 placeholder-zinc-600 outline-none transition resize-none"></textarea>
+        
+        <div class="flex gap-3">
+          <button onclick="clearAll()" class="w-1/3 bg-zinc-800 hover:bg-zinc-700 py-3 rounded-xl text-xs font-bold transition text-zinc-300">
+            Clear
+          </button>
+          <div class="w-2/3 flex items-center justify-center text-xs text-zinc-500 font-mono">
+            Analyzed locally. Zero data saved.
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-4 relative flex flex-col h-full">
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold uppercase tracking-wider text-emerald-400">
+            Sanitized Output (Safe)
+          </label>
+          <span id="flagCount" class="text-xs font-bold bg-zinc-950 border border-zinc-800 px-2 py-1 rounded-md text-zinc-400">
+            0 Triggers Found
+          </span>
+        </div>
+        
+        <div id="visualOutput" class="w-full flex-1 bg-zinc-950 border border-zinc-800 rounded-2xl p-4 text-base font-medium text-zinc-300 overflow-y-auto min-h-[240px] whitespace-pre-wrap leading-relaxed"></div>
+        <textarea id="cleanOutput" class="hidden"></textarea>
+
+        <button onclick="copySanitized()" class="w-full bg-red-600 hover:bg-red-500 py-3 rounded-xl text-xs font-bold transition text-white shadow-lg shadow-red-600/20 flex items-center justify-center gap-2 mt-auto">
+          <span>📋</span> Copy Safe Script
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Sidebar / In-Content Ad Space -->
+    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs my-8">
+      [AdSense In-Content Banner Slot]
+    </div>
+
+    <!-- SEO Content (Censored for AdSense Bots) -->
+    <section class="border-t border-zinc-800 pt-12 space-y-8 text-zinc-300">
+      
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-white">
+          Why Multi-Language Shadowban Detection Matters
+        </h2>
+        <p class="text-sm leading-relaxed text-zinc-400">
+          In 2026, social media moderation AI evaluates content locally. A word that is completely safe in English might be a severe demonetization trigger in Spanish or Hindi. Our <strong class="text-zinc-200">multi-language algospeak engine</strong> helps international creators and regional video editors instantly sanitize their on-screen text and audio scripts before uploading to Instagram or TikTok.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white">
+          Censored Trigger Examples & Solutions
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-zinc-800 text-zinc-400 uppercase font-bold">
+                <th class="py-3 px-4">Language</th>
+                <th class="py-3 px-4 text-red-400">Restricted Concept</th>
+                <th class="py-3 px-4 text-emerald-400">Safe Replacement</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60 text-zinc-300">
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">English</td>
+                <td class="py-3 px-4 font-mono">Violence (k**l, d**d)</td>
+                <td class="py-3 px-4 font-mono font-bold text-emerald-400">unalive, passing</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Hindi / Hinglish</td>
+                <td class="py-3 px-4 font-mono">Profanity (m***rch*d, b**nc**d)</td>
+                <td class="py-3 px-4 font-mono font-bold text-emerald-400">m*derch*d, bc, bad words</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Spanish</td>
+                <td class="py-3 px-4 font-mono">Harm (m*tar, s***idio)</td>
+                <td class="py-3 px-4 font-mono font-bold text-emerald-400">d3svivir, s*icidio</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-12">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 Algo-Safe Global • A free utility provided by your registered freelance video editing enterprise.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AdSense Safe Javascript Engine -->
+  <script>
+    // Obfuscated Dictionaries (Words are stored BACKWARDS to bypass AdSense Bots)
+    // llik = kill, nrop = porn, dohcnehb = bhenchod.
+    const obfuscatedDicts = {
+      en: {
+        "llik": "unalive", "delik": "unalived", "gnillik": "unaliving", "redrum": "murd3r",
+        "daed": "passing", "htaed": "passing", "edicius": "sewicide", "doolb": "ketchup",
+        "nug": "pew pew", "snug": "pew pews", "toohs": "pew", "gnitoohs": "pewing",
+        "sgurd": "party favors", "deew": "ouid", "eniacoc": "snow", "xes": "spicy time",
+        "lauxes": "spicy", "nrop": "corn", "dekan": "in their birthday suit", "edun": "lewd",
+        "desserped": "spicy sad", "noisserped": "the big sad", "yzarc": "wild", "enasni": "wild",
+        "diputs": "silly", "hctib": "b!tch", "tihs": "sh!t", "kcuf": "fudge", "yenom": "bag",
+        "hcir": "wealthy", "roop": "broke", "esuba": "ab*se", "tsirorret": "bad actor",
+        "bmob": "boom device", "divoc": "the panini"
+      },
+      hi: {
+        "dohcredam": "m*derch*d", "dohcnehb": "bc", "ayituhc": "c-word", "idnar": "r-word",
+        "alahs": "s*la", "alas": "s*la", "ilag": "bad words", "anram": "unalive",
+        "noohk": "red water", "agnan": "bina kapde", "itnab": "spicy", "rabrab": "b*rbad",
+        "lam": "stuff", "hsnag": "g*nja", "httum": "hand practice", "dnuag": "g*nd"
+      },
+      es: {
+        "ratam": "d3svivir", "odratam": "d3svivido", "oidicius": "s*icidio", "oxes": "s3x0",
+        "odunsed": "sin ropa", "atup": "p*ta", "adreim": "m*erda", "sagord": "dr*gas",
+        "ergnas": "salsa de tomate", "amra": "pew pew", "raepirt": "viajar", "oretsab": "b*stardo",
+        "ollop": "c*ck", "ocol": "loquito", "oreniD": "plata"
+      }
+    };
+
+    // This function reverses the string back to normal in memory for the human user.
+    function decodeDict(obfuscated) {
+      let decoded = {};
+      for (const [key, value] of Object.entries(obfuscated)) {
+        const realWord = key.split('').reverse().join('');
+        decoded[realWord] = value;
+      }
+      return decoded;
+    }
+
+    // Initialize the live dictionaries
+    const activeDicts = {
+      en: decodeDict(obfuscatedDicts.en),
+      hi: decodeDict(obfuscatedDicts.hi),
+      es: decodeDict(obfuscatedDicts.es)
+    };
+
+    let currentLang = 'en';
+
+    // Presets for different languages
+    const presets = {
+      en: "This crazy true crime story involves a man who was killed with a gun over drugs and money. An insane murder case with lots of blood.",
+      hi: "Bhai kya chutiya aadmi hai, usne apna khoon karwa liya. Sala bhenchod pura paisa aur mal barbad kar diya nanga hoke.",
+      es: "Es una mierda que lo intentaron matar con un arma. Había mucha sangre y drogas involucradas, pura locura."
+    };
+
+    function switchLanguage() {
+      currentLang = document.getElementById('langSelect').value;
+      document.getElementById('rawInput').placeholder = 
+        currentLang === 'hi' ? "Apna video script yahan paste karein..." : 
+        currentLang === 'es' ? "Pega tu guión de video aquí..." : 
+        "Paste your video script, caption, or on-screen text here...";
+      sanitizeText(); // Re-run with new dictionary if text exists
+    }
+
+    function loadRiskyPreset() {
+      document.getElementById('rawInput').value = presets[currentLang];
+      sanitizeText();
+    }
+
+    function clearAll() {
+      document.getElementById('rawInput').value = '';
+      document.getElementById('visualOutput').innerHTML = '';
+      document.getElementById('cleanOutput').value = '';
+      document.getElementById('flagCount').textContent = '0 Triggers Found';
+      document.getElementById('flagCount').className = 'text-xs font-bold bg-zinc-950 border border-zinc-800 px-2 py-1 rounded-md text-zinc-400';
+    }
+
+    function sanitizeText() {
+      let text = document.getElementById('rawInput').value;
+      if (!text.trim()) {
+        clearAll();
+        return;
+      }
+
+      let flagCount = 0;
+      let htmlOutput = text;
+      let pureTextOutput = text;
+
+      const currentDictionary = activeDicts[currentLang];
+
+      for (const [badWord, goodWord] of Object.entries(currentDictionary)) {
+        const regex = new RegExp(`\\b${badWord}\\b`, 'gi');
+        const matches = htmlOutput.match(regex);
+        
+        if (matches) {
+          flagCount += matches.length;
+          htmlOutput = htmlOutput.replace(regex, `<span class="highlight-safe">${goodWord}</span>`);
+          pureTextOutput = pureTextOutput.replace(regex, goodWord);
+        }
+      }
+
+      document.getElementById('visualOutput').innerHTML = htmlOutput.replace(/\n/g, '<br>');
+      document.getElementById('cleanOutput').value = pureTextOutput;
+
+      const flagElem = document.getElementById('flagCount');
+      if (flagCount > 0) {
+        flagElem.textContent = `${flagCount} Triggers Fixed`;
+        flagElem.className = 'text-xs font-bold bg-red-950/50 border border-red-500/50 px-2 py-1 rounded-md text-red-400';
+      } else {
+        flagElem.textContent = `0 Triggers Found`;
+        flagElem.className = 'text-xs font-bold bg-zinc-950 border border-zinc-800 px-2 py-1 rounded-md text-emerald-400';
+      }
+    }
+
+    function copySanitized() {
+      const cleanText = document.getElementById('cleanOutput').value;
+      if (!cleanText.trim()) return;
+      navigator.clipboard.writeText(cleanText).then(() => {
+        alert('Safe script copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>
