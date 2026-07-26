@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQJZMTKL35"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HQJZMTKL35');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO META TAGS -->
+  <title>Domscrool | Infinite Doom Shopping Simulator</title>
+  <meta name="description" content="Experience the satirical thrill of 3 AM impulse buying with Domscrool. Spin the wheel, doom-scroll viral tech and aesthetic finds, and simulate checkout with zero regrets.">
+  <meta name="keywords" content="doom scrolling, shopping simulator, impulse buy, viral products, aesthetic finds, satirical shopping, fake store, ecommerce simulator">
+  <meta name="author" content="Domscrool">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://domscrool.vercel.app/" />
+
+  <!-- Google AdSense Verification Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- OPEN GRAPH / FACEBOOK / DISCORD -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://domscrool.vercel.app/">
+  <meta property="og:title" content="Domscrool | Infinite Doom Shopping Simulator">
+  <meta property="og:description" content="Experience the satirical thrill of 3 AM impulse buying. Doom-scroll viral products and simulate checkout with zero real money spent.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Domscrool | Infinite Doom Shopping Simulator">
+  <meta name="twitter:description" content="Experience the satirical thrill of 3 AM impulse buying. Doom-scroll viral products and simulate checkout with zero real money spent.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
+
+  <!-- SCHEMA.ORG STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Domscrool",
+    "description": "A satirical doom-shopping simulator featuring infinite scrolling, viral products, and simulated checkouts.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "WebBrowser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up { animation: slideUp 0.3s ease-out forwards; }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased h-screen overflow-hidden flex flex-col">
+
+  <noscript>
+    <div class="bg-red-600 p-4 text-center font-bold">
+      You need to enable JavaScript to run this shopping simulator!
+    </div>
+  </noscript>
+
+  <!-- TOP HEADER -->
+  <header class="p-3 bg-zinc-900/90 backdrop-blur border-b border-zinc-800 flex items-center justify-between z-20">
+    <div class="flex items-center gap-2">
+      <span class="text-xl font-black tracking-wider text-red-500">DOMSCROOL</span>
+      <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded-full font-bold">LIVE SALE</span>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="relative w-1/3 max-w-xs">
+      <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-zinc-400"></i>
+      <input id="searchInput" type="text" placeholder="Search impulse buys..." 
+             aria-label="Search products"
+             oninput="filterProducts()"
+             class="w-full bg-zinc-800 text-xs pl-9 pr-3 py-2 rounded-full focus:outline-none focus:ring-1 focus:ring-red-500 text-zinc-200">
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button onclick="toggleCart()" aria-label="Open Cart" class="relative p-2 bg-zinc-800 hover:bg-zinc-700 rounded-full">
+      <i data-lucide="shopping-bag" class="w-5 h-5 text-zinc-200"></i>
+      <span id="cartCount" class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+    </button>
+  </header>
+
+  <!-- MAIN INFINITE FEED (Added min-h-0 fix) -->
+  <main id="feedContainer" role="feed" aria-busy="false" class="flex-1 min-h-0 overflow-y-scroll snap-y snap-mandatory no-scrollbar w-full max-w-md mx-auto relative bg-zinc-950 border-x border-zinc-800">
+    <!-- Dynamic Product Cards Load Here -->
+  </main>
+
+  <!-- LIVE SOCIAL PROOF TOAST -->
+  <div id="liveToast" class="fixed bottom-16 left-1/2 -translate-x-1/2 bg-zinc-900/95 border border-zinc-700 text-white px-4 py-2 rounded-full shadow-2xl z-40 hidden flex items-center gap-2 text-xs backdrop-blur animate-slide-up" role="alert">
+    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+    <span id="toastMsg">@BrokeButHappy just added RGB Headphone Stand!</span>
+  </div>
+
+  <!-- DISCOUNT WHEEL MODAL -->
+  <div id="wheelModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl max-w-xs w-full text-center space-y-4 shadow-2xl relative">
+      <h3 class="text-lg font-black text-white">🎰 IMPULSE SPIN-WHEEL</h3>
+      <p class="text-xs text-zinc-400">Spin to unlock your exclusive doom-discount code before shopping!</p>
+      
+      <div id="wheelBox" class="w-32 h-32 mx-auto rounded-full border-4 border-red-500 flex items-center justify-center text-xl font-black bg-zinc-800 text-red-400 transition-all duration-1000">
+        SPIN ME
+      </div>
+
+      <button id="spinBtn" onclick="spinWheel()" aria-label="Spin the discount wheel" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-2.5 rounded-xl text-xs transition">
+        Spin the Wheel!
+      </button>
+      <button onclick="closeWheel()" class="text-xs text-zinc-500 underline block mx-auto">Skip & pay full price</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="detailModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="bg-zinc-900 border border-zinc-800 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
+      <button onclick="closeDetails()" aria-label="Close details" class="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full z-10 hover:bg-black">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <img id="detailImg" src="" alt="Product Image" class="w-full h-56 object-cover">
+      
+      <div class="p-5 overflow-y-auto space-y-4 no-scrollbar">
+        <div class="flex justify-between items-start">
+          <div>
+            <span id="detailTag" class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase"></span>
+            <h2 id="detailTitle" class="text-xl font-black text-white mt-1"></h2>
+            <p id="detailUser" class="text-xs text-zinc-400 mt-0.5"></p>
+          </div>
+        </div>
+
+        <div class="flex items-baseline gap-2 border-y border-zinc-800 py-3">
+          <span id="detailPrice" class="text-2xl font-black text-emerald-400"></span>
+          <span id="detailOrigPrice" class="text-xs text-zinc-500 line-through"></span>
+          <span id="detailDiscount" class="text-xs text-red-400 font-bold"></span>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Impulse Specs</h4>
+          <p id="detailDesc" class="text-xs text-zinc-400 leading-relaxed"></p>
+        </div>
+
+        <div class="bg-zinc-800/50 p-3 rounded-xl border border-zinc-800/80">
+          <div class="flex items-center gap-1 text-amber-400 text-xs font-bold mb-1">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <span>4.9 / 5.0</span>
+            <span class="text-zinc-500 font-normal ml-1">(2,410 doom-shoppers)</span>
+          </div>
+          <p class="text-[11px] text-zinc-300 italic">"I bought this at 3:00 AM without thinking. Zero regrets." - @ImpulseShopper</p>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-zinc-800 bg-zinc-900 flex gap-2">
+        <button id="detailAddBtn" aria-label="Add product to cart" class="w-full bg-red-600 hover:bg-red-500 active:scale-95 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Cart Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART MODAL -->
+  <div id="cartModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-end" role="dialog" aria-modal="true">
+    <div class="w-full max-w-md bg-zinc-900 h-full p-5 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+          <h2 class="text-lg font-bold flex items-center gap-2"><i data-lucide="shopping-cart" class="w-5 h-5"></i> Your Impulse Cart</h2>
+          <button onclick="toggleCart()" aria-label="Close cart" class="text-zinc-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+
+        <div id="cartItems" class="my-4 max-h-[50vh] overflow-y-auto space-y-3 no-scrollbar">
+          <p class="text-xs text-zinc-500 text-center py-8">Your cart is empty. Keep doom-scrolling!</p>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-800 pt-4 space-y-3">
+        <div class="flex gap-2">
+          <input id="couponInput" type="text" aria-label="Coupon code" placeholder="Promo code (DOOM20)" class="uppercase text-xs bg-zinc-800 border border-zinc-700 rounded px-3 py-2 flex-1 focus:outline-none text-white">
+          <button onclick="applyCoupon()" class="bg-zinc-700 hover:bg-zinc-600 text-xs px-3 py-2 rounded font-semibold text-white">Apply</button>
+        </div>
+        <p id="couponMsg" class="text-[11px] hidden"></p>
+
+        <div class="space-y-1 text-sm">
+          <div class="flex justify-between text-zinc-400"><span>Subtotal</span><span id="subtotalPrice">₹0</span></div>
+          <div class="flex justify-between text-emerald-400 hidden" id="discountRow"><span>Discount</span><span id="discountPrice">-₹0</span></div>
+          <div class="flex justify-between font-bold text-base text-white pt-2 border-t border-zinc-800"><span>Total</span><span id="totalPrice">₹0</span></div>
+        </div>
+
+        <button onclick="simulateCheckout()" aria-label="Simulate Checkout" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg text-sm transition">
+          Simulate Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGAL FOOTER -->
+  <footer class="bg-zinc-900 text-[10px] text-zinc-500 text-center py-2 border-t border-zinc-800 z-20 flex flex-col items-center gap-1">
+    <p>⚠️ <strong>DISCLAIMER:</strong> Domscrool is a satirical doom-shopping simulator. Products are simulated for fun!</p>
+    <p>© 2026 A free utility provided by your registered freelance video editing enterprise.</p>
+    <div class="flex gap-4 mt-1">
+      <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+      <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    function playSound(type) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      if (type === 'add') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.3);
+      } else if (type === 'swipe') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.05);
+      } else if (type === 'win') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
+        osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.5);
+      }
+    }
+
+    const funnyUsers = [
+      "@CartAddict404", "@BrokeButHappy", "@ImpulseKing", "@MidnightShopper", 
+      "@GottaHaveIt_3AM", "@SerotoninSeeker", "@NoSelfControl", "@SwipeMaster99",
+      "@WindowShopperPro", "@AddToString", "@SalaryGoneIn3Days", "@DoomBuyer",
+      "@GlowUpRoutine", "@AestheticVibes", "@PinterestMadeMeDoIt", "@GirlMath", 
+      "@RetailTherapy", "@JustOneMoreThing", "@CartFullWalletEmpty"
+    ];
+
+    const tags = [
+      "FLASH SALE", "VIRAL", "HOT ITEM", "LIMITED", "TRENDING", "MUST HAVE", "80% OFF", 
+      "PINTEREST VIRAL", "BEAUTY FIND", "AESTHETIC", "GIRL MATH"
+    ];
+
+    const productCatalog = [
+      { name: "RGB LED Headphone Stand", price: 1299, origPrice: 2999, img: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600", desc: "Elevate your desk setup with dynamic RGB ambient lighting and dual USB charging pass-through ports." },
+      { name: "Anti-Gravity Floating Lamp", price: 3499, origPrice: 6999, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600", desc: "Magnetic levitation technology allows this light bulb to float in mid-air while illuminating your space." },
+      { name: "Ergonomic Memory Foam Cushion", price: 899, origPrice: 1999, img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600", desc: "High-density memory foam designed to support lower back posture during long editing or gaming sessions." },
+      { name: "Minimalist Mechanical Keyboard", price: 4299, origPrice: 7999, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600", desc: "Hot-swappable tactile switches, per-key RGB backlighting, and solid aluminum chassis." },
+      { name: "Smart Fitness Tracker Band", price: 1999, origPrice: 3999, img: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=600", desc: "Track heart rate, sleep metrics, and daily step counts with 14-day continuous battery life." },
+      { name: "Retro Sunset Ambient Light", price: 749, origPrice: 1499, img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600", desc: "Cast warm golden-hour aesthetics across your room for aesthetic video creation." },
+      { name: "Wireless Charging Mousepad", price: 1599, origPrice: 2999, img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600", desc: "Micro-textured gaming surface with an integrated 15W fast Qi-wireless charging zone." },
+      { name: "Portable Espresso Maker", price: 4999, origPrice: 8999, img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600", desc: "Handheld manual espresso machine capable of generating 18 bars of pressure anywhere." },
+      { name: "ANC Wireless Earbuds", price: 2999, origPrice: 5999, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600", desc: "Active noise cancellation with 30-hour total playback and ultra-low latency mode." },
+      { name: "Cyberpunk Power Bank 20,000mAh", price: 2499, origPrice: 4999, img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=600", desc: "Transparent industrial shell design with 65W fast charge display screen." },
+      { name: "Smart Mug Drink Warmer", price: 1199, origPrice: 2499, img: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600", desc: "Keeps your coffee or tea at an optimal 55°C temperature all day automatically." },
+      { name: "Levitating Bluetooth Speaker", price: 5999, origPrice: 9999, img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600", desc: "360-degree floating sound sphere with built-in subwoofer and LED pulsing lights." },
+      { name: "Full HD Pocket Projector", price: 7999, origPrice: 14999, img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600", desc: "Project up to 120-inch movies straight from your phone or laptop in crisp 1080p." },
+      { name: "Smart Light Bars Pair", price: 3299, origPrice: 5999, img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600", desc: "Syncs lighting with screen colors and audio beat rhythm for immersive setups." },
+      { name: "Foldable Laptop Stand", price: 899, origPrice: 1899, img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600", desc: "Lightweight aluminum construction with adjustable height angles for proper ergonomics." },
+      { name: "Ultra-Fast GaN Wall Charger 100W", price: 2199, origPrice: 3999, img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600", desc: "Compact Gallium Nitride adapter capable of charging laptops and phones simultaneously." },
+      { name: "Extended Desk Mat XXL", price: 999, origPrice: 1999, img: "https://images.unsplash.com/photo-1541140134513-88a4f137e28f?w=600", desc: "Water-resistant stitched edge gaming desk pad with smooth glide surface." },
+      { name: "Magnetic Car Phone Mount", price: 499, origPrice: 999, img: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600", desc: "Ultra-strong neodymium magnets hold any smartphone securely on rough roads." },
+      { name: "Wearable Neck Fan", price: 1299, origPrice: 2499, img: "https://images.unsplash.com/photo-1591147139225-856bb2a7e262?w=600", desc: "Bladeless hands-free cooling fan with 3 speed settings and long battery life." },
+      { name: "Smart RGB Ambient Light Strip", price: 699, origPrice: 1399, img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600", desc: "App-controlled Wi-Fi LED light strip with voice assistant support." }
+    ];
+
+    let generatedProducts = [];
+    let cart = [];
+    let activeDiscount = 0;
+    let nextId = 1;
+    let pool = [];
+
+    function renderIcons() {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function loadMoreProducts(count = 5) {
+      for (let i = 0; i < count; i++) {
+        if (pool.length === 0) {
+          pool = productCatalog.map((_, index) => index).sort(() => Math.random() - 0.5);
+        }
+
+        const chosenIndex = pool.pop();
+        const baseProduct = productCatalog[chosenIndex];
+
+        const newProduct = {
+          id: nextId++,
+          name: baseProduct.name,
+          price: baseProduct.price,
+          origPrice: baseProduct.origPrice,
+          img: baseProduct.img,
+          desc: baseProduct.desc,
+          viewers: (Math.random() * 2 + 1).toFixed(1) + 'k',
+          tag: tags[Math.floor(Math.random() * tags.length)],
+          user: funnyUsers[Math.floor(Math.random() * funnyUsers.length)]
+        };
+        generatedProducts.push(newProduct);
+        appendProductToDOM(newProduct);
+      }
+      renderIcons();
+    }
+
+    function appendProductToDOM(p) {
+      const feed = document.getElementById('feedContainer');
+      const card = document.createElement('article');
+      
+      // FIX APPLIED HERE: Replaced min-h-[calc(...)] with min-h-full flex-shrink-0
+      card.className = "snap-start w-full min-h-full flex-shrink-0 flex flex-col justify-end p-5 relative border-b border-zinc-900";
+      
+      card.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.1)), url('${p.img}')`;
+      card.style.backgroundSize = 'cover';
+      card.style.backgroundPosition = 'center';
+      card.setAttribute('aria-label', `Product: ${p.name}`);
+
+      card.innerHTML = `
+        <div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+          <div class="flex gap-2">
+            <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${p.tag}</span>
+            <span class="bg-black/60 backdrop-blur text-zinc-300 text-[10px] px-2 py-0.5 rounded-full font-medium">${p.user}</span>
+          </div>
+          <span class="bg-black/60 backdrop-blur text-zinc-300 text-[10px] px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            👁️ ${p.viewers}
+          </span>
+        </div>
+
+        <div class="space-y-2 z-10">
+          <h3 onclick="openDetails(${p.id})" class="text-xl font-extrabold text-white leading-tight cursor-pointer hover:underline flex items-center gap-1" role="button" aria-label="View details for ${p.name}">
+            ${p.name} <i data-lucide="info" class="w-4 h-4 text-zinc-400 inline"></i>
+          </h3>
+          
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-black text-emerald-400">₹${p.price.toLocaleString('en-IN')}</span>
+            <span class="text-xs text-zinc-400 line-through">₹${p.origPrice.toLocaleString('en-IN')}</span>
+            <span class="text-xs text-red-400 font-semibold">(${Math.round((1 - p.price/p.origPrice)*100)}% OFF)</span>
+          </div>
+
+          <div class="flex gap-2 pt-2">
+            <button onclick="shareProduct('${p.name}')" aria-label="Share ${p.name}" class="bg-zinc-800 hover:bg-zinc-700 text-white p-3 rounded-xl text-xs transition">
+              <i data-lucide="share-2" class="w-4 h-4"></i>
+            </button>
+            <button onclick="openDetails(${p.id})" aria-label="Details for ${p.name}" class="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3 px-3 rounded-xl text-xs transition">
+              Details
+            </button>
+            <button onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart" class="flex-1 bg-red-600 hover:bg-red-500 active:scale-95 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      `;
+      feed.appendChild(card);
+    }
+
+    function spinWheel() {
+      const wheel = document.getElementById('wheelBox');
+      const btn = document.getElementById('spinBtn');
+      btn.disabled = true;
+      wheel.style.transform = "rotate(1440deg)";
+      
+      setTimeout(() => {
+        wheel.innerText = "20% OFF!";
+        wheel.className = "w-32 h-32 mx-auto rounded-full border-4 border-emerald-500 flex items-center justify-center text-xl font-black bg-emerald-950 text-emerald-400 transition-all duration-1000";
+        playSound('win');
+        confetti({ particleCount: 80, spread: 60 });
+        
+        setTimeout(() => {
+          document.getElementById('couponInput').value = "DOOM20";
+          applyCoupon();
+          closeWheel();
+        }, 1200);
+      }, 1000);
+    }
+
+    function closeWheel() {
+      document.getElementById('wheelModal').classList.add('hidden');
+    }
+
+    function shareProduct(name) {
+      navigator.clipboard.writeText(`Look at this insane deal for "${name}" on Domscrool! 🛍️`);
+      showToast(`Link for "${name}" copied to clipboard!`);
+      playSound('swipe');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('liveToast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    setInterval(() => {
+      if (generatedProducts.length > 0) {
+        const randomUser = funnyUsers[Math.floor(Math.random() * funnyUsers.length)];
+        const randomProduct = generatedProducts[Math.floor(Math.random() * generatedProducts.length)];
+        showToast(`${randomUser} just added ${randomProduct.name} to cart!`);
+      }
+    }, 12000);
+
+    function openDetails(id) {
+      const p = generatedProducts.find(item => item.id === id);
+      if (!p) return;
+
+      const detailImg = document.getElementById('detailImg');
+      detailImg.src = p.img;
+      detailImg.alt = `Image of ${p.name}`;
+      
+      document.getElementById('detailTitle').innerText = p.name;
+      document.getElementById('detailTag').innerText = p.tag;
+      document.getElementById('detailUser').innerText = `Spotted by ${p.user}`;
+      document.getElementById('detailPrice').innerText = `₹${p.price.toLocaleString('en-IN')}`;
+      document.getElementById('detailOrigPrice').innerText = `₹${p.origPrice.toLocaleString('en-IN')}`;
+      document.getElementById('detailDiscount').innerText = `${Math.round((1 - p.price/p.origPrice)*100)}% OFF`;
+      document.getElementById('detailDesc').innerText = p.desc || "The ultimate impulse purchase engineered for maximum serotonin spikes.";
+
+      const addBtn = document.getElementById('detailAddBtn');
+      addBtn.onclick = () => {
+        addToCart(p.id);
+        closeDetails();
+      };
+
+      document.getElementById('detailModal').classList.remove('hidden');
+      renderIcons();
+    }
+
+    function closeDetails() {
+      document.getElementById('detailModal').classList.add('hidden');
+    }
+
+    function filterProducts() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const feed = document.getElementById('feedContainer');
+      feed.innerHTML = '';
+
+      if (q === '') {
+        generatedProducts.forEach(p => appendProductToDOM(p));
+      } else {
+        const filtered = generatedProducts.filter(p => p.name.toLowerCase().includes(q));
+        if (filtered.length === 0) {
+          feed.innerHTML = `<p class="text-center text-zinc-500 py-20 text-xs">No impulse buys match your search!</p>`;
+        } else {
+          filtered.forEach(p => appendProductToDOM(p));
+        }
+      }
+      renderIcons();
+    }
+
+    function addToCart(id) {
+      const item = generatedProducts.find(p => p.id === id);
+      if (item) {
+        cart.push(item);
+        playSound('add');
+        updateCartUI();
+      }
+    }
+
+    function toggleCart() {
+      document.getElementById('cartModal').classList.toggle('hidden');
+    }
+
+    function updateCartUI() {
+      document.getElementById('cartCount').innerText = cart.length;
+      const list = document.getElementById('cartItems');
+      
+      if (cart.length === 0) {
+        list.innerHTML = `<p class="text-xs text-zinc-500 text-center py-8">Your cart is empty. Keep doom-scrolling!</p>`;
+      } else {
+        list.innerHTML = cart.map((item, index) => `
+          <div class="flex items-center justify-between bg-zinc-800/50 p-2.5 rounded-lg border border-zinc-800">
+            <div class="flex items-center gap-3">
+              <img src="${item.img}" alt="${item.name}" class="w-10 h-10 object-cover rounded">
+              <div>
+                <p class="text-xs font-bold text-white">${item.name}</p>
+                <p class="text-xs text-emerald-400 font-semibold">₹${item.price.toLocaleString('en-IN')}</p>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${index})" aria-label="Remove item" class="text-zinc-500 hover:text-red-400"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+          </div>
+        `).join('');
+      }
+
+      const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      const discount = subtotal * activeDiscount;
+      const total = subtotal - discount;
+
+      document.getElementById('subtotalPrice').innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+      document.getElementById('discountPrice').innerText = `-₹${discount.toLocaleString('en-IN')}`;
+      document.getElementById('totalPrice').innerText = `₹${total.toLocaleString('en-IN')}`;
+
+      if (activeDiscount > 0) {
+        document.getElementById('discountRow').classList.remove('hidden');
+      }
+      renderIcons();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      const msg = document.getElementById('couponMsg');
+      
+      if (code === "DOOM20" || code === "BROKEAF") {
+        activeDiscount = 0.20;
+        msg.innerText = "🎉 20% DOOM DISCOUNT APPLIED!";
+        msg.className = "text-[11px] text-emerald-400 block font-semibold";
+        playSound('win');
+        confetti({ particleCount: 50, spread: 50 });
+      } else {
+        msg.innerText = "❌ Try 'DOOM20' or 'BROKEAF'";
+        msg.className = "text-[11px] text-red-400 block";
+      }
+      updateCartUI();
+    }
+
+    function simulateCheckout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      playSound('win');
+      alert('Checkout simulated! Take a breath, no real money spent 🎉');
+      cart = [];
+      updateCartUI();
+      toggleCart();
+    }
+
+    window.addEventListener('load', () => {
+      const feed = document.getElementById('feedContainer');
+      let lastScroll = 0;
+
+      feed.addEventListener('scroll', () => {
+        if (Math.abs(feed.scrollTop - lastScroll) > 300) {
+          playSound('swipe');
+          lastScroll = feed.scrollTop;
+        }
+
+        if (feed.scrollTop + feed.clientHeight >= feed.scrollHeight - 400) {
+          if (document.getElementById('searchInput').value === '') {
+            loadMoreProducts(3);
+          }
+        }
+      });
+
+      loadMoreProducts(6);
+    });
+  </script>
+</body>
+</html>
