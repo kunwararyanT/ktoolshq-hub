@@ -80,25 +80,19 @@
   </script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-neon-cyan selection:text-white">
-<!-- K Tools HQ Global Top Bar -->
-<div style="width: 100%; background-color: #09090b; border-bottom: 1px solid #27272a; display: flex; justify-content: flex-start; padding: 10px 24px; box-sizing: border-box; position: relative; z-index: 99999;">
-  <a href="/" style="display: flex; align-items: center; color: #a1a1aa; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: color 0.2s ease; cursor: pointer;" onmouseover="this.style.color='#ffffff'; this.querySelector('svg').style.transform='translateX(-3px)';" onmouseout="this.style.color='#a1a1aa'; this.querySelector('svg').style.transform='translateX(0)';">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; transition: transform 0.2s ease;">
-      <path d="m12 19-7-7 7-7"/>
-      <path d="M19 12H5"/>
-    </svg>
-    Back to K Tools HQ
-  </a>
-</div>
-  <!-- Header -->
+
+  <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
   <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+      
+      <!-- Clickable Logo / Home Button -->
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
         <span class="text-2xl">🎯</span>
         <span class="font-extrabold text-lg tracking-tight text-white">
           Sens<span class="text-neon-cyan neon-text">Matcher</span>
         </span>
-      </div>
+      </a>
+
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-neon-purple/10 text-neon-purple border border-neon-purple/30">
         1:1 Engine Conversion
       </span>
