@@ -1,41 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - KTools HQ</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Privacy Policy — K Tools HQ</title>
+  <meta name="description" content="Privacy Policy for K Tools HQ. Learn how our 100% client-side utilities protect your data.">
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS & Lucide Icons CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-    <main class="max-w-3xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
-        <p class="text-sm text-gray-400 mb-6">Last updated: July 2026</p>
-        
-        <p class="text-gray-300 mb-4">
-            At <strong>KTools HQ</strong> (accessible from ktoolshq.com), the privacy of our visitors is of extreme importance to us. This Privacy Policy document outlines the types of personal information is received and collected by KTools HQ and how it is used.
-        </p>
 
-        <h2 class="text-2xl font-semibold mt-6 mb-3">1. Log Files</h2>
-        <p class="text-gray-400 mb-4">
-            Like many other Web sites, KTools HQ makes use of log files. The information inside the log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track user's movement around the site, and gather demographic information.
-        </p>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
 
-        <h2 class="text-2xl font-semibold mt-6 mb-3">2. Cookies and Web Beacons</h2>
-        <p class="text-gray-400 mb-4">
-            KTools HQ uses cookies to store information about visitors preferences, record user-specific information on which pages the user access or visit, customize Web page content based on visitors browser type or other information that the visitor sends via their browser.
-        </p>
-        <p class="text-gray-400 mb-4">
-            <strong>Google AdSense & Third-Party Vendors:</strong> Google, as a third party vendor, uses cookies to serve ads on KTools HQ. Google's use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
-        </p>
-
-        <h2 class="text-2xl font-semibold mt-6 mb-3">3. Consent</h2>
-        <p class="text-gray-400 mb-4">
-            By using our website, you hereby consent to our privacy policy and agree to its terms.
-        </p>
-
-        <div class="mt-8">
-            <a href="/" class="text-indigo-400 hover:underline">&larr; Back to Home</a>
+  <!-- Navigation Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+          K
         </div>
-    </main>
+        <span class="font-black text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+          K TOOLS<span class="text-indigo-500">HQ</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+        <a href="/#tools" class="hover:text-white transition-colors">All Utilities</a>
+        <a href="/about.html" class="hover:text-white transition-colors">About Studio</a>
+        <a href="/privacy.html" class="text-white transition-colors">Privacy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+      </nav>
+
+      <div class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        100% Client-Side
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
+    <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6">Privacy Policy</h1>
+    <div class="w-20 h-1 bg-indigo-500 mb-8 rounded-full"></div>
+    
+    <p class="text-sm text-zinc-500 mb-8 font-medium">Last Updated: July 2026</p>
+
+    <div class="space-y-8 text-zinc-400 leading-relaxed">
+      <section>
+        <p>
+            At <strong class="text-white">K Tools HQ</strong> (accessible from ktoolshq.com), user privacy and data security are the foundational principles of our platform. This policy outlines how we handle data across all current and future web utilities hosted on our platform.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i> The Client-Side Guarantee
+        </h2>
+        <p>
+            Virtually all utilities on K Tools HQ—including sensitive tools like the PDF Password Unlocker, Image EXIF Metadata Remover, and Video Safe Zone Visualizer—are engineered to run <strong>100% client-side</strong>. This means the processing happens locally within your browser's memory. We do not upload, transmit, or store your files, documents, or images on our servers. Once you close the tab, the data is gone forever.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">Analytics & Log Files</h2>
+        <p>
+            Like standard web platforms, K Tools HQ utilizes automated log files for security and performance monitoring (managed via our hosting provider, Vercel). This information includes internet protocol (IP) addresses, browser type, timestamps, and referring pages. This data is entirely anonymous, is not linked to personally identifiable information, and is used strictly to optimize tool routing and platform performance.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">Google AdSense & Cookies</h2>
+        <p>
+            To keep K Tools HQ completely free, we use Google AdSense to display non-intrusive advertisements. Google, as a third-party vendor, uses cookies (including the DART cookie) to serve ads based on your visit to K Tools HQ and other sites on the internet.
+        </p>
+        <ul class="list-disc pl-5 mt-3 space-y-2">
+          <li>You may opt out of personalized advertising by visiting Google's <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">Ads Settings</a>.</li>
+          <li>We do not share any data processed through our utility tools with ad networks.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">Consent & Future Updates</h2>
+        <p>
+            By using K Tools HQ, you consent to our Privacy Policy. As we expand our suite with new utilities for creators and gamers, this policy applies universally to all tools hosted on our root domain. We reserve the right to update this policy, and changes will be reflected with a revised "Last Updated" date at the top of this page.
+        </p>
+      </section>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-zinc-800">
+        <a href="/" class="inline-flex items-center gap-2 text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Utilities
+        </a>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="border-t border-zinc-800 bg-zinc-950 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-2">
+          <span class="font-extrabold text-white text-base">K TOOLS HQ</span>
+          <span class="text-xs text-zinc-500">v2.0</span>
+        </div>
+        <p class="text-xs text-zinc-500">© 2026 K Tools HQ. Operated by a registered freelance enterprise.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-400 font-medium">
+        <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="/contact.html" class="hover:text-white transition-colors">Contact / Request Tool</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>
