@@ -63,15 +63,18 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-red-500 selection:text-white">
 
-  <!-- Header -->
+  <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
   <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+      
+      <!-- Clickable Logo / Home Button -->
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
         <span class="text-2xl">🛡️</span>
         <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
           Algo-Safe Global
         </span>
-      </div>
+      </a>
+
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
         AdSense Safe V2
       </span>
