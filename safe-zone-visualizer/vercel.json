@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://ktoolshq.com/safe-zone/$1",
-      "permanent": true
-    }
-  ]
-}
