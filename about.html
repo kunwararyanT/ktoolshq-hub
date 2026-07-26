@@ -1,27 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - KTools HQ</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your main hub styles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About Us — K Tools HQ</title>
+  <meta name="description" content="About K Tools HQ, your centralized hub for creator, gaming, and privacy web utilities.">
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS & Lucide Icons CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-    <main class="max-w-3xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-bold mb-6">About KTools HQ</h1>
-        <p class="text-lg text-gray-300 mb-4">
-            Welcome to <strong>KTools HQ</strong>, your centralized platform for high-performance, lightweight micro-utilities designed to streamline your daily digital workflows. 
-        </p>
-        <p class="text-gray-400 mb-4">
-            We built this platform to eliminate clutter. Instead of jumping across dozens of scattered, ad-heavy standalone sites, KTools HQ brings all your essential creator tools, developer utilities, and quick-access applications under one clean, lightning-fast roof.
-        </p>
-        <h2 class="text-2xl font-semibold mt-8 mb-3">Our Mission</h2>
-        <p class="text-gray-400 mb-4">
-            To provide frictionless, browser-based utilities that respect user privacy, load instantly, and require zero bloat. Every tool on this platform is engineered for maximum performance.
-        </p>
-        <div class="mt-8">
-            <a href="/" class="text-indigo-400 hover:underline">&larr; Back to Home</a>
+
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation Header (Pulled directly from your Hub) -->
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+          K
         </div>
-    </main>
+        <span class="font-black text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+          K TOOLS<span class="text-indigo-500">HQ</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+        <a href="/#tools" class="hover:text-white transition-colors">All Utilities</a>
+        <a href="/about.html" class="text-white transition-colors">About Studio</a>
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+      </nav>
+
+      <div class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        100% Client-Side
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
+    <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6">About K Tools HQ</h1>
+    <div class="w-20 h-1 bg-indigo-500 mb-8 rounded-full"></div>
+    
+    <p class="text-lg text-zinc-300 mb-6 leading-relaxed">
+        Welcome to <strong class="text-white">K Tools HQ</strong>, your centralized platform for high-performance, lightweight micro-utilities designed to streamline your daily digital workflows. 
+    </p>
+    <p class="text-zinc-400 mb-8 leading-relaxed">
+        We built this platform to eliminate clutter. Instead of jumping across dozens of scattered, ad-heavy standalone sites, K Tools HQ brings all your essential creator tools, developer utilities, and quick-access applications under one clean, lightning-fast roof.
+    </p>
+    
+    <h2 class="text-2xl font-bold text-white mt-12 mb-4 flex items-center gap-2">
+      <i data-lucide="zap" class="w-6 h-6 text-indigo-400"></i> Our Mission
+    </h2>
+    <p class="text-zinc-400 mb-8 leading-relaxed">
+        To provide frictionless, browser-based utilities that respect user privacy, load instantly, and require zero bloat. Every tool on this platform is engineered for maximum performance.
+    </p>
+
+    <div class="mt-12 pt-8 border-t border-zinc-800">
+        <a href="/" class="inline-flex items-center gap-2 text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Utilities
+        </a>
+    </div>
+  </main>
+
+  <!-- Footer Section (Pulled directly from your Hub) -->
+  <footer class="border-t border-zinc-800 bg-zinc-950 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-2">
+          <span class="font-extrabold text-white text-base">K TOOLS HQ</span>
+          <span class="text-xs text-zinc-500">v2.0</span>
+        </div>
+        <p class="text-xs text-zinc-500">© 2026 K Tools HQ. Operated by a registered freelance enterprise.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-400 font-medium">
+        <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="/contact.html" class="hover:text-white transition-colors">Contact / Request Tool</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons for the page
+    if (window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>
