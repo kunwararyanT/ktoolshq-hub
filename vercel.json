@@ -83,3 +83,16 @@
     }
   ]
 }
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/retro-gaming",
+      "destination": "https://retro-gaming-portal.vercel.app/"
+    },
+    {
+      "source": "/retro-gaming/:path*",
+      "destination": "https://retro-gaming-portal.vercel.app/:path*"
+    }
+  ]
+}
