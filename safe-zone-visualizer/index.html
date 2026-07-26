@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHDVBY7XFJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XHDVBY7XFJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Zone Visualizer | Reels, TikTok & Shorts UI Overlay</title>
+    <meta name="description" content="Preview your vertical videos with exact 2026 UI overlays for Instagram Reels, TikTok, and YouTube Shorts. Keep your masks and text safe from cropping. 100% free and local.">
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="keywords" content="tiktok safe zone, instagram reels safe zone 2026, youtube shorts safe area, vertical video safe zone visualizer, video editing ui overlay template, reels text safe area">
+    <link rel="canonical" href="https://safe-zone-visualizer.vercel.app/">
+    
+    <!-- Google Search Console Verification Tag -->
+    <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
+    
+    <!-- Google AdSense Verification Tag -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        /* Danger Zone Styles (Red areas represent platform UI) */
+        .danger-zone {
+            position: absolute;
+            background-color: rgba(239, 68, 68, 0.6); /* Tailwind Red-500 with opacity */
+            border: 1px dashed #f87171;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+            opacity: 0.6; /* Default controllable by slider */
+            transition: all 0.3s ease;
+        }
+
+        /* 2026 TikTok Dimensions (1080x1920) */
+        .tiktok-top { top: 0; left: 0; right: 0; height: 13.2%; }
+        .tiktok-bottom { bottom: 0; left: 0; right: 0; height: 36.8%; }
+        .tiktok-right { top: 13.2%; bottom: 36.8%; right: 0; width: 22.4%; }
+        .tiktok-left { top: 13.2%; bottom: 36.8%; left: 0; width: 11.3%; }
+
+        /* 2026 IG Reels Dimensions (1080x1920) */
+        .reels-top { top: 0; left: 0; right: 0; height: 10.4%; }
+        .reels-bottom { bottom: 0; left: 0; right: 0; height: 20.8%; }
+        .reels-right { top: 10.4%; bottom: 20.8%; right: 0; width: 11.1%; }
+        .reels-left { top: 10.4%; bottom: 20.8%; left: 0; width: 5.5%; }
+
+        /* 2026 YT Shorts Dimensions (1080x1920) */
+        .shorts-top { top: 0; left: 0; right: 0; height: 7.8%; }
+        .shorts-bottom { bottom: 0; left: 0; right: 0; height: 23.4%; }
+        .shorts-right { top: 7.8%; bottom: 23.4%; right: 0; width: 13.8%; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col items-center">
+
+    <!-- Top Navigation -->
+    <nav class="w-full bg-slate-950 border-b border-slate-800 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+                CreatorUtilityPro
+            </div>
+            <div class="text-sm text-slate-400">
+                100% Local Browser Processing
+            </div>
+        </div>
+    </nav>
+
+    <!-- AdSense Placeholder (Top Leaderboard) -->
+    <div class="w-full max-w-4xl h-24 bg-slate-800 mt-6 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 text-sm">
+        [AdSense Top Banner Area - Auto Ads]
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-6xl p-6 grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4 flex-grow">
+        
+        <!-- Left Column: Controls & Ad Space -->
+        <div class="col-span-1 space-y-6">
+            
+            <!-- Tool Panel -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-2xl">
+                <h1 class="text-2xl font-bold text-white mb-2">Safe Zone Visualizer</h1>
+                <p class="text-slate-400 text-sm mb-6">Drag and drop your 9:16 vertical video to verify text and graphic placement against 2026 UI danger zones.</p>
+                
+                <!-- Upload Area -->
+                <div id="dropZone" class="border-2 border-dashed border-slate-600 rounded-lg p-8 text-center cursor-pointer hover:border-indigo-500 hover:bg-slate-700/50 transition duration-200 mb-6 relative">
+                    <input type="file" id="videoUpload" accept="video/mp4,video/quicktime,video/x-m4v,image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                    <svg class="mx-auto h-12 w-12 text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                    <p class="text-sm font-medium text-slate-200">Click or Drag & Drop</p>
+                    <p class="text-xs text-slate-500 mt-1">MP4, MOV, or PNG/JPG</p>
+                </div>
+
+                <!-- Platform Selection -->
+                <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Select Platform (2026 Specs)</h2>
+                <div class="space-y-3 mb-6">
+                    <button onclick="setPlatform('tiktok')" id="btn-tiktok" class="w-full py-3 bg-slate-900 border border-slate-600 hover:border-pink-500 rounded-lg font-medium transition duration-200 flex justify-between px-4 items-center">
+                        <span>TikTok</span>
+                        <span class="text-xs text-pink-500 hidden indicator">Active</span>
+                    </button>
+                    <button onclick="setPlatform('reels')" id="btn-reels" class="w-full py-3 bg-slate-900 border border-slate-600 hover:border-purple-500 rounded-lg font-medium transition duration-200 flex justify-between px-4 items-center">
+                        <span>IG Reels</span>
+                        <span class="text-xs text-purple-500 hidden indicator">Active</span>
+                    </button>
+                    <button onclick="setPlatform('shorts')" id="btn-shorts" class="w-full py-3 bg-slate-900 border border-slate-600 hover:border-red-500 rounded-lg font-medium transition duration-200 flex justify-between px-4 items-center">
+                        <span>YT Shorts</span>
+                        <span class="text-xs text-red-500 hidden indicator">Active</span>
+                    </button>
+                    <button onclick="setPlatform('none')" id="btn-none" class="w-full py-3 bg-slate-700 hover:bg-slate-600 border border-slate-500 rounded-lg font-medium transition duration-200">
+                        Clear UI
+                    </button>
+                </div>
+
+                <!-- Opacity Slider -->
+                <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Danger Zone Opacity</h2>
+                <input type="range" id="opacitySlider" min="0" max="100" value="60" class="w-full accent-indigo-500">
+            </div>
+
+            <!-- AdSense Placeholder (Sidebar) -->
+            <div class="w-full h-[600px] bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center text-slate-500 text-sm sticky top-6">
+                [AdSense Vertical Skyscraper - High CPC Area]
+            </div>
+
+        </div>
+
+        <!-- Right Column: Video Preview -->
+        <div class="col-span-2 flex justify-center items-start">
+            
+            <!-- 9:16 Canvas Wrapper -->
+            <div class="relative bg-black rounded-xl overflow-hidden shadow-2xl border border-slate-800" style="height: 85vh; aspect-ratio: 9/16;">
+                
+                <!-- Video Element -->
+                <video id="mediaPlayer" class="w-full h-full object-cover" controls loop muted playsinline>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Image Element (Fallback if they upload a static frame) -->
+                <img id="imagePlayer" class="w-full h-full object-cover hidden" src="" alt="Preview">
+
+                <!-- Dynamic Overlays injected via JS -->
+                <div id="overlayContainer" class="absolute inset-0 pointer-events-none"></div>
+                
+            </div>
+        </div>
+        
+        <!-- Programmatic SEO Section (Targeting High-Intent Keywords) -->
+        <section class="col-span-1 lg:col-span-3 border-t border-slate-800 pt-12 mt-12 space-y-8 text-slate-300">
+            
+            <div class="space-y-3">
+                <h2 class="text-2xl font-bold text-white">
+                    What is the TikTok and Reels Safe Zone?
+                </h2>
+                <p class="text-sm leading-relaxed text-slate-400">
+                    The <strong class="text-slate-200">safe zone for TikTok, Instagram Reels, and YouTube Shorts</strong> refers to the central area of a 9:16 vertical video where text, graphics, and important visual elements will not be hidden or cropped by the platform's native user interface (UI). Because platforms frequently update their app layouts, using a 2026 <strong class="text-slate-200">safe zone visualizer</strong> ensures your captions and calls-to-action remain perfectly visible.
+                </p>
+            </div>
+
+            <!-- Quick Reference Table for Long-Tail SEO -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-white">
+                    2026 Vertical Video UI Danger Zones
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-slate-400 uppercase font-bold">
+                                <th class="py-3 px-4">Platform</th>
+                                <th class="py-3 px-4">Bottom UI (Captions/Title)</th>
+                                <th class="py-3 px-4">Right UI (Buttons)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                            <tr>
+                                <td class="py-3 px-4 font-semibold text-white">TikTok Safe Zone</td>
+                                <td class="py-3 px-4">Bottom 36.8% blocked</td>
+                                <td class="py-3 px-4">Right 22.4% blocked</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-semibold text-white">IG Reels Safe Zone</td>
+                                <td class="py-3 px-4">Bottom 20.8% blocked</td>
+                                <td class="py-3 px-4">Right 11.1% blocked</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-semibold text-white">YT Shorts Safe Zone</td>
+                                <td class="py-3 px-4">Bottom 23.4% blocked</td>
+                                <td class="py-3 px-4">Right 13.8% blocked</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="space-y-4 pt-4">
+                <h3 class="text-lg font-semibold text-white">Frequently Asked Questions</h3>
+                
+                <div class="space-y-3 text-sm">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                        <h4 class="font-bold text-white mb-1">How do I keep text safe on Instagram Reels?</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            To keep text safe on Instagram Reels, you must avoid the bottom 20% of the screen (where your username and caption appear) and the right 11% (where the like, comment, and share buttons are located). Upload your draft to our visualizer to check exact placement.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                        <h4 class="font-bold text-white mb-1">Are TikTok and Reels safe zones the same?</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            No, they are different. TikTok has a much larger "danger zone" at the bottom (blocking nearly 37% of the screen for long captions) compared to Instagram Reels. It is highly recommended to visualize your edits for each specific platform before exporting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer for Legal Compliance -->
+    <footer class="w-full border-t border-slate-800 bg-slate-950 py-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 text-sm text-slate-500">
+            <p>© 2026 A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+                <a href="about.html" class="hover:text-slate-300">About</a>
+                <a href="privacy.html" class="hover:text-slate-300">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-slate-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const fileInput = document.getElementById('videoUpload');
+        const dropZone = document.getElementById('dropZone');
+        const videoPlayer = document.getElementById('mediaPlayer');
+        const imagePlayer = document.getElementById('imagePlayer');
+        const overlayContainer = document.getElementById('overlayContainer');
+        const opacitySlider = document.getElementById('opacitySlider');
+        
+        // Exact 2026 Danger Zone Configurations (Red Blocks)
+        const uiConfigs = {
+            tiktok: [
+                { class: 'tiktok-top', text: 'Top UI (13.2%)' },
+                { class: 'tiktok-bottom', text: 'Captions/Music (36.8%)' },
+                { class: 'tiktok-right', text: 'Buttons (22.4%)' },
+                { class: 'tiktok-left', text: 'Margin (11.3%)' }
+            ],
+            reels: [
+                { class: 'reels-top', text: 'Account Info (10.4%)' },
+                { class: 'reels-bottom', text: 'Reel UI (20.8%)' },
+                { class: 'reels-right', text: 'Buttons (11.1%)' },
+                { class: 'reels-left', text: 'Margin (5.5%)' }
+            ],
+            shorts: [
+                { class: 'shorts-top', text: 'Status Bar (7.8%)' },
+                { class: 'shorts-bottom', text: 'Title/Channel (23.4%)' },
+                { class: 'shorts-right', text: 'Actions (13.8%)' }
+            ]
+        };
+
+        // Handle File Selection
+        function handleFile(file) {
+            if (!file) return;
+            const fileURL = URL.createObjectURL(file);
+            
+            if (file.type.startsWith('video/')) {
+                videoPlayer.src = fileURL;
+                videoPlayer.classList.remove('hidden');
+                imagePlayer.classList.add('hidden');
+                videoPlayer.play();
+            } else if (file.type.startsWith('image/')) {
+                imagePlayer.src = fileURL;
+                imagePlayer.classList.remove('hidden');
+                videoPlayer.classList.add('hidden');
+                videoPlayer.pause();
+            }
+            
+            // Visual feedback on dropzone
+            dropZone.querySelector('p.font-medium').innerText = file.name;
+            dropZone.classList.add('border-indigo-500');
+        }
+
+        // Event Listeners for File Upload
+        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+        
+        // Drag and Drop Logic
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('bg-slate-700/50', 'border-indigo-500');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('bg-slate-700/50', 'border-indigo-500');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-slate-700/50', 'border-indigo-500');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        // Set Platform Overlay
+        function setPlatform(platform) {
+            // Reset UI
+            overlayContainer.innerHTML = '';
+            document.querySelectorAll('.indicator').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('button[id^="btn-"]').forEach(btn => {
+                btn.classList.remove('border-pink-500', 'border-purple-500', 'border-red-500', 'ring-2');
+            });
+
+            if (platform === 'none') return;
+
+            // Activate button styling
+            const activeBtn = document.getElementById(`btn-${platform}`);
+            activeBtn.querySelector('.indicator').classList.remove('hidden');
+            
+            if(platform === 'tiktok') activeBtn.classList.add('border-pink-500');
+            if(platform === 'reels') activeBtn.classList.add('border-purple-500');
+            if(platform === 'shorts') activeBtn.classList.add('border-red-500');
+
+            // Inject Danger Zones
+            const opacity = opacitySlider.value / 100;
+            uiConfigs[platform].forEach(zone => {
+                const div = document.createElement('div');
+                div.className = `danger-zone ${zone.class}`;
+                div.style.opacity = opacity;
+                div.innerText = zone.text;
+                overlayContainer.appendChild(div);
+            });
+        }
+
+        // Handle Opacity Slider
+        opacitySlider.addEventListener('input', (e) => {
+            const zones = document.querySelectorAll('.danger-zone');
+            zones.forEach(zone => {
+                zone.style.opacity = e.target.value / 100;
+            });
+        });
+
+        // Initialize default view
+        setPlatform('tiktok');
+    </script>
+</body>
+</html>
