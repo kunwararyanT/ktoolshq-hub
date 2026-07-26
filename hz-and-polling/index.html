@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free High-Hz Display & 1000Hz+ Mouse Polling Tester</title>
+  <meta name="description" content="Instantly test your monitor's true refresh rate (up to 500Hz+) and check mouse polling rates up to 8000Hz using browser hardware APIs. A completely free tool.">
+  <meta name="keywords" content="monitor hz test, 500hz test, mouse polling rate test, 1000hz mouse test, 8000hz mouse test, input lag test, free tool">
+  
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7293JSNG9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7293JSNG9');
+</script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { brand: { 500: '#3b82f6', 600: '#2563eb' } }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    .pulse-ring { animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+  </style>
+
+  <!-- SEO FAQ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this hardware refresh and mouse polling tester completely free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this is a 100% completely free tool. You can test your display refresh rate (Hz) and mouse polling rate directly in your browser without any hidden fees, subscriptions, or downloads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I test my mouse polling rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply click the start button and move your mouse rapidly inside the designated box. This completely free tool uses high-precision hardware APIs to detect polling rates up to 8000Hz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this free tool detect 500Hz+ monitors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our completely free tool uses microsecond timing to accurately benchmark ultra-high refresh rate esports displays, including 144Hz, 240Hz, 360Hz, and 500Hz+ monitors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to download software to check my hardware Hz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No installation is required. This is a completely free tool that securely leverages native browser APIs to measure your hardware's true performance without requiring external software."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-blue-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">⚡</span>
+        <span class="font-extrabold text-lg tracking-tight text-white">
+          Hardware<span class="text-blue-500">Test</span>
+        </span>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+        High-Precision Engine V2
+      </span>
+    </div>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 space-y-8">
+    
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        High-Precision Display & Mouse Tester
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Accurately benchmark monitors up to 500Hz+ and ultra-high polling rate gaming mice (1000Hz, 4000Hz, 8000Hz) using browser coalesced hardware pointer events.
+      </p>
+    </div>
+
+    <!-- Start / Control Button -->
+    <div class="flex justify-center">
+      <button id="startBtn" onclick="toggleTest()" class="bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/30 transition-all flex items-center gap-3 cursor-pointer ring-4 ring-blue-500/20">
+        <span id="btnIcon">▶</span> <span id="btnText">CLICK HERE TO START TEST</span>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Monitor Refresh Rate Panel -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-center space-y-6 relative overflow-hidden">
+        <div class="text-zinc-400 text-sm font-bold uppercase tracking-widest">Display Refresh Rate</div>
+        <div class="relative flex items-center justify-center">
+          <div id="hzGlow" class="absolute inset-0 bg-blue-500/10 rounded-full blur-3xl opacity-0 transition-opacity"></div>
+          <div id="hzDisplay" class="text-6xl sm:text-7xl font-black text-white relative z-10 tabular-nums">
+            -- <span class="text-2xl sm:text-3xl text-zinc-500">Hz</span>
+          </div>
+        </div>
+        <p class="text-xs text-zinc-500 text-center max-w-xs">
+          Supports high-refresh esports displays (144Hz, 240Hz, 360Hz, 500Hz+).
+        </p>
+      </div>
+
+      <!-- Mouse Polling Rate Panel -->
+      <div id="mouseArea" class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-center space-y-6 cursor-crosshair relative overflow-hidden">
+        <div class="text-zinc-400 text-sm font-bold uppercase tracking-widest">Mouse Polling Rate</div>
+        
+        <div id="pollingDisplay" class="text-6xl sm:text-7xl font-black text-white tabular-nums z-10">
+          -- <span class="text-2xl sm:text-3xl text-zinc-500">Hz</span>
+        </div>
+        
+        <div class="text-center z-10">
+          <p id="mouseInstruction" class="text-sm text-zinc-500 font-bold mb-1">Click Start above to enable mouse testing</p>
+          <p class="text-xs text-zinc-500 max-w-xs">
+            Uses hardware coalesced events to detect 1000Hz, 2000Hz, 4000Hz & 8000Hz mice accurately.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Middle Ad Slot -->
+    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs my-8">
+      [AdSense In-Content Banner Slot]
+    </div>
+
+    <!-- SEO FAQ Section -->
+    <section class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 shadow-xl mt-8">
+      <h2 class="text-2xl font-black text-white tracking-tight mb-6 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">Is this hardware refresh and mouse polling tester completely free?</h3>
+          <p class="text-sm text-zinc-400 mt-2">Yes, this is a 100% completely free tool. You can test your display refresh rate (Hz) and mouse polling rate directly in your browser without any hidden fees, subscriptions, or downloads.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">How do I test my mouse polling rate?</h3>
+          <p class="text-sm text-zinc-400 mt-2">Simply click the start button and move your mouse rapidly inside the designated box. This completely free tool uses high-precision hardware APIs to detect polling rates up to 8000Hz.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">Can this free tool detect 500Hz+ monitors?</h3>
+          <p class="text-sm text-zinc-400 mt-2">Yes, our completely free tool uses microsecond timing to accurately benchmark ultra-high refresh rate esports displays, including 144Hz, 240Hz, 360Hz, and 500Hz+ monitors.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-100">Do I need to download software to check my hardware Hz?</h3>
+          <p class="text-sm text-zinc-400 mt-2">No installation is required. This is a completely free tool that securely leverages native browser APIs to measure your hardware's true performance without requiring external software.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 HardwareTest • High-Precision Utility Engine.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Diagnostic Engine Scripts -->
+  <script>
+    let isTesting = false;
+    let frameCount = 0;
+    let lastHzTime = performance.now();
+    let hzAnimationId = null;
+
+    let totalMouseEvents = 0;
+    let peakPolling = 0;
+    let lastPollingTime = performance.now();
+    let mouseResetTimer = null;
+
+    function toggleTest() {
+      isTesting = !isTesting;
+      const btn = document.getElementById('startBtn');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnText = document.getElementById('btnText');
+      const mouseInstruction = document.getElementById('mouseInstruction');
+      const hzGlow = document.getElementById('hzGlow');
+
+      if (isTesting) {
+        btn.className = "bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-3 cursor-pointer ring-4 ring-emerald-500/20";
+        btnIcon.textContent = "⏸";
+        btnText.textContent = "TESTING ACTIVE (CLICK TO STOP)";
+        mouseInstruction.textContent = "Move mouse rapidly inside this box!";
+        mouseInstruction.className = "text-sm text-blue-400 font-bold mb-1 pulse-ring";
+        hzGlow.className = "absolute inset-0 bg-blue-500/20 rounded-full blur-3xl opacity-100 transition-opacity";
+
+        // Reset Counters
+        frameCount = 0;
+        lastHzTime = performance.now();
+        lastPollingTime = performance.now();
+        totalMouseEvents = 0;
+        peakPolling = 0;
+
+        requestAnimationFrame(runHzTest);
+      } else {
+        btn.className = "bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/30 transition-all flex items-center gap-3 cursor-pointer ring-4 ring-blue-500/20";
+        btnIcon.textContent = "▶";
+        btnText.textContent = "CLICK HERE TO START TEST";
+        mouseInstruction.textContent = "Click Start above to enable mouse testing";
+        mouseInstruction.className = "text-sm text-zinc-500 font-bold mb-1";
+        hzGlow.className = "absolute inset-0 bg-blue-500/10 rounded-full blur-3xl opacity-0 transition-opacity";
+
+        if (hzAnimationId) cancelAnimationFrame(hzAnimationId);
+      }
+    }
+
+    // 1. High-Precision Screen Hz Engine (Supports 500Hz+)
+    function runHzTest(now) {
+      if (!isTesting) return;
+      
+      frameCount++;
+      const elapsed = now - lastHzTime;
+
+      if (elapsed >= 1000) {
+        const currentHz = Math.round((frameCount * 1000) / elapsed);
+        document.getElementById('hzDisplay').innerHTML = `${currentHz} <span class="text-2xl sm:text-3xl text-zinc-500">Hz</span>`;
+        frameCount = 0;
+        lastHzTime = now;
+      }
+      
+      hzAnimationId = requestAnimationFrame(runHzTest);
+    }
+
+    // 2. High-Precision Mouse Polling Engine using Coalesced Pointer Events (Supports >1000Hz up to 8000Hz)
+    const mouseArea = document.getElementById('mouseArea');
+    
+    mouseArea.addEventListener('pointermove', (e) => {
+      if (!isTesting) return;
+
+      // getCoalescedEvents() extracts raw hardware reports before browser frame throttling
+      const events = (e.getCoalescedEvents && typeof e.getCoalescedEvents === 'function') 
+        ? e.getCoalescedEvents() 
+        : [e];
+
+      totalMouseEvents += events.length;
+      const now = performance.now();
+      const elapsed = now - lastPollingTime;
+
+      if (elapsed >= 250) { // Sample every 250ms for hyper-responsive reading
+        const currentPolling = Math.round((totalMouseEvents * 1000) / elapsed);
+
+        if (currentPolling > peakPolling) {
+          peakPolling = currentPolling;
+        }
+
+        document.getElementById('pollingDisplay').innerHTML = `${currentPolling} <span class="text-2xl sm:text-3xl text-zinc-500">Hz</span>`;
+        totalMouseEvents = 0;
+        lastPollingTime = now;
+      }
+
+      clearTimeout(mouseResetTimer);
+      mouseResetTimer = setTimeout(() => {
+        if (isTesting && peakPolling > 0) {
+          document.getElementById('pollingDisplay').innerHTML = `${peakPolling} <span class="text-2xl sm:text-3xl text-zinc-500">Peak</span>`;
+        }
+      }, 400);
+    });
+  </script>
+</body>
+</html>
