@@ -46,13 +46,16 @@
 </head>
 <body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
 
-    <!-- Navigation -->
-    <nav class="bg-slate-900 text-white py-4 px-6 shadow-md">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="font-bold text-xl tracking-wide flex items-center gap-2">
+    <!-- Header (Sticky with Clickable Logo pointing to Hub) -->
+    <header class="w-full border-b border-slate-800 bg-slate-900/95 backdrop-blur sticky top-0 z-50 shadow-md text-white">
+        <div class="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center">
+            
+            <!-- Clickable Logo / Home Button -->
+            <a href="https://ktoolshq.com" class="font-bold text-xl tracking-wide flex items-center gap-2 hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
                 <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                SecurePDF Utilities
-            </div>
+                SecurePDF
+            </a>
+
             <div class="text-sm font-medium text-slate-300">
                 <!-- Language Switcher Stub -->
                 <span class="cursor-pointer hover:text-white transition">EN</span> | 
@@ -60,7 +63,7 @@
                 <span class="cursor-pointer hover:text-white transition">ES</span>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Workspace -->
     <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-12">
@@ -191,11 +194,11 @@
                 <strong>Legal Disclaimer:</strong> This utility is provided for personal use only. By using this tool, you certify that you are the legal owner of the uploaded document and have the authorized right to remove its encryption. This tool performs all actions locally on your device via JavaScript; no files, passwords, or personal data are transmitted to, collected by, or stored on our servers.
             </p>
             <div class="flex justify-center gap-6">
-                <a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a>
-                <a href="/terms.html" class="hover:text-white transition">Terms of Service</a>
-                <a href="/about.html" class="hover:text-white transition">About Us</a>
+                <a href="about.html" class="hover:text-white transition">About</a>
+                <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
             </div>
-            <p class="mt-6">&copy; 2026 SecurePDF Utilities. All rights reserved.</p>
+            <p class="mt-6">&copy; 2026 SecurePDF Utilities. A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
         </div>
     </footer>
 
