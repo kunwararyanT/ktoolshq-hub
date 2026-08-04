@@ -80,7 +80,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative pt-16 pb-12 px-4 text-center max-w-4xl mx-auto space-y-6">
+  <section class="relative pt-16 pb-4 px-4 text-center max-w-4xl mx-auto space-y-6">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold border border-indigo-500/20">
       <i data-lucide="zap" class="w-3.5 h-3.5"></i> High-Performance Browser Utilities
     </div>
@@ -112,8 +112,8 @@
   </section>
 
   <!-- Top AdSense Unit Placeholder -->
-  <div class="max-w-6xl mx-auto px-4 w-full mb-8">
-    <div class="w-full h-24 bg-zinc-900/40 rounded-2xl border border-zinc-800/80 flex items-center justify-center text-xs text-zinc-600 uppercase tracking-widest font-mono">
+  <div class="max-w-6xl mx-auto px-4 w-full">
+    <div class="w-full flex items-center justify-center empty:hidden">
       <!-- Google AdSense Header Banner -->
       <ins class="adsbygoogle"
            style="display:block"
@@ -126,7 +126,7 @@
   </div>
 
   <!-- Main Tools Grid -->
-  <main id="tools" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+  <main id="tools" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 flex-1 w-full">
     <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Dynamic Tool Cards Load Here -->
     </div>
@@ -211,7 +211,6 @@
   <script>
     // -------------------------------------------------------------
     // MASTER TOOLS DATABASE
-    // To add future tools, simply add a new object to this array!
     // -------------------------------------------------------------
     const toolsDatabase = [
       {
@@ -220,7 +219,8 @@
       category: "creator",
       path: "/ai-background-remover",
       icon: "eraser",
-      badge: "New"
+      badge: "⭐ Top Tool", 
+      highlight: true 
       },
       {
         title: "Reels & Video Safe Zone Visualizer",
@@ -228,7 +228,8 @@
         category: "creator",
         path: "/safe-zone",
         icon: "layout-template",
-        badge: "Popular"
+        badge: "🔥 High Retention", 
+        highlight: true 
       },
       {
         title: "Aspect Ratio & Pixel Calculator",
@@ -321,15 +322,23 @@
       tools.forEach(tool => {
         const card = document.createElement('a');
         card.href = tool.path;
-        card.className = "group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:border-indigo-500/50 hover:bg-zinc-800/50 transition-all duration-200 flex flex-col justify-between space-y-4 shadow-lg hover:shadow-indigo-500/5";
         
+        // Conditional styling for highlights + added 'hover:-translate-y-1' for tactile clickability
+        const borderClass = tool.highlight ? "border-indigo-500/50 shadow-indigo-500/10" : "border-zinc-800";
+        card.className = `group bg-zinc-900 border ${borderClass} rounded-3xl p-6 hover:border-indigo-500/80 hover:bg-zinc-800/80 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300 flex flex-col justify-between space-y-4 shadow-lg`;
+        
+        // Dynamic Badge Styling
+        const badgeClasses = tool.highlight 
+            ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" 
+            : "bg-zinc-800 text-zinc-400 group-hover:bg-indigo-500/10 group-hover:text-indigo-300";
+
         card.innerHTML = `
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <i data-lucide="${tool.icon}" class="w-5 h-5"></i>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-400 group-hover:bg-indigo-500/10 group-hover:text-indigo-300 transition-colors">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${badgeClasses} transition-colors">
                 ${tool.badge}
               </span>
             </div>
