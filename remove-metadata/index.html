@@ -164,6 +164,36 @@
         </div>
     </main>
 
+  <!-- SEO & ADSENSE CONTENT SECTION (Below the Fold) -->
+  <section class="border-t border-slate-200 bg-white py-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-12">
+
+      <!-- 1. Technical Deep-Dive & Guide -->
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Strip GPS Location & Camera EXIF Data from Images
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Protect your privacy by removing hidden camera EXIF metadata from photos before publishing them online. Every photo taken on a smartphone or digital camera embeds hidden technical metadata—including exact GPS coordinates, capture dates, device serial numbers, and camera settings. This utility strips sensitive metadata completely while preserving original visual image quality.
+        </p>
+        
+        <h3 class="text-xl font-bold text-slate-800 pt-4">How It Works Client-Side</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          The image metadata engine parses the binary header blocks (EXIF, IPTC, XMP) of uploaded JPG, PNG, or WebP files, strips spatial and hardware records, and re-renders clean image data strictly in client memory.
+        </p>
+
+        <h3 class="text-xl font-bold text-slate-800 pt-4">Step-by-Step Instructions</h3>
+        <ol class="list-decimal list-inside text-sm text-slate-600 space-y-2 leading-relaxed">
+          <li>Select or drop your image files into the privacy stripper.</li>
+          <li>View detected EXIF data fields (GPS coordinates, camera model, timestamp).</li>
+          <li>Click "Strip EXIF Data" to scrub all embedded metadata fields.</li>
+          <li>Download clean, privacy-secured image files for safe sharing.</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
     <!-- SEO-Optimized FAQ Section -->
     <section class="max-w-4xl mx-auto px-4 py-12 border-t border-slate-200 mt-4 fade-in">
         <div class="text-center mb-10">
@@ -190,6 +220,34 @@
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Will this reduce the quality of my image?</h3>
                 <p class="text-slate-600 leading-relaxed">
                     Our canvas-rendering technique maintains the original visual quality of your photo while stripping away the invisible data payload. The output file is a high-quality, privacy-safe image ready for social media or sharing.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">What sensitive information is hidden inside my photos?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    EXIF metadata often contains your home GPS coordinates, exact time/date stamps, and phone device IDs.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Does removing metadata lower my image quality?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    No. The pixel color data remains untouched; only the embedded background text headers are removed.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Are images processed on external servers?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    No. Cleaning occurs entirely within local browser JavaScript.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Can I clean multiple photos at once?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    Yes, batch client-side processing is fully supported.
                 </p>
             </div>
         </div>
