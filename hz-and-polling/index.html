@@ -168,30 +168,70 @@
       [AdSense In-Content Banner Slot]
     </div>
 
-    <!-- SEO FAQ Section -->
-    <section class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 shadow-xl mt-8">
-      <h2 class="text-2xl font-black text-white tracking-tight mb-6 text-center">Frequently Asked Questions</h2>
+  </main>
+
+  <!-- SEO & ADSENSE CONTENT SECTION (Below the Fold) -->
+  <section class="border-t border-zinc-800 bg-zinc-950/50 py-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-12">
+
+      <!-- 1. Technical Deep-Dive & Guide -->
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          Monitor Refresh Rate (Hz) & Mouse Polling Rate Diagnostic
+        </h2>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Verify your monitor's real-time refresh rate (60Hz, 144Hz, 240Hz, 360Hz) and measure mouse sensor polling rates (1000Hz+) with sub-millisecond precision. Competitive gamers and display enthusiasts use this utility to diagnose frame skips, verify GPU display settings, and test gaming mouse sensor responsiveness.
+        </p>
+        
+        <h3 class="text-xl font-bold text-white pt-4">How It Works Client-Side</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Using high-precision browser animation loops (requestAnimationFrame) and event timestamp tracking, the tool measures display frame intervals and USB input frequency directly through browser hardware APIs.
+        </p>
+
+        <h3 class="text-xl font-bold text-white pt-4">Step-by-Step Instructions</h3>
+        <ol class="list-decimal list-inside text-sm text-zinc-400 space-y-2 leading-relaxed">
+          <li>Open the test window and allow the frame counter to calibrate.</li>
+          <li>Verify that your detected display Hz matches your physical monitor specs.</li>
+          <li>Move your mouse continuously inside the motion box to record peak polling frequency.</li>
+          <li>Review diagnostic stability charts for frame drops or input lag spikes.</li>
+        </ol>
+      </div>
+
+      <!-- 2. High-Intent FAQ Grid (Crucial for AdSense) -->
       <div class="space-y-6">
-        <div>
-          <h3 class="text-lg font-bold text-zinc-100">Is this hardware refresh and mouse polling tester completely free?</h3>
-          <p class="text-sm text-zinc-400 mt-2">Yes, this is a 100% completely free tool. You can test your display refresh rate (Hz) and mouse polling rate directly in your browser without any hidden fees, subscriptions, or downloads.</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-zinc-100">How do I test my mouse polling rate?</h3>
-          <p class="text-sm text-zinc-400 mt-2">Simply click the start button and move your mouse rapidly inside the designated box. This completely free tool uses high-precision hardware APIs to detect polling rates up to 8000Hz.</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-zinc-100">Can this free tool detect 500Hz+ monitors?</h3>
-          <p class="text-sm text-zinc-400 mt-2">Yes, our completely free tool uses microsecond timing to accurately benchmark ultra-high refresh rate esports displays, including 144Hz, 240Hz, 360Hz, and 500Hz+ monitors.</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-zinc-100">Do I need to download software to check my hardware Hz?</h3>
-          <p class="text-sm text-zinc-400 mt-2">No installation is required. This is a completely free tool that securely leverages native browser APIs to measure your hardware's true performance without requiring external software.</p>
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          ❓ Frequently Asked Questions
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- FAQ Item 1 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Why does my 144Hz monitor only display 60Hz in the test?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Ensure your display settings in Windows/macOS and GPU control panel are manually set to 144Hz.</p>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">How do I accurately test mouse polling rate?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Move your mouse rapidly in continuous circles inside the designated test region.</p>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Does browser hardware acceleration affect results?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes. Keep hardware acceleration enabled in browser settings for accurate frame delivery.</p>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is this tool accurate for competitive esports setups?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes, it uses sub-millisecond DOM High Resolution Timestamps (performance.now()).</p>
+          </div>
         </div>
       </div>
-    </section>
 
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
