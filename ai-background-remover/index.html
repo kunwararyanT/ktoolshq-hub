@@ -154,22 +154,70 @@
 
       </div>
     </div>
+  </main>
 
-    <!-- SEO FAQ -->
-    <section class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-6 md:p-10">
-      <h2 class="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>
+  <!-- SEO & ADSENSE CONTENT SECTION (Below the Fold) -->
+  <section class="border-t border-zinc-800 bg-zinc-950/50 py-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-12">
+
+      <!-- 1. Technical Deep-Dive & Guide -->
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          Free Local AI Background Remover & Image Isolation Tool
+        </h2>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Erasecraft by K Tools HQ is a high-performance image background removal utility powered directly by machine learning models inside your web browser. Traditional online background removers require uploading private photos to remote cloud servers, exposing user data and forcing long queue wait times. Our browser-native AI background remover processes raw images locally on your graphics processor using WebAssembly technology, delivering immediate PNG transparency without server lag or quality loss.
+        </p>
+        
+        <h3 class="text-xl font-bold text-white pt-4">How It Works Client-Side</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Using neural networks loaded dynamically into client memory, Erasecraft identifies foreground subjects—such as people, products, animals, and graphics—and generates an alpha matte mask. Since image pixels are processed in-browser, high-resolution JPG, PNG, and WebP images are isolated instantly without uploading files over the internet.
+        </p>
+
+        <h3 class="text-xl font-bold text-white pt-4">Step-by-Step Instructions</h3>
+        <ol class="list-decimal list-inside text-sm text-zinc-400 space-y-2 leading-relaxed">
+          <li>Drag and drop your image or click "Upload Image" to select a file.</li>
+          <li>The WebAssembly AI model automatically detects the primary subject.</li>
+          <li>Preview the transparent result with checkerboard or custom color backgrounds.</li>
+          <li>Click "Download PNG" to export full-resolution images instantly.</li>
+        </ol>
+      </div>
+
+      <!-- 2. High-Intent FAQ Grid (Crucial for AdSense) -->
       <div class="space-y-6">
-        <div>
-          <h3 class="text-base font-bold text-zinc-100">Is this tool genuinely free?</h3>
-          <p class="text-sm text-zinc-400 mt-1">Yes. Because the heavy AI processing is handled locally by your device's CPU/GPU via WebAssembly, we don't pay for expensive cloud servers. This means unlimited, free usage for you.</p>
-        </div>
-        <div>
-          <h3 class="text-base font-bold text-zinc-100">Are my photos secure?</h3>
-          <p class="text-sm text-zinc-400 mt-1">Absolutely. Our strict "Zero-Upload" architecture means the AI runs directly inside your internet browser. Your images never leave your computer or phone.</p>
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          ❓ Frequently Asked Questions
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- FAQ Item 1 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is my image uploaded to any server?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">No. All AI isolation runs 100% locally in your browser's memory. Your files never touch a remote server.</p>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is there an export resolution limit?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">No. The tool maintains original source image dimensions during output export.</p>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Does it work on mobile devices?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes, it is fully optimized for iOS and Android mobile web browsers.</p>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is this tool completely free?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes, Erasecraft is 100% free with unlimited exports and zero watermarks.</p>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
