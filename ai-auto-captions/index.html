@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Viral AI Subtitle Generator & Video Editor | 100% Local</title>
+  <meta name="description" content="Generate, edit, trim, and color-grade viral Alex Hormozi-style animated captions directly in your browser. Supports Hindi & English. 100% free, zero server uploads.">
+  <meta name="keywords" content="viral caption generator, video trimmer online free, hormozi style subtitles, auto subtitle generator, free srt maker, browser video editor, hindi video captions, download video with captions free">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/ai-auto-captions">
+
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B8VMVB3VEP');
+  </script>
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@700;900&family=Bebas+Neue&family=Poppins:wght@800;900&family=Playfair+Display:wght@800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    
+    /* Dynamic Responsive Variables */
+    :root {
+      --stroke-width: 0.05em;
+      --shadow-blur: 0em;
+      --glow-color: transparent;
+      --glow-radius: 0em;
+    }
+
+    #videoContainer {
+      container-type: inline-size;
+    }
+
+    #captionOverlayContainer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    #captionBox {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      text-align: center;
+      transition: top 0.1s ease-out;
+    }
+
+    .custom-stroke {
+      -webkit-text-stroke: var(--stroke-width) #000;
+      paint-order: stroke fill;
+      filter: drop-shadow(0px 0.05em var(--shadow-blur) rgba(0,0,0,0.8)) drop-shadow(0px 0px var(--glow-radius) var(--glow-color));
+    }
+
+    .caption-pop {
+      animation: popIn 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.8; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    
+    #renderOverlay {
+      backdrop-filter: blur(10px);
+    }
+  </style>
+
+  <!-- SEO FAQ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this tool support Hindi and Spanish?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The engine uses the global multilingual Whisper AI model. Simply select Hindi, Spanish, French, or let the AI auto-detect the language before uploading your video."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I trim and edit my video here for free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our new Video Editor tab allows you to trim video length, adjust playback speed, boost volume, and apply color grading filters completely free within your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download the final video with captions burned in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. You can edit your captions, change colors and outlines, and click 'Render & Download Video' to export a ready-to-post media file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my videos uploaded to a cloud server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We run OpenAI's Whisper AI model directly inside your browser via WebAssembly. Your media files never leave your device."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative">
+
+  <!-- Rendering Video Overlay -->
+  <div id="renderOverlay" class="fixed inset-0 z-[100] bg-zinc-950/90 hidden flex-col items-center justify-center">
+    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl max-w-md w-full text-center space-y-4 shadow-2xl">
+      <svg class="animate-spin w-12 h-12 text-indigo-500 mx-auto" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+      <h2 class="text-xl font-black text-white">Rendering Video...</h2>
+      <p class="text-sm text-zinc-400">Burning captions and color grades into your video. Do not switch tabs. The video is playing in real-time to capture the frames.</p>
+      <div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800">
+        <div id="renderProgress" class="bg-indigo-500 h-full rounded-full w-0 transition-all"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
+        <span class="text-2xl">⚡</span>
+        <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          CaptionCraft Studio
+        </span>
+      </a>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        Global Multilingual AI
+      </span>
+    </div>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
+    
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Local AI Subtitle Studio & Editor
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Transcribe, trim, edit, and color-grade viral videos entirely in your browser. 100% free.
+      </p>
+    </div>
+
+    <!-- TRANSPARENCY & HONESTY BANNER -->
+    <div id="transparencyBanner" class="max-w-2xl mx-auto bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-5 mb-8">
+      <h3 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        A quick note on how this free tool works:
+      </h3>
+      <ul class="text-xs text-zinc-300 space-y-2">
+        <li><strong class="text-white">🇺🇸 English is highly accurate.</strong> Non-English languages (like Hindi or Spanish) might have slight spelling or vowel errors.</li>
+        <li><strong class="text-white">✂️ NEW: Video Editor Features!</strong> You can now trim, speed up, and color grade your footage inside the Video Editor tab.</li>
+        <li><strong class="text-white">🔒 Why is it free?</strong> The AI runs entirely inside your browser's memory—not on massive, expensive cloud servers like paid subscriptions use.</li>
+        <li><strong class="text-white">✏️ The Fix:</strong> The AI does 80% of the hard work. Just click the <strong>"Edit Text"</strong> tab to quickly polish any typos before downloading your video!</li>
+      </ul>
+    </div>
+
+    <!-- Pre-Upload Configuration Zone -->
+    <div id="setupZone" class="max-w-xl mx-auto space-y-6">
+      <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl shadow-xl space-y-4">
+        
+        <div>
+          <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 1: Audio Language</label>
+          <select id="languageSelect" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
+            <option value="auto">🌍 Auto-Detect</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="hi" selected>🇮🇳 Hindi (High Accuracy Recommended)</option>
+            <option value="es">🇪🇸 Spanish</option>
+            <option value="fr">🇫🇷 French</option>
+            <option value="de">🇩🇪 German</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 2: AI Engine Quality</label>
+          <select id="modelSelect" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
+            <option value="Xenova/whisper-base">⚡ Fast Engine (Best for English only)</option>
+            <option value="Xenova/whisper-small" selected>🧠 High Accuracy Engine (Required for Hindi/Spanish)</option>
+          </select>
+          <p class="text-[10px] text-zinc-500 mt-2">The High Accuracy Engine is smarter and reads native scripts like Devanagari, but requires a larger initial download to your browser memory.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Upload Zone -->
+    <div id="dropZone" class="bg-zinc-900 border-2 border-dashed border-zinc-700 hover:border-indigo-500 rounded-3xl p-12 text-center transition-all cursor-pointer group shadow-2xl mt-6">
+      <input type="file" id="videoUpload" accept="video/mp4,video/webm,video/quicktime,video/x-m4v" class="hidden">
+      <div class="w-16 h-16 rounded-full bg-zinc-800 group-hover:bg-indigo-500/20 flex items-center justify-center mx-auto mb-4 transition-colors">
+        <svg class="w-8 h-8 text-zinc-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">Step 3: Upload Video</h3>
+      <p class="text-zinc-400 text-sm mb-4">Drag and drop your video file here to generate captions automatically.</p>
+      <button class="bg-zinc-800 text-zinc-300 font-bold px-6 py-2 rounded-lg pointer-events-none group-hover:bg-indigo-600 group-hover:text-white transition-colors">Browse Videos</button>
+    </div>
+
+    <!-- Progress Indicator & Warning Banner -->
+    <div id="progressContainer" class="hidden bg-zinc-900 border border-zinc-800 rounded-3xl p-8 max-w-2xl mx-auto space-y-4 shadow-2xl">
+      <div class="flex justify-between items-end mb-2">
+        <span class="text-sm font-bold text-zinc-300" id="statusText">Initializing AI Engine...</span>
+        <span class="text-xs text-indigo-400 font-mono animate-pulse">Running Locally</span>
+      </div>
+      <div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800 overflow-hidden">
+        <div id="progressBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-300 w-0 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+      </div>
+      
+      <div id="modelDownloadWarning" class="mt-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-4 text-left hidden">
+        <h4 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-1">
+          <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          Downloading AI Weights
+        </h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Fetching the neural network. This requires a <strong>one-time download of roughly <span class="text-zinc-200" id="modelSizeStr">200MB</span></strong>. Depending on your Wi-Fi, this might take 1 to 3 minutes. <strong class="text-zinc-200">Future uses will load instantly from your browser cache!</strong> Please do not close this tab.
+        </p>
+      </div>
+    </div>
+
+    <!-- Interactive Studio Workspace -->
+    <div id="workspace" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Video Player with Live Caption Overlay (5 Cols) -->
+      <div class="lg:col-span-5 flex flex-col items-center space-y-4">
+        <div id="videoContainer" class="relative w-full max-w-[340px] aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 flex items-center justify-center">
+          <video id="videoPreview" playsinline controls crossorigin="anonymous" class="w-full h-full object-cover transition-all duration-200"></video>
+          
+          <!-- Live Animated Caption Overlay -->
+          <div id="captionOverlayContainer" class="absolute inset-0 pointer-events-none select-none">
+            <div id="captionBox" class="transition-all duration-100 hidden">
+              <span id="captionText" class="font-black leading-tight inline-block custom-stroke"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caption Styling & Text Editor Controls (7 Cols) -->
+      <div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-6">
+        
+        <!-- Tab Selector -->
+        <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 flex-wrap">
+          <button onclick="switchTab('styles')" id="tabBtnStyles" class="px-4 py-2 rounded-xl text-xs font-black bg-indigo-600 text-white transition mb-2 xl:mb-0">🎨 Styling</button>
+          <button onclick="switchTab('editor')" id="tabBtnEditor" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✏️ Edit Text</button>
+          <!-- NEW: Video Editor Tab -->
+          <button onclick="switchTab('video')" id="tabBtnVideo" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✂️ Video Editor</button>
+          <button onclick="switchTab('export')" id="tabBtnExport" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">💾 Export Video</button>
+        </div>
+
+        <!-- TAB 1: Viral Styling Controls -->
+        <div id="tabStyles" class="space-y-6">
+            
+          <div>
+            <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Pro Style Presets</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <button onclick="applyPreset('hormozi')" class="p-3 bg-zinc-950 border border-indigo-500/40 rounded-xl hover:border-indigo-400 text-left transition group">
+                <div class="text-xs font-black text-amber-400 uppercase">Hormozi Pop</div>
+                <div class="text-[10px] text-zinc-500">Bold & Yellow Pop</div>
+              </button>
+              <button onclick="applyPreset('beast')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-emerald-400 text-left transition group">
+                <div class="text-xs font-black text-emerald-400 uppercase">MrBeast Green</div>
+                <div class="text-[10px] text-zinc-500">High Energy Impact</div>
+              </button>
+              <button onclick="applyPreset('gaming')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-fuchsia-400 text-left transition group">
+                <div class="text-xs font-black text-fuchsia-400 uppercase drop-shadow-[0_0_5px_rgba(232,121,249,0.5)]">Neon Gaming</div>
+                <div class="text-[10px] text-zinc-500">Aggressive Glow</div>
+              </button>
+              <button onclick="applyPreset('iman')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-300 text-left transition group">
+                <div class="text-xs font-bold text-zinc-100 uppercase" style="font-family: 'Playfair Display', serif;">Iman Gadzhi</div>
+                <div class="text-[10px] text-zinc-500">Clean & Elegant</div>
+              </button>
+              <button onclick="applyPreset('cinematic')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group">
+                <div class="text-xs font-bold text-zinc-200">Cinematic</div>
+                <div class="text-[10px] text-zinc-500">Soft Shadow Minimal</div>
+              </button>
+              <button onclick="applyPreset('clean')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group">
+                <div class="text-xs font-bold text-zinc-100 uppercase">Basic Box</div>
+                <div class="text-[10px] text-zinc-500">Standard Readability</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Font Family</label>
+              <select id="fontSelect" onchange="updateStyle()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500">
+                <option value="'Montserrat', sans-serif">Montserrat (Ultra-Bold)</option>
+                <option value="'Bebas Neue', sans-serif">Bebas Neue (Tall)</option>
+                <option value="'Poppins', sans-serif">Poppins (Modern)</option>
+                <option value="'Playfair Display', serif">Playfair (Elegant)</option>
+                <option value="'Inter', sans-serif">Inter (Clean)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Background Box</label>
+              <select id="bgSelect" onchange="updateStyle()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500">
+                <option value="transparent">None (Transparent)</option>
+                <option value="rgba(0,0,0,0.7)">Black Box (70%)</option>
+                <option value="rgba(0,0,0,0.9)">Black Box (Solid)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Primary Text Color</label>
+              <div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
+                <input type="color" id="primaryColor" value="#ffffff" onchange="updateStyle()" class="w-7 h-7 rounded border-none cursor-pointer bg-transparent">
+                <span id="primaryColorText" class="text-xs font-mono text-zinc-400">#FFFFFF</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Highlight & Glow Color</label>
+              <div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
+                <input type="color" id="highlightColor" value="#facc15" onchange="updateStyle()" class="w-7 h-7 rounded border-none cursor-pointer bg-transparent">
+                <span id="highlightColorText" class="text-xs font-mono text-zinc-400">#FACC15</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4 pt-2">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Text Size (% of Video Width)</span><span id="fontSizeDisplay">10%</span>
+              </div>
+              <input type="range" id="fontSizeSlider" min="2" max="25" step="0.5" value="10" oninput="updateStyle()" class="w-full accent-indigo-500">
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Vertical Position (Y-Axis)</span><span id="positionDisplay">Center (75%)</span>
+              </div>
+              <input type="range" id="positionSlider" min="5" max="95" step="1" value="75" oninput="updateStyle()" class="w-full accent-indigo-500">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Outline Thickness</span><span id="strokeDisplay">5%</span>
+              </div>
+              <input type="range" id="strokeSlider" min="0" max="20" step="1" value="5" oninput="updateStyle()" class="w-full accent-indigo-500">
+            </div>
+            
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span class="flex items-center gap-1">Neon Glow Effect</span><span id="glowDisplay">0%</span>
+              </div>
+              <input type="range" id="glowSlider" min="0" max="50" step="1" value="0" oninput="updateStyle()" class="w-full accent-indigo-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Interactive Line-by-Line Editor -->
+        <div id="tabEditor" class="hidden space-y-4">
+          <!-- Global Sync Offset Tool -->
+          <div class="flex justify-between items-center bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
+            <div>
+              <span class="text-sm font-bold text-white block">Global Sync Offset</span>
+              <span class="text-xs text-zinc-500">Fix captions showing up too early/late</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="number" id="syncOffset" step="0.1" value="0.0" class="w-20 bg-zinc-900 border border-zinc-700 text-white text-sm font-bold rounded-lg p-2 text-center focus:border-indigo-500 outline-none">
+              <span class="text-xs font-bold text-zinc-400 uppercase">Sec</span>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center text-xs text-zinc-400 pt-2">
+            <span>Click any timestamp to jump. Edit text inline.</span>
+            <span id="chunkCountBadge" class="font-bold text-indigo-400">0 Lines</span>
+          </div>
+          <div id="captionList" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Dynamically populated editable chunks -->
+          </div>
+        </div>
+
+        <!-- NEW TAB 3: Video Editor Studio -->
+        <div id="tabVideoEditor" class="hidden space-y-6">
+          
+          <div class="bg-zinc-950 p-5 rounded-2xl border border-zinc-800 space-y-4">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg> Video Trimming</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                  <span>Start Time (s)</span>
+                </div>
+                <input type="number" id="trimStart" value="0" step="0.1" min="0" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center">
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                  <span>End Time (s)</span>
+                </div>
+                <input type="number" id="trimEnd" value="0" step="0.1" min="0" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center">
+              </div>
+            </div>
+            <p class="text-[10px] text-zinc-500">The final exported video and subtitles will automatically adjust to this new trimmed timeframe.</p>
+          </div>
+
+          <div class="space-y-4 pt-2">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Playback Speed</span><span id="speedDisplay" class="text-emerald-400">1x</span>
+              </div>
+              <input type="range" id="playbackSpeed" min="0.5" max="2" step="0.25" value="1" oninput="updateVideoFilters()" class="w-full accent-emerald-500">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Audio Volume Booster</span><span id="volumeDisplay" class="text-emerald-400">100%</span>
+              </div>
+              <input type="range" id="audioVolume" min="0" max="300" step="10" value="100" oninput="updateVideoFilters()" class="w-full accent-emerald-500">
+            </div>
+            
+            <div class="border-t border-zinc-800 my-4"></div>
+            <h4 class="text-sm font-bold text-white mb-4">Color Grading & Filters</h4>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Brightness</span><span id="brightDisplay">100%</span>
+              </div>
+              <input type="range" id="filterBrightness" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Contrast</span><span id="contrastDisplay">100%</span>
+              </div>
+              <input type="range" id="filterContrast" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Saturation</span><span id="saturateDisplay">100%</span>
+              </div>
+              <input type="range" id="filterSaturation" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+                <span>Vintage Sepia</span><span id="sepiaDisplay">0%</span>
+              </div>
+              <input type="range" id="filterSepia" min="0" max="100" step="5" value="0" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: Export Video & SRT -->
+        <div id="tabExport" class="hidden space-y-4 flex flex-col h-full">
+          <div class="bg-zinc-950 border border-zinc-800 p-6 rounded-2xl text-center space-y-4 flex-1 flex flex-col justify-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Export Final Video</h3>
+            <p class="text-sm text-zinc-400">Renders the video with your styled captions, color grades, and trim settings permanently burned in. Downloads as a highly compatible .webm format.</p>
+            <button id="renderVideoBtn" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
+              Render & Download Video
+            </button>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <button id="downloadSrtBtn" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+              Download .SRT
+            </button>
+            <button id="copySrtBtn" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+              Copy to Clipboard
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Middle Ad Slot -->
+    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs my-8">
+      [AdSense In-Content Banner Slot]
+    </div>
+
+  </main>
+
+  <!-- SEO & ADSENSE CONTENT SECTION -->
+  <section class="border-t border-zinc-800 bg-zinc-950/50 py-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-12">
+
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          Free In-Browser Viral Subtitle Studio & Video Editor
+        </h2>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Modern short-form video algorithms on Instagram Reels, TikTok, and YouTube Shorts prioritize audience watch time and retention. Over 75% of mobile video consumers browse social feeds with their sound muted, making crisp, dynamic captions essential for hook retention. Many popular video editing suites lock automated word-level subtitle generation, font presets, and watermark-free exports behind paid subscriptions. <strong class="text-zinc-200">CaptionCraft Studio by K Tools HQ</strong> solves this bottleneck by bringing high-performance, open-source speech recognition directly into your browser.
+        </p>
+      </div>
+
+      <!-- Video Editing Features -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          <span>✂️</span> Powerful Client-Side Video Editing
+        </h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Our upgraded studio doesn't just do captions—it is a full-fledged client-side video editor powered by the HTML5 Canvas and Web Audio API. Before exporting, you can seamlessly trim dead space from the beginning or end of your clips, apply Hollywood-style color grading (Brightness, Contrast, Saturation, Sepia), boost quiet audio volume up to 300%, and adjust playback speed for fast-paced viral montages—all without uploading your footage to a server.
+        </p>
+      </div>
+
+      <!-- Viral Styles Breakdown -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          <span>🔥</span> Popular Viral Subtitle Styles Supported
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-zinc-400">
+          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">Hormozi Pop</h4>
+            <p>Features ultra-bold geometric sans-serif typography (Montserrat 900), uppercase lettering, heavy 4px black outlines, and high-contrast yellow keyword pops designed for fast-paced business and self-improvement content.</p>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
+            <h4 class="font-bold text-emerald-400 text-sm">MrBeast Impact</h4>
+            <p>Utilizes punchy condensed fonts (Bebas Neue) with vibrant emerald green highlights and rapid-pop animation curves, engineered for high-energy challenges, vlog hooks, and entertainment reels.</p>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
+            <h4 class="font-bold text-fuchsia-400 text-sm">Neon Gaming</h4>
+            <p>Combines heavy drop-shadows, vivid glow radiuses, and dynamic fuchsia color shifts that stand out over fast-paced gaming clips and montage edits.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multilingual & Hindi Architecture Guide -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          <span>🌐</span> Multilingual Speech-to-Text & Regional Dialects
+        </h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Our client-side engine supports transcription across global and regional languages including Hindi, Spanish, French, and German. Unlike standard tools that default to English-only phonetics, our High-Accuracy model leverages multilingual transformer weights to render native scripts like Devanagari accurately. Because audio transcription takes place entirely within local memory, your proprietary footage and unreleased voice clips are never transmitted across cloud servers.
+        </p>
+      </div>
+
+      <!-- Step-by-Step Tutorial for Editors -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          <span>⚡</span> Workflow: How to Trim, Edit & Burn In Subtitles
+        </h3>
+        <ol class="list-decimal list-inside text-sm text-zinc-400 space-y-2.5 leading-relaxed bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl">
+          <li><strong class="text-zinc-200">Set Audio Language:</strong> Pick your spoken language (or leave on Auto-Detect) and choose between the Fast Engine or the High-Accuracy Engine.</li>
+          <li><strong class="text-zinc-200">Import Video:</strong> Drop your vertical (9:16) MP4, MOV, or WebM video file into the local workspace.</li>
+          <li><strong class="text-zinc-200">Trim & Color Grade:</strong> Jump to the <em>Video Editor</em> tab to crop the video length, boost audio, and adjust brightness/saturation.</li>
+          <li><strong class="text-zinc-200">Choose Viral Presets:</strong> Click on preset cards like Hormozi, MrBeast, or Neon Gaming, or tweak font sizes, outline stroke percentages, and vertical alignment manually.</li>
+          <li><strong class="text-zinc-200">Fine-Tune Timings & Spelling:</strong> Use the <em>Edit Text</em> tab to correct regional phrases or adjust the Global Sync Offset to align text to spoken words.</li>
+          <li><strong class="text-zinc-200">Download or Export:</strong> Hit <em>Render & Download Video</em> to export a burned-in MP4/WebM video ready for Instagram and YouTube Shorts.</li>
+        </ol>
+      </div>
+
+      <!-- FAQ Grid -->
+      <div class="space-y-6">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          ❓ Frequently Asked Questions
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is this caption tool free for commercial video projects?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes. All subtitle outputs, SRT exports, and rendered video files generated on K Tools HQ are 100% royalty-free for personal and commercial client work.</p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Can I import the generated .SRT file into DaVinci Resolve or Premiere Pro?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes. Our exported .SRT files follow universal SubRip formatting, allowing you to drag and drop them directly onto subtitle tracks inside DaVinci Resolve, Adobe Premiere Pro, Final Cut Pro, or CapCut PC.</p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Why is client-side processing safer than cloud subtitle apps?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Cloud platforms require uploading full video files to external servers, creating privacy risks and long queue delays. Our tool processes everything inside your browser's RAM, ensuring your files never leave your device.</p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Can I fix spelling errors manually?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Yes! Simply open the "Edit Text" tab and you can change the text line-by-line while previewing the exact timestamps over your live video feed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance & Open Source Notice -->
+      <div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
+        <p class="font-bold text-zinc-400 uppercase tracking-wider">Compliance & Open Source Attribution</p>
+        <p>This utility utilizes OpenAI Whisper (released under the MIT License) via Transformers.js WebAssembly runtime. Audio processing, canvas compositing, and neural inference are executed strictly on the client device. No media assets are uploaded, collected, or stored on external servers.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 K Tools HQ • A free utility provided by your registered freelance enterprise.</p>
+      <div class="flex space-x-4">
+        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Client-Side Engine -->
+  <script type="module">
+    import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js';
+    
+    // Smart Cache Detector
+    try {
+        window.caches.keys(); 
+        env.useBrowserCache = true; 
+        env.allowLocalModels = false;
+    } catch (e) {
+        env.useBrowserCache = false; 
+        env.allowLocalModels = false;
+    }
+
+    // DOM Elements
+    const fileInput = document.getElementById('videoUpload');
+    const dropZone = document.getElementById('dropZone');
+    const setupZone = document.getElementById('setupZone');
+    const transparencyBanner = document.getElementById('transparencyBanner');
+    
+    // User Configurations
+    const langSelect = document.getElementById('languageSelect');
+    const modelSelect = document.getElementById('modelSelect');
+    
+    const progressContainer = document.getElementById('progressContainer');
+    const statusText = document.getElementById('statusText');
+    const progressBar = document.getElementById('progressBar');
+    const modelDownloadWarning = document.getElementById('modelDownloadWarning');
+    const modelSizeStr = document.getElementById('modelSizeStr');
+    
+    const workspace = document.getElementById('workspace');
+    const videoPreview = document.getElementById('videoPreview');
+    const captionOverlayContainer = document.getElementById('captionOverlayContainer');
+    const captionBox = document.getElementById('captionBox');
+    const captionText = document.getElementById('captionText');
+    const captionList = document.getElementById('captionList');
+    
+    const renderOverlay = document.getElementById('renderOverlay');
+    const renderProgress = document.getElementById('renderProgress');
+
+    // Controls
+    const fontSelect = document.getElementById('fontSelect');
+    const bgSelect = document.getElementById('bgSelect');
+    const primaryColor = document.getElementById('primaryColor');
+    const highlightColor = document.getElementById('highlightColor');
+    const fontSizeSlider = document.getElementById('fontSizeSlider');
+    const strokeSlider = document.getElementById('strokeSlider');
+    const glowSlider = document.getElementById('glowSlider');
+    const positionSlider = document.getElementById('positionSlider');
+    const syncOffsetInput = document.getElementById('syncOffset');
+    
+    const downloadSrtBtn = document.getElementById('downloadSrtBtn');
+    const copySrtBtn = document.getElementById('copySrtBtn');
+    const renderVideoBtn = document.getElementById('renderVideoBtn');
+
+    // Video Editor Controls
+    const trimStartInput = document.getElementById('trimStart');
+    const trimEndInput = document.getElementById('trimEnd');
+
+    let isProcessing = false;
+    let transcribedChunks = [];
+    let currentActiveChunk = null; 
+    
+    // Web Audio Variables for Volume Control
+    let localAudioCtx = null;
+    let mediaSourceNode = null;
+    let gainNode = null;
+
+    // Helper: Update Status and Progress Bar
+    window.updateStatus = function(text, percent) {
+      statusText.innerText = text;
+      if (percent !== undefined) {
+          progressBar.style.width = `${percent}%`;
+      }
+    };
+
+    // Metadata Loader (Sets Trim Ranges)
+    videoPreview.addEventListener('loadedmetadata', () => {
+        const duration = videoPreview.duration.toFixed(1);
+        trimStartInput.max = duration;
+        trimEndInput.max = duration;
+        trimEndInput.value = duration;
+    });
+
+    // Listen for Sync Adjustments
+    syncOffsetInput.addEventListener('input', () => {
+        currentActiveChunk = null; 
+        videoPreview.dispatchEvent(new Event('timeupdate'));
+    });
+
+    // Drag and Drop Handlers
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-indigo-500', 'bg-zinc-900/50'); });
+    dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('border-indigo-500', 'bg-zinc-900/50'); });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-indigo-500', 'bg-zinc-900/50');
+      if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) handleFile(e.target.files[0]);
+    });
+
+    async function handleFile(file) {
+      if (isProcessing) return;
+      isProcessing = true;
+      
+      dropZone.classList.add('hidden');
+      setupZone.classList.add('hidden');
+      transparencyBanner.classList.add('hidden');
+      progressContainer.classList.remove('hidden');
+      workspace.classList.add('hidden');
+      
+      videoPreview.src = URL.createObjectURL(file);
+      
+      // Initialize Global Audio Context for Volume Boosting
+      if (!localAudioCtx) {
+          localAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (localAudioCtx.state === 'suspended') {
+          await localAudioCtx.resume();
+      }
+      if (!mediaSourceNode) {
+          mediaSourceNode = localAudioCtx.createMediaElementSource(videoPreview);
+          gainNode = localAudioCtx.createGain();
+          mediaSourceNode.connect(gainNode);
+          gainNode.connect(localAudioCtx.destination);
+      }
+
+      try {
+        updateStatus("Decoding & Resampling audio track...", 5);
+        const audioData = await extractAndResampleAudio(file);
+        
+        let isSilent = true;
+        for (let i = 0; i < audioData.length; i++) {
+            if (audioData[i] !== 0) { isSilent = false; break; }
+        }
+        if (isSilent) throw new Error("Audio track is completely silent or could not be decoded.");
+
+        const selectedAIModel = modelSelect.value;
+        const modelMB = selectedAIModel.includes('small') ? "244MB" : "74MB";
+        modelSizeStr.innerText = modelMB;
+        modelDownloadWarning.classList.remove('hidden');
+
+        updateStatus(`Initializing AI Engine (${selectedAIModel.split('/')[1]})...`, 10);
+        
+        const transcriber = await pipeline('automatic-speech-recognition', selectedAIModel, {
+          progress_callback: (data) => {
+            if (data.status === 'progress' && data.progress !== undefined) {
+              const pct = Math.round(data.progress);
+              updateStatus(`Downloading Neural Weights (${pct}%) - This takes a moment...`, 10 + Math.round(pct * 0.5));
+            } else if (data.status === 'ready') {
+              modelDownloadWarning.classList.add('hidden');
+              updateStatus('Neural Network Ready. Transcribing Speech...', 65);
+            }
+          }
+        });
+
+        modelDownloadWarning.classList.add('hidden');
+        
+        updateStatus("Generating word timestamps & captions...", 70);
+        await new Promise(r => setTimeout(r, 120));
+
+        const options = {
+          chunk_length_s: 30,
+          stride_length_s: 5,
+          return_timestamps: true,
+          task: 'transcribe',
+          temperature: 0.0 
+        };
+        
+        if (langSelect.value !== 'auto') {
+            options.language = langSelect.value;
+        }
+
+        const output = await transcriber(audioData, options);
+
+        updateStatus("Filtering output...", 90);
+
+        const rawChunks = output.chunks || [];
+        const filteredChunks = [];
+        let lastText = "";
+        
+        for (const chunk of rawChunks) {
+            let t = chunk.text.trim();
+            
+            t = t.replace(/(.+?)(?:\s+\1){3,}/g, '$1');
+
+            if (t.includes("So you don't have any kind of video")) continue;
+            if (t.includes("Amara.org")) continue;
+            if (t.includes("Subtitles by")) continue;
+            if (t.includes("MBC News")) continue;
+            
+            if (t !== lastText && t.length > 0) {
+                chunk.text = t;
+                filteredChunks.push(chunk);
+                lastText = t;
+            }
+        }
+
+        transcribedChunks = filteredChunks.length > 0 ? filteredChunks : [
+          { timestamp: [0, 3], text: "[No speech detected]" }
+        ];
+
+        renderCaptionEditor();
+        updateStyle();
+        updateVideoFilters();
+
+        updateStatus("Complete!", 100);
+        setTimeout(() => {
+          progressContainer.classList.add('hidden');
+          workspace.classList.remove('hidden');
+          isProcessing = false;
+        }, 500);
+
+      } catch (error) {
+        console.error("Transcription Error:", error);
+        alert(`Error: ${error.message || "Failed to process audio stream."}`);
+        isProcessing = false;
+        progressContainer.classList.add('hidden');
+        dropZone.classList.remove('hidden');
+        setupZone.classList.remove('hidden');
+        transparencyBanner.classList.remove('hidden');
+      }
+    }
+
+    async function extractAndResampleAudio(file) {
+      const nativeCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (nativeCtx.state === 'suspended') await nativeCtx.resume();
+
+      const arrayBuffer = await file.arrayBuffer();
+      const decodedBuffer = await nativeCtx.decodeAudioData(arrayBuffer);
+      await nativeCtx.close();
+
+      const targetSampleRate = 16000;
+      const offlineCtx = new OfflineAudioContext(
+        1,
+        Math.ceil(decodedBuffer.duration * targetSampleRate),
+        targetSampleRate
+      );
+
+      const source = offlineCtx.createBufferSource();
+      source.buffer = decodedBuffer;
+      source.connect(offlineCtx.destination);
+      source.start(0);
+
+      const resampledBuffer = await offlineCtx.startRendering();
+      return resampledBuffer.getChannelData(0);
+    }
+
+    function getActiveChunk(time) {
+      const offset = parseFloat(syncOffsetInput.value) || 0;
+      const adjustedTime = time - offset;
+      
+      return transcribedChunks.find(chunk => {
+        const start = chunk.timestamp[0];
+        const end = chunk.timestamp[1] !== null && chunk.timestamp[1] !== undefined ? chunk.timestamp[1] : start + 2;
+        return adjustedTime >= start && adjustedTime <= end;
+      });
+    }
+
+    videoPreview.addEventListener('timeupdate', () => {
+      
+      // Trim Stop Logic for Preview Player
+      const trimEnd = parseFloat(trimEndInput.value);
+      if (trimEnd && videoPreview.currentTime >= trimEnd && !renderOverlay.classList.contains('flex')) {
+          videoPreview.pause();
+          videoPreview.currentTime = parseFloat(trimStartInput.value) || 0;
+      }
+
+      const activeChunk = getActiveChunk(videoPreview.currentTime);
+
+      if (activeChunk !== currentActiveChunk) {
+        currentActiveChunk = activeChunk;
+
+        if (activeChunk) {
+          let text = activeChunk.text.trim();
+          
+          if (!fontSelect.value.includes('Playfair') && !fontSelect.value.includes('Inter')) {
+              text = text.toUpperCase(); 
+          }
+
+          const words = text.split(' ');
+          if (words.length > 2) {
+            const midIdx = Math.floor(words.length / 2);
+            words[midIdx] = `<span style="color: ${highlightColor.value}; transform: scale(1.08); display: inline-block;">${words[midIdx]}</span>`;
+            captionText.innerHTML = words.join(' ');
+          } else {
+            captionText.innerHTML = text;
+          }
+
+          captionText.className = 'font-black leading-tight inline-block custom-stroke';
+          captionBox.style.display = 'block';
+          
+          captionBox.classList.remove('caption-pop');
+          void captionBox.offsetWidth; 
+          captionBox.classList.add('caption-pop');
+
+        } else {
+          captionText.innerHTML = '';
+          captionBox.style.display = 'none';
+        }
+      }
+    });
+
+    function renderCaptionEditor() {
+      captionList.innerHTML = '';
+      document.getElementById('chunkCountBadge').innerText = `${transcribedChunks.length} Lines`;
+
+      transcribedChunks.forEach((chunk, index) => {
+        const item = document.createElement('div');
+        item.className = "bg-zinc-950 border border-zinc-800 p-3 rounded-xl flex items-center gap-3 hover:border-zinc-700 transition";
+        
+        const m = Math.floor(chunk.timestamp[0] / 60);
+        const s = Math.floor(chunk.timestamp[0] % 60);
+        const startFormatted = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        
+        item.innerHTML = `
+          <button class="time-jump-btn text-[11px] font-mono font-bold bg-indigo-600/20 text-indigo-400 hover:bg-indigo-600 hover:text-white px-2 py-1 rounded transition" data-time="${chunk.timestamp[0]}">
+            ${startFormatted}
+          </button>
+          <input type="text" value="${chunk.text.trim()}" class="chunk-input flex-1 bg-transparent border-b border-transparent focus:border-indigo-500 text-xs font-semibold text-zinc-200 outline-none transition py-1" data-index="${index}">
+        `;
+        captionList.appendChild(item);
+      });
+
+      document.querySelectorAll('.time-jump-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const offset = parseFloat(syncOffsetInput.value) || 0;
+          videoPreview.currentTime = Math.max(0, parseFloat(e.currentTarget.getAttribute('data-time')) + offset);
+          videoPreview.play();
+        });
+      });
+
+      document.querySelectorAll('.chunk-input').forEach(input => {
+        input.addEventListener('input', (e) => {
+          transcribedChunks[parseInt(e.target.getAttribute('data-index'))].text = e.target.value;
+          currentActiveChunk = null; 
+          videoPreview.dispatchEvent(new Event('timeupdate'));
+        });
+      });
+    }
+
+    // Video Editing & Color Grading Engine
+    window.updateVideoFilters = function() {
+      const br = document.getElementById('filterBrightness').value;
+      const ct = document.getElementById('filterContrast').value;
+      const sa = document.getElementById('filterSaturation').value;
+      const se = document.getElementById('filterSepia').value;
+      
+      document.getElementById('brightDisplay').innerText = `${br}%`;
+      document.getElementById('contrastDisplay').innerText = `${ct}%`;
+      document.getElementById('saturateDisplay').innerText = `${sa}%`;
+      document.getElementById('sepiaDisplay').innerText = `${se}%`;
+
+      videoPreview.style.filter = `brightness(${br}%) contrast(${ct}%) saturate(${sa}%) sepia(${se}%)`;
+
+      const vol = document.getElementById('audioVolume').value;
+      if (gainNode) {
+          gainNode.gain.value = parseFloat(vol) / 100;
+      }
+      document.getElementById('volumeDisplay').innerText = `${vol}%`;
+
+      const speed = document.getElementById('playbackSpeed').value;
+      videoPreview.playbackRate = parseFloat(speed);
+      document.getElementById('speedDisplay').innerText = `${speed}x`;
+    };
+
+    window.applyPreset = function(preset) {
+        if (preset === 'hormozi') {
+            fontSelect.value = "'Montserrat', sans-serif";
+            bgSelect.value = "transparent";
+            primaryColor.value = "#ffffff";
+            highlightColor.value = "#facc15"; 
+            fontSizeSlider.value = 10;
+            strokeSlider.value = 5;
+            glowSlider.value = 0;
+            positionSlider.value = 75;
+        } else if (preset === 'beast') {
+            fontSelect.value = "'Bebas Neue', sans-serif";
+            bgSelect.value = "transparent";
+            primaryColor.value = "#ffffff";
+            highlightColor.value = "#34d399"; 
+            fontSizeSlider.value = 12;
+            strokeSlider.value = 6;
+            glowSlider.value = 0;
+            positionSlider.value = 80;
+        } else if (preset === 'gaming') {
+            fontSelect.value = "'Montserrat', sans-serif";
+            bgSelect.value = "transparent";
+            primaryColor.value = "#ffffff";
+            highlightColor.value = "#e879f9"; 
+            fontSizeSlider.value = 10;
+            strokeSlider.value = 2;
+            glowSlider.value = 15; 
+            positionSlider.value = 75;
+        } else if (preset === 'iman') {
+            fontSelect.value = "'Playfair Display', serif";
+            bgSelect.value = "transparent";
+            primaryColor.value = "#ffffff";
+            highlightColor.value = "#a1a1aa"; 
+            fontSizeSlider.value = 7;
+            strokeSlider.value = 0;
+            glowSlider.value = 8;
+            positionSlider.value = 80;
+        } else if (preset === 'cinematic') {
+            fontSelect.value = "'Inter', sans-serif";
+            bgSelect.value = "rgba(0,0,0,0.7)"; 
+            primaryColor.value = "#f4f4f5";
+            highlightColor.value = "#facc15";
+            fontSizeSlider.value = 6;
+            strokeSlider.value = 0;
+            glowSlider.value = 0;
+            positionSlider.value = 85;
+        } else if (preset === 'clean') {
+            fontSelect.value = "'Poppins', sans-serif";
+            bgSelect.value = "transparent";
+            primaryColor.value = "#ffffff";
+            highlightColor.value = "#60a5fa"; 
+            fontSizeSlider.value = 8;
+            strokeSlider.value = 2;
+            glowSlider.value = 0;
+            positionSlider.value = 80;
+        }
+        updateStyle();
+    };
+
+    window.updateStyle = function() {
+      const font = fontSelect.value;
+      const size = fontSizeSlider.value;
+      const pos = positionSlider.value;
+      const stroke = strokeSlider.value;
+      const glow = glowSlider.value;
+      const pColor = primaryColor.value;
+      const hColor = highlightColor.value;
+      const bg = bgSelect.value;
+
+      document.getElementById('primaryColorText').innerText = pColor.toUpperCase();
+      document.getElementById('highlightColorText').innerText = hColor.toUpperCase();
+      document.getElementById('fontSizeDisplay').innerText = `${size}%`;
+      document.getElementById('strokeDisplay').innerText = `${stroke}%`;
+      document.getElementById('glowDisplay').innerText = `${glow}%`;
+      document.getElementById('positionDisplay').innerText = `${pos}%`;
+
+      document.documentElement.style.setProperty('--stroke-width', `${stroke / 100}em`);
+      document.documentElement.style.setProperty('--glow-color', hColor);
+      document.documentElement.style.setProperty('--glow-radius', `${glow / 100}em`);
+      document.documentElement.style.setProperty('--shadow-blur', `${stroke > 0 ? Math.max(stroke/200, 0.02) : 0}em`);
+
+      captionText.style.fontFamily = font;
+      captionText.style.fontSize = `${size}cqi`;
+      captionText.style.color = pColor;
+      
+      if (bg !== 'transparent') {
+          captionBox.style.backgroundColor = bg;
+          captionBox.style.padding = '0.5em 1em';
+          captionBox.style.borderRadius = '0.5em';
+      } else {
+          captionBox.style.backgroundColor = 'transparent';
+          captionBox.style.padding = '0';
+          captionBox.style.borderRadius = '0';
+      }
+      
+      captionBox.style.top = `${pos}%`;
+      
+      currentActiveChunk = null; 
+      videoPreview.dispatchEvent(new Event('timeupdate'));
+    };
+
+    // Advanced Export Render Loop
+    renderVideoBtn.addEventListener('click', () => {
+        if (!videoPreview.src || transcribedChunks.length === 0) return;
+        
+        const trimStart = parseFloat(trimStartInput.value) || 0;
+        const trimEnd = parseFloat(trimEndInput.value) || videoPreview.duration;
+
+        renderOverlay.classList.remove('hidden');
+        renderOverlay.classList.add('flex');
+        
+        videoPreview.currentTime = trimStart;
+        videoPreview.pause();
+
+        const canvas = document.createElement('canvas');
+        canvas.width = videoPreview.videoWidth;
+        canvas.height = videoPreview.videoHeight;
+        const ctx = canvas.getContext('2d');
+
+        const stream = canvas.captureStream(30);
+        
+        // Export Audio Routing (Global Web Audio context to prevent crashes)
+        const exportAudioDest = localAudioCtx.createMediaStreamDestination();
+        gainNode.connect(exportAudioDest); 
+        
+        if (exportAudioDest.stream.getAudioTracks().length > 0) {
+            stream.addTrack(exportAudioDest.stream.getAudioTracks()[0]);
+        }
+
+        const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        const chunks = [];
+        
+        recorder.ondataavailable = e => {
+            if (e.data && e.data.size > 0) chunks.push(e.data);
+        };
+        
+        recorder.onstop = () => {
+            const blob = new Blob(chunks, { type: 'video/webm' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'captioncraft_edited_video.webm';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            renderOverlay.classList.add('hidden');
+            renderOverlay.classList.remove('flex');
+            renderProgress.style.width = '0%';
+            
+            // Cleanup Export Node
+            gainNode.disconnect(exportAudioDest);
+        };
+
+        function drawFrame() {
+            if (videoPreview.paused && videoPreview.currentTime > trimStart) return;
+
+            // Trim End Stop Logic
+            if (videoPreview.currentTime >= trimEnd && !videoPreview.paused) {
+                recorder.stop();
+                videoPreview.pause();
+                return;
+            }
+            
+            // Apply Video Color Filters
+            const br = document.getElementById('filterBrightness').value;
+            const ct = document.getElementById('filterContrast').value;
+            const sa = document.getElementById('filterSaturation').value;
+            const se = document.getElementById('filterSepia').value;
+            ctx.filter = `brightness(${br}%) contrast(${ct}%) saturate(${sa}%) sepia(${se}%)`;
+            
+            ctx.drawImage(videoPreview, 0, 0, canvas.width, canvas.height);
+            
+            // Reset filters for subtitles
+            ctx.filter = 'none';
+
+            const activeChunk = getActiveChunk(videoPreview.currentTime);
+            if (activeChunk) {
+                let text = activeChunk.text.trim();
+                if (!fontSelect.value.includes('Playfair') && !fontSelect.value.includes('Inter')) {
+                    text = text.toUpperCase();
+                }
+                
+                const fontSize = (parseFloat(fontSizeSlider.value) / 100) * canvas.width; 
+                ctx.font = `900 ${fontSize}px ${fontSelect.value.split(',')[0].replace(/'/g, '')}, sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                const x = canvas.width / 2;
+                const y = canvas.height * (parseFloat(positionSlider.value) / 100);
+                
+                if (bgSelect.value !== 'transparent') {
+                    ctx.fillStyle = bgSelect.value;
+                    const metrics = ctx.measureText(text);
+                    const padding = fontSize * 0.5;
+                    ctx.fillRect(x - metrics.width/2 - padding, y - fontSize/2 - padding, metrics.width + padding*2, fontSize + padding*2);
+                }
+
+                const words = text.split(' ');
+                const strokeW = fontSize * (parseFloat(strokeSlider.value) / 100); 
+                const glowW = fontSize * (parseFloat(glowSlider.value) / 100);
+
+                if (words.length > 2) {
+                    const midIdx = Math.floor(words.length / 2);
+                    let currentX = x - (ctx.measureText(text).width / 2);
+                    
+                    words.forEach((word, idx) => {
+                        ctx.fillStyle = idx === midIdx ? highlightColor.value : primaryColor.value;
+                        const wWidth = ctx.measureText(word + " ").width;
+                        
+                        if (glowW > 0) {
+                            ctx.shadowColor = highlightColor.value;
+                            ctx.shadowBlur = glowW;
+                        } else {
+                            ctx.shadowBlur = 0;
+                        }
+
+                        if (strokeW > 0) {
+                            ctx.lineWidth = strokeW;
+                            ctx.strokeStyle = '#000000';
+                            ctx.strokeText(word, currentX + wWidth/2, y);
+                        }
+                        
+                        ctx.shadowBlur = 0; 
+                        ctx.fillText(word, currentX + wWidth/2, y);
+                        currentX += wWidth;
+                    });
+                } else {
+                    if (glowW > 0) {
+                        ctx.shadowColor = highlightColor.value;
+                        ctx.shadowBlur = glowW;
+                    } else {
+                        ctx.shadowBlur = 0;
+                    }
+
+                    if (strokeW > 0) {
+                        ctx.lineWidth = strokeW;
+                        ctx.strokeStyle = '#000000';
+                        ctx.strokeText(text, x, y);
+                    }
+                    
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = primaryColor.value;
+                    ctx.fillText(text, x, y);
+                }
+            }
+
+            const pct = ((videoPreview.currentTime - trimStart) / (trimEnd - trimStart)) * 100;
+            renderProgress.style.width = `${Math.min(pct, 100)}%`;
+
+            if (!videoPreview.ended && videoPreview.currentTime < trimEnd) {
+                requestAnimationFrame(drawFrame);
+            }
+        }
+
+        recorder.start();
+        videoPreview.play();
+        drawFrame();
+        
+        videoPreview.onended = () => {
+            if(recorder.state !== 'inactive') {
+                recorder.stop();
+            }
+            videoPreview.onended = null;
+        };
+    });
+
+    window.switchTab = function(tab) {
+      document.getElementById('tabStyles').classList.toggle('hidden', tab !== 'styles');
+      document.getElementById('tabEditor').classList.toggle('hidden', tab !== 'editor');
+      document.getElementById('tabVideoEditor').classList.toggle('hidden', tab !== 'video');
+      document.getElementById('tabExport').classList.toggle('hidden', tab !== 'export');
+
+      const activeCls = "px-4 py-2 rounded-xl text-xs font-black bg-indigo-600 text-white transition mb-2 xl:mb-0";
+      const inactiveCls = "px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0";
+      const activeVideoCls = "px-4 py-2 rounded-xl text-xs font-black bg-emerald-600 text-white transition mb-2 xl:mb-0";
+
+      document.getElementById('tabBtnStyles').className = tab === 'styles' ? activeCls : inactiveCls;
+      document.getElementById('tabBtnEditor').className = tab === 'editor' ? activeCls : inactiveCls;
+      document.getElementById('tabBtnVideo').className = tab === 'video' ? activeVideoCls : inactiveCls;
+      document.getElementById('tabBtnExport').className = tab === 'export' ? activeCls : inactiveCls;
+    };
+
+    function getSRTString() {
+      const offset = parseFloat(syncOffsetInput.value) || 0;
+      if (transcribedChunks.length === 0) return "1\n00:00:00,000 --> 00:00:03,000\n[No captions]";
+      return transcribedChunks.map((c, i) => {
+        const startOffset = Math.max(0, c.timestamp[0] + offset);
+        const endRaw = c.timestamp[1] !== null && c.timestamp[1] !== undefined ? c.timestamp[1] : c.timestamp[0] + 2;
+        const endOffset = Math.max(0, endRaw + offset);
+        
+        const start = formatTimeSRT(startOffset);
+        const end = formatTimeSRT(endOffset);
+        return `${i + 1}\n${start} --> ${end}\n${c.text.trim()}`;
+      }).join('\n\n');
+    }
+
+    function formatTimeSRT(secs) {
+      if (!secs || isNaN(secs)) return "00:00:00,000";
+      const d = new Date(secs * 1000);
+      return `${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}:${String(d.getUTCSeconds()).padStart(2,'0')},${String(d.getUTCMilliseconds()).padStart(3,'0')}`;
+    }
+
+    downloadSrtBtn.addEventListener('click', () => {
+      const blob = new Blob([getSRTString()], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'captions.srt';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    copySrtBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(getSRTString()).then(() => alert("SRT Subtitles copied!"));
+    });
+
+    // Initialize default styles
+    updateStyle();
+  </script>
+</body>
+</html>
