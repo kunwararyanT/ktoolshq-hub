@@ -618,6 +618,24 @@
     </div>
   </footer>
 
+  <!-- Heartbeat Tracking Script (Keeps GA4 Session Active) -->
+  <script>
+    let activeSeconds = 0;
+    setInterval(() => {
+      if (!document.hidden) {
+        activeSeconds += 30;
+        if (typeof gtag === 'function') {
+          gtag('event', 'user_active_heartbeat', {
+            event_category: 'engagement',
+            engagement_time_msec: 30000,
+            active_seconds: activeSeconds,
+            tool_name: 'ai_auto_captions'
+          });
+        }
+      }
+    }, 30000);
+  </script>
+
   <!-- Client-Side Engine -->
   <script type="module">
     import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js';
@@ -742,6 +760,16 @@
       if (isProcessing) return;
       isProcessing = true;
       
+      // GA4 Custom Event: Video Uploaded
+      if (typeof gtag === 'function') {
+        gtag('event', 'video_uploaded', {
+          event_category: 'tool_interaction',
+          file_type: file.type,
+          file_size_mb: Math.round(file.size / (1024 * 1024)),
+          tool_name: 'ai_auto_captions'
+        });
+      }
+
       // Stop the mobile screen from sleeping during the heavy processing
       await requestWakeLock();
       
@@ -784,6 +812,16 @@
         modelSizeStr.innerText = modelMB;
         modelDownloadWarning.classList.remove('hidden');
 
+        // GA4 Custom Event: Transcription Started
+        if (typeof gtag === 'function') {
+          gtag('event', 'transcription_started', {
+            event_category: 'tool_processing',
+            ai_model: selectedAIModel,
+            language: langSelect.value,
+            tool_name: 'ai_auto_captions'
+          });
+        }
+
         updateStatus(`Initializing AI Engine (${selectedAIModel.split('/')[1]})...`, 10);
         
         const transcriber = await pipeline('automatic-speech-recognition', selectedAIModel, {
@@ -817,6 +855,14 @@
 
         const output = await transcriber(audioData, options);
         
+        // GA4 Custom Event: Transcription Completed Successfully
+        if (typeof gtag === 'function') {
+          gtag('event', 'transcription_complete', {
+            event_category: 'tool_conversion',
+            tool_name: 'ai_auto_captions'
+          });
+        }
+
         // MOBILE FIX 3: Immediately delete the massive audio array from RAM.
         // This stops Mobile OS from stuttering or killing the browser.
         audioData = null;
@@ -871,6 +917,16 @@
 
       } catch (error) {
         console.error("Transcription Error:", error);
+        
+        // GA4 Custom Event: Transcription Error
+        if (typeof gtag === 'function') {
+          gtag('event', 'transcription_error', {
+            event_category: 'tool_error',
+            error_message: error.message || 'unknown_error',
+            tool_name: 'ai_auto_captions'
+          });
+        }
+
         alert(`Error: ${error.message || "Failed to process audio stream."}`);
         isProcessing = false;
         releaseWakeLock();
@@ -1026,6 +1082,15 @@
     };
 
     window.applyPreset = function(preset) {
+        // GA4 Custom Event: Preset Applied
+        if (typeof gtag === 'function') {
+          gtag('event', 'preset_applied', {
+            event_category: 'tool_interaction',
+            preset_name: preset,
+            tool_name: 'ai_auto_captions'
+          });
+        }
+
         if (preset === 'hormozi') {
             fontSelect.value = "'Montserrat', sans-serif";
             bgSelect.value = "transparent";
@@ -1176,6 +1241,14 @@
             
             // Cleanup Export Node
             gainNode.disconnect(exportAudioDest);
+
+            // GA4 Custom Event: Video Rendered and Downloaded
+            if (typeof gtag === 'function') {
+              gtag('event', 'video_rendered', {
+                event_category: 'tool_conversion',
+                tool_name: 'ai_auto_captions'
+              });
+            }
         };
 
         function drawFrame() {
@@ -1335,10 +1408,26 @@
       a.download = 'captions.srt';
       a.click();
       URL.revokeObjectURL(url);
+
+      // GA4 Custom Event: SRT Downloaded
+      if (typeof gtag === 'function') {
+        gtag('event', 'srt_downloaded', {
+          event_category: 'tool_conversion',
+          tool_name: 'ai_auto_captions'
+        });
+      }
     });
 
     copySrtBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(getSRTString()).then(() => alert("SRT Subtitles copied!"));
+
+      // GA4 Custom Event: SRT Copied
+      if (typeof gtag === 'function') {
+        gtag('event', 'srt_copied', {
+          event_category: 'tool_conversion',
+          tool_name: 'ai_auto_captions'
+        });
+      }
     });
 
     // Initialize default styles
