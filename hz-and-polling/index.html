@@ -8,7 +8,13 @@
   <title>Free High-Hz Display & 1000Hz+ Mouse Polling Tester</title>
   <meta name="description" content="Instantly test your monitor's true refresh rate (up to 500Hz+) and check mouse polling rates up to 8000Hz using browser hardware APIs. A completely free tool.">
   <meta name="keywords" content="monitor hz test, 500hz test, mouse polling rate test, 1000hz mouse test, 8000hz mouse test, input lag test, free tool">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/hz-and-polling">
+
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
   
+  <!-- Google AdSense Tag -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
 
   <!-- Google tag (gtag.js) -->
@@ -238,12 +244,30 @@
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
       <p>© 2026 HardwareTest • A free utility provided by your registered freelance video editing enterprise.</p>
       <div class="flex space-x-4">
-        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
-        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+        <a href="https://ktoolshq.com/about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="https://ktoolshq.com/privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="https://ktoolshq.com/terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
       </div>
     </div>
   </footer>
+
+  <!-- Heartbeat Tracking Script (Keeps GA4 Session Active) -->
+  <script>
+    let activeSeconds = 0;
+    setInterval(() => {
+      if (!document.hidden) {
+        activeSeconds += 30;
+        if (typeof gtag === 'function') {
+          gtag('event', 'user_active_heartbeat', {
+            event_category: 'engagement',
+            engagement_time_msec: 30000,
+            active_seconds: activeSeconds,
+            tool_name: 'hz_and_polling'
+          });
+        }
+      }
+    }, 30000);
+  </script>
 
   <!-- Diagnostic Engine Scripts -->
   <script>
@@ -280,6 +304,14 @@
         totalMouseEvents = 0;
         peakPolling = 0;
 
+        // Custom GA4 Event: Test Started
+        if (typeof gtag === 'function') {
+          gtag('event', 'test_started', {
+            event_category: 'tool_interaction',
+            tool_name: 'hz_and_polling'
+          });
+        }
+
         requestAnimationFrame(runHzTest);
       } else {
         btn.className = "bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/30 transition-all flex items-center gap-3 cursor-pointer ring-4 ring-blue-500/20";
@@ -288,6 +320,15 @@
         mouseInstruction.textContent = "Click Start above to enable mouse testing";
         mouseInstruction.className = "text-sm text-zinc-500 font-bold mb-1";
         hzGlow.className = "absolute inset-0 bg-blue-500/10 rounded-full blur-3xl opacity-0 transition-opacity";
+
+        // Custom GA4 Event: Test Stopped (Captures Peak Polling Rate)
+        if (typeof gtag === 'function') {
+          gtag('event', 'test_stopped', {
+            event_category: 'tool_interaction',
+            peak_polling_hz: peakPolling,
+            tool_name: 'hz_and_polling'
+          });
+        }
 
         if (hzAnimationId) cancelAnimationFrame(hzAnimationId);
       }
