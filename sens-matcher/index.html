@@ -8,19 +8,20 @@
   <title>Free Cross-Game Sensitivity & eDPI Converter (Valorant, CS2, Fortnite, Minecraft)</title>
   <meta name="description" content="Instantly convert your mouse sensitivity between Valorant, CS2, Fortnite, Minecraft, Roblox, Apex Legends, and more. Calculate true eDPI and cm/360 to keep your muscle memory intact.">
   <meta name="keywords" content="valorant to cs2 sens, sensitivity converter, fortnite sensitivity calculator, roblox sens to valorant, minecraft sensitivity converter, apex legends sens, edpi calculator, cm/360 calculator, free gaming tool">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/sens-matcher">
   
-  <!-- Replace with your actual Search Console & GA4 tags later -->
-  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B8VMVB3VEP');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B8VMVB3VEP');
+  </script>
   
   <!-- Google AdSense Tag -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
@@ -280,12 +281,30 @@
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
       <p>© 2026 SensMatcher • A free gaming utility provided by your registered freelance video editing enterprise.</p>
       <div class="flex space-x-4">
-        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
-        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+        <a href="https://ktoolshq.com/about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="https://ktoolshq.com/privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="https://ktoolshq.com/terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
       </div>
     </div>
   </footer>
+
+  <!-- Heartbeat Tracking Script (Keeps GA4 Session Active) -->
+  <script>
+    let activeSeconds = 0;
+    setInterval(() => {
+      if (!document.hidden) {
+        activeSeconds += 30;
+        if (typeof gtag === 'function') {
+          gtag('event', 'user_active_heartbeat', {
+            event_category: 'engagement',
+            engagement_time_msec: 30000,
+            active_seconds: activeSeconds,
+            tool_name: 'sens_matcher'
+          });
+        }
+      }
+    }, 30000);
+  </script>
 
   <!-- Calculator Engine Script -->
   <script>
@@ -334,11 +353,53 @@
       outputCm.innerText = cmPer360.toFixed(2) + " cm";
     }
 
-    // Attach event listeners to all inputs to update live
+    // Attach event listeners to all inputs to update live UI
     gameFrom.addEventListener('change', calculateSens);
     sensFrom.addEventListener('input', calculateSens);
     dpiInput.addEventListener('input', calculateSens);
     gameTo.addEventListener('change', calculateSens);
+
+    // --- GA4 Custom Event Tracking ---
+    
+    // Helper function to extract game name text from the select dropdowns
+    function getSelectedGameName(selectElement) {
+        const text = selectElement.options[selectElement.selectedIndex].text;
+        return text.split(' ')[0]; // Gets just "Valorant" or "Counter-Strike"
+    }
+
+    // Track when user changes games
+    function trackGameChange() {
+        if (typeof gtag === 'function') {
+            gtag('event', 'game_selection_changed', {
+                event_category: 'tool_interaction',
+                from_game: getSelectedGameName(gameFrom),
+                to_game: getSelectedGameName(gameTo),
+                tool_name: 'sens_matcher'
+            });
+        }
+    }
+    gameFrom.addEventListener('change', trackGameChange);
+    gameTo.addEventListener('change', trackGameChange);
+
+    // Track when user finishes typing Sens (fires on blur/change, not on every keystroke)
+    sensFrom.addEventListener('change', () => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'sensitivity_calculated', {
+                event_category: 'tool_conversion',
+                tool_name: 'sens_matcher'
+            });
+        }
+    });
+
+    // Track when user finishes typing DPI
+    dpiInput.addEventListener('change', () => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'dpi_updated', {
+                event_category: 'tool_interaction',
+                tool_name: 'sens_matcher'
+            });
+        }
+    });
 
     // Initial calculation on load
     calculateSens();
