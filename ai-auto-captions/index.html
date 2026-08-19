@@ -97,6 +97,14 @@
       },
       {
         "@type": "Question",
+        "name": "Can I choose how many words appear per subtitle line?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our studio includes a Pacing selector allowing you to switch between 1-word rapid pop, 2-3 words viral reels format, or full sentences."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Can I trim and edit my video here for free?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -179,7 +187,7 @@
       </h3>
       <ul class="text-xs text-zinc-300 space-y-2">
         <li><strong class="text-white">🇺🇸 English is highly accurate.</strong> Non-English languages (like Hindi or Spanish) might have slight spelling or vowel errors.</li>
-        <li><strong class="text-white">✂️ NEW: Video Editor Features!</strong> You can now trim, speed up, and color grade your footage inside the Video Editor tab.</li>
+        <li><strong class="text-white">✂️ NEW: Word Pacing & Video Editor!</strong> Control exact words per line, trim, speed up, and color grade your footage.</li>
         <li><strong class="text-white">🔒 Why is it free?</strong> The AI runs entirely inside your browser's memory—not on massive, expensive cloud servers like paid subscriptions use.</li>
         <li><strong class="text-white">✏️ The Fix:</strong> The AI does 80% of the hard work. Just click the <strong>"Edit Text"</strong> tab to quickly polish any typos before downloading your video!</li>
       </ul>
@@ -251,7 +259,7 @@
       <!-- Video Player with Live Caption Overlay (5 Cols) -->
       <div class="lg:col-span-5 flex flex-col items-center space-y-4">
         <div id="videoContainer" class="relative w-full max-w-[340px] aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 flex items-center justify-center">
-          <video id="videoPreview" playsinline webkit-playsinline controls crossorigin="anonymous" class="w-full h-full object-cover transition-all duration-200"></video>
+          <video id="videoPreview" playsinline controls crossorigin="anonymous" class="w-full h-full object-cover transition-all duration-200"></video>
           
           <!-- Live Animated Caption Overlay -->
           <div id="captionOverlayContainer" class="absolute inset-0 pointer-events-none select-none">
@@ -269,13 +277,27 @@
         <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 flex-wrap">
           <button onclick="switchTab('styles')" id="tabBtnStyles" class="px-4 py-2 rounded-xl text-xs font-black bg-indigo-600 text-white transition mb-2 xl:mb-0">🎨 Styling</button>
           <button onclick="switchTab('editor')" id="tabBtnEditor" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✏️ Edit Text</button>
-          <!-- NEW: Video Editor Tab -->
           <button onclick="switchTab('video')" id="tabBtnVideo" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✂️ Video Editor</button>
           <button onclick="switchTab('export')" id="tabBtnExport" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">💾 Export Video</button>
         </div>
 
         <!-- TAB 1: Viral Styling Controls -->
         <div id="tabStyles" class="space-y-6">
+
+          <!-- NEW: WORDS PER LINE / PACING SELECTOR -->
+          <div class="bg-zinc-950 p-4 rounded-2xl border border-indigo-500/30 space-y-2 mb-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Caption Pacing (Words Per Line)</label>
+              <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold px-2 py-0.5 rounded-full">Single-Line Mode</span>
+            </div>
+            <select id="wordsPerLineSelect" onchange="changePacing()" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
+              <option value="1">⚡ 1 Word (Rapid Pop / High Energy)</option>
+              <option value="3" selected>🔥 2-3 Words (Viral Reels & Shorts - Single Line)</option>
+              <option value="5">💬 4-5 Words (Balanced Short Line)</option>
+              <option value="0">📜 Full Sentence (Classic Subtitles)</option>
+            </select>
+            <p class="text-[10px] text-zinc-500">Changes how many words appear on screen at a time. Each line automatically disappears and swaps as speech advances.</p>
+          </div>
             
           <div>
             <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Pro Style Presets</label>
@@ -399,7 +421,7 @@
           </div>
         </div>
 
-        <!-- NEW TAB 3: Video Editor Studio -->
+        <!-- TAB 3: Video Editor Studio -->
         <div id="tabVideoEditor" class="hidden space-y-6">
           
           <div class="bg-zinc-950 p-5 rounded-2xl border border-zinc-800 space-y-4">
@@ -562,7 +584,7 @@
           <li><strong class="text-zinc-200">Set Audio Language:</strong> Pick your spoken language (or leave on Auto-Detect) and choose between the Fast Engine or the High-Accuracy Engine.</li>
           <li><strong class="text-zinc-200">Import Video:</strong> Drop your vertical (9:16) MP4, MOV, or WebM video file into the local workspace.</li>
           <li><strong class="text-zinc-200">Trim & Color Grade:</strong> Jump to the <em>Video Editor</em> tab to crop the video length, boost audio, and adjust brightness/saturation.</li>
-          <li><strong class="text-zinc-200">Choose Viral Presets:</strong> Click on preset cards like Hormozi, MrBeast, or Neon Gaming, or tweak font sizes, outline stroke percentages, and vertical alignment manually.</li>
+          <li><strong class="text-zinc-200">Choose Viral Presets & Pacing:</strong> Pick word pacing (e.g. 2-3 words), choose styles like Hormozi, MrBeast, or Neon, or tweak colors and strokes.</li>
           <li><strong class="text-zinc-200">Fine-Tune Timings & Spelling:</strong> Use the <em>Edit Text</em> tab to correct regional phrases or adjust the Global Sync Offset to align text to spoken words.</li>
           <li><strong class="text-zinc-200">Download or Export:</strong> Hit <em>Render & Download Video</em> to export a burned-in MP4/WebM video ready for Instagram and YouTube Shorts.</li>
         </ol>
@@ -676,6 +698,7 @@
     // User Configurations
     const langSelect = document.getElementById('languageSelect');
     const modelSelect = document.getElementById('modelSelect');
+    const wordsPerLineSelect = document.getElementById('wordsPerLineSelect');
     
     const progressContainer = document.getElementById('progressContainer');
     const statusText = document.getElementById('statusText');
@@ -713,7 +736,8 @@
     const trimEndInput = document.getElementById('trimEnd');
 
     let isProcessing = false;
-    let transcribedChunks = [];
+    let rawWhisperChunks = []; // Stores the raw AI output for fast re-pacing
+    let transcribedChunks = []; // The actual chunks displayed on screen
     let currentActiveChunk = null; 
     
     // Web Audio Variables for Volume Control
@@ -742,6 +766,47 @@
         currentActiveChunk = null; 
         videoPreview.dispatchEvent(new Event('timeupdate'));
     });
+
+    // --- WORD PACING & SEGMENTATION ALGORITHM ---
+    window.changePacing = function() {
+      if (!rawWhisperChunks || rawWhisperChunks.length === 0) return;
+      
+      const wordsLimit = parseInt(wordsPerLineSelect.value) || 0; // 0 = Full Sentence
+      const segmented = [];
+
+      rawWhisperChunks.forEach(chunk => {
+        const words = chunk.text.trim().split(/\s+/).filter(w => w.length > 0);
+        
+        if (wordsLimit === 0 || words.length <= wordsLimit) {
+          segmented.push({
+            timestamp: [chunk.timestamp[0], chunk.timestamp[1]],
+            text: chunk.text.trim()
+          });
+          return;
+        }
+
+        const start = chunk.timestamp[0];
+        const end = (chunk.timestamp[1] !== null && chunk.timestamp[1] !== undefined) ? chunk.timestamp[1] : start + (words.length * 0.4);
+        const totalDuration = Math.max(end - start, 0.4);
+        const totalWords = words.length;
+
+        for (let i = 0; i < totalWords; i += wordsLimit) {
+          const slice = words.slice(i, i + wordsLimit);
+          const sliceStart = start + (i / totalWords) * totalDuration;
+          const sliceEnd = start + (Math.min(i + wordsLimit, totalWords) / totalWords) * totalDuration;
+          
+          segmented.push({
+            timestamp: [parseFloat(sliceStart.toFixed(2)), parseFloat(sliceEnd.toFixed(2))],
+            text: slice.join(' ')
+          });
+        }
+      });
+
+      transcribedChunks = segmented;
+      renderCaptionEditor();
+      currentActiveChunk = null;
+      videoPreview.dispatchEvent(new Event('timeupdate'));
+    };
 
     // Drag and Drop Handlers
     dropZone.addEventListener('click', () => fileInput.click());
@@ -890,11 +955,14 @@
             }
         }
 
-        transcribedChunks = filteredChunks.length > 0 ? filteredChunks : [
+        // Store the raw output globally so we can re-pace it instantly
+        rawWhisperChunks = filteredChunks.length > 0 ? filteredChunks : [
           { timestamp: [0, 3], text: "[No speech detected]" }
         ];
 
-        renderCaptionEditor();
+        // Format to the chosen words-per-line pacing (defaults to 2-3 words)
+        window.changePacing();
+        
         updateStyle();
         updateVideoFilters();
 
@@ -969,7 +1037,7 @@
       
       return transcribedChunks.find(chunk => {
         const start = chunk.timestamp[0];
-        const end = chunk.timestamp[1] !== null && chunk.timestamp[1] !== undefined ? chunk.timestamp[1] : start + 2;
+        const end = chunk.timestamp[1] !== null && chunk.timestamp[1] !== undefined ? chunk.timestamp[1] : start + 1.5;
         return adjustedTime >= start && adjustedTime <= end;
       });
     }
@@ -996,9 +1064,9 @@
           }
 
           const words = text.split(' ');
-          if (words.length > 2) {
-            const midIdx = Math.floor(words.length / 2);
-            words[midIdx] = `<span style="color: ${highlightColor.value}; transform: scale(1.08); display: inline-block;">${words[midIdx]}</span>`;
+          if (words.length >= 2) {
+            const highlightIdx = Math.floor(words.length / 2);
+            words[highlightIdx] = `<span style="color: ${highlightColor.value}; transform: scale(1.08); display: inline-block;">${words[highlightIdx]}</span>`;
             captionText.innerHTML = words.join(' ');
           } else {
             captionText.innerHTML = text;
@@ -1299,7 +1367,7 @@
                 const strokeW = fontSize * (parseFloat(strokeSlider.value) / 100); 
                 const glowW = fontSize * (parseFloat(glowSlider.value) / 100);
 
-                if (words.length > 2) {
+                if (words.length >= 2) {
                     const midIdx = Math.floor(words.length / 2);
                     let currentX = x - (ctx.measureText(text).width / 2);
                     
@@ -1385,7 +1453,7 @@
       if (transcribedChunks.length === 0) return "1\n00:00:00,000 --> 00:00:03,000\n[No captions]";
       return transcribedChunks.map((c, i) => {
         const startOffset = Math.max(0, c.timestamp[0] + offset);
-        const endRaw = c.timestamp[1] !== null && c.timestamp[1] !== undefined ? c.timestamp[1] : c.timestamp[0] + 2;
+        const endRaw = c.timestamp[1] !== null && c.timestamp[1] !== undefined ? c.timestamp[1] : c.timestamp[0] + 1.5;
         const endOffset = Math.max(0, endRaw + offset);
         
         const start = formatTimeSRT(startOffset);
