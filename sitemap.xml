@@ -4,12 +4,12 @@
   <!-- Root Pages -->
   <url>
     <loc>https://ktoolshq.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ktoolshq.com/about.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -19,13 +19,55 @@
   </url>
   <url>
     <loc>https://ktoolshq.com/privacy.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ktoolshq.com/terms.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Creator Guides & Blog Cluster -->
+  <url>
+    <loc>https://ktoolshq.com/guides</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/how-to-add-free-ai-captions-without-cloud-server-uploads</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/remove-image-background-without-photoshop</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/how-to-remove-exif-metadata-from-photos</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/instagram-reels-safe-zone-and-dimensions</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/how-to-unlock-password-protected-pdf</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/mouse-polling-rate-and-edpi-guide</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ktoolshq.com/guides/how-to-write-high-retention-video-hooks</loc>
+    <lastmod>2026-08-21</lastmod>
+    <priority>0.8</priority>
   </url>
 
   <!-- High-Priority Client-Side AI Tools -->
