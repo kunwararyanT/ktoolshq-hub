@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Advanced SEO Meta Tags -->
+  <title>Compress Image to 20KB, 50KB, 100KB Online | Free Photo Resizer | KTools HQ</title>
+  <meta name="description" content="Instantly reduce photo & signature sizes to exact KB targets (20KB, 50KB, 100KB) for international visas, university applications, and online portals. 100% Free, secure, client-side compressor.">
+  <meta name="keywords" content="compress image to 50kb, compress image to 20kb, reduce image size in kb, photo resizer for online application, resize signature to 10kb, compress passport photo, global visa photo resizer, convert jpg to webp">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/image-size-reducer/" />
+
+  <!-- Google AdSense Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { 
+            brand: { primary: '#6366f1', secondary: '#8b5cf6', accent: '#4f46e5' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    
+    .brand-glow { box-shadow: 0 0 25px rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); }
+    .checkerboard-bg {
+      background-color: #18181b;
+      background-image: 
+        linear-gradient(45deg, #27272a 25%, transparent 25%), 
+        linear-gradient(135deg, #27272a 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #27272a 75%),
+        linear-gradient(135deg, transparent 75%, #27272a 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 0, 8px -8px, 0px 8px;
+    }
+    .dragover {
+      border-color: #6366f1 !important;
+      background-color: rgba(99, 102, 241, 0.08) !important;
+    }
+  </style>
+
+  <!-- SEO FAQ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I compress an image to exactly 50KB or 20KB?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Select 'Target File Size' mode in CompressCraft, enter your desired KB target (e.g. 50 or 20), and the engine uses binary search to optimize the quality and resolution to match your requirement instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I reduce signature size for online application forms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most international exam portals, university admissions, and government forms require signatures to be between 10KB and 20KB. Upload your scanned signature, click the '20 KB' quick button, and our tool will automatically shrink it while keeping the text legible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my passport photos uploaded to any remote server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Because these files often contain sensitive information (like ID cards or passport photos), our tool runs 100% inside your web browser using the HTML5 Canvas API. Your photos never leave your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which image formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can upload JPEG, JPG, PNG, and WebP images. You can export to WebP for maximum compression efficiency or JPEG for universal form compliance."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-brand-primary selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-black text-lg tracking-tight text-white hover:opacity-90 transition">
+        <span>🗜️</span>
+        <span>Compress<span class="text-brand-primary">Craft</span></span>
+      </a>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/30">
+        100% Client-Side
+      </span>
+    </div>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
+    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs font-mono">
+      [AdSense Top Leaderboard Banner]
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
+    
+    <!-- Hero Title -->
+    <div class="text-center space-y-3">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Local Image Size Reducer <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">& KB Targeter</span>
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Compress passport photos, signatures, and images to exact file sizes (20KB, 50KB, 100KB). Zero uploads, lossless clarity, unlimited use.
+      </p>
+    </div>
+
+    <!-- Upload State (Initial) -->
+    <div id="dropZone" class="brand-glow bg-zinc-900/50 rounded-3xl p-12 text-center cursor-pointer transition-all border-2 border-dashed border-zinc-700 hover:border-brand-primary group shadow-2xl">
+      <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden" />
+      <div class="w-16 h-16 rounded-2xl bg-zinc-800 group-hover:bg-brand-primary/20 flex items-center justify-center mx-auto mb-4 transition-colors">
+        <span class="text-3xl group-hover:scale-110 transition-transform">📁</span>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-2">Drop Your Photo Here or Click to Browse</h2>
+      <p class="text-zinc-400 text-xs sm:text-sm max-w-md mx-auto mb-4">
+        Supports JPG, PNG, and WebP formats. Unlimited image resolution with instant local processing.
+      </p>
+      <button class="bg-brand-primary hover:bg-brand-accent text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-xl transition shadow-lg shadow-brand-primary/20 pointer-events-none">
+        Select Image
+      </button>
+    </div>
+
+    <!-- Interactive Compression Workspace (Hidden Until Upload) -->
+    <div id="editorWorkspace" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Controls (5 Cols) -->
+      <div class="lg:col-span-5 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-6">
+        
+        <!-- Mode Switcher -->
+        <div>
+          <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Compression Mode</label>
+          <div class="grid grid-cols-2 gap-2 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-800">
+            <button id="modeTargetBtn" onclick="setMode('target')" class="py-2 px-3 rounded-xl text-xs font-black bg-brand-primary text-white transition">
+              🎯 Exact Target (KB)
+            </button>
+            <button id="modeManualBtn" onclick="setMode('manual')" class="py-2 px-3 rounded-xl text-xs font-black text-zinc-400 hover:text-white transition">
+              ⚙️ Manual Quality
+            </button>
+          </div>
+        </div>
+
+        <!-- MODE A: Exact Target File Size -->
+        <div id="targetModeControls" class="space-y-4 bg-zinc-950 p-4 rounded-2xl border border-brand-primary/30">
+          <div class="flex justify-between items-center">
+            <label class="text-xs font-bold text-zinc-300">Desired File Size</label>
+            <span class="text-[11px] text-brand-primary font-bold">Auto-Adjusted</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="number" id="targetKbInput" value="50" min="5" max="10000" step="5" class="w-full bg-zinc-900 border border-zinc-700 text-white font-black text-lg rounded-xl p-3 text-center outline-none focus:border-brand-primary transition" />
+            <span class="text-xs font-bold text-zinc-400">KB</span>
+          </div>
+          <div class="flex gap-1.5 justify-center">
+            <button onclick="setQuickKb(20)" class="px-2.5 py-1 text-[11px] font-bold bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-300 transition">20 KB</button>
+            <button onclick="setQuickKb(50)" class="px-2.5 py-1 text-[11px] font-bold bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-300 transition">50 KB</button>
+            <button onclick="setQuickKb(100)" class="px-2.5 py-1 text-[11px] font-bold bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-300 transition">100 KB</button>
+            <button onclick="setQuickKb(200)" class="px-2.5 py-1 text-[11px] font-bold bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-300 transition">200 KB</button>
+          </div>
+        </div>
+
+        <!-- MODE B: Manual Quality Slider -->
+        <div id="manualModeControls" class="hidden space-y-4 bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
+          <div>
+            <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+              <span>Image Quality</span>
+              <span id="qualityDisplay" class="text-brand-primary">75%</span>
+            </div>
+            <input type="range" id="qualitySlider" min="5" max="100" value="75" class="w-full accent-brand-primary" />
+          </div>
+        </div>
+
+        <!-- Output Format Selector -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-zinc-400 mb-1.5">Output Format</label>
+            <select id="formatSelect" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-brand-primary">
+              <option value="image/webp">WebP (Best Compression)</option>
+              <option value="image/jpeg" selected>JPEG / JPG (Universal)</option>
+              <option value="image/png">PNG (Lossless)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-zinc-400 mb-1.5">Resolution Scale</label>
+            <select id="scaleSelect" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-brand-primary">
+              <option value="1.0" selected>100% (Original)</option>
+              <option value="0.75">75% Scale</option>
+              <option value="0.5">50% Scale</option>
+              <option value="0.25">25% Scale</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Real-Time Metrics -->
+        <div class="bg-zinc-950 border border-zinc-800 p-4 rounded-2xl space-y-3">
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-zinc-400">Original Size:</span>
+            <span id="origSizeText" class="font-mono text-zinc-200 font-bold">0 KB</span>
+          </div>
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-zinc-400">New Size:</span>
+            <span id="newSizeText" class="font-mono text-emerald-400 font-bold">0 KB</span>
+          </div>
+          <div class="flex justify-between items-center text-xs pt-2 border-t border-zinc-800/80">
+            <span class="text-zinc-400">Total Saved:</span>
+            <span id="savedBadge" class="font-bold text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              0%
+            </span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="space-y-2.5 pt-2">
+          <button id="downloadBtn" class="w-full bg-brand-primary hover:bg-brand-accent text-white font-black py-4 rounded-xl shadow-lg shadow-brand-primary/20 transition flex items-center justify-center gap-2">
+            <span>📥</span> Download Compressed Image
+          </button>
+          <button onclick="resetCompressor()" class="w-full bg-zinc-950 hover:bg-zinc-800 text-zinc-400 border border-zinc-800 font-bold py-3 rounded-xl transition text-xs">
+            Compress Another Image
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Preview (7 Cols) -->
+      <div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl flex flex-col items-center justify-center space-y-4">
+        <div class="w-full flex justify-between items-center text-xs text-zinc-400">
+          <span>Live Quality Preview</span>
+          <span id="previewResolutionText" class="font-mono text-zinc-500">0 x 0 px</span>
+        </div>
+        
+        <div class="checkerboard-bg w-full rounded-2xl overflow-hidden border border-zinc-800 flex items-center justify-center p-4 min-h-[350px] max-h-[500px]">
+          <img id="previewImg" class="max-w-full max-h-[450px] object-contain drop-shadow-lg" alt="Compressed Preview" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEO FAQ & Global Guidelines Section -->
+    <section class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 shadow-xl mt-12 space-y-8">
+      
+      <div class="space-y-4">
+        <h2 class="text-2xl font-black text-white tracking-tight">How to Compress Images for Global Applications Without Losing Quality</h2>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Whether you are uploading a passport photo for an international visa, attaching a document to a university portal, or optimizing images for e-commerce, strictly adhering to file size limits (like <strong>50KB</strong> or <strong>20KB</strong>) is crucial. Unlike basic sliders that require trial and error, CompressCraft utilizes a smart binary-search algorithm. Simply type your target KB, and the tool will instantly calibrate the compression array to deliver the highest possible resolution and quality that fits perfectly under your exact file size limit.
+        </p>
+      </div>
+
+      <!-- High Intent Use-Case Data Table (Globalized) -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+          📋 Standard Global Photo & Signature Size Limits (2026 Reference)
+        </h3>
+        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          Use the quick-action buttons in the tool above to instantly match the strict file size limits enforced by popular international application portals and visa requirements.
+        </p>
+        
+        <div class="overflow-x-auto border border-zinc-800 rounded-2xl bg-zinc-900">
+          <table class="w-full text-left text-sm text-zinc-400">
+            <thead class="text-xs uppercase bg-zinc-950 border-b border-zinc-800 text-zinc-300">
+              <tr>
+                <th class="px-6 py-4 font-black">Application / Portal</th>
+                <th class="px-6 py-4 font-black">Document Type</th>
+                <th class="px-6 py-4 font-black">Maximum File Size</th>
+                <th class="px-6 py-4 font-black">Required Format</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60">
+              <tr class="hover:bg-zinc-800/30 transition">
+                <td class="px-6 py-4 font-bold text-white">University Admissions / Exams</td>
+                <td class="px-6 py-4">Passport Photo</td>
+                <td class="px-6 py-4 text-brand-primary font-bold">50 KB</td>
+                <td class="px-6 py-4 font-mono text-xs">JPEG / JPG</td>
+              </tr>
+              <tr class="hover:bg-zinc-800/30 transition">
+                <td class="px-6 py-4 font-bold text-white">Govt. Portals & Applications</td>
+                <td class="px-6 py-4">Scanned Signature</td>
+                <td class="px-6 py-4 text-brand-primary font-bold">20 KB</td>
+                <td class="px-6 py-4 font-mono text-xs">JPEG / JPG</td>
+              </tr>
+              <tr class="hover:bg-zinc-800/30 transition">
+                <td class="px-6 py-4 font-bold text-white">US Visa (DS-160) / Green Card</td>
+                <td class="px-6 py-4">Digital Photo (600x600)</td>
+                <td class="px-6 py-4 text-brand-primary font-bold">240 KB</td>
+                <td class="px-6 py-4 font-mono text-xs">JPEG</td>
+              </tr>
+              <tr class="hover:bg-zinc-800/30 transition">
+                <td class="px-6 py-4 font-bold text-white">Schengen / EU Visas</td>
+                <td class="px-6 py-4">Identity Document</td>
+                <td class="px-6 py-4 text-brand-primary font-bold">100 KB</td>
+                <td class="px-6 py-4 font-mono text-xs">JPEG / PNG</td>
+              </tr>
+              <tr class="hover:bg-zinc-800/30 transition">
+                <td class="px-6 py-4 font-bold text-white">Amazon / Shopify Sellers</td>
+                <td class="px-6 py-4">Product Listing Image</td>
+                <td class="px-6 py-4 text-brand-primary font-bold">500 KB</td>
+                <td class="px-6 py-4 font-mono text-xs">JPEG / WebP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- GLOBAL DISCLAIMER -->
+        <div class="mt-4 p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 text-xs text-zinc-500 leading-relaxed shadow-inner">
+          <strong class="text-zinc-400">⚠️ Disclaimer:</strong> The file size limits, bitrates, and resolution requirements listed above are general guidelines for popular global platforms. Government authorities, universities, and international visa portals frequently update their official specifications. Always verify the exact, up-to-date photo and signature requirements directly on the official application portal before finalizing your submission.
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-6 pt-4 border-t border-zinc-800/50">
+        <h3 class="text-xl font-bold text-white tracking-tight">Frequently Asked Questions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <h4 class="text-base font-bold text-zinc-100">How does the Exact KB Targeter work?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Our engine uses an in-browser binary search algorithm that tests multiple compression ratios in milliseconds, guaranteeing that your exported photo is just under your required limit (e.g. 20KB or 50KB) without manual trial and error.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h4 class="text-base font-bold text-zinc-100">Why is client-side image compression safer?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Traditional tools upload your private pictures, ID cards, and documents to their cloud servers. CompressCraft executes 100% inside your browser's RAM via the HTML5 Canvas API, meaning your images never touch the internet.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h4 class="text-base font-bold text-zinc-100">What format gives the smallest file size?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              WebP consistently produces 25–35% smaller file sizes than standard JPEG at equivalent visual clarity. For government or portal forms requiring strict JPEG/JPG extensions, ensure the dropdown is set to JPEG mode.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h4 class="text-base font-bold text-zinc-100">Is there any limit on usage?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              None. Because we don't have to pay for cloud computing or bandwidth for your uploads, CompressCraft is 100% free and unlimited forever. You can compress as many passport photos or product images as you need.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 CompressCraft by KTools HQ. All rights reserved.</p>
+      <div class="flex space-x-4">
+        <a href="/about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="/privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const dropZone = document.getElementById('dropZone');
+    const editorWorkspace = document.getElementById('editorWorkspace');
+    
+    const modeTargetBtn = document.getElementById('modeTargetBtn');
+    const modeManualBtn = document.getElementById('modeManualBtn');
+    const targetModeControls = document.getElementById('targetModeControls');
+    const manualModeControls = document.getElementById('manualModeControls');
+    
+    const targetKbInput = document.getElementById('targetKbInput');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityDisplay = document.getElementById('qualityDisplay');
+    const formatSelect = document.getElementById('formatSelect');
+    const scaleSelect = document.getElementById('scaleSelect');
+    
+    const origSizeText = document.getElementById('origSizeText');
+    const newSizeText = document.getElementById('newSizeText');
+    const savedBadge = document.getElementById('savedBadge');
+    const previewResolutionText = document.getElementById('previewResolutionText');
+    const previewImg = document.getElementById('previewImg');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    let currentFile = null;
+    let loadedImage = null;
+    let compressedBlob = null;
+    let activeMode = 'target'; 
+
+    // Drag and Drop
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) handleFile(e.target.files[0]);
+    });
+
+    function setMode(mode) {
+      activeMode = mode;
+      if (mode === 'target') {
+        modeTargetBtn.className = "py-2 px-3 rounded-xl text-xs font-black bg-brand-primary text-white transition";
+        modeManualBtn.className = "py-2 px-3 rounded-xl text-xs font-black text-zinc-400 hover:text-white transition";
+        targetModeControls.classList.remove('hidden');
+        manualModeControls.classList.add('hidden');
+      } else {
+        modeManualBtn.className = "py-2 px-3 rounded-xl text-xs font-black bg-brand-primary text-white transition";
+        modeTargetBtn.className = "py-2 px-3 rounded-xl text-xs font-black text-zinc-400 hover:text-white transition";
+        manualModeControls.classList.remove('hidden');
+        targetModeControls.classList.add('hidden');
+      }
+      processCompression();
+    }
+
+    function setQuickKb(kb) {
+      targetKbInput.value = kb;
+      processCompression();
+    }
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 KB';
+      const k = 1024;
+      const dm = 1;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    function handleFile(file) {
+      if (!file || !file.type.startsWith('image/')) {
+        alert('Please select a valid image file (JPG, PNG, WebP).');
+        return;
+      }
+      currentFile = file;
+      origSizeText.innerText = formatBytes(file.size);
+
+      const origKb = Math.round(file.size / 1024);
+      targetKbInput.value = Math.max(20, Math.round(origKb * 0.4));
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        loadedImage = new Image();
+        loadedImage.onload = () => {
+          dropZone.classList.add('hidden');
+          editorWorkspace.classList.remove('hidden');
+          processCompression();
+        };
+        loadedImage.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetCompressor() {
+      fileInput.value = '';
+      currentFile = null;
+      loadedImage = null;
+      compressedBlob = null;
+      editorWorkspace.classList.add('hidden');
+      dropZone.classList.remove('hidden');
+    }
+
+    async function compressToTarget(canvas, mimeType, targetBytes) {
+      let low = 0.01;
+      let high = 1.0;
+      let bestBlob = null;
+
+      for (let i = 0; i < 7; i++) {
+        const mid = (low + high) / 2;
+        const blob = await new Promise(r => canvas.toBlob(r, mimeType, mid));
+        
+        if (!blob) break;
+
+        if (blob.size <= targetBytes) {
+          bestBlob = blob;
+          low = mid; 
+        } else {
+          high = mid; 
+        }
+      }
+
+      if (!bestBlob) {
+        const tempCanvas = document.createElement('canvas');
+        const scaleFactor = 0.75;
+        tempCanvas.width = Math.max(100, Math.round(canvas.width * scaleFactor));
+        tempCanvas.height = Math.max(100, Math.round(canvas.height * scaleFactor));
+        const ctx = tempCanvas.getContext('2d');
+        ctx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+        return compressToTarget(tempCanvas, mimeType, targetBytes);
+      }
+
+      return bestBlob;
+    }
+
+    async function processCompression() {
+      if (!loadedImage) return;
+
+      const format = formatSelect.value;
+      const userScale = parseFloat(scaleSelect.value);
+
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(loadedImage.naturalWidth * userScale);
+      canvas.height = Math.round(loadedImage.naturalHeight * userScale);
+      
+      const ctx = canvas.getContext('2d');
+      if (format === 'image/jpeg') {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      ctx.drawImage(loadedImage, 0, 0, canvas.width, canvas.height);
+
+      previewResolutionText.innerText = `${canvas.width} × ${canvas.height} px`;
+
+      if (activeMode === 'target') {
+        const targetKb = parseFloat(targetKbInput.value) || 50;
+        const targetBytes = targetKb * 1024;
+        compressedBlob = await compressToTarget(canvas, format, targetBytes);
+      } else {
+        const quality = parseInt(qualitySlider.value) / 100;
+        compressedBlob = await new Promise(r => canvas.toBlob(r, format, quality));
+      }
+
+      if (compressedBlob) {
+        newSizeText.innerText = formatBytes(compressedBlob.size);
+        const percentSaved = Math.round(((currentFile.size - compressedBlob.size) / currentFile.size) * 100);
+        
+        if (percentSaved > 0) {
+          savedBadge.innerText = `-${percentSaved}%`;
+          savedBadge.className = "font-bold text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30";
+        } else {
+          savedBadge.innerText = `0%`;
+          savedBadge.className = "font-bold text-xs px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700";
+        }
+
+        const previewUrl = URL.createObjectURL(compressedBlob);
+        previewImg.src = previewUrl;
+
+        downloadBtn.onclick = () => {
+          const a = document.createElement('a');
+          const ext = format === 'image/webp' ? 'webp' : (format === 'image/png' ? 'png' : 'jpg');
+          const cleanName = currentFile.name.replace(/\.[^/.]+$/, "");
+          a.href = previewUrl;
+          a.download = `ktools-compressed-${cleanName}.${ext}`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        };
+      }
+    }
+
+    // Input Listeners
+    targetKbInput.addEventListener('input', processCompression);
+    formatSelect.addEventListener('change', processCompression);
+    scaleSelect.addEventListener('change', processCompression);
+    qualitySlider.addEventListener('input', (e) => {
+      qualityDisplay.innerText = `${e.target.value}%`;
+      processCompression();
+    });
+  </script>
+</body>
+</html>
