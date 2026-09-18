@@ -81,54 +81,51 @@
     }
   </style>
 
-  <!-- SEO FAQ JSON-LD Schema -->
+  <!-- WebApp & Lean FAQ JSON-LD Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does this tool support Hindi and Spanish?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! The engine uses the global multilingual Whisper AI model. Simply select Hindi, Spanish, French, or let the AI auto-detect the language before uploading your video."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I choose how many words appear per subtitle line?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our studio includes a Pacing selector allowing you to switch between 1-word rapid pop, 2-3 words viral reels format, or full sentences."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I trim and edit my video here for free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our new Video Editor tab allows you to trim video length, adjust playback speed, boost volume, and apply color grading filters completely free within your browser."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I download the final video with captions burned in?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. You can edit your captions, change colors and outlines, and click 'Render & Download Video' to export a ready-to-post media file."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are my videos uploaded to a cloud server?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. We run OpenAI's Whisper AI model directly inside your browser via WebAssembly. Your media files never leave your device."
-        }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CaptionCraft Studio",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
       }
-    ]
-  }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are my videos uploaded to a cloud server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We run OpenAI's Whisper AI model directly inside your browser via WebAssembly. Your media files never leave your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download the final video with captions burned in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. You can edit your captions, change colors and outlines, and click 'Render & Download Video' to export a ready-to-post media file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this tool support Hindi and Spanish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! The engine uses the global multilingual Whisper AI model. Simply select Hindi, Spanish, French, or let the AI auto-detect the language before uploading your video."
+          }
+        }
+      ]
+    }
+  ]
   </script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative">
@@ -284,7 +281,7 @@
         <!-- TAB 1: Viral Styling Controls -->
         <div id="tabStyles" class="space-y-6">
 
-          <!-- NEW: WORDS PER LINE / PACING SELECTOR -->
+          <!-- WORDS PER LINE / PACING SELECTOR -->
           <div class="bg-zinc-950 p-4 rounded-2xl border border-indigo-500/30 space-y-2 mb-2">
             <div class="flex justify-between items-center">
               <label class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Caption Pacing (Words Per Line)</label>
@@ -521,111 +518,42 @@
 
   </main>
 
-  <!-- SEO & ADSENSE CONTENT SECTION -->
-  <section class="border-t border-zinc-800 bg-zinc-950/50 py-16 px-4">
-    <div class="max-w-4xl mx-auto space-y-12">
-
-      <div class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
-          Free In-Browser Viral Subtitle Studio & Video Editor
-        </h2>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          Modern short-form video algorithms on Instagram Reels, TikTok, and YouTube Shorts prioritize audience watch time and retention. Over 75% of mobile video consumers browse social feeds with their sound muted, making crisp, dynamic captions essential for hook retention. Many popular video editing suites lock automated word-level subtitle generation, font presets, and watermark-free exports behind paid subscriptions. <strong class="text-zinc-200">CaptionCraft Studio by K Tools HQ</strong> solves this bottleneck by bringing high-performance, open-source speech recognition directly into your browser.
-        </p>
-      </div>
-
-      <!-- Video Editing Features -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <span>✂️</span> Powerful Client-Side Video Editing
-        </h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          Our upgraded studio doesn't just do captions—it is a full-fledged client-side video editor powered by the HTML5 Canvas and Web Audio API. Before exporting, you can seamlessly trim dead space from the beginning or end of your clips, apply Hollywood-style color grading (Brightness, Contrast, Saturation, Sepia), boost quiet audio volume up to 300%, and adjust playback speed for fast-paced viral montages—all without uploading your footage to a server.
-        </p>
-      </div>
-
-      <!-- Viral Styles Breakdown -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <span>🔥</span> Popular Viral Subtitle Styles Supported
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-zinc-400">
-          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
-            <h4 class="font-bold text-amber-400 text-sm">Hormozi Pop</h4>
-            <p>Features ultra-bold geometric sans-serif typography (Montserrat 900), uppercase lettering, heavy 4px black outlines, and high-contrast yellow keyword pops designed for fast-paced business and self-improvement content.</p>
-          </div>
-          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
-            <h4 class="font-bold text-emerald-400 text-sm">MrBeast Impact</h4>
-            <p>Utilizes punchy condensed fonts (Bebas Neue) with vibrant emerald green highlights and rapid-pop animation curves, engineered for high-energy challenges, vlog hooks, and entertainment reels.</p>
-          </div>
-          <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl space-y-2">
-            <h4 class="font-bold text-fuchsia-400 text-sm">Neon Gaming</h4>
-            <p>Combines heavy drop-shadows, vivid glow radiuses, and dynamic fuchsia color shifts that stand out over fast-paced gaming clips and montage edits.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Multilingual & Hindi Architecture Guide -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <span>🌐</span> Multilingual Speech-to-Text & Regional Dialects
-        </h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          Our client-side engine supports transcription across global and regional languages including Hindi, Spanish, French, and German. Unlike standard tools that default to English-only phonetics, our High-Accuracy model leverages multilingual transformer weights to render native scripts like Devanagari accurately. Because audio transcription takes place entirely within local memory, your proprietary footage and unreleased voice clips are never transmitted across cloud servers.
-        </p>
-      </div>
-
-      <!-- Step-by-Step Tutorial for Editors -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <span>⚡</span> Workflow: How to Trim, Edit & Burn In Subtitles
-        </h3>
-        <ol class="list-decimal list-inside text-sm text-zinc-400 space-y-2.5 leading-relaxed bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl">
-          <li><strong class="text-zinc-200">Set Audio Language:</strong> Pick your spoken language (or leave on Auto-Detect) and choose between the Fast Engine or the High-Accuracy Engine.</li>
-          <li><strong class="text-zinc-200">Import Video:</strong> Drop your vertical (9:16) MP4, MOV, or WebM video file into the local workspace.</li>
-          <li><strong class="text-zinc-200">Trim & Color Grade:</strong> Jump to the <em>Video Editor</em> tab to crop the video length, boost audio, and adjust brightness/saturation.</li>
-          <li><strong class="text-zinc-200">Choose Viral Presets & Pacing:</strong> Pick word pacing (e.g. 2-3 words), choose styles like Hormozi, MrBeast, or Neon, or tweak colors and strokes.</li>
-          <li><strong class="text-zinc-200">Fine-Tune Timings & Spelling:</strong> Use the <em>Edit Text</em> tab to correct regional phrases or adjust the Global Sync Offset to align text to spoken words.</li>
-          <li><strong class="text-zinc-200">Download or Export:</strong> Hit <em>Render & Download Video</em> to export a burned-in MP4/WebM video ready for Instagram and YouTube Shorts.</li>
-        </ol>
-      </div>
-
-      <!-- FAQ Grid -->
-      <div class="space-y-6">
-        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-          ❓ Frequently Asked Questions
-        </h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Is this caption tool free for commercial video projects?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Yes. All subtitle outputs, SRT exports, and rendered video files generated on K Tools HQ are 100% royalty-free for personal and commercial client work.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Can I import the generated .SRT file into DaVinci Resolve or Premiere Pro?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Yes. Our exported .SRT files follow universal SubRip formatting, allowing you to drag and drop them directly onto subtitle tracks inside DaVinci Resolve, Adobe Premiere Pro, Final Cut Pro, or CapCut PC.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Why is client-side processing safer than cloud subtitle apps?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Cloud platforms require uploading full video files to external servers, creating privacy risks and long queue delays. Our tool processes everything inside your browser's RAM, ensuring your files never leave your device.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Can I fix spelling errors manually?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Yes! Simply open the "Edit Text" tab and you can change the text line-by-line while previewing the exact timestamps over your live video feed.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Compliance & Open Source Notice -->
-      <div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
-        <p class="font-bold text-zinc-400 uppercase tracking-wider">Compliance & Open Source Attribution</p>
-        <p>This utility utilizes OpenAI Whisper (released under the MIT License) via Transformers.js WebAssembly runtime. Audio processing, canvas compositing, and neural inference are executed strictly on the client device. No media assets are uploaded, collected, or stored on external servers.</p>
-      </div>
-
+  <!-- LEAN SEO & HOW-TO SECTION -->
+  <section class="max-w-4xl mx-auto px-4 py-12 space-y-10">
+    
+    <div>
+      <h2 class="text-2xl font-black text-white mb-4">How to Add Viral Captions to Your Video</h2>
+      <ol class="space-y-3 text-zinc-400 text-sm list-decimal list-inside bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
+        <li><strong class="text-zinc-200">Select your language:</strong> Choose your audio language (English, Hindi, Spanish, etc.) and AI engine directly on the page.</li>
+        <li><strong class="text-zinc-200">Upload your video:</strong> Drag and drop your vertical MP4 or WebM file. The AI transcribes the audio entirely inside your browser.</li>
+        <li><strong class="text-zinc-200">Style your captions:</strong> Select from popular viral presets (like Hormozi or MrBeast), adjust the word pacing, and edit any typos in the text editor tab.</li>
+        <li><strong class="text-zinc-200">Export:</strong> Click "Render & Download" to save the final video with burned-in subtitles directly to your device without watermarks.</li>
+      </ol>
     </div>
+
+    <div>
+      <h3 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+          <h4 class="font-bold text-white mb-2 text-sm">Are my videos uploaded to a server?</h4>
+          <p class="text-xs text-zinc-400">No. The Whisper AI model runs entirely via WebAssembly in your local browser memory. Your files never leave your device.</p>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+          <h4 class="font-bold text-white mb-2 text-sm">Can I download the SRT file for Premiere Pro?</h4>
+          <p class="text-xs text-zinc-400">Yes. You can copy or download the generated .SRT file to import directly into DaVinci Resolve, CapCut, or Premiere Pro.</p>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl md:col-span-2">
+          <h4 class="font-bold text-white mb-2 text-sm">Why is the tool completely free?</h4>
+          <p class="text-xs text-zinc-400">Because it uses your computer's CPU/GPU to process the AI model locally, we don't have to pay for expensive cloud server rendering.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
+      <p class="font-bold text-zinc-400 uppercase tracking-wider">Compliance & Open Source Attribution</p>
+      <p>This utility utilizes OpenAI Whisper (released under the MIT License) via Transformers.js WebAssembly runtime. Audio processing and neural inference are executed strictly on the client device. No media assets are uploaded or stored on external servers.</p>
+    </div>
+
   </section>
 
   <!-- Dynamic More Tools Widget -->
