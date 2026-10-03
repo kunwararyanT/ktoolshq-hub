@@ -21,10 +21,23 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
 
     <!-- Exact-Match SEO Meta Tags -->
-    <title>Free Photo EXIF & GPS Remover | 100% Offline Metadata Scrubber</title>
-    <meta name="description" content="Instantly remove EXIF data, GPS location, and camera metadata from your photos. 100% free, private, offline image scrubber. Works on iOS, Android, and Desktop.">
-    <meta name="keywords" content="remove exif data online, free photo metadata remover, delete gps from photo, scrub image metadata, offline exif remover">
+    <title>Free EXIF Remover & Photo Metadata Scrubber | GPS Cleaner</title>
+    <meta name="description" content="Free photo metadata remover that creates a fresh copy without common EXIF fields such as GPS location, camera model, and capture time. Browser-based processing.">
     <link rel="canonical" href="https://ktoolshq.com/remove-metadata">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="K Tools HQ">
+    <meta name="theme-color" content="#0f172a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free EXIF Remover & Photo Metadata Scrubber | K Tools HQ">
+    <meta property="og:description" content="Remove common photo metadata such as GPS location, camera model, and capture time by creating a fresh browser-processed image.">
+    <meta property="og:url" content="https://ktoolshq.com/remove-metadata">
+    <meta property="og:site_name" content="K Tools HQ">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free EXIF Remover & Photo Metadata Scrubber">
+    <meta name="twitter:description" content="Clean common EXIF metadata from photos in your browser and download a fresh image copy.">
+
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,19 +58,41 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Local Image Metadata Scrubber",
+      "@type": "SoftwareApplication",
+      "name": "SecureScrub EXIF Remover",
       "url": "https://ktoolshq.com/remove-metadata",
-      "description": "A secure, offline browser utility to delete hidden GPS and EXIF data from photos before sharing them online.",
+      "description": "A browser-based photo metadata cleaner that creates a fresh image copy without commonly detected EXIF fields such as GPS coordinates, camera model, and capture time.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
+      "browserRequirements": "A modern browser with File, Image, and Canvas APIs",
+      "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      }
+      },
+      "featureList": [
+        "EXIF metadata inspection",
+        "GPS metadata detection",
+        "Camera model detection",
+        "Fresh image export",
+        "Browser-based processing"
+      ]
+    }
+  </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What is EXIF data and why should I remove it?","acceptedAnswer":{"@type":"Answer","text":"EXIF is metadata embedded in many image files. Depending on the device or app, it can include camera information, capture date and time, orientation, and sometimes GPS coordinates."}},
+        {"@type":"Question","name":"Does this tool upload my photos to a server?","acceptedAnswer":{"@type":"Answer","text":"The image processing code on this page reads the selected file in the browser and uses browser image and canvas APIs. The source does not upload the image to a K Tools image-processing endpoint."}},
+        {"@type":"Question","name":"Will this reduce the quality of my image?","acceptedAnswer":{"@type":"Answer","text":"The tool keeps the decoded pixel dimensions for the canvas export, but the result is re-encoded, so compression characteristics and some format-specific properties can differ from the original."}},
+        {"@type":"Question","name":"Can I clean multiple photos at once?","acceptedAnswer":{"@type":"Answer","text":"The current interface processes one selected image at a time. You can repeat the process for additional photos."}}
+      ]
     }
     </script>
+
 </head>
 <body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
 
@@ -84,8 +119,8 @@
         
         <!-- Hero Section -->
         <div class="text-center mb-10 fade-in">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Scrub Hidden Data from Photos <span class="text-blue-600">Instantly</span></h1>
-            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">Remove GPS coordinates, camera models, and EXIF metadata locally. <strong>Zero uploads. 100% Privacy. Works on all devices.</strong></p>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Free EXIF & Photo Metadata Remover</h1>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">Inspect common EXIF fields and create a fresh copy of your image without those embedded records. Processing happens in your browser.</p>
         </div>
 
         <!-- The Tool Interface -->
@@ -97,8 +132,8 @@
                     <svg class="w-12 h-12 mx-auto text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                 </div>
                 <p class="text-slate-700 font-bold text-lg mb-1">Tap to select or drop an image</p>
-                <p class="text-slate-500 text-sm">Supports JPG, PNG, WEBP (iOS & Android ready)</p>
-                <input type="file" id="file-input" class="hidden" accept="image/jpeg, image/png, image/webp, image/heic">
+                <p class="text-slate-500 text-sm">Supports JPG, PNG, and WebP in browsers that can display them</p>
+                <input type="file" id="file-input" class="hidden" accept="image/jpeg, image/png, image/webp">
             </div>
 
             <!-- Processing Zone (Hidden until file is loaded) -->
@@ -109,7 +144,7 @@
                     <div class="w-full md:w-1/2">
                         <p class="text-sm font-bold text-slate-700 mb-2">Original Image</p>
                         <div class="bg-slate-100 rounded-lg overflow-hidden border border-slate-200 h-48 flex items-center justify-center">
-                            <img id="image-preview" class="max-h-full object-contain" src="" alt="Preview">
+                            <img id="image-preview" class="max-h-full object-contain" src="" alt="Selected image preview">
                         </div>
                     </div>
                     
@@ -120,10 +155,10 @@
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
                                 Metadata Detected!
                             </p>
-                            <p id="metadata-details" class="text-sm text-red-700 mt-1"></p>
+                            <p id="metadata-details" class="text-sm text-red-700 mt-1" aria-live="polite"></p>
                         </div>
-                        <div id="metadata-safe" class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden mb-4">
-                            <p class="font-bold text-green-800">No dangerous EXIF data found.</p>
+                        <div id="metadata-safe" role="status" class="bg-green-50 border-l-4 border-green-500 p-4 rounded-md hidden mb-4">
+                            <p class="font-bold text-green-800">No supported EXIF fields detected.</p>
                         </div>
 
                         <div class="flex gap-3">
@@ -145,21 +180,21 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>
                 <h3 class="font-bold text-slate-800">Mobile Optimized</h3>
-                <p class="text-sm text-slate-600 mt-1">Strips data directly on your iPhone or Android without using mobile data.</p>
+                <p class="text-sm text-slate-600 mt-1">The image itself is handled by browser APIs; availability depends on your browser and device.</p>
             </div>
             <div class="p-4">
                 <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-green-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </div>
                 <h3 class="font-bold text-slate-800">Canvas Rendering</h3>
-                <p class="text-sm text-slate-600 mt-1">We mathematically rebuild your photo pixel-by-pixel, guaranteeing zero metadata survives.</p>
+                <p class="text-sm text-slate-600 mt-1">The tool draws the image to a canvas and exports a fresh file instead of copying the original metadata records.</p>
             </div>
             <div class="p-4">
                 <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-purple-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <h3 class="font-bold text-slate-800">Universal Formats</h3>
-                <p class="text-sm text-slate-600 mt-1">Handles JPG, PNG, and WebP natively in-browser with zero upload wait times.</p>
+                <p class="text-sm text-slate-600 mt-1">Supports common JPG, PNG, and WebP workflows without sending the selected image to a K Tools processing endpoint.</p>
             </div>
         </div>
     </main>
@@ -171,23 +206,33 @@
       <!-- 1. Technical Deep-Dive & Guide -->
       <div class="space-y-4">
         <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-          Strip GPS Location & Camera EXIF Data from Images
+Remove GPS Location & Common EXIF Metadata from Photos
         </h2>
         <p class="text-sm text-slate-600 leading-relaxed">
-          Protect your privacy by removing hidden camera EXIF metadata from photos before publishing them online. Every photo taken on a smartphone or digital camera embeds hidden technical metadata—including exact GPS coordinates, capture dates, device serial numbers, and camera settings. This utility strips sensitive metadata completely while preserving original visual image quality.
+          Photos can contain embedded technical information such as camera make and model, capture date and time, and sometimes GPS coordinates. SecureScrub helps you inspect common EXIF fields and then creates a new image file from the decoded pixels instead of carrying the original file's metadata records into the export. This is useful before sharing photos publicly or sending them to someone else.
         </p>
         
         <h3 class="text-xl font-bold text-slate-800 pt-4">How It Works Client-Side</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
-          The image metadata engine parses the binary header blocks (EXIF, IPTC, XMP) of uploaded JPG, PNG, or WebP files, strips spatial and hardware records, and re-renders clean image data strictly in client memory.
+          The metadata scanner uses the exifr library to inspect selected EXIF information such as camera make/model, GPS coordinates, and capture time. The cleaning step then loads the image into an HTML canvas and exports a fresh file from the rendered pixels rather than copying the original file headers.
         </p>
 
         <h3 class="text-xl font-bold text-slate-800 pt-4">Step-by-Step Instructions</h3>
         <ol class="list-decimal list-inside text-sm text-slate-600 space-y-2 leading-relaxed">
-          <li>Select or drop your image files into the privacy stripper.</li>
-          <li>View detected EXIF data fields (GPS coordinates, camera model, timestamp).</li>
-          <li>Click "Strip EXIF Data" to scrub all embedded metadata fields.</li>
-          <li>Download clean, privacy-secured image files for safe sharing.</li>
+          <li>Select one JPG, PNG, or WebP image.</li>
+           <li>Review any supported EXIF fields detected by the metadata scanner.</li>
+           <li>Click "Scrub &amp; Download" to create a fresh image export.</li>
+           <li>Use a metadata viewer to verify the downloaded file when that verification matters to you.</li>
+        <h3 class="text-xl font-bold text-slate-800 pt-4">What This Tool Checks</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          The current scanner displays camera make/model, GPS coordinates, and original capture date when those fields are available. A file can still contain other kinds of metadata that this small on-page diagnostic does not display. The cleaning step creates a new image from the rendered pixels instead of preserving the original file header.
+        </p>
+
+        <h3 class="text-xl font-bold text-slate-800 pt-4">Format and Quality Notes</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          The current tool accepts JPG, PNG, and WebP images. PNG files are exported as PNG; JPG and WebP inputs are exported as JPEG. The image dimensions are kept, but re-encoding can change compression, file size, color-profile information, or other format-specific properties.
+        </p>
+
         </ol>
       </div>
 
@@ -205,49 +250,49 @@
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">What is EXIF data and why should I remove it?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    When you take a photo with a smartphone or digital camera, hidden information (EXIF data) is attached to the image file. This data often includes your exact <strong>GPS coordinates</strong> (where you were standing), the date and time, and your camera model. Removing this data before posting online protects your personal privacy and location security.
+                    EXIF is metadata embedded in many image files. Depending on the camera or app, it can include information such as camera make and model, capture date/time, orientation, and sometimes GPS coordinates. Removing metadata can reduce the amount of technical information attached to a photo when you share it.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Does this tool upload my photos to a server?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    <strong>No.</strong> Unlike other metadata removers, our tool operates 100% offline using your browser's internal engine. Your photo is processed directly in your device's memory and is never transmitted over the internet, ensuring military-grade privacy.
+                    The page's image processing code reads the selected file in the browser and renders it through the browser's image and canvas APIs. The page does not send the image to a K Tools image-processing endpoint. Note that the page itself still loads third-party JavaScript libraries and analytics.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Will this reduce the quality of my image?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    Our canvas-rendering technique maintains the original visual quality of your photo while stripping away the invisible data payload. The output file is a high-quality, privacy-safe image ready for social media or sharing.
+                    The tool keeps the image's decoded pixel dimensions when it creates the canvas export. The output is re-encoded, however, so file size, compression characteristics, color profiles, and some format-specific properties can differ from the original.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">What sensitive information is hidden inside my photos?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    EXIF metadata often contains your home GPS coordinates, exact time/date stamps, and phone device IDs.
+                    Depending on the device and app, photo metadata may contain camera information, capture time, orientation, software tags, and sometimes location coordinates. Not every image contains all of these fields.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Does removing metadata lower my image quality?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    No. The pixel color data remains untouched; only the embedded background text headers are removed.
+                    Removing metadata itself does not change the scene represented by the image, but this tool creates a new encoded image file through a canvas. Because the image is re-encoded, the resulting file is not guaranteed to be bit-for-bit identical to the original.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Are images processed on external servers?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    No. Cleaning occurs entirely within local browser JavaScript.
+                    The selected image is processed by the browser-side JavaScript and canvas code on this page. The source does not upload the image to a K Tools processing server.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 mb-2">Can I clean multiple photos at once?</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    Yes, batch client-side processing is fully supported.
+                    No. The current interface accepts and processes one selected image at a time. You can repeat the process for additional photos.
                 </p>
             </div>
         </div>
@@ -258,14 +303,14 @@
     <footer class="bg-slate-900 text-slate-400 py-8 text-sm mt-auto">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <p class="mb-4">
-                <strong>Privacy Guarantee:</strong> All image processing occurs locally on your device via JavaScript HTML5 Canvas. We do not collect, upload, or store your photographs.
+                <strong>Processing note:</strong> The selected image is handled by browser-side JavaScript and Canvas APIs. The source code does not upload the image to a K Tools image-processing endpoint.
             </p>
             <div class="flex justify-center gap-6">
                 <a href="https://ktoolshq.com/about.html" class="hover:text-white transition">About</a>
                 <a href="https://ktoolshq.com/privacy.html" class="hover:text-white transition">Privacy Policy</a>
                 <a href="https://ktoolshq.com/terms.html" class="hover:text-white transition">Terms of Service</a>
             </div>
-            <p class="mt-6">&copy; 2026 SecureScrub Utilities. A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+            <p class="mt-6">&copy; 2026 K Tools HQ. SecureScrub is a free image metadata utility.</p>
         </div>
     </footer>
 
@@ -408,12 +453,13 @@
                     }
                 }
             } catch (err) {
-                // If it fails to parse (e.g. PNGs without EXIF chunks), assume safe
-                safeBox.classList.remove('hidden');
+                // Parsing can fail without proving that no metadata exists.
+                warningDetails.textContent = 'Metadata could not be fully inspected for this file.';
+                warningBox.classList.remove('hidden');
             }
         }
 
-        // --- The "Canvas Scrubbing" Engine (100% Guaranteed Removal) ---
+        // --- Canvas-based Fresh Image Export ---
         scrubBtn.addEventListener('click', () => {
             if (!currentImageObj) return;
 
@@ -430,26 +476,31 @@
                 canvas.width = currentImageObj.naturalWidth;
                 canvas.height = currentImageObj.naturalHeight;
                 
-                // Draw the image onto the canvas (this instantly leaves ALL metadata behind)
+                // Draw the decoded image pixels onto the canvas; source file metadata is not copied into this canvas export.
                 ctx.drawImage(currentImageObj, 0, 0);
                 
-                // Export the raw pixels as a fresh, clean JPEG
+                // Export a fresh image with a filename that matches the actual output MIME type.
+                const outputMime = currentFile.type === 'image/png' ? 'image/png' : 'image/jpeg';
                 canvas.toBlob((blob) => {
+                    if (!blob) {
+                        scrubBtn.innerHTML = originalBtnHtml;
+                        return;
+                    }
+
                     const cleanUrl = URL.createObjectURL(blob);
-                    
-                    // Trigger instant download
+
+                    // Trigger download
                     const downloadLink = document.createElement('a');
                     downloadLink.href = cleanUrl;
-                    
-                    // Keep original extension or fallback to jpg
-                    const ext = currentFile.name.split('.').pop().toLowerCase();
-                    const newExt = (ext === 'png' || ext === 'webp') ? ext : 'jpg';
-                    downloadLink.download = `scrubbed_${currentFile.name.split('.')[0]}.${newExt}`;
-                    
+
+                    const newExt = outputMime === 'image/png' ? 'png' : 'jpg';
+                    const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+                    downloadLink.download = `scrubbed_${baseName}.${newExt}`;
+
                     document.body.appendChild(downloadLink);
                     downloadLink.click();
                     downloadLink.remove();
-                    
+
                     // Reset UI
                     scrubBtn.innerHTML = originalBtnHtml;
                     URL.revokeObjectURL(cleanUrl);
@@ -461,15 +512,12 @@
                             tool_name: 'remove_metadata'
                         });
                     }
-                    
-                }, `image/${currentFile.type === 'image/png' ? 'png' : 'jpeg'}`, 0.95); 
-                // 0.95 maintains high quality for JPEGs
+
+                }, outputMime, 0.95); 
+                // High JPEG quality is used when the browser exports JPEG.
             }, 300); // Small delay to allow UI animation to render
         });
     </script>
-</body>
-</html>
-<!-- Dynamic More Tools Widget Script -->
   <script src="/tools-widget.js" defer></script>
 </body>
 </html>
