@@ -15,10 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Lean SEO Meta Tags -->
-    <title>Instagram Reels & TikTok Safe Zone Visualizer (Free Tool)</title>
-    <meta name="description" content="Preview your vertical videos against the exact 2026 UI overlays for Instagram Reels, TikTok, and Shorts. Keep text safe from cropping. 100% Free and Private.">
-    <meta name="keywords" content="tiktok safe zone, instagram reels safe zone 2026, youtube shorts safe area, vertical video safe zone visualizer, video editing ui overlay template, reels text safe area">
-    <meta name="robots" content="index, follow">
+    <title>Free Social Media Safe Zone Visualizer | Reels, TikTok & Shorts</title>
+    <meta name="description" content="Preview vertical videos and images with reference safe-zone overlays for Instagram Reels, TikTok, and YouTube Shorts. Free, browser-based, no account required.">
+<meta name="robots" content="index, follow">    <meta property="og:type" content="website">    <meta property="og:url" content="https://ktoolshq.com/safe-zone">    <meta property="og:title" content="Free Social Media Safe Zone Visualizer | K Tools HQ">    <meta property="og:description" content="Preview vertical media with reference UI safe zones for Instagram Reels, TikTok, and YouTube Shorts.">    <meta name="twitter:card" content="summary">    <meta name="twitter:title" content="Free Social Media Safe Zone Visualizer | K Tools HQ">    <meta name="twitter:description" content="Check where captions, buttons, and interface overlays may cover vertical video content.">
     <link rel="canonical" href="https://ktoolshq.com/safe-zone">
     
     <!-- Google Search Console Verification Tag -->
@@ -72,53 +71,69 @@
         table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
         th { background: #0f172a; color: #fff; text-align: left; padding: 1rem; border-bottom: 2px solid #1e293b; }
         td { padding: 1rem; border-bottom: 1px solid #1e293b; color: #94a3b8; }
-    </style>
-
-    <!-- WebApp & Lean FAQ JSON-LD Schema -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Social Media Safe Zone Visualizer",
-        "applicationCategory": "DesignApplication",
-        "operatingSystem": "All",
-        "offers": {
-          "@type": "Offer",
-          "price": "0"
-        }
+    </style>    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "K Tools HQ Safe Zone Visualizer",
+      "url": "https://ktoolshq.com/safe-zone",
+      "description": "Browser-based visualizer that overlays reference interface safe zones for vertical social media content.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do I keep text safe on Instagram Reels?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "To keep text safe on Instagram Reels, you must avoid placing important graphics in the bottom 20% of the screen (where captions appear) and the right 11% (where the like and share buttons are located)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are TikTok and Reels safe zones the same?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. TikTok's bottom UI 'danger zone' is significantly taller (blocking nearly 37% of the screen for captions and music tags) compared to Instagram Reels."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do my videos get uploaded to a server?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. This visualizer runs entirely locally in your browser. Your videos never leave your device, ensuring complete privacy and instant loading speeds."
-            }
+      "featureList": [
+        "Instagram Reels reference overlay",
+        "TikTok reference overlay",
+        "YouTube Shorts reference overlay",
+        "Vertical video and image preview",
+        "Adjustable overlay opacity",
+        "Browser-based media preview"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use a social media safe zone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload a vertical video or image, choose Instagram Reels, TikTok, or YouTube Shorts, and use the overlay to keep important text, faces, and graphics away from areas commonly occupied by platform interface elements."
           }
-        ]
-      }
-    ]
+        },
+        {
+          "@type": "Question",
+          "name": "Are Instagram Reels, TikTok, and YouTube Shorts safe zones identical?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Their interfaces can place controls, captions, titles, and other elements in different areas. This tool provides separate reference overlays so you can check a composition for each platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the safe zone visualizer upload my video to K Tools HQ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The current visualizer creates a local object URL for the selected media and displays it in the browser. It does not send the media to a K Tools processing endpoint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use an image instead of a video?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The file picker accepts common image types as well as video files, so you can check a still frame, thumbnail, or design before publishing."
+          }
+        }
+      ]
+    }
     </script>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col items-center">
@@ -127,40 +142,51 @@
     <nav class="w-full bg-slate-950 border-b border-slate-800 p-4 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="https://ktoolshq.com" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500 hover:opacity-80 transition-opacity">
-                CreatorUtilityPro
+                K Tools HQ
             </a>
             <div class="text-sm text-slate-400">
-                100% Local Browser Processing
+                Free • No Account Required
             </div>
         </div>
     </nav>
 
     <!-- AdSense Placeholder (Top Leaderboard) -->
-    <div class="w-full max-w-4xl h-24 bg-slate-800 mt-6 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 text-sm">
-        [AdSense Top Banner Area - Auto Ads]
+    <div class="w-full max-w-4xl min-h-[72px] mt-6 rounded-lg border border-slate-700/70 bg-slate-900/70 flex items-center justify-center text-slate-500 text-xs" aria-label="Advertisement">
+        Advertisement
     </div>
 
     <!-- Main Content -->
     <main class="w-full max-w-6xl p-6 grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4 flex-grow">
-        
+
+        <section class="col-span-1 lg:col-span-3 text-center max-w-3xl mx-auto">
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">Social Media Safe Zone Visualizer</h1>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Check vertical video and image layouts against reference interface zones for Instagram Reels, TikTok, and YouTube Shorts.
+                Use the overlays to reduce the chance that important text, faces, or graphics sit behind platform controls.
+            </p>
+            <p class="text-slate-500 text-xs mt-3">
+                Free to use. No account or subscription required.
+            </p>
+        </section>
+
         <!-- Left Column: Controls & Ad Space -->
         <div class="col-span-1 space-y-6">
             
             <!-- Tool Panel -->
             <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-2xl">
-                <h1 class="text-2xl font-bold text-white mb-2">Safe Zone Visualizer</h1>
-                <p class="text-slate-400 text-sm mb-6">Drag and drop your 9:16 vertical video to verify text and graphic placement against 2026 UI danger zones.</p>
+                <h2 class="text-2xl font-bold text-white mb-2">Safe Zone Visualizer</h2>
+                <p class="text-slate-400 text-sm mb-6">Preview a vertical video or image against reference interface overlays for Instagram Reels, TikTok, and YouTube Shorts.</p>
                 
                 <!-- Upload Area -->
                 <div id="dropZone" class="border-2 border-dashed border-slate-600 rounded-lg p-8 text-center cursor-pointer hover:border-indigo-500 hover:bg-slate-700/50 transition duration-200 mb-6 relative">
-                    <input type="file" id="videoUpload" accept="video/mp4,video/quicktime,video/x-m4v,image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                    <input type="file" id="videoUpload" aria-label="Upload a vertical video or image" accept="video/mp4,video/quicktime,video/x-m4v,image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                     <svg class="mx-auto h-12 w-12 text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                     <p class="text-sm font-medium text-slate-200">Click or Drag & Drop</p>
                     <p class="text-xs text-slate-500 mt-1">MP4, MOV, or PNG/JPG</p>
                 </div>
 
                 <!-- Platform Selection -->
-                <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Select Platform (2026 Specs)</h2>
+                <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">Select Platform</h2>
                 <div class="space-y-3 mb-6">
                     <button onclick="setPlatform('tiktok')" id="btn-tiktok" class="w-full py-3 bg-slate-900 border border-slate-600 hover:border-pink-500 rounded-lg font-medium transition duration-200 flex justify-between px-4 items-center">
                         <span>TikTok</span>
@@ -185,8 +211,8 @@
             </div>
 
             <!-- AdSense Placeholder (Sidebar) -->
-            <div class="w-full h-[600px] bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center text-slate-500 text-sm sticky top-24">
-                [AdSense Vertical Skyscraper - High CPC Area]
+            <div class="w-full min-h-[180px] bg-slate-900/60 rounded-xl border border-slate-700/70 flex items-center justify-center text-slate-500 text-xs sticky top-24" aria-label="Advertisement">
+                Advertisement
             </div>
 
         </div>
@@ -216,17 +242,17 @@
             
             <!-- 3-Step How-To Guide -->
             <div>
-              <h2 class="text-xl font-bold text-white mb-4">How to Use the Safe Zone Visualizer</h2>
+              <h2 class="text-xl font-bold text-white mb-4">How to Use This Safe Zone Visualizer</h2>
               <ol class="space-y-3 text-slate-400 text-sm list-decimal list-inside bg-slate-800/50 border border-slate-700/50 p-6 rounded-2xl">
-                <li><strong class="text-slate-200">Upload your Draft:</strong> Drag and drop your exported 9:16 vertical video. The file processes entirely in your browser.</li>
-                <li><strong class="text-slate-200">Select the Platform:</strong> Click TikTok, IG Reels, or YouTube Shorts to overlay their specific 2026 user interface blockades (the red "danger zones").</li>
-                <li><strong class="text-slate-200">Verify Placement:</strong> Ensure your subtitles, faces, and core graphics are outside the red zones to guarantee they won't be covered by like buttons or captions.</li>
+                <li><strong class="text-slate-200">Upload your media:</strong> Select a vertical video or image frame. The current page displays the selected media using a browser object URL.</li>
+                <li><strong class="text-slate-200">Select a reference overlay:</strong> Choose TikTok, Instagram Reels, or YouTube Shorts to display the corresponding template.</li>
+                <li><strong class="text-slate-200">Check important elements:</strong> Keep essential captions, faces, logos, and calls to action away from highlighted areas. The overlays are reference guides, not guarantees of the live app UI on every device or version.</li>
               </ol>
             </div>
 
             <!-- High-Value Reference Table -->
             <div>
-              <h3 class="text-lg font-bold text-white mb-4">2026 Vertical Video UI Danger Zones</h3>
+              <h3 class="text-lg font-bold text-white mb-4">Vertical Video Interface Reference Zones</h3>
               <div class="overflow-x-auto rounded-xl border border-slate-800">
                 <table>
                     <thead>
@@ -239,22 +265,26 @@
                     <tbody class="bg-slate-900">
                         <tr class="hover:bg-slate-800 transition">
                             <td><strong class="text-white">TikTok</strong></td>
-                            <td>Bottom 36.8% blocked</td>
-                            <td>Right 22.4% blocked</td>
+                            <td>Reference overlay: bottom 36.8%</td>
+                            <td>Reference overlay: right 22.4%</td>
                         </tr>
                         <tr class="hover:bg-slate-800 transition">
                             <td><strong class="text-white">IG Reels</strong></td>
-                            <td>Bottom 20.8% blocked</td>
-                            <td>Right 11.1% blocked</td>
+                            <td>Reference overlay: bottom 20.8%</td>
+                            <td>Reference overlay: right 11.1%</td>
                         </tr>
                         <tr class="hover:bg-slate-800 transition">
                             <td><strong class="text-white">YT Shorts</strong></td>
-                            <td>Bottom 23.4% blocked</td>
-                            <td>Right 13.8% blocked</td>
+                            <td>Reference overlay: bottom 23.4%</td>
+                            <td>Reference overlay: right 13.8%</td>
                         </tr>
                     </tbody>
                 </table>
               </div>
+              <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                These percentages are built into this visualizer as reference templates. Social platforms can change interface placement,
+                controls, and safe areas across app versions, devices, account states, and content types, so use the overlay as a layout aid rather than a guaranteed pixel-perfect specification.
+              </p>
             </div>
 
             <!-- Targeted FAQ -->
@@ -263,15 +293,15 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
                   <h4 class="font-bold text-white mb-1 text-sm">How do I keep text safe on Instagram Reels?</h4>
-                  <p class="text-xs text-slate-400 leading-relaxed">To keep text safe on Instagram Reels, you must avoid placing important graphics in the bottom 20% of the screen (where captions appear) and the right 11% (where the like and share buttons are located).</p>
+                  <p class="text-xs text-slate-400 leading-relaxed">Use the Instagram Reels overlay as a visual guide and keep essential text and graphics away from areas where interface controls may appear. Exact UI placement can vary by app version and device.</p>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
                   <h4 class="font-bold text-white mb-1 text-sm">Are TikTok and Reels safe zones the same?</h4>
-                  <p class="text-xs text-slate-400 leading-relaxed">No. TikTok's bottom UI 'danger zone' is significantly taller (blocking nearly 37% of the screen for captions and music tags) compared to Instagram Reels. You should check both before publishing cross-platform.</p>
+                  <p class="text-xs text-slate-400 leading-relaxed">No. The templates use different reference boundaries. Check each target platform separately when the same creative will be published across multiple apps.</p>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
                   <h4 class="font-bold text-white mb-1 text-sm">Do my videos get uploaded to a server?</h4>
-                  <p class="text-xs text-slate-400 leading-relaxed">No. This visualizer runs entirely locally in your browser. Your videos never leave your device, ensuring complete privacy and instant loading speeds.</p>
+                  <p class="text-xs text-slate-400 leading-relaxed">The selected media is displayed locally in the browser with a temporary object URL. This page does not send the selected file to a K Tools processing endpoint. Normal page services such as analytics can still load.</p>
                 </div>
               </div>
             </div>
@@ -285,7 +315,12 @@
     <!-- Footer for Legal Compliance -->
     <footer class="w-full border-t border-slate-800 bg-slate-950 py-8 mt-auto">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 text-sm text-slate-500">
-            <p>© 2026 A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+            <p class="mb-4 max-w-3xl mx-auto">
+                <strong>Reference notice:</strong> Safe-zone overlays are visual layout guides based on the templates implemented in this tool.
+                They are not official platform specifications and may not match every current app interface, device, or account experience.
+                Always review your final post in the target platform before publishing.
+            </p>
+            <p>© 2026 K Tools HQ. Free browser utility — no account or subscription required.</p>
             <div class="space-x-4 mt-4 md:mt-0">
                 <a href="https://ktoolshq.com/about.html" class="hover:text-slate-300">About</a>
                 <a href="https://ktoolshq.com/privacy.html" class="hover:text-slate-300">Privacy Policy</a>
@@ -321,24 +356,24 @@
         const overlayContainer = document.getElementById('overlayContainer');
         const opacitySlider = document.getElementById('opacitySlider');
         
-        // Exact 2026 Danger Zone Configurations (Red Blocks)
+        // Reference interface zone configurations (red blocks)
         const uiConfigs = {
             tiktok: [
-                { class: 'tiktok-top', text: 'Top UI (13.2%)' },
-                { class: 'tiktok-bottom', text: 'Captions/Music (36.8%)' },
-                { class: 'tiktok-right', text: 'Buttons (22.4%)' },
-                { class: 'tiktok-left', text: 'Margin (11.3%)' }
+                { class: 'tiktok-top', text: 'Top UI reference (13.2%)' },
+                { class: 'tiktok-bottom', text: 'Captions/Music reference (36.8%)' },
+                { class: 'tiktok-right', text: 'Buttons reference (22.4%)' },
+                { class: 'tiktok-left', text: 'Left margin reference (11.3%)' }
             ],
             reels: [
-                { class: 'reels-top', text: 'Account Info (10.4%)' },
-                { class: 'reels-bottom', text: 'Reel UI (20.8%)' },
-                { class: 'reels-right', text: 'Buttons (11.1%)' },
-                { class: 'reels-left', text: 'Margin (5.5%)' }
+                { class: 'reels-top', text: 'Account info reference (10.4%)' },
+                { class: 'reels-bottom', text: 'Reel UI reference (20.8%)' },
+                { class: 'reels-right', text: 'Buttons reference (11.1%)' },
+                { class: 'reels-left', text: 'Left margin reference (5.5%)' }
             ],
             shorts: [
-                { class: 'shorts-top', text: 'Status Bar (7.8%)' },
-                { class: 'shorts-bottom', text: 'Title/Channel (23.4%)' },
-                { class: 'shorts-right', text: 'Actions (13.8%)' }
+                { class: 'shorts-top', text: 'Top UI reference (7.8%)' },
+                { class: 'shorts-bottom', text: 'Title/channel reference (23.4%)' },
+                { class: 'shorts-right', text: 'Actions reference (13.8%)' }
             ]
         };
 
