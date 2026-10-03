@@ -13,13 +13,29 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <!-- Primary SEO Meta Tags -->
-  <title>Instagram Reels & Video Aspect Ratio Calculator (2026 Specs)</title>
-  <meta name="description" content="Free online video aspect ratio calculator. Quickly calculate dimensions for Instagram Reels (9:16), YouTube (16:9), Shorts, and TikTok. Instant pixel scaling for video editors.">
-  <meta name="keywords" content="instagram reels aspect ratio, video aspect ratio calculator, 9:16 aspect ratio in pixels, instagram video aspect ratio, facebook video aspect ratio, aspect ratio calculator pixels">
+  <title>Video Aspect Ratio Calculator | 9:16, 16:9 & Pixel Dimensions | K Tools HQ</title>
+  <meta name="description" content="Free video aspect ratio calculator for 9:16, 16:9, 4:5 and 1:1 formats. Calculate proportional width, height and megapixels for Reels, TikTok, YouTube and other video workflows.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ktoolshq.com/reels-aspect-ratio">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Video Aspect Ratio Calculator | 9:16, 16:9 & Pixel Dimensions">
+  <meta property="og:description" content="Calculate proportional video dimensions for 9:16, 16:9, 4:5 and 1:1 formats without stretching.">
+  <meta property="og:url" content="https://ktoolshq.com/reels-aspect-ratio">
+  <meta property="og:site_name" content="K Tools HQ">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Video Aspect Ratio Calculator | K Tools HQ">
+  <meta name="twitter:description" content="Calculate proportional video width, height and aspect ratios for common creator formats.">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#09090b">
+
+  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjiGzcSB6B3dPU3tdQWILE" />
-  <link rel="canonical" href="https://reels-aspect-ratio.vercel.app/">
 
   <!-- Google AdSense Tag -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
@@ -41,6 +57,47 @@
       }
     }
   </script>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Video Aspect Ratio Calculator",
+    "url": "https://ktoolshq.com/reels-aspect-ratio",
+    "description": "Free browser-based calculator for converting width and height while maintaining a selected video aspect ratio.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript-enabled modern web browser",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "K Tools HQ",
+      "url": "https://ktoolshq.com"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "K Tools HQ",
+        "item": "https://ktoolshq.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Video Aspect Ratio Calculator",
+        "item": "https://ktoolshq.com/reels-aspect-ratio"
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
 
@@ -57,7 +114,7 @@
       </a>
 
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-        2026 Video Specs
+        Creator Video Utility
       </span>
     </div>
   </header>
@@ -68,10 +125,10 @@
     <!-- Hero Section -->
     <div class="text-center space-y-3">
       <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
-        Video Aspect Ratio & Pixel Calculator
+        Video Aspect Ratio Calculator
       </h1>
       <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">
-        Calculate precise pixel dimensions for Instagram Reels, TikTok, YouTube, and digital displays without distorting your video.
+        Calculate proportional width, height, aspect ratio, and megapixels for common video and image formats without changing the selected ratio.
       </p>
     </div>
 
@@ -114,11 +171,11 @@
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label for="widthInput" class="block text-xs font-semibold text-zinc-400 mb-2">Width (px)</label>
-              <input type="number" id="widthInput" value="1080" oninput="calculateFromWidth()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
+              <input type="number" id="widthInput" value="1080" inputmode="numeric" min="1" aria-label="Video width in pixels" oninput="calculateFromWidth()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
             </div>
             <div>
               <label for="heightInput" class="block text-xs font-semibold text-zinc-400 mb-2">Height (px)</label>
-              <input type="number" id="heightInput" value="1920" oninput="calculateFromHeight()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
+              <input type="number" id="heightInput" value="1920" inputmode="numeric" min="1" aria-label="Video height in pixels" oninput="calculateFromHeight()" class="w-full bg-zinc-950 border border-zinc-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl p-3 text-lg font-bold text-white outline-none transition">
             </div>
           </div>
 
@@ -149,111 +206,132 @@
     </div>
   </main>
 
-  <!-- SEO & ADSENSE CONTENT SECTION (Below the Fold) -->
+  <!-- Advertisement -->
+  <div class="max-w-4xl mx-auto w-full px-4 pb-4" aria-label="Advertisement">
+    <div class="w-full min-h-[90px] bg-zinc-900/40 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
+      Advertisement
+    </div>
+  </div>
+  <!-- Helpful Tool Information -->
   <section class="border-t border-zinc-800 bg-zinc-950/50 py-16 px-4">
     <div class="max-w-4xl mx-auto space-y-12">
-      
+
       <div class="space-y-4">
-        <h2 class="text-2xl font-bold text-white">
-          What is the Instagram Reels Aspect Ratio?
-        </h2>
+        <h2 class="text-2xl font-bold text-white">How a Video Aspect Ratio Calculator Works</h2>
         <p class="text-sm leading-relaxed text-zinc-400">
-          The official <strong class="text-zinc-200">Instagram Reels aspect ratio is 9:16</strong>. The ideal resolution for exporting Instagram Reels, YouTube Shorts, and TikTok clips is <strong class="text-zinc-200">1080 x 1920 pixels</strong>. Maintaining a 9:16 vertical frame ensures your media displays full-screen on mobile devices without black bars or accidental cropping.
+          Aspect ratio describes the proportional relationship between a frame's width and height. This calculator keeps the selected ratio locked while you change either dimension, then calculates the matching dimension automatically. It also simplifies the ratio and shows the total pixel count in megapixels.
+        </p>
+        <p class="text-sm leading-relaxed text-zinc-400">
+          The tool is designed for planning and resizing workflows. It calculates dimensions in pixels; it does not crop, encode, render, or export a video file.
         </p>
       </div>
 
-      <!-- Quick Reference Table -->
       <div class="space-y-4">
-        <h3 class="text-xl font-semibold text-white">
-          Standard Social Media Video Aspect Ratios (2026 Reference)
-        </h3>
+        <h3 class="text-xl font-semibold text-white">Common Video and Social Media Dimensions</h3>
         <div class="overflow-x-auto bg-zinc-900 border border-zinc-800/80 rounded-2xl">
           <table class="w-full text-left text-xs sm:text-sm border-collapse">
             <thead>
               <tr class="border-b border-zinc-800 text-zinc-400 uppercase font-bold bg-zinc-950/50">
-                <th class="py-4 px-5">Platform / Format</th>
+                <th class="py-4 px-5">Format</th>
                 <th class="py-4 px-5">Aspect Ratio</th>
-                <th class="py-4 px-5">Recommended Pixels</th>
-                <th class="py-4 px-5">Use Case</th>
+                <th class="py-4 px-5">Example Dimensions</th>
+                <th class="py-4 px-5">Typical Workflow</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-zinc-800/60 text-zinc-300">
               <tr>
-                <td class="py-4 px-5 font-semibold text-white">Instagram Reels aspect ratio</td>
+                <td class="py-4 px-5 font-semibold text-white">Vertical video</td>
                 <td class="py-4 px-5 text-indigo-400 font-mono font-bold">9:16</td>
                 <td class="py-4 px-5">1080 × 1920 px</td>
-                <td class="py-4 px-5">Full-screen vertical feed</td>
+                <td class="py-4 px-5">Reels, Shorts, TikTok</td>
               </tr>
               <tr>
-                <td class="py-4 px-5 font-semibold text-white">Instagram Portrait Post</td>
+                <td class="py-4 px-5 font-semibold text-white">Widescreen video</td>
+                <td class="py-4 px-5 text-indigo-400 font-mono font-bold">16:9</td>
+                <td class="py-4 px-5">1920 × 1080 px</td>
+                <td class="py-4 px-5">YouTube and standard HD video</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-5 font-semibold text-white">Portrait image/video</td>
                 <td class="py-4 px-5 text-indigo-400 font-mono font-bold">4:5</td>
                 <td class="py-4 px-5">1080 × 1350 px</td>
-                <td class="py-4 px-5">Maximum feed real estate</td>
+                <td class="py-4 px-5">Portrait social posts</td>
               </tr>
               <tr>
-                <td class="py-4 px-5 font-semibold text-white">YouTube Video aspect ratio</td>
-                <td class="py-4 px-5 text-indigo-400 font-mono font-bold">16:9</td>
-                <td class="py-4 px-5">1920 × 1080 / 3840 × 2160</td>
-                <td class="py-4 px-5">Standard HD / 4K Widescreen</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-5 font-semibold text-white">Facebook Video aspect ratio</td>
-                <td class="py-4 px-5 text-indigo-400 font-mono font-bold">1:1 or 9:16</td>
-                <td class="py-4 px-5">1080 × 1080 / 1080 × 1920</td>
-                <td class="py-4 px-5">Feed clips & Facebook Reels</td>
+                <td class="py-4 px-5 font-semibold text-white">Square</td>
+                <td class="py-4 px-5 text-indigo-400 font-mono font-bold">1:1</td>
+                <td class="py-4 px-5">1080 × 1080 px</td>
+                <td class="py-4 px-5">Square posts and graphics</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p class="text-xs leading-relaxed text-zinc-500">
+          These are common working dimensions, not a guarantee of a platform's current upload requirements. Check the destination platform or service when a project has a specific technical specification.
+        </p>
       </div>
 
-      <!-- FAQ Section -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-white">Aspect Ratio Formulas for Editors</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Width from Height</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Width = Height × ratio width ÷ ratio height.</p>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Height from Width</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Height = Width × ratio height ÷ ratio width.</p>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Ratio Simplification</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">The calculator uses the greatest common divisor to reduce a width and height to the simplest ratio.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-          ❓ Frequently Asked Questions
-        </h3>
-        
+        <h3 class="text-xl font-bold text-white">Frequently Asked Questions</h3>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">How do I calculate pixel aspect ratio without losing quality?</h4>
+            <h4 class="font-bold text-white mb-2 text-sm">What is 9:16 in pixels?</h4>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              To rescale video dimensions without stretching, divide your target width by the original aspect ratio factor or use our automated calculator above to lock the proportion automatically.
+              9:16 is a proportion, not a single resolution. 1080 × 1920 pixels is a common example of a 9:16 vertical frame. Other dimensions such as 720 × 1280 and 2160 × 3840 keep the same ratio.
             </p>
           </div>
 
           <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">What happens if I upload 16:9 video to Instagram Reels?</h4>
+            <h4 class="font-bold text-white mb-2 text-sm">What is 16:9 in pixels?</h4>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              Instagram will add thick black bars above and below a 16:9 widescreen video to fit it into the vertical player. For best engagement, re-crop your timeline to 9:16 (1080x1920) in editing software like DaVinci Resolve or Premiere Pro.
-            </p>
-          </div>
-          
-          <!-- Additions to hit the minimum content length for AdSense approval -->
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">What is the standard aspect ratio for Instagram Reels?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              The standard aspect ratio for Reels is 9:16 (1080 × 1920 pixels).
-            </p>
-          </div>
-          
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">How do I avoid black bars when converting video?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              Match source aspect ratios to target display aspect ratios using exact proportional pixel dimensions.
-            </p>
-          </div>
-          
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">What resolution is 4K in 9:16 vertical format?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              Vertical 4K resolution is 2160 × 3840 pixels.
+              16:9 can use many resolutions. Common examples include 1920 × 1080 for Full HD and 3840 × 2160 for 4K.
             </p>
           </div>
 
           <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Is this tool free for commercial video projects?</h4>
+            <h4 class="font-bold text-white mb-2 text-sm">How do I resize a video without stretching it?</h4>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              Yes, it is free for personal and commercial editing projects.
+              Keep the target aspect ratio fixed and calculate the matching width or height before changing your editing timeline or canvas size. This calculator performs that proportional calculation automatically.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Does this calculator crop or resize my actual video?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              No. It only calculates dimensions and previews the selected proportion. Use your video editor or image editor to perform the actual crop, resize, or export.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Why does changing width also change height?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              The calculator keeps the current aspect ratio locked. Changing one dimension therefore recalculates the other dimension to preserve the same proportions.
+            </p>
+          </div>
+
+          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
+            <h4 class="font-bold text-white mb-2 text-sm">Is the calculator free to use?</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Yes. The calculator runs directly in the browser and is available without an account or paid plan.
             </p>
           </div>
         </div>
@@ -268,11 +346,11 @@
   <!-- Footer with Legal Links -->
   <footer class="border-t border-zinc-800 py-8 bg-zinc-950">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-      <p>© 2026 RatioCraft • A free utility provided by your registered freelance video editing enterprise. All rights reserved.</p>
+      <p>© 2026 RatioCraft by K Tools HQ. All rights reserved.</p>
       <div class="flex space-x-4">
-        <a href="about.html" class="hover:text-zinc-300 transition-colors">About</a>
-        <a href="privacy.html" class="hover:text-zinc-300 transition-colors">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-zinc-300 transition-colors">Terms of Service</a>
+        <a href="/about.html" class="hover:text-zinc-300 transition-colors">About</a>
+        <a href="/privacy.html" class="hover:text-zinc-300 transition-colors">Privacy Policy</a>
+        <a href="/terms.html" class="hover:text-zinc-300 transition-colors">Terms of Service</a>
       </div>
     </div>
   </footer>
