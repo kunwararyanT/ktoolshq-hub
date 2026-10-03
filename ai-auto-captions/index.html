@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary SEO Meta Tags -->
-  <title>Free Viral AI Subtitle Generator & Video Editor | 100% Local</title>
-  <meta name="description" content="Generate, edit, trim, and color-grade viral Alex Hormozi-style animated captions directly in your browser. Supports Hindi & English. 100% free, zero server uploads.">
-  <meta name="keywords" content="viral caption generator, video trimmer online free, hormozi style subtitles, auto subtitle generator, free srt maker, browser video editor, hindi video captions, download video with captions free">
-  <meta name="robots" content="index, follow">
+  <title>Free AI Subtitle Generator & Caption Editor | KTools HQ</title>
+  <meta name="description" content="Generate subtitles from video in your browser, edit caption text and timing, style captions, export SRT files, and render a captioned WebM video. Local processing for your video files.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="KTools HQ">
+  <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="https://ktoolshq.com/ai-auto-captions">
+
+  <!-- Search / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ktoolshq.com/ai-auto-captions">
+  <meta property="og:title" content="Free AI Subtitle Generator & Caption Editor | KTools HQ">
+  <meta property="og:description" content="Generate, edit, style, and export subtitles from video in your browser. Supports multiple languages, SRT export, and local video processing.">
+  <meta property="og:site_name" content="KTools HQ">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free AI Subtitle Generator & Caption Editor | KTools HQ">
+  <meta name="twitter:description" content="Create subtitles from video, edit timing and text, style captions, export SRT, and render a captioned WebM video in your browser.">
 
   <!-- Google Search Console Verification Tag -->
   <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
@@ -81,19 +92,31 @@
     }
   </style>
 
-  <!-- WebApp & Lean FAQ JSON-LD Schema -->
+  <!-- Software application + FAQ structured data -->
   <script type="application/ld+json">
   [
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       "name": "CaptionCraft Studio",
+      "url": "https://ktoolshq.com/ai-auto-captions",
       "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "Any modern web browser",
+      "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
-        "price": "0"
-      }
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Automatic video transcription",
+        "Multilingual subtitles",
+        "Editable caption timing and text",
+        "Caption styling presets",
+        "SRT subtitle export",
+        "Video trimming and color adjustments",
+        "Browser-based processing"
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -101,26 +124,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Are my videos uploaded to a cloud server?",
+          "name": "Are my videos uploaded for transcription?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. We run OpenAI's Whisper AI model directly inside your browser via WebAssembly. Your media files never leave your device."
+            "text": "The uploaded video is decoded and processed in your browser. The page also downloads the required AI model and runtime resources from external CDNs when they are needed."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I download the final video with captions burned in?",
+          "name": "Can I edit the generated subtitles?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Absolutely. You can edit your captions, change colors and outlines, and click 'Render & Download Video' to export a ready-to-post media file."
+            "text": "Yes. Open the Edit Text tab to correct transcript text, jump to timestamps, and adjust the global subtitle sync offset."
           }
         },
         {
           "@type": "Question",
-          "name": "Does this tool support Hindi and Spanish?",
+          "name": "Can I download an SRT subtitle file?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! The engine uses the global multilingual Whisper AI model. Simply select Hindi, Spanish, French, or let the AI auto-detect the language before uploading your video."
+            "text": "Yes. CaptionCraft Studio can generate an SRT file from the current caption timing and edited text, and you can also copy the SRT content to your clipboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which languages are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The current language selector supports automatic detection, English, Hindi, Spanish, French, and German. Recognition quality can vary with audio quality, accents, background noise, and model choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I style and export captions on the video?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can choose caption presets, fonts, colors, background boxes, text size, position, outline, and glow, then render a WebM video with the captions burned in."
           }
         }
       ]
@@ -152,7 +191,7 @@
         </span>
       </a>
       <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-        Global Multilingual AI
+        Browser-Based AI
       </span>
     </div>
   </header>
@@ -169,10 +208,10 @@
     
     <div class="text-center space-y-3">
       <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-        Local AI Subtitle Studio & Editor
+        Free AI Subtitle Generator & Caption Editor
       </h1>
       <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
-        Transcribe, trim, edit, and color-grade viral videos entirely in your browser. 100% free.
+        Generate subtitles from video, edit the transcript, style captions, export SRT files, and render a captioned video directly in your browser.
       </p>
     </div>
 
@@ -183,10 +222,10 @@
         A quick note on how this free tool works:
       </h3>
       <ul class="text-xs text-zinc-300 space-y-2">
-        <li><strong class="text-white">🇺🇸 English is highly accurate.</strong> Non-English languages (like Hindi or Spanish) might have slight spelling or vowel errors.</li>
-        <li><strong class="text-white">✂️ NEW: Word Pacing & Video Editor!</strong> Control exact words per line, trim, speed up, and color grade your footage.</li>
-        <li><strong class="text-white">🔒 Why is it free?</strong> The AI runs entirely inside your browser's memory—not on massive, expensive cloud servers like paid subscriptions use.</li>
-        <li><strong class="text-white">✏️ The Fix:</strong> The AI does 80% of the hard work. Just click the <strong>"Edit Text"</strong> tab to quickly polish any typos before downloading your video!</li>
+        <li><strong class="text-white">Language accuracy:</strong> English often produces the most reliable transcript. Other languages can need a quick manual correction, especially with noise or unclear speech.</li>
+        <li><strong class="text-white">✂️ Caption pacing:</strong> Choose how many words appear at a time, then adjust the transcript line by line.</li>
+        <li><strong class="text-white">🔒 Local video processing:</strong> Your selected video is processed in the browser. The page still downloads the AI model and runtime files it needs from external CDNs.</li>
+        <li><strong class="text-white">✏️ Edit before export:</strong> Review the generated transcript and fix names, spelling, punctuation, or timing before downloading.</li>
       </ul>
     </div>
 
@@ -225,7 +264,7 @@
         <svg class="w-8 h-8 text-zinc-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
       </div>
       <h3 class="text-xl font-bold text-white mb-2">Step 3: Upload Video</h3>
-      <p class="text-zinc-400 text-sm mb-4">Drag and drop your video file here to generate captions automatically.</p>
+      <p class="text-zinc-400 text-sm mb-4">Drag and drop a video here to generate timestamped captions automatically.</p>
       <button class="bg-zinc-800 text-zinc-300 font-bold px-6 py-2 rounded-lg pointer-events-none group-hover:bg-indigo-600 group-hover:text-white transition-colors">Browse Videos</button>
     </div>
 
@@ -491,7 +530,7 @@
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
             </div>
             <h3 class="text-xl font-bold text-white">Export Final Video</h3>
-            <p class="text-sm text-zinc-400">Renders the video with your styled captions, color grades, and trim settings permanently burned in. Downloads as a highly compatible .webm format.</p>
+            <p class="text-sm text-zinc-400">Renders your selected captions, trim range, and video adjustments into a WebM file.</p>
             <button id="renderVideoBtn" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
               Render & Download Video
             </button>
@@ -518,40 +557,73 @@
 
   </main>
 
-  <!-- LEAN SEO & HOW-TO SECTION -->
+  <!-- Tool information, supporting SEO content, and FAQs -->
   <section class="max-w-4xl mx-auto px-4 py-12 space-y-10">
-    
-    <div>
-      <h2 class="text-2xl font-black text-white mb-4">How to Add Viral Captions to Your Video</h2>
+
+    <div class="space-y-4">
+      <h2 class="text-2xl font-black text-white">AI Subtitle Generator for Videos</h2>
+      <p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio is a browser-based subtitle and caption editor for creators who need a transcript they can actually edit before publishing. Upload a video, choose a language and transcription model, generate timestamped captions, then adjust the text and pacing before exporting.</p>
+      <p class="text-sm leading-7 text-zinc-400">The tool is designed for short-form and social video workflows, including YouTube Shorts, Instagram Reels, and TikTok-style vertical videos. It can also be used when you simply need an editable transcript, an <strong class="text-zinc-200">SRT subtitle file</strong>, or a rendered video with captions burned into the picture.</p>
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-xl font-bold text-white">What this subtitle tool can do</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-400">
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Automatic transcription:</strong> Generate timestamped speech captions from an uploaded video using a Whisper-based speech recognition model in the browser.</div>
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption editing:</strong> Correct the generated text line by line and jump to a caption's timestamp in the video.</div>
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Word pacing:</strong> Split captions into smaller groups of words for faster, more readable on-screen captions.</div>
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption styling:</strong> Change fonts, text colors, highlights, background boxes, size, position, outlines, and glow.</div>
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Video editing controls:</strong> Set a trim range, change playback speed and volume, and apply basic brightness, contrast, saturation, and sepia adjustments.</div>
+        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Subtitle export:</strong> Download or copy an SRT file, or render a WebM video with the captions and selected video adjustments.</div>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-xl font-bold text-white">How to use the AI subtitle generator</h2>
       <ol class="space-y-3 text-zinc-400 text-sm list-decimal list-inside bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
-        <li><strong class="text-zinc-200">Select your language:</strong> Choose your audio language (English, Hindi, Spanish, etc.) and AI engine directly on the page.</li>
-        <li><strong class="text-zinc-200">Upload your video:</strong> Drag and drop your vertical MP4 or WebM file. The AI transcribes the audio entirely inside your browser.</li>
-        <li><strong class="text-zinc-200">Style your captions:</strong> Select from popular viral presets (like Hormozi or MrBeast), adjust the word pacing, and edit any typos in the text editor tab.</li>
-        <li><strong class="text-zinc-200">Export:</strong> Click "Render & Download" to save the final video with burned-in subtitles directly to your device without watermarks.</li>
+        <li><strong class="text-zinc-200">Choose the language and model:</strong> Use automatic detection or choose English, Hindi, Spanish, French, or German. Select the faster base model or the higher-accuracy small model.</li>
+        <li><strong class="text-zinc-200">Upload your video:</strong> Drag a supported MP4, WebM, QuickTime, or M4V video into the upload area.</li>
+        <li><strong class="text-zinc-200">Review the transcript:</strong> Wait for the browser to load the required model, then check the generated timestamped captions in the editor.</li>
+        <li><strong class="text-zinc-200">Adjust the captions:</strong> Change word pacing, correct text, move captions vertically, change styling, or use the sync offset when timing needs a small correction.</li>
+        <li><strong class="text-zinc-200">Export what you need:</strong> Download an SRT file for use in another editor, or render the captioned video as WebM.</li>
       </ol>
     </div>
 
+    <div class="space-y-4">
+      <h2 class="text-xl font-bold text-white">Supported languages and browser processing</h2>
+      <p class="text-sm leading-7 text-zinc-400">The current interface offers automatic detection plus English, Hindi, Spanish, French, and German. Transcript quality depends on the language, audio clarity, accents, background noise, music, and the selected model. The generated text should be reviewed before publishing, especially for names, numbers, and mixed-language speech.</p>
+      <p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio performs video decoding and speech inference in the browser. The page still needs to download the AI model and supporting runtime resources from external CDNs when they are not already cached. Large videos and larger models can use significant memory and processing power, particularly on mobile devices.</p>
+    </div>
+
     <div>
-      <h3 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h3>
+      <h2 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h4 class="font-bold text-white mb-2 text-sm">Are my videos uploaded to a server?</h4>
-          <p class="text-xs text-zinc-400">No. The Whisper AI model runs entirely via WebAssembly in your local browser memory. Your files never leave your device.</p>
+          <h3 class="font-bold text-white mb-2 text-sm">Are my videos uploaded for transcription?</h3>
+          <p class="text-xs leading-6 text-zinc-400">The uploaded video is decoded and processed in your browser. The required AI model and runtime resources are downloaded from external CDNs when needed.</p>
         </div>
         <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h4 class="font-bold text-white mb-2 text-sm">Can I download the SRT file for Premiere Pro?</h4>
-          <p class="text-xs text-zinc-400">Yes. You can copy or download the generated .SRT file to import directly into DaVinci Resolve, CapCut, or Premiere Pro.</p>
+          <h3 class="font-bold text-white mb-2 text-sm">Can I edit the generated subtitles?</h3>
+          <p class="text-xs leading-6 text-zinc-400">Yes. Use the Edit Text tab to correct transcript text, jump to timestamps, and apply a global sync offset.</p>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+          <h3 class="font-bold text-white mb-2 text-sm">Can I download an SRT file?</h3>
+          <p class="text-xs leading-6 text-zinc-400">Yes. Download the generated SRT file or copy the subtitle text to your clipboard for use in other video editors.</p>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+          <h3 class="font-bold text-white mb-2 text-sm">Does it work with Hindi subtitles?</h3>
+          <p class="text-xs leading-6 text-zinc-400">Yes. Hindi is available in the language selector. Accuracy can vary with audio quality and the model you choose, so review the transcript before export.</p>
         </div>
         <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl md:col-span-2">
-          <h4 class="font-bold text-white mb-2 text-sm">Why is the tool completely free?</h4>
-          <p class="text-xs text-zinc-400">Because it uses your computer's CPU/GPU to process the AI model locally, we don't have to pay for expensive cloud server rendering.</p>
+          <h3 class="font-bold text-white mb-2 text-sm">Can I render captions directly onto the video?</h3>
+          <p class="text-xs leading-6 text-zinc-400">Yes. The Export Video tab can render the selected caption style, trim range, and video adjustments into a WebM file. The export runs in the browser and can be demanding on slower devices.</p>
         </div>
       </div>
     </div>
 
     <div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
-      <p class="font-bold text-zinc-400 uppercase tracking-wider">Compliance & Open Source Attribution</p>
-      <p>This utility utilizes OpenAI Whisper (released under the MIT License) via Transformers.js WebAssembly runtime. Audio processing and neural inference are executed strictly on the client device. No media assets are uploaded or stored on external servers.</p>
+      <p class="font-bold text-zinc-400 uppercase tracking-wider">Technology & processing details</p>
+      <p>This utility uses Whisper speech-recognition models through the Transformers.js WebAssembly runtime. The application runs transcription and video editing tasks on the user's device. Model and runtime resources are fetched from external CDNs as required; the uploaded video is not sent to a KTools HQ application server by the tool's client-side processing flow.</p>
     </div>
 
   </section>
