@@ -13,20 +13,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO META TAGS -->
-  <title>Domscrool | Infinite Doom Shopping Simulator</title>
-  <meta name="description" content="Experience the satirical thrill of 3 AM impulse buying with Domscrool. Spin the wheel, doom-scroll viral tech and aesthetic finds, and simulate checkout with zero regrets.">
-  <meta name="keywords" content="doom scrolling, shopping simulator, impulse buy, viral products, aesthetic finds, satirical shopping, fake store, ecommerce simulator">
-  <meta name="author" content="Domscrool">
+  <!-- SEO & Social Metadata -->
+  <title>Domscrool — Free Shopping Simulator & Doom-Scrolling Game</title>
+  <meta name="description" content="Try a satirical browser shopping simulator: scroll simulated products, search the feed, add items to a fake cart, spin a discount wheel, and simulate checkout with no real purchase.">
+  <meta name="author" content="K Tools HQ">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://domscrool.vercel.app/" />
+  <link rel="canonical" href="https://ktoolshq.com/dom-scroll">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ktoolshq.com/dom-scroll">
+  <meta property="og:title" content="Domscrool — Free Shopping Simulator">
+  <meta property="og:description" content="A satirical browser shopping simulator with an infinite feed, simulated products, a discount wheel, and a fake checkout.">
+  <meta property="og:site_name" content="K Tools HQ">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Domscrool — Free Shopping Simulator">
+  <meta name="twitter:description" content="Scroll simulated products, build a fake cart, and run a simulated checkout with no real purchase.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
+
+  <!-- Connection hints -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- Google AdSense Verification Tag -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
 
   <!-- OPEN GRAPH / FACEBOOK / DISCORD -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://domscrool.vercel.app/">
+  <meta property="og:url" content="https://ktoolshq.com/dom-scroll">
   <meta property="og:title" content="Domscrool | Infinite Doom Shopping Simulator">
   <meta property="og:description" content="Experience the satirical thrill of 3 AM impulse buying. Doom-scroll viral products and simulate checkout with zero real money spent.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
@@ -37,19 +55,36 @@
   <meta name="twitter:description" content="Experience the satirical thrill of 3 AM impulse buying. Doom-scroll viral products and simulate checkout with zero real money spent.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80">
 
-  <!-- SCHEMA.ORG STRUCTURED DATA -->
+  <!-- Software application structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Domscrool",
-    "description": "A satirical doom-shopping simulator featuring infinite scrolling, viral products, and simulated checkouts.",
+    "@type": "SoftwareApplication",
+    "name": "Domscrool Shopping Simulator",
+    "url": "https://ktoolshq.com/dom-scroll",
+    "description": "A satirical browser-based shopping simulator with simulated products, infinite scrolling, a fake cart, a discount wheel, and simulated checkout.",
     "applicationCategory": "EntertainmentApplication",
-    "operatingSystem": "WebBrowser",
+    "applicationSubCategory": "Shopping Simulator",
+    "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "INR"
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Infinite product feed",
+      "Product search",
+      "Simulated shopping cart",
+      "Discount wheel",
+      "Simulated checkout",
+      "Satirical shopping experience"
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "K Tools HQ",
+      "url": "https://ktoolshq.com/"
     }
   }
   </script>
@@ -81,7 +116,7 @@
       <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
         <span class="text-xl font-black tracking-wider text-red-500">DOMSCROOL</span>
       </a>
-      <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded-full font-bold">LIVE SALE</span>
+      <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded-full font-bold">SIMULATION</span>
     </div>
 
     <!-- Search Bar -->
@@ -108,7 +143,7 @@
   <!-- LIVE SOCIAL PROOF TOAST -->
   <div id="liveToast" class="fixed bottom-16 left-1/2 -translate-x-1/2 bg-zinc-900/95 border border-zinc-700 text-white px-4 py-2 rounded-full shadow-2xl z-40 hidden flex items-center gap-2 text-xs backdrop-blur animate-slide-up" role="alert">
     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-    <span id="toastMsg">@BrokeButHappy just added RGB Headphone Stand!</span>
+    <span id="toastMsg">Simulated activity: @BrokeButHappy added RGB Headphone Stand.</span>
   </div>
 
   <!-- DISCOUNT WHEEL MODAL -->
@@ -160,10 +195,10 @@
         <div class="bg-zinc-800/50 p-3 rounded-xl border border-zinc-800/80">
           <div class="flex items-center gap-1 text-amber-400 text-xs font-bold mb-1">
             <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <span>4.9 / 5.0</span>
-            <span class="text-zinc-500 font-normal ml-1">(2,410 doom-shoppers)</span>
+            <span>SIMULATED RATING</span>
+            <span class="text-zinc-500 font-normal ml-1">(for the demo experience)</span>
           </div>
-          <p class="text-[11px] text-zinc-300 italic">"I bought this at 3:00 AM without thinking. Zero regrets." - @ImpulseShopper</p>
+          <p class="text-[11px] text-zinc-300 italic">Example reaction shown for the simulator — not a real customer review.</p>
         </div>
       </div>
 
@@ -209,14 +244,29 @@
     </div>
   </div>
 
-  <!-- LEGAL FOOTER -->
-  <footer class="bg-zinc-900 text-[10px] text-zinc-500 text-center py-2 border-t border-zinc-800 z-20 flex flex-col items-center gap-1">
-    <p>⚠️ <strong>DISCLAIMER:</strong> Domscrool is a satirical doom-shopping simulator. Products are simulated for fun!</p>
-    <p>© 2026 A free utility provided by your registered freelance video editing enterprise.</p>
-    <div class="flex gap-4 mt-1">
-      <a href="about.html" class="hover:text-zinc-300 transition">About</a>
-      <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
-      <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+  <!-- LEGAL + SUPPORTING CONTENT -->
+  <footer class="bg-zinc-900 text-[10px] text-zinc-500 border-t border-zinc-800 z-20">
+    <div class="max-w-2xl mx-auto px-4 py-4 space-y-2">
+      <div>
+        <h2 class="text-xs font-bold text-zinc-300">Domscrool Shopping Simulator</h2>
+        <p class="mt-1 leading-relaxed">
+          Domscrool is a browser-based satirical shopping simulator built around doom-scrolling and impulse-buying behavior.
+          The feed, products, prices, ratings, discount codes, cart activity, and checkout are simulated for entertainment.
+          No product is actually sold through this page and no real payment is processed.
+        </p>
+      </div>
+      <p class="leading-relaxed">
+        Use the search box to find simulated products, scroll through the feed, open product details, add items to the fake cart,
+        try the discount wheel, or run the checkout simulation. The experience is an interactive web tool, not a real online store.
+      </p>
+      <p>⚠️ <strong>Simulation notice:</strong> Domscrool does not process purchases, collect checkout payments, or represent real customer orders or reviews.</p>
+      <p>© 2026 K Tools HQ • Domscrool is a free interactive experience.</p>
+      <div class="flex flex-wrap justify-center gap-4 pt-1">
+        <a href="https://ktoolshq.com" class="hover:text-zinc-300 transition">K Tools HQ</a>
+        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
+        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
@@ -407,7 +457,7 @@
     }
 
     function shareProduct(name) {
-      navigator.clipboard.writeText(`Look at this insane deal for "${name}" on Domscrool! 🛍️`);
+      navigator.clipboard.writeText(`Look at this simulated deal for "${name}" on Domscrool! 🛍️`);
       showToast(`Link for "${name}" copied to clipboard!`);
       playSound('swipe');
     }
@@ -423,7 +473,7 @@
       if (generatedProducts.length > 0) {
         const randomUser = funnyUsers[Math.floor(Math.random() * funnyUsers.length)];
         const randomProduct = generatedProducts[Math.floor(Math.random() * generatedProducts.length)];
-        showToast(`${randomUser} just added ${randomProduct.name} to cart!`);
+        showToast(`Simulated activity: ${randomUser} added ${randomProduct.name} to the cart.`);
       }
     }, 12000);
 
@@ -552,7 +602,7 @@
       }
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
       playSound('win');
-      alert('Checkout simulated! Take a breath, no real money spent 🎉');
+      alert('Checkout simulated! No real purchase or payment was made. 🎉');
       cart = [];
       updateCartUI();
       toggleCart();
