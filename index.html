@@ -3,41 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary SEO Meta Tags -->
+
+  <!-- Primary SEO -->
   <title>K Tools HQ — Free Online Tools for Creators, Gamers & Power Users</title>
-  <meta name="description" content="Free browser-based utilities for creators, gamers, and power users. Compress images, calculate video dimensions, test gaming hardware, clean photo metadata, unlock PDFs, and more. No account or subscription required.">
+  <meta
+    name="description"
+    content="Free browser-based utilities for creators, gamers, and power users. Compress images, calculate video dimensions, test gaming hardware, clean photo metadata, unlock PDFs, and more. No account or subscription required."
+  >
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="https://ktoolshq.com/">
 
-  <!-- Open Graph / Social Sharing -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ktoolshq.com/">
   <meta property="og:title" content="K Tools HQ — Free Online Tools for Creators & Gamers">
-  <meta property="og:description" content="A focused collection of free browser utilities for video creators, gamers, and everyday digital tasks. No account or subscription required.">
+  <meta
+    property="og:description"
+    content="A focused collection of free browser utilities for video creators, gamers, and everyday digital tasks. No account or subscription required."
+  >
   <meta property="og:site_name" content="K Tools HQ">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="K Tools HQ — Free Online Tools for Creators & Gamers">
-  <meta name="twitter:description" content="Free browser utilities for creators, gamers, and power users. No account or subscription required.">
+  <meta
+    name="twitter:description"
+    content="Free browser utilities for creators, gamers, and power users. No account or subscription required."
+  >
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-B8VMVB3VEP');
+  </script>
 
-  gtag('config', 'G-B8VMVB3VEP');
-</script>
+  <!-- Google AdSense -->
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118"
+    crossorigin="anonymous"
+  ></script>
 
-  <!-- Google AdSense Tag -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
-
-  <!-- Tailwind CSS & Lucide Icons CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Schema.org Structured Data -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   [
     {
@@ -57,471 +68,1816 @@
   </script>
 
   <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface-2: #27272a;
+      --border: #27272a;
+      --border-hover: #6366f1;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --muted-2: #71717a;
+      --indigo: #6366f1;
+      --indigo-light: #818cf8;
+      --emerald: #34d399;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-2xl: 1.75rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+    }
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .site-shell {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(100% - 2rem, 80rem);
+      margin-inline: auto;
+    }
+
+    .container-narrow {
+      width: min(100% - 2rem, 64rem);
+      margin-inline: auto;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #27272a;
+      background: rgba(24, 24, 27, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.75rem;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.18);
+      transition: transform 180ms ease;
+    }
+
+    .brand:hover .brand-mark {
+      transform: scale(1.05);
+    }
+
+    .brand-text {
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .brand-text span {
+      color: var(--indigo-light);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .desktop-nav a {
+      transition: color 160ms ease;
+    }
+
+    .desktop-nav a:hover {
+      color: #fff;
+    }
+
+    .free-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.18);
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--emerald);
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .free-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero {
+      padding: 4.75rem 1rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-inner {
+      width: min(100%, 56rem);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(99, 102, 241, 0.22);
+      background: rgba(99, 102, 241, 0.08);
+      color: var(--indigo-light);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin: 1.1rem 0 0;
+      font-size: clamp(2.35rem, 6vw, 4.75rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(90deg, #818cf8, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 46rem;
+      margin: 1.15rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.75;
+    }
+
+    .search-area {
+      width: min(100%, 42rem);
+      margin: 2rem auto 0;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #71717a;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 3.5rem;
+      padding: 0 1rem 0 3rem;
+      border: 1px solid #27272a;
+      border-radius: 1rem;
+      outline: none;
+      background: #18181b;
+      color: #e4e4e7;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+      transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .search-input::placeholder {
+      color: #71717a;
+    }
+
+    .search-input:focus {
+      border-color: rgba(99, 102, 241, 0.8);
+      box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.14),
+        0 14px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-row {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .category-btn {
+      padding: 0.45rem 0.85rem;
+      border-radius: 0.75rem;
+      border: 1px solid #27272a;
+      background: #18181b;
+      color: #a1a1aa;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition:
+        background 160ms ease,
+        color 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .category-btn:hover {
+      background: #27272a;
+      color: #fff;
+    }
+
+    .category-btn.active {
+      border-color: transparent;
+      background: #4f46e5;
+      color: #fff;
+    }
+
+    .tools-section {
+      padding: 1rem 1rem 4rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      min-height: 16rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: #18181b;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.75);
+      background: #1f1f22;
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.2),
+        0 0 24px rgba(99, 102, 241, 0.08);
+    }
+
+    .tool-card.featured {
+      border-color: rgba(99, 102, 241, 0.48);
+    }
+
+    .tool-card.hidden {
+      display: none !important;
+    }
+
+    .tool-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .tool-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.8rem;
+      display: grid;
+      place-items: center;
+      color: var(--indigo-light);
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.6rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: #27272a;
+      color: #a1a1aa;
+      font-size: 0.65rem;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .featured .tool-badge {
+      background: rgba(99, 102, 241, 0.16);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.24);
+    }
+
+    .tool-title {
+      margin: 1rem 0 0;
+      color: #fff;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+    }
+
+    .tool-description {
+      margin: 0.65rem 0 0;
+      color: #a1a1aa;
+      font-size: 0.78rem;
+      line-height: 1.65;
+    }
+
+    .tool-footer {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(63, 63, 70, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #71717a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: color 160ms ease;
+    }
+
+    .tool-card:hover .tool-footer {
+      color: var(--indigo-light);
+    }
+
+    .no-results {
+      display: none;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .no-results.show {
+      display: block;
+    }
+
+    .no-results p {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .clear-search {
+      margin-top: 0.8rem;
+      color: var(--indigo-light);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .section-light {
+      border-top: 1px solid rgba(63, 63, 70, 0.65);
+      background: rgba(9, 9, 11, 0.45);
+      padding: 4.5rem 1rem;
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
+    }
+
+    .section-inner {
+      max-width: 64rem;
+      margin-inline: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0.65rem auto 0;
+      max-width: 46rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .step-card {
+      padding: 1.5rem;
+      border: 1px solid #27272a;
+      border-radius: 1rem;
+      background: #18181b;
+    }
+
+    .step-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      color: var(--indigo-light);
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+    }
+
+    .step-card h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .step-card p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    .overview-section {
+      border-top: 1px solid rgba(63, 63, 70, 0.65);
+      background: rgba(24, 24, 27, 0.28);
+      padding: 4.5rem 1rem;
+      content-visibility: auto;
+      contain-intrinsic-size: 1100px;
+    }
+
+    .overview-copy h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .overview-copy p {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .overview-copy strong {
+      color: #e4e4e7;
+    }
+
+    .faq-heading {
+      margin-top: 2.7rem;
+      margin-bottom: 1.1rem;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .faq-card {
+      padding: 1.2rem;
+      border: 1px solid #27272a;
+      border-radius: 1rem;
+      background: #18181b;
+    }
+
+    .faq-card h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+
+    .faq-card p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.7;
+    }
+
+    .faq-card a {
+      color: var(--indigo-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .more-section {
+      border-top: 1px solid rgba(63, 63, 70, 0.65);
+      padding: 4.5rem 1rem;
+      content-visibility: auto;
+      contain-intrinsic-size: 800px;
+    }
+
+    .more-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .more-head h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .more-head p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .browse-link {
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .more-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .more-card {
+      display: block;
+      min-height: 9.8rem;
+      padding: 1.2rem;
+      border: 1px solid #27272a;
+      border-radius: 1rem;
+      background: #18181b;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .more-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(99, 102, 241, 0.6);
+      background: #1f1f22;
+    }
+
+    .more-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .more-card-top span {
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .more-card p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.65;
+    }
+
+    .site-footer {
+      border-top: 1px solid #27272a;
+      background: #09090b;
+      padding: 3.5rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      width: min(100%, 80rem);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr minmax(18rem, 2fr) auto;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-brand {
+      text-align: left;
+    }
+
+    .footer-brand-name {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .footer-brand-sub {
+      margin-top: 0.35rem;
+      color: #71717a;
+      font-size: 0.72rem;
+    }
+
+    .footer-disclaimer {
+      color: #52525b;
+      font-size: 0.68rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1rem 1.25rem;
+      color: #a1a1aa;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .more-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 4rem;
+      }
+
+      .free-badge {
+        font-size: 0.65rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .steps-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .more-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .browse-link {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container,
+      .container-narrow {
+        width: min(100% - 1.25rem, 80rem);
+      }
+
+      .tools-grid,
+      .more-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-card {
+        min-height: 14.5rem;
+      }
+
+      .free-badge {
+        display: none;
+      }
+
+      .hero-copy {
+        font-size: 0.95rem;
+      }
+
+      .category-btn {
+        font-size: 0.7rem;
+        padding-inline: 0.7rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+<body>
+  <div class="site-shell">
 
+    <!-- Navigation -->
+    <header class="top-nav">
+      <div class="container nav-inner">
+        <a href="/" class="brand" aria-label="K Tools HQ home">
+          <span class="brand-mark" aria-hidden="true">K</span>
+          <span class="brand-text">K TOOLS<span>HQ</span></span>
+        </a>
 
-  <!-- Navigation Header -->
-  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-          K
-        </div>
-        <span class="font-black text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors">
-          K TOOLS<span class="text-indigo-500">HQ</span>
-        </span>
-      </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#tools">All Utilities</a>
+          <a href="/guides">Guides</a>
+          <a href="/about.html">About Us</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </nav>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
-        <a href="#tools" class="hover:text-white transition-colors">All Utilities</a>
-        <a href="/guides" class="hover:text-white transition-colors">Guides</a>
-        <a href="/about.html" class="hover:text-white transition-colors">About Studio</a>
-        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy</a>
-        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
-      </nav>
-
-      <div class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Free • No Account • No Subscription
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="relative pt-16 pb-4 px-4 text-center max-w-4xl mx-auto space-y-6">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold border border-indigo-500/20">
-      <i data-lucide="zap" class="w-3.5 h-3.5"></i> Free • No Account • No Subscription
-    </div>
-    
-    <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-      Free Online Tools for <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Creators & Gamers</span>
-    </h1>
-    
-    <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-      A focused collection of free browser utilities for video creators, gamers, and power users. No account or subscription is required. Many file-processing tools run directly in your browser; see each tool for its specific processing details.
-    </p>
-
-    <!-- Search & Category Controls -->
-    <div class="pt-4 max-w-xl mx-auto space-y-4">
-      <div class="relative">
-        <i data-lucide="search" class="w-5 h-5 absolute left-4 top-3.5 text-zinc-500"></i>
-        <input type="search" id="searchInput" aria-label="Search K Tools HQ utilities" oninput="filterTools()" placeholder="Search utilities (e.g. image compression, PDF, sensitivity, Hz)..." 
-               class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl pl-12 pr-4 py-3.5 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all shadow-xl">
-      </div>
-
-      <!-- Category Filter Pills -->
-      <div class="flex items-center justify-center gap-2 flex-wrap text-xs font-medium text-zinc-400">
-        <button onclick="setCategory('all')" class="cat-btn px-4 py-1.5 rounded-xl bg-indigo-600 text-white font-bold" data-cat="all">All Tools</button>
-        <button onclick="setCategory('creator')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="creator">Creator & Video</button>
-        <button onclick="setCategory('gaming')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="gaming">Gaming & Hardware</button>
-        <button onclick="setCategory('utility')" class="cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800" data-cat="utility">Files, Images & Security</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Optional AdSense Auto Ads -->
-  <!-- The global AdSense script above can serve Auto Ads when enabled in your AdSense account. -->
-
-  <!-- Main Tools Grid -->
-  <main id="tools" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 flex-1 w-full">
-    <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamic Tool Cards Load Here -->
-    </div>
-
-    <!-- No Search Results Found State -->
-    <div id="noResults" class="hidden text-center py-16 space-y-3">
-      <i data-lucide="slash" class="w-10 h-10 text-zinc-600 mx-auto"></i>
-      <p class="text-zinc-400 font-medium">No matching utility tools found.</p>
-      <button onclick="resetSearch()" class="text-xs text-indigo-400 underline font-bold">Clear search filter</button>
-    </div>
-  </main>
-
-  <!-- How K Tools HQ Works -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-8">
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">How K Tools HQ Works</h2>
-        <p class="text-sm text-zinc-400 mt-2">Open a utility, complete the task in your browser, and move on. No account or subscription is required.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center mb-4">
-            <i data-lucide="mouse-pointer-click" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-white mb-2">1. Choose a utility</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">Pick the tool that matches your task, from video editing and gaming utilities to image and PDF tools.</p>
-        </div>
-
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center mb-4">
-            <i data-lucide="cpu" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-white mb-2">2. Use the tool</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">Enter your values or select a file as requested by the individual utility. Processing is designed to happen in the browser where supported.</p>
-        </div>
-
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center mb-4">
-            <i data-lucide="download" class="w-5 h-5"></i>
-          </div>
-          <h3 class="font-bold text-white mb-2">3. Get your result</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">Copy the result, download the processed file, or use the calculated value in your editing or gaming workflow.</p>
+        <div class="free-badge">
+          <span class="free-dot" aria-hidden="true"></span>
+          Free • No Account • No Subscription
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Site Overview & FAQ Section -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-800/80 bg-zinc-950/50">
-    <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"></path>
+          </svg>
+          Free • No Account • No Subscription
+        </div>
 
-      <div class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Free Browser Utilities for Real Digital Tasks</h2>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          K Tools HQ brings focused utilities into one searchable hub. Creators can calculate video dimensions, preview vertical-video safe areas, score short-form hooks, generate captions, and prepare images. Gamers can convert mouse sensitivity, check display refresh cadence, and test polling activity. File and privacy tools cover image compression, supported metadata cleanup, and password-protected PDF unlocking.
+        <h1>
+          Free Online Tools for
+          <span class="hero-gradient">Creators & Gamers</span>
+        </h1>
+
+        <p class="hero-copy">
+          A focused collection of free browser utilities for video creators, gamers, and power users.
+          No account or subscription is required. Many file-processing tools run directly in your browser;
+          see each tool for its specific processing details.
         </p>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          The platform is <strong class="text-zinc-200">free to use with no account and no subscription required</strong>. K Tools HQ does not require a paid plan for normal access to the utilities listed here. For tools that process files locally, the browser performs the requested operation on the device; individual tool pages explain their supported formats, limitations, and processing method.
-        </p>
-      </div>
 
-      <div class="space-y-6">
-        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-          <i data-lucide="help-circle" class="w-5 h-5 text-indigo-400"></i>
-          Frequently Asked Questions
-        </h3>
+        <div class="search-area">
+          <div class="search-wrap">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Is K Tools HQ free to use?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Yes. K Tools HQ is built as a free utility platform. You can use the tools without creating an account or subscribing to a paid plan.</p>
+            <label class="sr-only" for="searchInput">Search K Tools HQ utilities</label>
+            <input
+              type="search"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search utilities (e.g. image compression, PDF, sensitivity, Hz)..."
+              autocomplete="off"
+              spellcheck="false"
+              aria-controls="toolsGrid"
+            >
           </div>
 
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Do I need to create an account?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">No account is required for normal use of the utilities. Open a tool, enter the required information, and use the result.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Does K Tools HQ use cloud servers to process my files?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Many file-processing tools are designed for browser-side processing rather than sending the file to a K Tools processing backend. Because implementations differ, check the privacy and processing notes on the specific tool page.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Can I use K Tools HQ on mobile?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Most pages use responsive web interfaces and can be opened from modern mobile browsers. Some heavier tools may work better on a desktop depending on the file size or browser capabilities.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Are tool results guaranteed to match every platform or device?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">No. Platform interfaces, browser behavior, game settings, file formats, and device hardware can affect results. K Tools reports or calculates results based on each tool's documented method.</p>
-          </div>
-
-          <div class="bg-zinc-900 border border-zinc-800/80 rounded-2xl p-5">
-            <h4 class="font-bold text-white mb-2 text-sm">Where can I find guides and explanations?</h4>
-            <p class="text-xs text-zinc-400 leading-relaxed">Visit the <a href="/guides" class="text-indigo-400 hover:underline">K Tools Guides</a> section for longer explanations, workflows, and practical information related to the utilities.</p>
+          <div class="category-row" role="group" aria-label="Filter utilities by category">
+            <button type="button" class="category-btn active" data-category="all" aria-pressed="true">
+              All Tools
+            </button>
+            <button type="button" class="category-btn" data-category="creator" aria-pressed="false">
+              Creator & Video
+            </button>
+            <button type="button" class="category-btn" data-category="gaming" aria-pressed="false">
+              Gaming & Hardware
+            </button>
+            <button type="button" class="category-btn" data-category="utility" aria-pressed="false">
+              Files, Images & Security
+            </button>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!--
+      AdSense:
+      The global AdSense script is loaded above.
+      Auto Ads can be enabled from the AdSense dashboard without reserving a
+      large blocking placeholder inside the critical rendering area.
+    -->
 
-  <!-- Try More Free Utilities -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-800/80">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Try More Free Utilities</h2>
-          <p class="text-sm text-zinc-400 mt-2">More focused tools from K Tools HQ. No account or subscription required.</p>
-        </div>
-        <a href="#tools" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">Browse all utilities →</a>
-      </div>
+    <!-- Main Tool Directory -->
+    <main id="tools" class="tools-section">
+      <div class="container">
+        <div id="toolsGrid" class="tools-grid">
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="/ai-auto-captions" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="clapperboard" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">AI Auto Captions</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Generate and style subtitles and work through short-form video editing in the browser.</p>
-        </a>
-
-        <a href="/image-size-reducer" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="minimize" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Image Size Reducer</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Compress images toward a selected KB target and adjust format, quality, and scale.</p>
-        </a>
-
-        <a href="/ai-background-remover" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="eraser" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Background Remover</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Remove image backgrounds with a browser-based subject extraction workflow.</p>
-        </a>
-
-        <a href="/safe-zone" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="layout-template" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Safe Zone Visualizer</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Preview reference UI overlays for vertical video layouts before publishing.</p>
-        </a>
-
-        <a href="/reels-aspect-ratio" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="scaling" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Aspect Ratio Calculator</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Calculate proportional video dimensions for 9:16, 16:9, 4:5, and other formats.</p>
-        </a>
-
-        <a href="/hook-scorer" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="sparkles" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Hook Scorer</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Analyze short-form hook wording with a transparent heuristic scoring system.</p>
-        </a>
-
-        <a href="/sens-matcher" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="crosshair" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">Sensitivity Matcher</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Convert mouse sensitivity between supported FPS games and calculate eDPI and cm/360.</p>
-        </a>
-
-        <a href="/pdf-unlocker" class="group bg-zinc-900 border border-zinc-800 rounded-2xl p-5 hover:border-indigo-500/60 hover:bg-zinc-800/70 transition-colors">
-          <div class="flex items-center gap-3 mb-3"><i data-lucide="file-key-2" class="w-5 h-5 text-indigo-400"></i><span class="font-bold text-white group-hover:text-indigo-300">PDF Unlocker</span></div>
-          <p class="text-xs text-zinc-400 leading-relaxed">Unlock a password-protected PDF when you already know the valid document password.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer class="border-t border-zinc-800 bg-zinc-950 mt-20 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="space-y-1 text-center md:text-left">
-        <div class="flex items-center justify-center md:justify-start gap-2">
-          <span class="font-extrabold text-white text-base">K TOOLS HQ</span>
-          <span class="text-xs text-zinc-500">v2.0</span>
-        </div>
-        <p class="text-xs text-zinc-500">© 2026 K Tools HQ. Free browser utilities for creators, gamers & power users.</p>
-      </div>
-
-      <p class="max-w-2xl text-center md:text-left text-[11px] leading-relaxed text-zinc-600">
-        K Tools HQ is a collection of independent browser utilities. Processing methods, supported formats, calculations, and device requirements can differ by tool; refer to the individual utility page for details.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-400 font-medium">
-        <a href="/guides" class="hover:text-white transition-colors">Guides</a>
-        <a href="/about.html" class="hover:text-white transition-colors">About Us</a>
-        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="/contact.html" class="hover:text-white transition-colors">Contact / Request Tool</a>
-      </div>
-        <p class="max-w-3xl text-center mx-auto mt-8 text-[11px] leading-relaxed text-zinc-600">
-          K Tools HQ is a collection of independent browser utilities. Processing methods, supported formats, calculations, and device requirements can differ by tool; refer to the individual utility page for details.
-        </p>
-    </div>
-  </footer>
-
-  <!-- JavaScript Engine -->
-  <script>
-    // -------------------------------------------------------------
-    // MASTER TOOLS DATABASE
-    // -------------------------------------------------------------
-    const toolsDatabase = [
-      {
-        title: "AI Auto Captions & Video Editor",
-        desc: "Generate and style subtitles, trim clips, and work through a browser-based video editing workflow.",
-        category: "creator",
-        path: "/ai-auto-captions",
-        icon: "clapperboard",
-        badge: "Featured",
-        highlight: true
-      },
-      {
-        title: "Image Size Reducer & KB Targeter",
-        desc: "Compress images toward a selected KB target and adjust format, quality, and resolution.",
-        category: "utility",
-        path: "/image-size-reducer",
-        icon: "minimize",
-        badge: "Featured",
-        highlight: true
-      },
-      {
-        title: "AI Background Remover",
-        desc: "Remove image backgrounds with a browser-based subject extraction workflow.",
-        category: "creator",
-        path: "/ai-background-remover",
-        icon: "eraser",
-        badge: "Featured",
-        highlight: true
-      },
-      {
-        title: "Vertical Video Safe Zone Visualizer",
-        desc: "Preview reference UI overlay templates for TikTok, Instagram Reels, and YouTube Shorts.",
-        category: "creator",
-        path: "/safe-zone",
-        icon: "layout-template",
-        badge: "Creator",
-        highlight: true
-      },
-      {
-        title: "Video Aspect Ratio & Pixel Calculator",
-        desc: "Calculate proportional dimensions and pixel sizes for common video and social formats.",
-        category: "creator",
-        path: "/reels-aspect-ratio",
-        icon: "scaling",
-        badge: "Essential"
-      },
-      {
-        title: "Short-Form Hook Scorer",
-        desc: "Analyze hook wording with a rule-based heuristic score for common short-form signals.",
-        category: "creator",
-        path: "/hook-scorer",
-        icon: "sparkles",
-        badge: "Creator"
-      },
-      {
-        title: "Caption Risk Checker & Sanitizer",
-        desc: "Check pasted caption or script text against configurable multilingual word dictionaries and generate replacement text.",
-        category: "creator",
-        path: "/shadowban-checker",
-        icon: "eye-off",
-        badge: "Creator"
-      },
-      {
-        title: "Domscrool Shopping Simulator",
-        desc: "Explore a satirical simulated shopping feed with fake products, cart interactions, and checkout screens.",
-        category: "utility",
-        path: "/dom-scroll",
-        icon: "shopping-bag",
-        badge: "Interactive"
-      },
-      {
-        title: "PDF Password Unlocker",
-        desc: "Unlock a password-protected PDF when you already know the valid document password.",
-        category: "utility",
-        path: "/pdf-unlocker",
-        icon: "file-key-2",
-        badge: "Privacy"
-      },
-      {
-        title: "Image EXIF Metadata Remover",
-        desc: "Inspect supported photo metadata fields and create a re-rendered copy without the supported metadata.",
-        category: "utility",
-        path: "/remove-metadata",
-        icon: "shield-check",
-        badge: "Privacy"
-      },
-      {
-        title: "Monitor Hz & Mouse Polling Test",
-        desc: "Measure browser-observed display refresh cadence and pointer-event polling activity.",
-        category: "gaming",
-        path: "/hz-and-polling",
-        icon: "activity",
-        badge: "Gaming"
-      },
-      {
-        title: "FPS Sensitivity Matcher",
-        desc: "Convert sensitivity between supported FPS games and calculate eDPI and cm/360 from the configured game mappings.",
-        category: "gaming",
-        path: "/sens-matcher",
-        icon: "crosshair",
-        badge: "Gaming"
-      },
-      {
-        title: "Retro Arcade Gaming Portal",
-        desc: "A lightweight browser arcade section for casual retro-style games.",
-        category: "gaming",
-        path: "/retro-gaming",
-        icon: "gamepad-2",
-        badge: "Arcade"
-      }
-    ];
-
-
-    let activeCategory = 'all';
-
-    function renderTools(tools) {
-      const grid = document.getElementById('toolsGrid');
-      const noResults = document.getElementById('noResults');
-      grid.innerHTML = '';
-
-      if (tools.length === 0) {
-        noResults.classList.remove('hidden');
-        return;
-      } else {
-        noResults.classList.add('hidden');
-      }
-
-      tools.forEach(tool => {
-        const card = document.createElement('a');
-        card.href = tool.path;
-        
-        // Conditional styling for highlights + added 'hover:-translate-y-1' for tactile clickability
-        const borderClass = tool.highlight ? "border-indigo-500/50 shadow-indigo-500/10" : "border-zinc-800";
-        card.className = `group bg-zinc-900 border ${borderClass} rounded-3xl p-6 hover:border-indigo-500/80 hover:bg-zinc-800/80 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300 flex flex-col justify-between space-y-4 shadow-lg`;
-        
-        // Dynamic Badge Styling
-        const badgeClasses = tool.highlight 
-            ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" 
-            : "bg-zinc-800 text-zinc-400 group-hover:bg-indigo-500/10 group-hover:text-indigo-300";
-
-        card.innerHTML = `
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="${tool.icon}" class="w-5 h-5"></i>
+          <!-- 1. AI Auto Captions -->
+          <a
+            href="/ai-auto-captions"
+            class="tool-card featured"
+            data-category="creator"
+            data-title="AI Auto Captions & Video Editor"
+            data-description="Generate and style subtitles, trim clips, and work through a browser-based video editing workflow."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="m8 9 3 3-3 3"></path>
+                    <path d="M13 15h3"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Featured</span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${badgeClasses} transition-colors">
-                ${tool.badge}
-              </span>
+
+              <h2 class="tool-title">AI Auto Captions & Video Editor</h2>
+              <p class="tool-description">
+                Generate and style subtitles, trim clips, and work through a browser-based video editing workflow.
+              </p>
             </div>
-            
-            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors leading-snug">
-              ${tool.title}
-            </h3>
-            
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              ${tool.desc}
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 2. Image Size Reducer -->
+          <a
+            href="/image-size-reducer"
+            class="tool-card featured"
+            data-category="utility"
+            data-title="Image Size Reducer & KB Targeter"
+            data-description="Compress images toward a selected KB target and adjust format, quality, and resolution."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 3H3"></path>
+                    <path d="M21 21H3"></path>
+                    <path d="M7 7 3 11l4 4"></path>
+                    <path d="m17 7 4 4-4 4"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Featured</span>
+              </div>
+
+              <h2 class="tool-title">Image Size Reducer & KB Targeter</h2>
+              <p class="tool-description">
+                Compress images toward a selected KB target and adjust format, quality, and resolution.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 3. Background Remover -->
+          <a
+            href="/ai-background-remover"
+            class="tool-card featured"
+            data-category="creator"
+            data-title="AI Background Remover"
+            data-description="Remove image backgrounds with a browser-based subject extraction workflow."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m3 21 6-6"></path>
+                    <path d="M9 15 4 10l5-5 5 5"></path>
+                    <path d="m13 11 6-6"></path>
+                    <path d="m17 21 4-4"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Featured</span>
+              </div>
+
+              <h2 class="tool-title">AI Background Remover</h2>
+              <p class="tool-description">
+                Remove image backgrounds with a browser-based subject extraction workflow.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 4. Safe Zone -->
+          <a
+            href="/safe-zone"
+            class="tool-card featured"
+            data-category="creator"
+            data-title="Vertical Video Safe Zone Visualizer"
+            data-description="Preview reference UI overlay templates for TikTok, Instagram Reels, and YouTube Shorts."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="3" width="12" height="18" rx="2"></rect>
+                    <path d="M9 7h6"></path>
+                    <path d="M9 17h6"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Creator</span>
+              </div>
+
+              <h2 class="tool-title">Vertical Video Safe Zone Visualizer</h2>
+              <p class="tool-description">
+                Preview reference UI overlay templates for TikTok, Instagram Reels, and YouTube Shorts.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 5. Aspect Ratio -->
+          <a
+            href="/reels-aspect-ratio"
+            class="tool-card"
+            data-category="creator"
+            data-title="Video Aspect Ratio & Pixel Calculator"
+            data-description="Calculate proportional dimensions and pixel sizes for common video and social formats."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h7v7H4z"></path>
+                    <path d="M13 13h7v7h-7z"></path>
+                    <path d="M13 4h7v7h-7z"></path>
+                    <path d="M4 13h7v7H4z"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Essential</span>
+              </div>
+
+              <h2 class="tool-title">Video Aspect Ratio & Pixel Calculator</h2>
+              <p class="tool-description">
+                Calculate proportional dimensions and pixel sizes for common video and social formats.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 6. Hook Scorer -->
+          <a
+            href="/hook-scorer"
+            class="tool-card"
+            data-category="creator"
+            data-title="Short-Form Hook Scorer"
+            data-description="Analyze hook wording with a rule-based heuristic score for common short-form signals."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v4"></path>
+                    <path d="M12 17v4"></path>
+                    <path d="m5.64 5.64 2.83 2.83"></path>
+                    <path d="m15.53 15.53 2.83 2.83"></path>
+                    <path d="M3 12h4"></path>
+                    <path d="M17 12h4"></path>
+                    <path d="m5.64 18.36 2.83-2.83"></path>
+                    <path d="m15.53 8.47 2.83-2.83"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </span>
+                <span class="tool-badge">Creator</span>
+              </div>
+
+              <h2 class="tool-title">Short-Form Hook Scorer</h2>
+              <p class="tool-description">
+                Analyze hook wording with a rule-based heuristic score for common short-form signals.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 7. Caption Risk Checker -->
+          <a
+            href="/shadowban-checker"
+            class="tool-card"
+            data-category="creator"
+            data-title="Caption Risk Checker & Sanitizer"
+            data-description="Check pasted caption or script text against configurable multilingual word dictionaries and generate replacement text."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 5h18"></path>
+                    <path d="M3 12h18"></path>
+                    <path d="M3 19h10"></path>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <path d="m20.2 21.2 1.8 1.8"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Creator</span>
+              </div>
+
+              <h2 class="tool-title">Caption Risk Checker & Sanitizer</h2>
+              <p class="tool-description">
+                Check pasted caption or script text against configurable multilingual word dictionaries and generate replacement text.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 8. Domscrool -->
+          <a
+            href="/dom-scroll"
+            class="tool-card"
+            data-category="utility"
+            data-title="Domscrool Shopping Simulator"
+            data-description="Explore a satirical simulated shopping feed with fake products, cart interactions, and checkout screens."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.5h7.9a2 2 0 0 0 1.9-1.4L21 7H6"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Interactive</span>
+              </div>
+
+              <h2 class="tool-title">Domscrool Shopping Simulator</h2>
+              <p class="tool-description">
+                Explore a satirical simulated shopping feed with fake products, cart interactions, and checkout screens.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 9. PDF Unlocker -->
+          <a
+            href="/pdf-unlocker"
+            class="tool-card"
+            data-category="utility"
+            data-title="PDF Password Unlocker"
+            data-description="Unlock a password-protected PDF when you already know the valid document password."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+                    <path d="M14 2v6h6"></path>
+                    <circle cx="10" cy="15" r="2"></circle>
+                    <path d="m12 15 3 3"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Privacy</span>
+              </div>
+
+              <h2 class="tool-title">PDF Password Unlocker</h2>
+              <p class="tool-description">
+                Unlock a password-protected PDF when you already know the valid document password.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 10. Metadata Remover -->
+          <a
+            href="/remove-metadata"
+            class="tool-card"
+            data-category="utility"
+            data-title="Image EXIF Metadata Remover"
+            data-description="Inspect supported photo metadata fields and create a re-rendered copy without the supported metadata."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3 5 6v5c0 4.8 2.9 8.6 7 10 4.1-1.4 7-5.2 7-10V6l-7-3Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Privacy</span>
+              </div>
+
+              <h2 class="tool-title">Image EXIF Metadata Remover</h2>
+              <p class="tool-description">
+                Inspect supported photo metadata fields and create a re-rendered copy without the supported metadata.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 11. Hz & Polling -->
+          <a
+            href="/hz-and-polling"
+            class="tool-card"
+            data-category="gaming"
+            data-title="Monitor Hz & Mouse Polling Test"
+            data-description="Measure browser-observed display refresh cadence and pointer-event polling activity."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 12 7 12 10 4 14 20 17 12 21 12"></polyline>
+                  </svg>
+                </span>
+                <span class="tool-badge">Gaming</span>
+              </div>
+
+              <h2 class="tool-title">Monitor Hz & Mouse Polling Test</h2>
+              <p class="tool-description">
+                Measure browser-observed display refresh cadence and pointer-event polling activity.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 12. Sensitivity Matcher -->
+          <a
+            href="/sens-matcher"
+            class="tool-card"
+            data-category="gaming"
+            data-title="FPS Sensitivity Matcher"
+            data-description="Convert sensitivity between supported FPS games and calculate eDPI and cm/360 from the configured game mappings."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="7"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <path d="M12 2v3"></path>
+                    <path d="M12 19v3"></path>
+                    <path d="M2 12h3"></path>
+                    <path d="M19 12h3"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Gaming</span>
+              </div>
+
+              <h2 class="tool-title">FPS Sensitivity Matcher</h2>
+              <p class="tool-description">
+                Convert sensitivity between supported FPS games and calculate eDPI and cm/360 from the configured game mappings.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 13. Retro Gaming -->
+          <a
+            href="/retro-gaming"
+            class="tool-card"
+            data-category="gaming"
+            data-title="Retro Arcade Gaming Portal"
+            data-description="A lightweight browser arcade section for casual retro-style games."
+          >
+            <div>
+              <div class="tool-top">
+                <span class="tool-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 8h10"></path>
+                    <path d="M6 11h12"></path>
+                    <rect x="3" y="6" width="18" height="12" rx="4"></rect>
+                    <path d="M8 13v-4"></path>
+                    <path d="M6 11h4"></path>
+                    <circle cx="16.5" cy="11" r="1"></circle>
+                    <circle cx="18.5" cy="13" r="1"></circle>
+                  </svg>
+                </span>
+                <span class="tool-badge">Arcade</span>
+              </div>
+
+              <h2 class="tool-title">Retro Arcade Gaming Portal</h2>
+              <p class="tool-description">
+                A lightweight browser arcade section for casual retro-style games.
+              </p>
+            </div>
+
+            <div class="tool-footer">
+              <span>Launch Utility</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- No Search Results -->
+        <div id="noResults" class="no-results" aria-live="polite">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-inline:auto;">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-4-4"></path>
+            <path d="m8 8 6 6"></path>
+            <path d="m14 8-6 6"></path>
+          </svg>
+          <p>No matching utility tools found.</p>
+          <button type="button" class="clear-search" id="clearSearchButton">
+            Clear search filter
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- How K Tools HQ Works -->
+    <section class="section-light">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>How K Tools HQ Works</h2>
+          <p>
+            Open a utility, complete the task in your browser, and move on.
+            No account or subscription is required.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <div class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11V6a3 3 0 1 1 6 0v5"></path>
+                <rect x="5" y="11" width="14" height="9" rx="2"></rect>
+              </svg>
+            </div>
+            <h3>1. Choose a utility</h3>
+            <p>
+              Pick the tool that matches your task, from video editing and gaming utilities
+              to image and PDF tools.
             </p>
           </div>
 
-          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-semibold text-zinc-500 group-hover:text-indigo-400 transition-colors">
-            <span>Launch Utility</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+          <div class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+              </svg>
+            </div>
+            <h3>2. Use the tool</h3>
+            <p>
+              Enter your values or select a file as requested by the individual utility.
+              Processing is designed to happen in the browser where supported.
+            </p>
           </div>
-        `;
-        grid.appendChild(card);
+
+          <div class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v12"></path>
+                <path d="m7 10 5 5 5-5"></path>
+                <path d="M5 21h14"></path>
+              </svg>
+            </div>
+            <h3>3. Get your result</h3>
+            <p>
+              Copy the result, download the processed file, or use the calculated value
+              in your editing or gaming workflow.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Overview + FAQ -->
+    <section class="overview-section">
+      <div class="section-inner">
+
+        <div class="overview-copy">
+          <h2>Free Browser Utilities for Real Digital Tasks</h2>
+
+          <p>
+            K Tools HQ brings focused utilities into one searchable hub.
+            Creators can calculate video dimensions, preview vertical-video safe areas,
+            score short-form hooks, generate captions, and prepare images.
+            Gamers can convert mouse sensitivity, check display refresh cadence,
+            and test polling activity. File and privacy tools cover image compression,
+            supported metadata cleanup, and password-protected PDF unlocking.
+          </p>
+
+          <p>
+            The platform is <strong>free to use with no account and no subscription required</strong>.
+            K Tools HQ does not require a paid plan for normal access to the utilities listed here.
+            For tools that process files locally, the browser performs the requested operation on the device;
+            individual tool pages explain their supported formats, limitations, and processing method.
+          </p>
+        </div>
+
+        <div class="faq-heading">Frequently Asked Questions</div>
+
+        <div class="faq-grid">
+
+          <article class="faq-card">
+            <h3>Is K Tools HQ free to use?</h3>
+            <p>
+              Yes. K Tools HQ is built as a free utility platform. You can use the tools
+              without creating an account or subscribing to a paid plan.
+            </p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Do I need to create an account?</h3>
+            <p>
+              No account is required for normal use of the utilities. Open a tool,
+              enter the required information, and use the result.
+            </p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Does K Tools HQ use cloud servers to process my files?</h3>
+            <p>
+              Many file-processing tools are designed for browser-side processing rather than
+              sending the file to a K Tools processing backend. Because implementations differ,
+              check the privacy and processing notes on the specific tool page.
+            </p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Can I use K Tools HQ on mobile?</h3>
+            <p>
+              Most pages use responsive web interfaces and can be opened from modern mobile browsers.
+              Some heavier tools may work better on a desktop depending on file size or browser capabilities.
+            </p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Are tool results guaranteed to match every platform or device?</h3>
+            <p>
+              No. Platform interfaces, browser behavior, game settings, file formats, and device hardware
+              can affect results. K Tools reports or calculates results based on each tool's documented method.
+            </p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Where can I find guides and explanations?</h3>
+            <p>
+              Visit the <a href="/guides">K Tools Guides</a> section for longer explanations,
+              workflows, and practical information related to the utilities.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Try More Free Utilities -->
+    <section class="more-section">
+      <div class="section-inner">
+
+        <div class="more-head">
+          <div>
+            <h2>Try More Free Utilities</h2>
+            <p>More focused tools from K Tools HQ. No account or subscription required.</p>
+          </div>
+
+          <a href="#tools" class="browse-link">
+            Browse all utilities →
+          </a>
+        </div>
+
+        <div class="more-grid">
+
+          <a href="/ai-auto-captions" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="m8 9 3 3-3 3"></path>
+                <path d="M13 15h3"></path>
+              </svg>
+              <span>AI Auto Captions</span>
+            </div>
+            <p>
+              Generate and style subtitles and work through short-form video editing in the browser.
+            </p>
+          </a>
+
+          <a href="/image-size-reducer" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 3H3"></path>
+                <path d="M21 21H3"></path>
+                <path d="M7 7 3 11l4 4"></path>
+                <path d="m17 7 4 4-4 4"></path>
+              </svg>
+              <span>Image Size Reducer</span>
+            </div>
+            <p>
+              Compress images toward a selected KB target and adjust format, quality, and scale.
+            </p>
+          </a>
+
+          <a href="/ai-background-remover" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m3 21 6-6"></path>
+                <path d="M9 15 4 10l5-5 5 5"></path>
+                <path d="m13 11 6-6"></path>
+                <path d="m17 21 4-4"></path>
+              </svg>
+              <span>Background Remover</span>
+            </div>
+            <p>
+              Remove image backgrounds with a browser-based subject extraction workflow.
+            </p>
+          </a>
+
+          <a href="/safe-zone" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="3" width="12" height="18" rx="2"></rect>
+                <path d="M9 7h6"></path>
+                <path d="M9 17h6"></path>
+              </svg>
+              <span>Safe Zone Visualizer</span>
+            </div>
+            <p>
+              Preview reference UI overlays for vertical video layouts before publishing.
+            </p>
+          </a>
+
+          <a href="/reels-aspect-ratio" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h7v7H4z"></path>
+                <path d="M13 13h7v7h-7z"></path>
+                <path d="M13 4h7v7h-7z"></path>
+                <path d="M4 13h7v7H4z"></path>
+              </svg>
+              <span>Aspect Ratio Calculator</span>
+            </div>
+            <p>
+              Calculate proportional video dimensions for 9:16, 16:9, 4:5, and other formats.
+            </p>
+          </a>
+
+          <a href="/hook-scorer" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v4"></path>
+                <path d="M12 17v4"></path>
+                <path d="m5.64 5.64 2.83 2.83"></path>
+                <path d="m15.53 15.53 2.83 2.83"></path>
+                <path d="M3 12h4"></path>
+                <path d="M17 12h4"></path>
+                <path d="m5.64 18.36 2.83-2.83"></path>
+                <path d="m15.53 8.47 2.83-2.83"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Hook Scorer</span>
+            </div>
+            <p>
+              Analyze short-form hook wording with a transparent heuristic scoring system.
+            </p>
+          </a>
+
+          <a href="/sens-matcher" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="7"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+                <path d="M12 2v3"></path>
+                <path d="M12 19v3"></path>
+                <path d="M2 12h3"></path>
+                <path d="M19 12h3"></path>
+              </svg>
+              <span>Sensitivity Matcher</span>
+            </div>
+            <p>
+              Convert mouse sensitivity between supported FPS games and calculate eDPI and cm/360.
+            </p>
+          </a>
+
+          <a href="/pdf-unlocker" class="more-card">
+            <div class="more-card-top">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+                <path d="M14 2v6h6"></path>
+                <circle cx="10" cy="15" r="2"></circle>
+                <path d="m12 15 3 3"></path>
+              </svg>
+              <span>PDF Unlocker</span>
+            </div>
+            <p>
+              Unlock a password-protected PDF when you already know the valid document password.
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <div class="footer-brand-name">K TOOLS HQ</div>
+          <div class="footer-brand-sub">
+            Free browser utilities for creators, gamers & power users.
+          </div>
+        </div>
+
+        <div class="footer-disclaimer">
+          K Tools HQ is a collection of independent browser utilities. Processing methods,
+          supported formats, calculations, and device requirements can differ by tool.
+          Refer to the individual utility page for details.
+        </div>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/guides">Guides</a>
+          <a href="/about.html">About Us</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Lightweight Homepage JavaScript -->
+  <script>
+    (() => {
+      const searchInput = document.getElementById('searchInput');
+      const clearSearchButton = document.getElementById('clearSearchButton');
+      const noResults = document.getElementById('noResults');
+      const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
+      const toolCards = Array.from(document.querySelectorAll('.tool-card'));
+
+      let activeCategory = 'all';
+
+      function normalize(value) {
+        return String(value || '').trim().toLowerCase();
+      }
+
+      function updateCategoryButtons() {
+        categoryButtons.forEach((button) => {
+          const isActive = button.dataset.category === activeCategory;
+
+          button.classList.toggle('active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+      }
+
+      function filterTools() {
+        const query = normalize(searchInput.value);
+        let visibleCount = 0;
+
+        toolCards.forEach((card) => {
+          const title = normalize(card.dataset.title);
+          const description = normalize(card.dataset.description);
+          const category = card.dataset.category || '';
+
+          const queryMatches =
+            !query ||
+            title.includes(query) ||
+            description.includes(query);
+
+          const categoryMatches =
+            activeCategory === 'all' ||
+            category === activeCategory;
+
+          const visible = queryMatches && categoryMatches;
+
+          card.classList.toggle('hidden', !visible);
+
+          if (visible) {
+            visibleCount++;
+          }
+        });
+
+        noResults.classList.toggle('show', visibleCount === 0);
+      }
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeCategory = button.dataset.category || 'all';
+          updateCategoryButtons();
+          filterTools();
+        });
       });
 
-      if (window.lucide) lucide.createIcons();
-    }
+      searchInput.addEventListener('input', filterTools);
 
-    function filterTools() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = toolsDatabase.filter(tool => {
-        const matchesQuery = tool.title.toLowerCase().includes(query) || tool.desc.toLowerCase().includes(query);
-        const matchesCat = activeCategory === 'all' || tool.category === activeCategory;
-        return matchesQuery && matchesCat;
+      clearSearchButton.addEventListener('click', () => {
+        searchInput.value = '';
+        activeCategory = 'all';
+        updateCategoryButtons();
+        filterTools();
+        searchInput.focus();
       });
-      renderTools(filtered);
-    }
 
-    function setCategory(cat) {
-      activeCategory = cat;
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        if (btn.getAttribute('data-cat') === cat) {
-          btn.className = "cat-btn px-4 py-1.5 rounded-xl bg-indigo-600 text-white font-bold";
-        } else {
-          btn.className = "cat-btn px-4 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400";
-        }
-      });
+      updateCategoryButtons();
       filterTools();
-    }
-
-    function resetSearch() {
-      document.getElementById('searchInput').value = '';
-      setCategory('all');
-    }
-
-    // Initialize on page load
-    window.addEventListener('load', () => {
-      renderTools(toolsDatabase);
-    });
+    })();
   </script>
 </body>
 </html>
