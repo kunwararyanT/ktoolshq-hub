@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: "Sensitivity Matcher",
       path: "/sens-matcher",
-      desc: "Convert true eDPI and cm/360 across all FPS titles.",
+      desc: "Estimate eDPI and cm/360 using listed game mappings; some conversions are approximate.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>`
     },
     {
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: "Polling Rate & Hz Tester",
       path: "/hz-and-polling",
-      desc: "Real-time hardware polling rate diagnostic checker.",
+      desc: "Estimate observed mouse event timing in this browser; it is not a certified hardware measurement.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
     },
     {
       title: "AI Auto Captions",
       path: "/ai-auto-captions",
-      desc: "Generate local animated captions with zero cloud upload.",
+      desc: "Generate editable captions in your browser; model files may download from external CDNs.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>`
     },
     {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: "PDF Unlocker",
       path: "/pdf-unlocker",
-      desc: "Remove restrictions from PDF files securely in browser.",
+      desc: "Attempt to unlock a PDF when you provide its password; supported encryption varies.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>`
     },
     {
@@ -60,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: "Video Hook Scorer",
       path: "/hook-scorer",
-      desc: "Analyze retention potential and pacing of opening hooks.",
+      desc: "Score opening-hook text with heuristic rules; results do not predict views or retention.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`
     },
     {
       title: "Account Shadowban Checker",
       path: "/shadowban-checker",
-      desc: "Check tag visibility and indexing status across platforms.",
+      desc: "Scan caption wording against a built-in dictionary; it cannot check account-level reach.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>`
     },
     {
@@ -78,15 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: "image Size Reducer",
       path: "/image-size-reducer",
-      desc: "Compress images to target KB sizes 100% locally.",
+      desc: "Try to reduce image size to a target; very small targets may affect dimensions or quality.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>`
     }
   ];
 
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const eligibleTools = allTools.filter(tool => tool.path !== currentPath && tool.path !== currentPath + ".html");
-  const shuffled = [...eligibleTools].sort(() => 0.5 - Math.random());
-  const selectedTools = shuffled.slice(0, 3);
+  // Stable per-page ordering avoids reshuffling related links on every visit.
+  const pageSeed = [...currentPath].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  const selectedTools = [...eligibleTools]
+    .sort((a, b) => {
+      const scoreA = [...(a.path + a.title)].reduce((sum, ch) => sum + ch.charCodeAt(0), pageSeed);
+      const scoreB = [...(b.path + b.title)].reduce((sum, ch) => sum + ch.charCodeAt(0), pageSeed);
+      return scoreA - scoreB || a.title.localeCompare(b.title);
+    })
+    .slice(0, 3);
 
   container.innerHTML = `
     <section class="max-w-5xl mx-auto mt-16 mb-12 px-4">
@@ -95,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="h-6 w-1.5 bg-indigo-500 rounded-full"></div>
           <div>
             <h3 class="text-xl font-bold text-zinc-100">Try More Free Utilities</h3>
-            <p class="text-xs text-zinc-400">100% local, client-side, zero cloud limits</p>
+            <p class="text-xs text-zinc-400">Processing varies by tool; see each utility for its limits and dependencies.</p>
           </div>
         </div>
         <a href="/" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 hover:bg-indigo-500 hover:text-white border border-indigo-500/20 rounded-lg transition-all duration-200">

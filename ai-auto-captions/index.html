@@ -1,47 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary SEO Meta Tags -->
-  <title>Free AI Subtitle Generator & Caption Editor | KTools HQ</title>
-  <meta name="description" content="Generate subtitles from video in your browser, edit caption text and timing, style captions, export SRT files, and render a captioned WebM video. Local processing for your video files.">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="author" content="KTools HQ">
-  <meta name="theme-color" content="#09090b">
-  <link rel="canonical" href="https://ktoolshq.com/ai-auto-captions">
-
-  <!-- Search / Social Sharing -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ktoolshq.com/ai-auto-captions">
-  <meta property="og:title" content="Free AI Subtitle Generator & Caption Editor | KTools HQ">
-  <meta property="og:description" content="Generate, edit, style, and export subtitles from video in your browser. Supports multiple languages, SRT export, and local video processing.">
-  <meta property="og:site_name" content="KTools HQ">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Free AI Subtitle Generator & Caption Editor | KTools HQ">
-  <meta name="twitter:description" content="Create subtitles from video, edit timing and text, style captions, export SRT, and render a captioned WebM video in your browser.">
-
-  <!-- Google Search Console Verification Tag -->
-  <meta name="google-site-verification" content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" />
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary SEO Meta Tags -->
+<title>Free AI Subtitle Generator &amp; Caption Editor | KTools HQ</title>
+<meta content="Generate subtitles from video in your browser, edit caption text and timing, style captions, export SRT files, and render a captioned WebM video. Local processing for your video files." name="description"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="KTools HQ" name="author"/>
+<meta content="#09090b" name="theme-color"/>
+<link href="https://www.ktoolshq.com/ai-auto-captions" rel="canonical"/>
+<!-- Search / Social Sharing -->
+<meta content="website" property="og:type"/>
+<meta content="https://www.ktoolshq.com/ai-auto-captions" property="og:url"/>
+<meta content="Free AI Subtitle Generator &amp; Caption Editor | KTools HQ" property="og:title"/>
+<meta content="Generate, edit, style, and export subtitles from video in your browser. Supports multiple languages, SRT export, and local video processing." property="og:description"/>
+<meta content="KTools HQ" property="og:site_name"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Free AI Subtitle Generator &amp; Caption Editor | KTools HQ" name="twitter:title"/>
+<meta content="Create subtitles from video, edit timing and text, style captions, export SRT, and render a captioned WebM video in your browser." name="twitter:description"/>
+<!-- Google Search Console Verification Tag -->
+<meta content="_AOP3FzDG-MczhFdtDD-kOjIGzcSB6B3dPU3tdQWILE" name="google-site-verification">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-B8VMVB3VEP');
   </script>
-
-  <!-- Google AdSense Tag -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118" crossorigin="anonymous"></script>
-
-  <!-- Tailwind CSS & Google Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@700;900&family=Bebas+Neue&family=Poppins:wght@800;900&family=Playfair+Display:wght@800;900&display=swap" rel="stylesheet">
-  
-  <style>
+<!-- Google AdSense Tag -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118"></script>
+<!-- Tailwind CSS & Google Fonts -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&amp;family=Inter:wght@700;900&amp;family=Bebas+Neue&amp;family=Poppins:wght@800;900&amp;family=Playfair+Display:wght@800;900&amp;display=swap" rel="stylesheet"/>
+<style>
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #09090b; }
     ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
@@ -91,15 +85,14 @@
       backdrop-filter: blur(10px);
     }
   </style>
-
-  <!-- Software application + FAQ structured data -->
-  <script type="application/ld+json">
+<!-- Software application + FAQ structured data -->
+<script type="application/ld+json">
   [
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "CaptionCraft Studio",
-      "url": "https://ktoolshq.com/ai-auto-captions",
+      "url": "https://www.ktoolshq.com/ai-auto-captions",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Any modern web browser",
       "isAccessibleForFree": true,
@@ -166,485 +159,424 @@
     }
   ]
   </script>
-</head>
+</meta></head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative">
-
-  <!-- Rendering Video Overlay -->
-  <div id="renderOverlay" class="fixed inset-0 z-[100] bg-zinc-950/90 hidden flex-col items-center justify-center">
-    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl max-w-md w-full text-center space-y-4 shadow-2xl">
-      <svg class="animate-spin w-12 h-12 text-indigo-500 mx-auto" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-      <h2 class="text-xl font-black text-white">Rendering Video...</h2>
-      <p class="text-sm text-zinc-400">Burning captions and color grades into your video. Do not switch tabs. The video is playing in real-time to capture the frames.</p>
-      <div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800">
-        <div id="renderProgress" class="bg-indigo-500 h-full rounded-full w-0 transition-all"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="https://ktoolshq.com" class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" title="Back to K Tools HQ">
-        <span class="text-2xl">⚡</span>
-        <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+<!-- Rendering Video Overlay -->
+<div class="fixed inset-0 z-[100] bg-zinc-950/90 hidden flex-col items-center justify-center" id="renderOverlay">
+<div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl max-w-md w-full text-center space-y-4 shadow-2xl">
+<svg class="animate-spin w-12 h-12 text-indigo-500 mx-auto" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path></svg>
+<h2 class="text-xl font-black text-white">Rendering Video...</h2>
+<p class="text-sm text-zinc-400">Burning captions and color grades into your video. Do not switch tabs. The video is playing in real-time to capture the frames.</p>
+<div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800">
+<div class="bg-indigo-500 h-full rounded-full w-0 transition-all" id="renderProgress"></div>
+</div>
+</div>
+</div>
+<!-- Header -->
+<header class="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+<a class="flex items-center gap-2 no-underline hover:opacity-80 transition-opacity" href="https://www.ktoolshq.com" title="Back to K Tools HQ">
+<span class="text-2xl">⚡</span>
+<span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
           CaptionCraft Studio
         </span>
-      </a>
-      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+</a>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
         Browser-Based AI
       </span>
-    </div>
-  </header>
-
-  <!-- Top Ad Slot -->
-  <div class="max-w-4xl mx-auto w-full px-4 pt-6">
-    <div class="w-full h-20 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs">
-      [AdSense Top Leaderboard Banner]
-    </div>
-  </div>
-
-  <!-- Main Workspace -->
-  <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
-    
-    <div class="text-center space-y-3">
-      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-        Free AI Subtitle Generator & Caption Editor
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
+<div class="text-center space-y-3">
+<h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Free AI Subtitle Generator &amp; Caption Editor
       </h1>
-      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+<p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
         Generate subtitles from video, edit the transcript, style captions, export SRT files, and render a captioned video directly in your browser.
       </p>
-    </div>
-
-    <!-- TRANSPARENCY & HONESTY BANNER -->
-    <div id="transparencyBanner" class="max-w-2xl mx-auto bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-5 mb-8">
-      <h3 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-3">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+<!-- TRANSPARENCY & HONESTY BANNER -->
+<div class="max-w-2xl mx-auto bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-5 mb-8" id="transparencyBanner">
+<h3 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         A quick note on how this free tool works:
       </h3>
-      <ul class="text-xs text-zinc-300 space-y-2">
-        <li><strong class="text-white">Language accuracy:</strong> English often produces the most reliable transcript. Other languages can need a quick manual correction, especially with noise or unclear speech.</li>
-        <li><strong class="text-white">✂️ Caption pacing:</strong> Choose how many words appear at a time, then adjust the transcript line by line.</li>
-        <li><strong class="text-white">🔒 Local video processing:</strong> Your selected video is processed in the browser. The page still downloads the AI model and runtime files it needs from external CDNs.</li>
-        <li><strong class="text-white">✏️ Edit before export:</strong> Review the generated transcript and fix names, spelling, punctuation, or timing before downloading.</li>
-      </ul>
-    </div>
-
-    <!-- Pre-Upload Configuration Zone -->
-    <div id="setupZone" class="max-w-xl mx-auto space-y-6">
-      <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl shadow-xl space-y-4">
-        
-        <div>
-          <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 1: Audio Language</label>
-          <select id="languageSelect" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
-            <option value="auto">🌍 Auto-Detect</option>
-            <option value="en">🇺🇸 English</option>
-            <option value="hi" selected>🇮🇳 Hindi (High Accuracy Recommended)</option>
-            <option value="es">🇪🇸 Spanish</option>
-            <option value="fr">🇫🇷 French</option>
-            <option value="de">🇩🇪 German</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 2: AI Engine Quality</label>
-          <select id="modelSelect" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
-            <option value="Xenova/whisper-base">⚡ Fast Engine (Best for English only)</option>
-            <option value="Xenova/whisper-small" selected>🧠 High Accuracy Engine (Required for Hindi/Spanish)</option>
-          </select>
-          <p class="text-[10px] text-zinc-500 mt-2">The High Accuracy Engine is smarter and reads native scripts like Devanagari, but requires a larger initial download to your browser memory.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Upload Zone -->
-    <div id="dropZone" class="bg-zinc-900 border-2 border-dashed border-zinc-700 hover:border-indigo-500 rounded-3xl p-12 text-center transition-all cursor-pointer group shadow-2xl mt-6">
-      <input type="file" id="videoUpload" accept="video/mp4,video/webm,video/quicktime,video/x-m4v" class="hidden">
-      <div class="w-16 h-16 rounded-full bg-zinc-800 group-hover:bg-indigo-500/20 flex items-center justify-center mx-auto mb-4 transition-colors">
-        <svg class="w-8 h-8 text-zinc-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-      </div>
-      <h3 class="text-xl font-bold text-white mb-2">Step 3: Upload Video</h3>
-      <p class="text-zinc-400 text-sm mb-4">Drag and drop a video here to generate timestamped captions automatically.</p>
-      <button class="bg-zinc-800 text-zinc-300 font-bold px-6 py-2 rounded-lg pointer-events-none group-hover:bg-indigo-600 group-hover:text-white transition-colors">Browse Videos</button>
-    </div>
-
-    <!-- Progress Indicator & Warning Banner -->
-    <div id="progressContainer" class="hidden bg-zinc-900 border border-zinc-800 rounded-3xl p-8 max-w-2xl mx-auto space-y-4 shadow-2xl">
-      <div class="flex justify-between items-end mb-2">
-        <span class="text-sm font-bold text-zinc-300" id="statusText">Initializing AI Engine...</span>
-        <span class="text-xs text-indigo-400 font-mono animate-pulse">Running Locally</span>
-      </div>
-      <div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800 overflow-hidden">
-        <div id="progressBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-300 w-0 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-      </div>
-      
-      <div id="modelDownloadWarning" class="mt-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-4 text-left hidden">
-        <h4 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-1">
-          <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+<ul class="text-xs text-zinc-300 space-y-2">
+<li><strong class="text-white">Language accuracy:</strong> English often produces the most reliable transcript. Other languages can need a quick manual correction, especially with noise or unclear speech.</li>
+<li><strong class="text-white">✂️ Caption pacing:</strong> Choose how many words appear at a time, then adjust the transcript line by line.</li>
+<li><strong class="text-white">🔒 Local video processing:</strong> Your selected video is processed in the browser. The page still downloads the AI model and runtime files it needs from external CDNs.</li>
+<li><strong class="text-white">✏️ Edit before export:</strong> Review the generated transcript and fix names, spelling, punctuation, or timing before downloading.</li>
+</ul>
+</div>
+<!-- Pre-Upload Configuration Zone -->
+<div class="max-w-xl mx-auto space-y-6" id="setupZone">
+<div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl shadow-xl space-y-4">
+<div>
+<label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 1: Audio Language</label>
+<select class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer" id="languageSelect">
+<option value="auto">🌍 Auto-Detect</option>
+<option value="en">🇺🇸 English</option>
+<option selected="" value="hi">🇮🇳 Hindi (High Accuracy Recommended)</option>
+<option value="es">🇪🇸 Spanish</option>
+<option value="fr">🇫🇷 French</option>
+<option value="de">🇩🇪 German</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Step 2: AI Engine Quality</label>
+<select class="w-full bg-zinc-950 border border-zinc-700 rounded-xl p-3 text-sm font-bold text-white outline-none focus:border-indigo-500 cursor-pointer" id="modelSelect">
+<option value="Xenova/whisper-base">⚡ Fast Engine (Best for English only)</option>
+<option selected="" value="Xenova/whisper-small">🧠 High Accuracy Engine (Required for Hindi/Spanish)</option>
+</select>
+<p class="text-[10px] text-zinc-500 mt-2">The High Accuracy Engine is smarter and reads native scripts like Devanagari, but requires a larger initial download to your browser memory.</p>
+</div>
+</div>
+</div>
+<!-- Upload Zone -->
+<div class="bg-zinc-900 border-2 border-dashed border-zinc-700 hover:border-indigo-500 rounded-3xl p-12 text-center transition-all cursor-pointer group shadow-2xl mt-6" id="dropZone">
+<input accept="video/mp4,video/webm,video/quicktime,video/x-m4v" class="hidden" id="videoUpload" type="file"/>
+<div class="w-16 h-16 rounded-full bg-zinc-800 group-hover:bg-indigo-500/20 flex items-center justify-center mx-auto mb-4 transition-colors">
+<svg class="w-8 h-8 text-zinc-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Step 3: Upload Video</h3>
+<p class="text-zinc-400 text-sm mb-4">Drag and drop a video here to generate timestamped captions automatically.</p>
+<button class="bg-zinc-800 text-zinc-300 font-bold px-6 py-2 rounded-lg pointer-events-none group-hover:bg-indigo-600 group-hover:text-white transition-colors">Browse Videos</button>
+</div>
+<!-- Progress Indicator & Warning Banner -->
+<div class="hidden bg-zinc-900 border border-zinc-800 rounded-3xl p-8 max-w-2xl mx-auto space-y-4 shadow-2xl" id="progressContainer">
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-bold text-zinc-300" id="statusText">Initializing AI Engine...</span>
+<span class="text-xs text-indigo-400 font-mono animate-pulse">Running Locally</span>
+</div>
+<div class="w-full bg-zinc-950 rounded-full h-3 border border-zinc-800 overflow-hidden">
+<div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-300 w-0 shadow-[0_0_10px_rgba(99,102,241,0.5)]" id="progressBar"></div>
+</div>
+<div class="mt-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-4 text-left hidden" id="modelDownloadWarning">
+<h4 class="text-indigo-400 font-bold text-sm flex items-center gap-2 mb-1">
+<svg class="w-4 h-4 animate-spin" fill="none" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path></svg>
           Downloading AI Weights
         </h4>
-        <p class="text-xs text-zinc-400 leading-relaxed">
+<p class="text-xs text-zinc-400 leading-relaxed">
           Fetching the neural network. This requires a <strong>one-time download of roughly <span class="text-zinc-200" id="modelSizeStr">200MB</span></strong>. Depending on your Wi-Fi, this might take 1 to 3 minutes. <strong class="text-zinc-200">Future uses will load instantly from your browser cache!</strong> Please do not close this tab.
         </p>
-      </div>
-    </div>
-
-    <!-- Interactive Studio Workspace -->
-    <div id="workspace" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      
-      <!-- Video Player with Live Caption Overlay (5 Cols) -->
-      <div class="lg:col-span-5 flex flex-col items-center space-y-4">
-        <div id="videoContainer" class="relative w-full max-w-[340px] aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 flex items-center justify-center">
-          <video id="videoPreview" playsinline controls crossorigin="anonymous" class="w-full h-full object-cover transition-all duration-200"></video>
-          
-          <!-- Live Animated Caption Overlay -->
-          <div id="captionOverlayContainer" class="absolute inset-0 pointer-events-none select-none">
-            <div id="captionBox" class="transition-all duration-100 hidden">
-              <span id="captionText" class="font-black leading-tight inline-block custom-stroke"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Caption Styling & Text Editor Controls (7 Cols) -->
-      <div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-6">
-        
-        <!-- Tab Selector -->
-        <div class="flex items-center gap-2 border-b border-zinc-800 pb-4 flex-wrap">
-          <button onclick="switchTab('styles')" id="tabBtnStyles" class="px-4 py-2 rounded-xl text-xs font-black bg-indigo-600 text-white transition mb-2 xl:mb-0">🎨 Styling</button>
-          <button onclick="switchTab('editor')" id="tabBtnEditor" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✏️ Edit Text</button>
-          <button onclick="switchTab('video')" id="tabBtnVideo" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">✂️ Video Editor</button>
-          <button onclick="switchTab('export')" id="tabBtnExport" class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0">💾 Export Video</button>
-        </div>
-
-        <!-- TAB 1: Viral Styling Controls -->
-        <div id="tabStyles" class="space-y-6">
-
-          <!-- WORDS PER LINE / PACING SELECTOR -->
-          <div class="bg-zinc-950 p-4 rounded-2xl border border-indigo-500/30 space-y-2 mb-2">
-            <div class="flex justify-between items-center">
-              <label class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Caption Pacing (Words Per Line)</label>
-              <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold px-2 py-0.5 rounded-full">Single-Line Mode</span>
-            </div>
-            <select id="wordsPerLineSelect" onchange="changePacing()" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500 cursor-pointer">
-              <option value="1">⚡ 1 Word (Rapid Pop / High Energy)</option>
-              <option value="3" selected>🔥 2-3 Words (Viral Reels & Shorts - Single Line)</option>
-              <option value="5">💬 4-5 Words (Balanced Short Line)</option>
-              <option value="0">📜 Full Sentence (Classic Subtitles)</option>
-            </select>
-            <p class="text-[10px] text-zinc-500">Changes how many words appear on screen at a time. Each line automatically disappears and swaps as speech advances.</p>
-          </div>
-            
-          <div>
-            <label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Pro Style Presets</label>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              <button onclick="applyPreset('hormozi')" class="p-3 bg-zinc-950 border border-indigo-500/40 rounded-xl hover:border-indigo-400 text-left transition group">
-                <div class="text-xs font-black text-amber-400 uppercase">Hormozi Pop</div>
-                <div class="text-[10px] text-zinc-500">Bold & Yellow Pop</div>
-              </button>
-              <button onclick="applyPreset('beast')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-emerald-400 text-left transition group">
-                <div class="text-xs font-black text-emerald-400 uppercase">MrBeast Green</div>
-                <div class="text-[10px] text-zinc-500">High Energy Impact</div>
-              </button>
-              <button onclick="applyPreset('gaming')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-fuchsia-400 text-left transition group">
-                <div class="text-xs font-black text-fuchsia-400 uppercase drop-shadow-[0_0_5px_rgba(232,121,249,0.5)]">Neon Gaming</div>
-                <div class="text-[10px] text-zinc-500">Aggressive Glow</div>
-              </button>
-              <button onclick="applyPreset('iman')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-300 text-left transition group">
-                <div class="text-xs font-bold text-zinc-100 uppercase" style="font-family: 'Playfair Display', serif;">Iman Gadzhi</div>
-                <div class="text-[10px] text-zinc-500">Clean & Elegant</div>
-              </button>
-              <button onclick="applyPreset('cinematic')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group">
-                <div class="text-xs font-bold text-zinc-200">Cinematic</div>
-                <div class="text-[10px] text-zinc-500">Soft Shadow Minimal</div>
-              </button>
-              <button onclick="applyPreset('clean')" class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group">
-                <div class="text-xs font-bold text-zinc-100 uppercase">Basic Box</div>
-                <div class="text-[10px] text-zinc-500">Standard Readability</div>
-              </button>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Font Family</label>
-              <select id="fontSelect" onchange="updateStyle()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500">
-                <option value="'Montserrat', sans-serif">Montserrat (Ultra-Bold)</option>
-                <option value="'Bebas Neue', sans-serif">Bebas Neue (Tall)</option>
-                <option value="'Poppins', sans-serif">Poppins (Modern)</option>
-                <option value="'Playfair Display', serif">Playfair (Elegant)</option>
-                <option value="'Inter', sans-serif">Inter (Clean)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Background Box</label>
-              <select id="bgSelect" onchange="updateStyle()" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500">
-                <option value="transparent">None (Transparent)</option>
-                <option value="rgba(0,0,0,0.7)">Black Box (70%)</option>
-                <option value="rgba(0,0,0,0.9)">Black Box (Solid)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Primary Text Color</label>
-              <div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
-                <input type="color" id="primaryColor" value="#ffffff" onchange="updateStyle()" class="w-7 h-7 rounded border-none cursor-pointer bg-transparent">
-                <span id="primaryColorText" class="text-xs font-mono text-zinc-400">#FFFFFF</span>
-              </div>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-zinc-400 mb-1.5">Highlight & Glow Color</label>
-              <div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
-                <input type="color" id="highlightColor" value="#facc15" onchange="updateStyle()" class="w-7 h-7 rounded border-none cursor-pointer bg-transparent">
-                <span id="highlightColorText" class="text-xs font-mono text-zinc-400">#FACC15</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="space-y-4 pt-2">
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Text Size (% of Video Width)</span><span id="fontSizeDisplay">10%</span>
-              </div>
-              <input type="range" id="fontSizeSlider" min="2" max="25" step="0.5" value="10" oninput="updateStyle()" class="w-full accent-indigo-500">
-            </div>
-            
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Vertical Position (Y-Axis)</span><span id="positionDisplay">Center (75%)</span>
-              </div>
-              <input type="range" id="positionSlider" min="5" max="95" step="1" value="75" oninput="updateStyle()" class="w-full accent-indigo-500">
-            </div>
-
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Outline Thickness</span><span id="strokeDisplay">5%</span>
-              </div>
-              <input type="range" id="strokeSlider" min="0" max="20" step="1" value="5" oninput="updateStyle()" class="w-full accent-indigo-500">
-            </div>
-            
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span class="flex items-center gap-1">Neon Glow Effect</span><span id="glowDisplay">0%</span>
-              </div>
-              <input type="range" id="glowSlider" min="0" max="50" step="1" value="0" oninput="updateStyle()" class="w-full accent-indigo-500">
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB 2: Interactive Line-by-Line Editor -->
-        <div id="tabEditor" class="hidden space-y-4">
-          <!-- Global Sync Offset Tool -->
-          <div class="flex justify-between items-center bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
-            <div>
-              <span class="text-sm font-bold text-white block">Global Sync Offset</span>
-              <span class="text-xs text-zinc-500">Fix captions showing up too early/late</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <input type="number" id="syncOffset" step="0.1" value="0.0" class="w-20 bg-zinc-900 border border-zinc-700 text-white text-sm font-bold rounded-lg p-2 text-center focus:border-indigo-500 outline-none">
-              <span class="text-xs font-bold text-zinc-400 uppercase">Sec</span>
-            </div>
-          </div>
-
-          <div class="flex justify-between items-center text-xs text-zinc-400 pt-2">
-            <span>Click any timestamp to jump. Edit text inline.</span>
-            <span id="chunkCountBadge" class="font-bold text-indigo-400">0 Lines</span>
-          </div>
-          <div id="captionList" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
-            <!-- Dynamically populated editable chunks -->
-          </div>
-        </div>
-
-        <!-- TAB 3: Video Editor Studio -->
-        <div id="tabVideoEditor" class="hidden space-y-6">
-          
-          <div class="bg-zinc-950 p-5 rounded-2xl border border-zinc-800 space-y-4">
-            <h4 class="text-sm font-bold text-white flex items-center gap-2"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg> Video Trimming</h4>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                  <span>Start Time (s)</span>
-                </div>
-                <input type="number" id="trimStart" value="0" step="0.1" min="0" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center">
-              </div>
-              <div>
-                <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                  <span>End Time (s)</span>
-                </div>
-                <input type="number" id="trimEnd" value="0" step="0.1" min="0" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center">
-              </div>
-            </div>
-            <p class="text-[10px] text-zinc-500">The final exported video and subtitles will automatically adjust to this new trimmed timeframe.</p>
-          </div>
-
-          <div class="space-y-4 pt-2">
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Playback Speed</span><span id="speedDisplay" class="text-emerald-400">1x</span>
-              </div>
-              <input type="range" id="playbackSpeed" min="0.5" max="2" step="0.25" value="1" oninput="updateVideoFilters()" class="w-full accent-emerald-500">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Audio Volume Booster</span><span id="volumeDisplay" class="text-emerald-400">100%</span>
-              </div>
-              <input type="range" id="audioVolume" min="0" max="300" step="10" value="100" oninput="updateVideoFilters()" class="w-full accent-emerald-500">
-            </div>
-            
-            <div class="border-t border-zinc-800 my-4"></div>
-            <h4 class="text-sm font-bold text-white mb-4">Color Grading & Filters</h4>
-
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Brightness</span><span id="brightDisplay">100%</span>
-              </div>
-              <input type="range" id="filterBrightness" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Contrast</span><span id="contrastDisplay">100%</span>
-              </div>
-              <input type="range" id="filterContrast" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Saturation</span><span id="saturateDisplay">100%</span>
-              </div>
-              <input type="range" id="filterSaturation" min="0" max="200" step="5" value="100" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
-                <span>Vintage Sepia</span><span id="sepiaDisplay">0%</span>
-              </div>
-              <input type="range" id="filterSepia" min="0" max="100" step="5" value="0" oninput="updateVideoFilters()" class="w-full accent-zinc-500">
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB 4: Export Video & SRT -->
-        <div id="tabExport" class="hidden space-y-4 flex flex-col h-full">
-          <div class="bg-zinc-950 border border-zinc-800 p-6 rounded-2xl text-center space-y-4 flex-1 flex flex-col justify-center">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold text-white">Export Final Video</h3>
-            <p class="text-sm text-zinc-400">Renders your selected captions, trim range, and video adjustments into a WebM file.</p>
-            <button id="renderVideoBtn" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
-              Render & Download Video
+</div>
+</div>
+<!-- Interactive Studio Workspace -->
+<div class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="workspace">
+<!-- Video Player with Live Caption Overlay (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col items-center space-y-4">
+<div class="relative w-full max-w-[340px] aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 flex items-center justify-center" id="videoContainer">
+<video class="w-full h-full object-cover transition-all duration-200" controls="" crossorigin="anonymous" id="videoPreview" playsinline=""></video>
+<!-- Live Animated Caption Overlay -->
+<div class="absolute inset-0 pointer-events-none select-none" id="captionOverlayContainer">
+<div class="transition-all duration-100 hidden" id="captionBox">
+<span class="font-black leading-tight inline-block custom-stroke" id="captionText"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Caption Styling & Text Editor Controls (7 Cols) -->
+<div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl space-y-6">
+<!-- Tab Selector -->
+<div class="flex items-center gap-2 border-b border-zinc-800 pb-4 flex-wrap">
+<button class="px-4 py-2 rounded-xl text-xs font-black bg-indigo-600 text-white transition mb-2 xl:mb-0" id="tabBtnStyles" onclick="switchTab('styles')">🎨 Styling</button>
+<button class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0" id="tabBtnEditor" onclick="switchTab('editor')">✏️ Edit Text</button>
+<button class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0" id="tabBtnVideo" onclick="switchTab('video')">✂️ Video Editor</button>
+<button class="px-4 py-2 rounded-xl text-xs font-black bg-zinc-800 text-zinc-400 hover:text-white transition mb-2 xl:mb-0" id="tabBtnExport" onclick="switchTab('export')">💾 Export Video</button>
+</div>
+<!-- TAB 1: Viral Styling Controls -->
+<div class="space-y-6" id="tabStyles">
+<!-- WORDS PER LINE / PACING SELECTOR -->
+<div class="bg-zinc-950 p-4 rounded-2xl border border-indigo-500/30 space-y-2 mb-2">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Caption Pacing (Words Per Line)</label>
+<span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold px-2 py-0.5 rounded-full">Single-Line Mode</span>
+</div>
+<select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500 cursor-pointer" id="wordsPerLineSelect" onchange="changePacing()">
+<option value="1">⚡ 1 Word (Rapid Pop / High Energy)</option>
+<option selected="" value="3">🔥 2-3 Words (Viral Reels &amp; Shorts - Single Line)</option>
+<option value="5">💬 4-5 Words (Balanced Short Line)</option>
+<option value="0">📜 Full Sentence (Classic Subtitles)</option>
+</select>
+<p class="text-[10px] text-zinc-500">Changes how many words appear on screen at a time. Each line automatically disappears and swaps as speech advances.</p>
+</div>
+<div>
+<label class="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Pro Style Presets</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+<button class="p-3 bg-zinc-950 border border-indigo-500/40 rounded-xl hover:border-indigo-400 text-left transition group" onclick="applyPreset('hormozi')">
+<div class="text-xs font-black text-amber-400 uppercase">Hormozi Pop</div>
+<div class="text-[10px] text-zinc-500">Bold &amp; Yellow Pop</div>
+</button>
+<button class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-emerald-400 text-left transition group" onclick="applyPreset('beast')">
+<div class="text-xs font-black text-emerald-400 uppercase">MrBeast Green</div>
+<div class="text-[10px] text-zinc-500">High Energy Impact</div>
+</button>
+<button class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-fuchsia-400 text-left transition group" onclick="applyPreset('gaming')">
+<div class="text-xs font-black text-fuchsia-400 uppercase drop-shadow-[0_0_5px_rgba(232,121,249,0.5)]">Neon Gaming</div>
+<div class="text-[10px] text-zinc-500">Aggressive Glow</div>
+</button>
+<button class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-300 text-left transition group" onclick="applyPreset('iman')">
+<div class="text-xs font-bold text-zinc-100 uppercase" style="font-family: 'Playfair Display', serif;">Iman Gadzhi</div>
+<div class="text-[10px] text-zinc-500">Clean &amp; Elegant</div>
+</button>
+<button class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group" onclick="applyPreset('cinematic')">
+<div class="text-xs font-bold text-zinc-200">Cinematic</div>
+<div class="text-[10px] text-zinc-500">Soft Shadow Minimal</div>
+</button>
+<button class="p-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-zinc-500 text-left transition group" onclick="applyPreset('clean')">
+<div class="text-xs font-bold text-zinc-100 uppercase">Basic Box</div>
+<div class="text-[10px] text-zinc-500">Standard Readability</div>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-zinc-400 mb-1.5">Font Family</label>
+<select class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500" id="fontSelect" onchange="updateStyle()">
+<option value="'Montserrat', sans-serif">Montserrat (Ultra-Bold)</option>
+<option value="'Bebas Neue', sans-serif">Bebas Neue (Tall)</option>
+<option value="'Poppins', sans-serif">Poppins (Modern)</option>
+<option value="'Playfair Display', serif">Playfair (Elegant)</option>
+<option value="'Inter', sans-serif">Inter (Clean)</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-zinc-400 mb-1.5">Background Box</label>
+<select class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:border-indigo-500" id="bgSelect" onchange="updateStyle()">
+<option value="transparent">None (Transparent)</option>
+<option value="rgba(0,0,0,0.7)">Black Box (70%)</option>
+<option value="rgba(0,0,0,0.9)">Black Box (Solid)</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-zinc-400 mb-1.5">Primary Text Color</label>
+<div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
+<input class="w-7 h-7 rounded border-none cursor-pointer bg-transparent" id="primaryColor" onchange="updateStyle()" type="color" value="#ffffff"/>
+<span class="text-xs font-mono text-zinc-400" id="primaryColorText">#FFFFFF</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-zinc-400 mb-1.5">Highlight &amp; Glow Color</label>
+<div class="flex items-center gap-2 bg-zinc-950 border border-zinc-800 p-2 rounded-xl">
+<input class="w-7 h-7 rounded border-none cursor-pointer bg-transparent" id="highlightColor" onchange="updateStyle()" type="color" value="#facc15"/>
+<span class="text-xs font-mono text-zinc-400" id="highlightColorText">#FACC15</span>
+</div>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Text Size (% of Video Width)</span><span id="fontSizeDisplay">10%</span>
+</div>
+<input class="w-full accent-indigo-500" id="fontSizeSlider" max="25" min="2" oninput="updateStyle()" step="0.5" type="range" value="10"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Vertical Position (Y-Axis)</span><span id="positionDisplay">Center (75%)</span>
+</div>
+<input class="w-full accent-indigo-500" id="positionSlider" max="95" min="5" oninput="updateStyle()" step="1" type="range" value="75"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Outline Thickness</span><span id="strokeDisplay">5%</span>
+</div>
+<input class="w-full accent-indigo-500" id="strokeSlider" max="20" min="0" oninput="updateStyle()" step="1" type="range" value="5"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span class="flex items-center gap-1">Neon Glow Effect</span><span id="glowDisplay">0%</span>
+</div>
+<input class="w-full accent-indigo-500" id="glowSlider" max="50" min="0" oninput="updateStyle()" step="1" type="range" value="0"/>
+</div>
+</div>
+</div>
+<!-- TAB 2: Interactive Line-by-Line Editor -->
+<div class="hidden space-y-4" id="tabEditor">
+<!-- Global Sync Offset Tool -->
+<div class="flex justify-between items-center bg-zinc-950 p-4 rounded-2xl border border-zinc-800">
+<div>
+<span class="text-sm font-bold text-white block">Global Sync Offset</span>
+<span class="text-xs text-zinc-500">Fix captions showing up too early/late</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="w-20 bg-zinc-900 border border-zinc-700 text-white text-sm font-bold rounded-lg p-2 text-center focus:border-indigo-500 outline-none" id="syncOffset" step="0.1" type="number" value="0.0"/>
+<span class="text-xs font-bold text-zinc-400 uppercase">Sec</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-xs text-zinc-400 pt-2">
+<span>Click any timestamp to jump. Edit text inline.</span>
+<span class="font-bold text-indigo-400" id="chunkCountBadge">0 Lines</span>
+</div>
+<div class="space-y-2 max-h-[380px] overflow-y-auto pr-1" id="captionList">
+<!-- Dynamically populated editable chunks -->
+</div>
+</div>
+<!-- TAB 3: Video Editor Studio -->
+<div class="hidden space-y-6" id="tabVideoEditor">
+<div class="bg-zinc-950 p-5 rounded-2xl border border-zinc-800 space-y-4">
+<h4 class="text-sm font-bold text-white flex items-center gap-2"><svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Video Trimming</h4>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Start Time (s)</span>
+</div>
+<input class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center" id="trimStart" min="0" step="0.1" type="number" value="0"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>End Time (s)</span>
+</div>
+<input class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-2 text-xs font-bold text-white outline-none focus:border-emerald-500 text-center" id="trimEnd" min="0" step="0.1" type="number" value="0"/>
+</div>
+</div>
+<p class="text-[10px] text-zinc-500">The final exported video and subtitles will automatically adjust to this new trimmed timeframe.</p>
+</div>
+<div class="space-y-4 pt-2">
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Playback Speed</span><span class="text-emerald-400" id="speedDisplay">1x</span>
+</div>
+<input class="w-full accent-emerald-500" id="playbackSpeed" max="2" min="0.5" oninput="updateVideoFilters()" step="0.25" type="range" value="1"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Audio Volume Booster</span><span class="text-emerald-400" id="volumeDisplay">100%</span>
+</div>
+<input class="w-full accent-emerald-500" id="audioVolume" max="300" min="0" oninput="updateVideoFilters()" step="10" type="range" value="100"/>
+</div>
+<div class="border-t border-zinc-800 my-4"></div>
+<h4 class="text-sm font-bold text-white mb-4">Color Grading &amp; Filters</h4>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Brightness</span><span id="brightDisplay">100%</span>
+</div>
+<input class="w-full accent-zinc-500" id="filterBrightness" max="200" min="0" oninput="updateVideoFilters()" step="5" type="range" value="100"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Contrast</span><span id="contrastDisplay">100%</span>
+</div>
+<input class="w-full accent-zinc-500" id="filterContrast" max="200" min="0" oninput="updateVideoFilters()" step="5" type="range" value="100"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Saturation</span><span id="saturateDisplay">100%</span>
+</div>
+<input class="w-full accent-zinc-500" id="filterSaturation" max="200" min="0" oninput="updateVideoFilters()" step="5" type="range" value="100"/>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold text-zinc-400 mb-1">
+<span>Vintage Sepia</span><span id="sepiaDisplay">0%</span>
+</div>
+<input class="w-full accent-zinc-500" id="filterSepia" max="100" min="0" oninput="updateVideoFilters()" step="5" type="range" value="0"/>
+</div>
+</div>
+</div>
+<!-- TAB 4: Export Video & SRT -->
+<div class="hidden space-y-4 flex flex-col h-full" id="tabExport">
+<div class="bg-zinc-950 border border-zinc-800 p-6 rounded-2xl text-center space-y-4 flex-1 flex flex-col justify-center">
+<div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold text-white">Export Final Video</h3>
+<p class="text-sm text-zinc-400">Renders your selected captions, trim range, and video adjustments into a WebM file.</p>
+<button class="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2" id="renderVideoBtn">
+              Render &amp; Download Video
             </button>
-          </div>
-          
-          <div class="grid grid-cols-2 gap-3 pt-2">
-            <button id="downloadSrtBtn" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm" id="downloadSrtBtn">
               Download .SRT
             </button>
-            <button id="copySrtBtn" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+<button class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm" id="copySrtBtn">
               Copy to Clipboard
             </button>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- Middle Ad Slot -->
-    <div class="w-full h-24 bg-zinc-900/60 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-600 text-xs my-8">
-      [AdSense In-Content Banner Slot]
-    </div>
-
-  </main>
-
-  <!-- Tool information, supporting SEO content, and FAQs -->
-  <section class="max-w-4xl mx-auto px-4 py-12 space-y-10">
-
-    <div class="space-y-4">
-      <h2 class="text-2xl font-black text-white">AI Subtitle Generator for Videos</h2>
-      <p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio is a browser-based subtitle and caption editor for creators who need a transcript they can actually edit before publishing. Upload a video, choose a language and transcription model, generate timestamped captions, then adjust the text and pacing before exporting.</p>
-      <p class="text-sm leading-7 text-zinc-400">The tool is designed for short-form and social video workflows, including YouTube Shorts, Instagram Reels, and TikTok-style vertical videos. It can also be used when you simply need an editable transcript, an <strong class="text-zinc-200">SRT subtitle file</strong>, or a rendered video with captions burned into the picture.</p>
-    </div>
-
-    <div class="space-y-4">
-      <h2 class="text-xl font-bold text-white">What this subtitle tool can do</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-400">
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Automatic transcription:</strong> Generate timestamped speech captions from an uploaded video using a Whisper-based speech recognition model in the browser.</div>
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption editing:</strong> Correct the generated text line by line and jump to a caption's timestamp in the video.</div>
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Word pacing:</strong> Split captions into smaller groups of words for faster, more readable on-screen captions.</div>
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption styling:</strong> Change fonts, text colors, highlights, background boxes, size, position, outlines, and glow.</div>
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Video editing controls:</strong> Set a trim range, change playback speed and volume, and apply basic brightness, contrast, saturation, and sepia adjustments.</div>
-        <div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Subtitle export:</strong> Download or copy an SRT file, or render a WebM video with the captions and selected video adjustments.</div>
-      </div>
-    </div>
-
-    <div class="space-y-4">
-      <h2 class="text-xl font-bold text-white">How to use the AI subtitle generator</h2>
-      <ol class="space-y-3 text-zinc-400 text-sm list-decimal list-inside bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
-        <li><strong class="text-zinc-200">Choose the language and model:</strong> Use automatic detection or choose English, Hindi, Spanish, French, or German. Select the faster base model or the higher-accuracy small model.</li>
-        <li><strong class="text-zinc-200">Upload your video:</strong> Drag a supported MP4, WebM, QuickTime, or M4V video into the upload area.</li>
-        <li><strong class="text-zinc-200">Review the transcript:</strong> Wait for the browser to load the required model, then check the generated timestamped captions in the editor.</li>
-        <li><strong class="text-zinc-200">Adjust the captions:</strong> Change word pacing, correct text, move captions vertically, change styling, or use the sync offset when timing needs a small correction.</li>
-        <li><strong class="text-zinc-200">Export what you need:</strong> Download an SRT file for use in another editor, or render the captioned video as WebM.</li>
-      </ol>
-    </div>
-
-    <div class="space-y-4">
-      <h2 class="text-xl font-bold text-white">Supported languages and browser processing</h2>
-      <p class="text-sm leading-7 text-zinc-400">The current interface offers automatic detection plus English, Hindi, Spanish, French, and German. Transcript quality depends on the language, audio clarity, accents, background noise, music, and the selected model. The generated text should be reviewed before publishing, especially for names, numbers, and mixed-language speech.</p>
-      <p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio performs video decoding and speech inference in the browser. The page still needs to download the AI model and supporting runtime resources from external CDNs when they are not already cached. Large videos and larger models can use significant memory and processing power, particularly on mobile devices.</p>
-    </div>
-
-    <div>
-      <h2 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h3 class="font-bold text-white mb-2 text-sm">Are my videos uploaded for transcription?</h3>
-          <p class="text-xs leading-6 text-zinc-400">The uploaded video is decoded and processed in your browser. The required AI model and runtime resources are downloaded from external CDNs when needed.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h3 class="font-bold text-white mb-2 text-sm">Can I edit the generated subtitles?</h3>
-          <p class="text-xs leading-6 text-zinc-400">Yes. Use the Edit Text tab to correct transcript text, jump to timestamps, and apply a global sync offset.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h3 class="font-bold text-white mb-2 text-sm">Can I download an SRT file?</h3>
-          <p class="text-xs leading-6 text-zinc-400">Yes. Download the generated SRT file or copy the subtitle text to your clipboard for use in other video editors.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
-          <h3 class="font-bold text-white mb-2 text-sm">Does it work with Hindi subtitles?</h3>
-          <p class="text-xs leading-6 text-zinc-400">Yes. Hindi is available in the language selector. Accuracy can vary with audio quality and the model you choose, so review the transcript before export.</p>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl md:col-span-2">
-          <h3 class="font-bold text-white mb-2 text-sm">Can I render captions directly onto the video?</h3>
-          <p class="text-xs leading-6 text-zinc-400">Yes. The Export Video tab can render the selected caption style, trim range, and video adjustments into a WebM file. The export runs in the browser and can be demanding on slower devices.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
-      <p class="font-bold text-zinc-400 uppercase tracking-wider">Technology & processing details</p>
-      <p>This utility uses Whisper speech-recognition models through the Transformers.js WebAssembly runtime. The application runs transcription and video editing tasks on the user's device. Model and runtime resources are fetched from external CDNs as required; the uploaded video is not sent to a KTools HQ application server by the tool's client-side processing flow.</p>
-    </div>
-
-  </section>
-
-  <!-- Dynamic More Tools Widget -->
-  <div id="related-tools"></div>
-
-  <!-- Footer -->
-  <footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-      <p>© 2026 K Tools HQ • A free utility provided by your registered freelance enterprise.</p>
-      <div class="flex space-x-4">
-        <a href="about.html" class="hover:text-zinc-300 transition">About</a>
-        <a href="privacy.html" class="hover:text-zinc-300 transition">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-zinc-300 transition">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Heartbeat Tracking Script (Keeps GA4 Session Active) -->
-  <script>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Tool information, supporting SEO content, and FAQs -->
+<section class="max-w-4xl mx-auto px-4 py-12 space-y-10">
+<div class="space-y-4">
+<h2 class="text-2xl font-black text-white">AI Subtitle Generator for Videos</h2>
+<p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio is a browser-based subtitle and caption editor for creators who need a transcript they can actually edit before publishing. Upload a video, choose a language and transcription model, generate timestamped captions, then adjust the text and pacing before exporting.</p>
+<p class="text-sm leading-7 text-zinc-400">The tool is designed for short-form and social video workflows, including YouTube Shorts, Instagram Reels, and TikTok-style vertical videos. It can also be used when you simply need an editable transcript, an <strong class="text-zinc-200">SRT subtitle file</strong>, or a rendered video with captions burned into the picture.</p>
+</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold text-white">What this subtitle tool can do</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-400">
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Automatic transcription:</strong> Generate timestamped speech captions from an uploaded video using a Whisper-based speech recognition model in the browser.</div>
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption editing:</strong> Correct the generated text line by line and jump to a caption's timestamp in the video.</div>
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Word pacing:</strong> Split captions into smaller groups of words for faster, more readable on-screen captions.</div>
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Caption styling:</strong> Change fonts, text colors, highlights, background boxes, size, position, outlines, and glow.</div>
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Video editing controls:</strong> Set a trim range, change playback speed and volume, and apply basic brightness, contrast, saturation, and sepia adjustments.</div>
+<div class="bg-zinc-900/60 border border-zinc-800 p-4 rounded-2xl"><strong class="text-zinc-200">Subtitle export:</strong> Download or copy an SRT file, or render a WebM video with the captions and selected video adjustments.</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold text-white">How to use the AI subtitle generator</h2>
+<ol class="space-y-3 text-zinc-400 text-sm list-decimal list-inside bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
+<li><strong class="text-zinc-200">Choose the language and model:</strong> Use automatic detection or choose English, Hindi, Spanish, French, or German. Select the faster base model or the higher-accuracy small model.</li>
+<li><strong class="text-zinc-200">Upload your video:</strong> Drag a supported MP4, WebM, QuickTime, or M4V video into the upload area.</li>
+<li><strong class="text-zinc-200">Review the transcript:</strong> Wait for the browser to load the required model, then check the generated timestamped captions in the editor.</li>
+<li><strong class="text-zinc-200">Adjust the captions:</strong> Change word pacing, correct text, move captions vertically, change styling, or use the sync offset when timing needs a small correction.</li>
+<li><strong class="text-zinc-200">Export what you need:</strong> Download an SRT file for use in another editor, or render the captioned video as WebM.</li>
+</ol>
+</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold text-white">Supported languages and browser processing</h2>
+<p class="text-sm leading-7 text-zinc-400">The current interface offers automatic detection plus English, Hindi, Spanish, French, and German. Transcript quality depends on the language, audio clarity, accents, background noise, music, and the selected model. The generated text should be reviewed before publishing, especially for names, numbers, and mixed-language speech.</p>
+<p class="text-sm leading-7 text-zinc-400">CaptionCraft Studio performs video decoding and speech inference in the browser. The page still needs to download the AI model and supporting runtime resources from external CDNs when they are not already cached. Large videos and larger models can use significant memory and processing power, particularly on mobile devices.</p>
+</div>
+<div>
+<h2 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+<h3 class="font-bold text-white mb-2 text-sm">Are my videos uploaded for transcription?</h3>
+<p class="text-xs leading-6 text-zinc-400">The uploaded video is decoded and processed in your browser. The required AI model and runtime resources are downloaded from external CDNs when needed.</p>
+</div>
+<div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+<h3 class="font-bold text-white mb-2 text-sm">Can I edit the generated subtitles?</h3>
+<p class="text-xs leading-6 text-zinc-400">Yes. Use the Edit Text tab to correct transcript text, jump to timestamps, and apply a global sync offset.</p>
+</div>
+<div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+<h3 class="font-bold text-white mb-2 text-sm">Can I download an SRT file?</h3>
+<p class="text-xs leading-6 text-zinc-400">Yes. Download the generated SRT file or copy the subtitle text to your clipboard for use in other video editors.</p>
+</div>
+<div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl">
+<h3 class="font-bold text-white mb-2 text-sm">Does it work with Hindi subtitles?</h3>
+<p class="text-xs leading-6 text-zinc-400">Yes. Hindi is available in the language selector. Accuracy can vary with audio quality and the model you choose, so review the transcript before export.</p>
+</div>
+<div class="bg-zinc-900 border border-zinc-800 p-5 rounded-2xl md:col-span-2">
+<h3 class="font-bold text-white mb-2 text-sm">Can I render captions directly onto the video?</h3>
+<p class="text-xs leading-6 text-zinc-400">Yes. The Export Video tab can render the selected caption style, trim range, and video adjustments into a WebM file. The export runs in the browser and can be demanding on slower devices.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-zinc-800/60 pt-6 text-[11px] text-zinc-500 space-y-2">
+<p class="font-bold text-zinc-400 uppercase tracking-wider">Technology &amp; processing details</p>
+<p>This utility uses Whisper speech-recognition models through the Transformers.js WebAssembly runtime. The application runs transcription and video editing tasks on the user's device. Model and runtime resources are fetched from external CDNs as required; the uploaded video is not sent to a KTools HQ application server by the tool's client-side processing flow.</p>
+</div>
+</section>
+<!-- Dynamic More Tools Widget -->
+<div id="related-tools"></div>
+<!-- Footer -->
+<footer class="border-t border-zinc-800 py-8 bg-zinc-950 mt-auto">
+<div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+<p>© 2026 K Tools HQ • A free utility provided by your independent project.</p>
+<div class="flex space-x-4">
+<a class="hover:text-zinc-300 transition" href="/about">About</a>
+<a class="hover:text-zinc-300 transition" href="/privacy">Privacy Policy</a>
+<a class="hover:text-zinc-300 transition" href="/terms">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Heartbeat Tracking Script (Keeps GA4 Session Active) -->
+<script>
     let activeSeconds = 0;
     setInterval(() => {
       if (!document.hidden) {
@@ -660,9 +592,8 @@
       }
     }, 30000);
   </script>
-
-  <!-- Client-Side Engine -->
-  <script type="module">
+<!-- Client-Side Engine -->
+<script type="module">
     import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js';
     
     // MOBILE FIX: Detect Mobile devices cleanly
@@ -1504,8 +1435,7 @@
     // Initialize default styles
     updateStyle();
   </script>
-  
-  <!-- Dynamic More Tools Widget Script -->
-  <script src="/tools-widget.js" defer></script>
+<!-- Dynamic More Tools Widget Script -->
+<script defer="" src="/tools-widget.js"></script>
 </body>
 </html>
