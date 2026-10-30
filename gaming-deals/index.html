@@ -1,0 +1,2308 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gaming Deals & Freebies Finder | Free PC Game Deals | K Tools HQ</title>
+
+  <meta name="description" content="Find PC game discounts and active gaming giveaways in one place. Search deals, filter by platform, and check free game offers from external providers.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="K Tools HQ">
+  <meta name="theme-color" content="#09090b">
+
+  <link rel="canonical" href="https://www.ktoolshq.com/gaming-deals">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ktoolshq.com/gaming-deals">
+  <meta property="og:title" content="Gaming Deals & Freebies Finder | K Tools HQ">
+  <meta property="og:description" content="Explore PC game discounts and active gaming giveaways. Search and filter offers from external gaming data providers.">
+  <meta property="og:site_name" content="K Tools HQ">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gaming Deals & Freebies Finder | K Tools HQ">
+  <meta name="twitter:description" content="Find PC game discounts and free game giveaways in one browser-based finder.">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8VMVB3VEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B8VMVB3VEP');
+  </script>
+
+  <!-- Site AdSense loader retained for consistency.
+       No ad units are placed beside search controls, result cards,
+       or outbound deal buttons. -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2943193093838118"
+    crossorigin="anonymous"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gaming Deals & Freebies Finder",
+    "url": "https://www.ktoolshq.com/gaming-deals",
+    "description": "A free browser-based finder for PC game discounts and active gaming giveaways, using data from external providers.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any modern web browser",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K Tools HQ",
+      "url": "https://www.ktoolshq.com/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface-2: #202024;
+      --surface-3: #27272a;
+      --border: #303036;
+      --border-soft: rgba(63, 63, 70, .72);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --muted-2: #71717a;
+      --indigo: #6366f1;
+      --indigo-light: #a5b4fc;
+      --cyan: #67e8f9;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(100% - 32px, 1160px);
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(24,24,27,.9);
+      border-bottom: 1px solid #27272a;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -.025em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: white;
+      background: linear-gradient(135deg,#4f46e5,#8b5cf6);
+      box-shadow: 0 8px 24px rgba(99,102,241,.2);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .brand-name span {
+      color: var(--indigo-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-badge {
+      border: 1px solid rgba(52,211,153,.2);
+      background: rgba(16,185,129,.08);
+      color: var(--green);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 11px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 48px 0 26px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 11px;
+      border: 1px solid rgba(99,102,241,.28);
+      border-radius: 999px;
+      background: rgba(99,102,241,.09);
+      color: var(--indigo-light);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 15px 0 10px;
+      font-size: clamp(32px,5vw,52px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      font-weight: 900;
+    }
+
+    .gradient {
+      color: #a5b4fc;
+      background: linear-gradient(90deg,#818cf8,#a78bfa,#f0abfc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #29292f;
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: #111114;
+      color: #c4c4cc;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .trust-chip svg {
+      color: var(--green);
+    }
+
+    /* Main search panel */
+
+    .workspace {
+      padding: 12px 0 48px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(
+        180deg,
+        rgba(24,24,27,.98),
+        rgba(17,17,20,.98)
+      );
+      box-shadow: 0 16px 44px rgba(0,0,0,.2);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 21px 22px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid rgba(63,63,70,.62);
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .panel-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .refresh-btn,
+    .primary-btn,
+    .secondary-btn,
+    .tab-btn,
+    .filter-control {
+      border: 1px solid #38383f;
+      border-radius: 11px;
+      background: #202024;
+      color: #e4e4e7;
+    }
+
+    .refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .refresh-btn:hover,
+    .secondary-btn:hover {
+      border-color: #6666d9;
+      background: #272733;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 16px 20px 0;
+    }
+
+    .tab-btn {
+      padding: 10px 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      color: white;
+      background: rgba(99,102,241,.18);
+      border-color: rgba(129,140,248,.55);
+      box-shadow: inset 0 0 0 1px rgba(99,102,241,.1);
+    }
+
+    .tab-count {
+      min-width: 20px;
+      padding: 1px 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: #d4d4d8;
+      font-size: 10px;
+    }
+
+    .controls {
+      padding: 17px 20px 18px;
+      display: grid;
+      grid-template-columns: minmax(200px,1.7fr) repeat(3,minmax(135px,1fr)) auto;
+      gap: 10px;
+      border-bottom: 1px solid rgba(63,63,70,.58);
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box svg {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      top: 50%;
+      left: 13px;
+      transform: translateY(-50%);
+      color: var(--muted-2);
+      pointer-events: none;
+    }
+
+    .field,
+    .filter-control {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      outline: none;
+      color: #e4e4e7;
+      background: #111114;
+      border: 1px solid #34343b;
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    .search-box .field {
+      padding-left: 38px;
+    }
+
+    .field:focus,
+    .filter-control:focus {
+      border-color: #7777ef;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.14);
+    }
+
+    .primary-btn {
+      padding: 0 16px;
+      min-height: 42px;
+      background: #4f46e5;
+      border-color: #6366f1;
+      color: white;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .primary-btn:hover {
+      background: #5b55ec;
+    }
+
+    /* Results */
+
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .results-meta strong {
+      color: #e4e4e7;
+    }
+
+    .source-note {
+      color: var(--muted-2);
+      text-align: right;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 13px;
+      padding: 0 20px 22px;
+    }
+
+    .result-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #303037;
+      border-radius: 15px;
+      background: #141417;
+      overflow: hidden;
+      transition: transform .16s ease,border-color .16s ease,background .16s ease;
+    }
+
+    .result-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(129,140,248,.55);
+      background: #19191f;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 146px;
+      object-fit: cover;
+      background: linear-gradient(135deg,#20203a,#111827);
+      border-bottom: 1px solid #2c2c34;
+    }
+
+    .placeholder-image {
+      width: 100%;
+      height: 146px;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid #2c2c34;
+      background:
+        radial-gradient(circle at 25% 20%,rgba(99,102,241,.24),transparent 40%),
+        linear-gradient(135deg,#20202b,#101014);
+      color: #a5b4fc;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 13px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 7px;
+      color: #c7d2fe;
+      background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.18);
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .tag.green {
+      color: #a7f3d0;
+      background: rgba(16,185,129,.09);
+      border-color: rgba(52,211,153,.18);
+    }
+
+    .tag.gold {
+      color: #fde68a;
+      background: rgba(245,158,11,.08);
+      border-color: rgba(245,158,11,.2);
+    }
+
+    .card-title {
+      margin: 0;
+      color: #fafafa;
+      font-size: 14px;
+      line-height: 1.35;
+      letter-spacing: -.015em;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .card-copy {
+      margin: 7px 0 0;
+      color: #a1a1aa;
+      font-size: 11px;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .sale-price {
+      color: #f4f4f5;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .normal-price {
+      color: #71717a;
+      font-size: 11px;
+      text-decoration: line-through;
+    }
+
+    .discount {
+      color: #6ee7b7;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 13px;
+    }
+
+    .card-meta {
+      color: #85858f;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .deal-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid rgba(99,102,241,.55);
+      border-radius: 9px;
+      color: #e0e7ff;
+      background: rgba(79,70,229,.2);
+      font-size: 10px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .deal-link:hover {
+      background: rgba(79,70,229,.36);
+    }
+
+    .status-box {
+      margin: 0 20px 22px;
+      padding: 24px 16px;
+      border: 1px dashed #3f3f46;
+      border-radius: 14px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .status-box strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #e4e4e7;
+      font-size: 13px;
+    }
+
+    .status-box.error {
+      border-color: rgba(248,113,113,.4);
+      color: #fca5a5;
+    }
+
+    .status-box[hidden],
+    .results-grid[hidden] {
+      display: none !important;
+    }
+
+    .pagination-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px 22px;
+    }
+
+    .secondary-btn {
+      min-height: 36px;
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .secondary-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* Publisher content */
+
+    .info-section {
+      padding: 54px 0;
+      border-top: 1px solid rgba(63,63,70,.6);
+    }
+
+    .section-inner {
+      max-width: 930px;
+      margin-inline: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(22px,3vw,30px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .section-heading p {
+      margin: 9px auto 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 13px;
+    }
+
+    .info-card {
+      padding: 18px;
+      border: 1px solid #2e2e35;
+      border-radius: 15px;
+      background: #151518;
+    }
+
+    .info-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(99,102,241,.13);
+      color: var(--indigo-light);
+      margin-bottom: 12px;
+    }
+
+    .info-card h3 {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .info-card p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .details-copy {
+      max-width: 820px;
+      margin: 0 auto;
+      color: #a1a1aa;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .details-copy h2 {
+      color: white;
+      font-size: 24px;
+      line-height: 1.25;
+      margin: 0 0 14px;
+      letter-spacing: -.03em;
+    }
+
+    .details-copy h3 {
+      margin: 26px 0 7px;
+      color: #f4f4f5;
+      font-size: 16px;
+    }
+
+    .details-copy p {
+      margin: 0 0 13px;
+    }
+
+    .details-copy ul {
+      margin: 8px 0 15px;
+      padding-left: 21px;
+    }
+
+    .details-copy li {
+      margin: 5px 0;
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border: 1px solid rgba(245,158,11,.22);
+      border-radius: 12px;
+      background: rgba(245,158,11,.06);
+      color: #d4d4d8;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .faq-item {
+      padding: 17px;
+      border: 1px solid #2e2e35;
+      border-radius: 14px;
+      background: #151518;
+    }
+
+    .faq-item h3 {
+      margin: 0;
+      color: white;
+      font-size: 13px;
+    }
+
+    .faq-item p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .related-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px;
+      border: 1px solid #2e2e35;
+      border-radius: 14px;
+      background: #151518;
+      transition: border-color .16s ease,background .16s ease;
+    }
+
+    .related-link:hover {
+      border-color: rgba(129,140,248,.55);
+      background: #19191f;
+    }
+
+    .related-link strong {
+      color: #f4f4f5;
+      font-size: 12px;
+    }
+
+    .related-link span {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .attribution {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      padding: 18px 0 24px;
+      border-top: 1px solid rgba(63,63,70,.45);
+      color: var(--muted-2);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: #a5b4fc;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid #27272a;
+      background: #0c0c0f;
+    }
+
+    .footer-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted-2);
+      font-size: 10px;
+    }
+
+    .footer-brand {
+      color: #d4d4d8;
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .controls {
+        grid-template-columns: minmax(180px,1.5fr) repeat(2,minmax(130px,1fr));
+      }
+
+      .controls .primary-btn {
+        grid-column: 1 / -1;
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .nav-badge {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 22px,1160px);
+      }
+
+      .nav-inner {
+        min-height: 58px;
+      }
+
+      .brand-mark {
+        width: 31px;
+        height: 31px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 11px;
+      }
+
+      .nav-links a:nth-child(n+3) {
+        display: none;
+      }
+
+      .hero {
+        padding: 36px 0 20px;
+      }
+
+      .hero-copy {
+        font-size: 13px;
+      }
+
+      .panel-head {
+        padding: 17px 14px 13px;
+        align-items: flex-start;
+      }
+
+      .panel-head h2 {
+        font-size: 16px;
+      }
+
+      .refresh-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+      }
+
+      .tabs {
+        padding: 12px 12px 0;
+        gap: 6px;
+      }
+
+      .tab-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 9px 7px;
+        font-size: 10px;
+      }
+
+      .controls {
+        padding: 13px 12px;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 8px;
+      }
+
+      .search-box {
+        grid-column: 1 / -1;
+      }
+
+      .controls .primary-btn {
+        grid-column: 1 / -1;
+      }
+
+      .results-meta {
+        padding: 11px 14px;
+        align-items: flex-start;
+      }
+
+      .source-note {
+        max-width: 48%;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+        padding: 0 12px 15px;
+        gap: 10px;
+      }
+
+      .result-card {
+        display: grid;
+        grid-template-columns: 116px minmax(0,1fr);
+        min-height: 150px;
+      }
+
+      .card-image,
+      .placeholder-image {
+        width: 116px;
+        height: 100%;
+        min-height: 150px;
+        border-bottom: 0;
+        border-right: 1px solid #2c2c34;
+      }
+
+      .card-body {
+        padding: 11px;
+      }
+
+      .card-title {
+        font-size: 12px;
+      }
+
+      .card-copy {
+        font-size: 10px;
+        -webkit-line-clamp: 2;
+      }
+
+      .sale-price {
+        font-size: 16px;
+      }
+
+      .card-bottom {
+        align-items: flex-end;
+      }
+
+      .deal-link {
+        font-size: 9px;
+        padding: 6px 7px;
+      }
+
+      .status-box {
+        margin: 0 12px 15px;
+      }
+
+      .info-section {
+        padding: 40px 0;
+      }
+
+      .info-grid,
+      .faq-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-copy {
+        font-size: 12px;
+      }
+
+      .footer-inner {
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="site-shell">
+
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="K Tools HQ homepage">
+        <span class="brand-mark">K</span>
+        <span class="brand-name">K TOOLS<span>HQ</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/#tools">All Utilities</a>
+        <a href="/guides">Guides</a>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+
+      <span class="nav-badge">Free · No API key required</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero container">
+      <span class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 3h12l3 6-9 12L3 9l3-6Z"/>
+          <path d="M3 9h18M9 3l3 18 3-18"/>
+        </svg>
+        Gaming discovery utility
+      </span>
+
+      <h1>Gaming Deals <span class="gradient">& Freebies Finder</span></h1>
+
+      <p class="hero-copy">
+        Search PC game discounts and explore active gaming giveaways from external providers.
+        Compare the deal information, filter by platform, and follow the source link to check
+        the offer before claiming or buying.
+      </p>
+
+      <div class="trust-row" aria-label="Tool details">
+        <span class="trust-chip">No K Tools file uploads</span>
+        <span class="trust-chip">No API key needed</span>
+        <span class="trust-chip">Free to use</span>
+      </div>
+    </section>
+
+    <section class="workspace container" aria-label="Gaming deals and giveaways search">
+      <div class="panel">
+
+        <div class="panel-head">
+          <div>
+            <h2>Find your next game</h2>
+            <p>Browse currently listed PC deals or active giveaways.</p>
+          </div>
+
+          <button class="refresh-btn" id="refreshButton" type="button" title="Refresh the current list">
+            Refresh
+          </button>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Gaming offers" id="offerTabs">
+          <button class="tab-btn" id="dealsTab" type="button" role="tab" aria-selected="true" aria-controls="resultsPanel">
+            PC Game Deals <span class="tab-count" id="dealsCount">—</span>
+          </button>
+
+          <button class="tab-btn" id="giveawaysTab" type="button" role="tab" aria-selected="false" aria-controls="resultsPanel">
+            Freebies & Giveaways <span class="tab-count" id="giveawaysCount">—</span>
+          </button>
+        </div>
+
+        <form class="controls" id="filterForm">
+
+          <label class="search-box">
+            <span class="sr-only">Search games</span>
+            <input class="field" id="searchInput" type="search" maxlength="80"
+              placeholder="Search by game title..." autocomplete="off">
+          </label>
+
+          <label>
+            <span class="sr-only">Platform or store</span>
+            <select class="filter-control" id="platformFilter" aria-label="Platform or store">
+              <option value="">All platforms / stores</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="sr-only">Offer type or maximum price</span>
+            <select class="filter-control" id="typePriceFilter" aria-label="Offer type or maximum price">
+              <option value="">Any offer / price</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="sr-only">Sort results</span>
+            <select class="filter-control" id="sortFilter" aria-label="Sort results"></select>
+          </label>
+
+          <button class="primary-btn" type="submit">Search offers</button>
+        </form>
+
+        <section id="resultsPanel" role="tabpanel" aria-labelledby="dealsTab">
+          <div class="results-meta">
+            <span id="resultsSummary" aria-live="polite">Loading current PC game deals…</span>
+            <span class="source-note" id="sourceNote">Source: CheapShark · Prices in USD</span>
+          </div>
+
+          <div class="results-grid" id="resultsGrid" aria-live="polite" hidden></div>
+
+          <div class="status-box" id="statusBox">
+            <strong>Loading offers</strong>
+            Contacting the selected data provider directly from your browser.
+          </div>
+
+          <div class="pagination-row" id="paginationRow" hidden>
+            <button class="secondary-btn" id="loadMoreButton" type="button">Load more results</button>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- Instructions and original publisher content -->
+
+    <section class="info-section">
+      <div class="container section-inner">
+        <div class="section-heading">
+          <h2>How the Gaming Deals Finder works</h2>
+          <p>Use the two sources for different kinds of offers. K Tools HQ displays the available information; the original store or giveaway provider controls the offer.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>1. Browse PC game deals</h3>
+            <p>Search game titles, choose a supported store, set a maximum price in USD, and sort the available deal listings.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>2. Explore active giveaways</h3>
+            <p>Switch to giveaways to filter listings by platform and offer type, including full games, in-game loot, and beta access.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>3. Check the source offer</h3>
+            <p>Open the original deal or giveaway page to confirm current price, region, eligibility, expiry, and any account requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container section-inner details-copy">
+
+        <h2>PC game discounts and free gaming offers in one place</h2>
+
+        <p>
+          The Gaming Deals & Freebies Finder combines two separate types of gaming discovery.
+          The PC Game Deals tab uses CheapShark data to show listed offers from supported PC game
+          stores. The Freebies & Giveaways tab uses GamerPower data to show currently listed game
+          giveaways, in-game items, and beta opportunities across supported platforms.
+        </p>
+
+        <p>
+          The two sources are not the same kind of offer. A discounted game may still cost money,
+          while a giveaway may have platform, account, region, time-limit, or eligibility conditions.
+          Always check the provider or retailer before taking action.
+        </p>
+
+        <h3>Understanding game prices</h3>
+
+        <p>
+          CheapShark returns prices in US dollars (USD). The price displayed here is the value
+          supplied by CheapShark, not a guaranteed checkout price for every country. Regional
+          availability, taxes, currency conversion, store account settings, and offer changes can
+          affect what a visitor sees at checkout. CheapShark deal listings can represent different
+          stores for the same game, so compare the store and offer details before choosing one.
+        </p>
+
+        <p>
+          CheapShark says its store pricing is generally refreshed about once per hour, although
+          update timing can vary. Offers can end or change between the time a result is displayed
+          and the time the store is opened. Deal buttons use CheapShark's required deal redirect link.
+        </p>
+
+        <h3>Understanding giveaways</h3>
+
+        <p>
+          GamerPower lists gaming giveaways by platform and type. A listing can represent a full
+          game, in-game loot, or a beta/playtest opportunity. Not every listing is a full game,
+          and some offers may have limited availability or eligibility rules. The giveaway
+          provider or participating platform controls the actual promotion, not K Tools HQ.
+        </p>
+
+        <p>
+          Giveaway listings are third-party data. K Tools HQ does not distribute game keys,
+          guarantee that an offer remains active, or process claims. Follow the source link and
+          read the terms shown by the giveaway provider.
+        </p>
+
+        <h3>Does this tool upload files?</h3>
+
+        <p>
+          This tool does not select or upload files. In the PC Deals tab, a game-title search
+          and selected filters are sent to CheapShark to retrieve matching deals. In the Giveaways
+          tab, platform, offer-type, and sorting filters are sent to GamerPower; the title search
+          is applied in your browser to the returned list. The providers receive the requests and
+          may process standard connection information such as your IP address. No K Tools HQ
+          file-processing server or private API key is required.
+        </p>
+
+        <div class="notice">
+          <strong>Accuracy note:</strong> K Tools HQ is an independent discovery interface and is
+          not the seller, giveaway organizer, or owner of the listed games. Prices, discounts,
+          offer availability, regional access, and eligibility can change. Verify all important
+          details on the linked provider page before buying or claiming.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="info-section">
+      <div class="container section-inner">
+
+        <div class="section-heading">
+          <h2>Frequently asked questions</h2>
+          <p>What the finder shows, where its information comes from, and what to verify before using an offer.</p>
+        </div>
+
+        <div class="faq-grid">
+
+          <article class="faq-item">
+            <h3>Is the Gaming Deals Finder free?</h3>
+            <p>Yes. K Tools HQ does not charge to use this finder and it does not require a K Tools HQ account. A store or giveaway platform may have its own account, eligibility, or purchase requirements.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Are the prices shown in Indian rupees?</h3>
+            <p>No. CheapShark supplies deal prices in US dollars (USD). The actual price and availability shown by a store can vary by country, currency, taxes, and account region.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Are all giveaway listings full games?</h3>
+            <p>No. The giveaway source separates full games, in-game loot, and beta or playtest access. Check the offer type and the source page before claiming.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>What does the CheapShark deal rating mean?</h3>
+            <p>It is CheapShark's own 0–10 deal comparison score. It is not a customer review, product-quality guarantee, or promise that the listed price is the lowest available in every region.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Can an offer expire after it appears here?</h3>
+            <p>Yes. Offers can change or end after the data is retrieved. Confirm the current price, availability, region, and eligibility on the retailer or giveaway page.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Does K Tools HQ sell games or provide keys?</h3>
+            <p>No. K Tools HQ displays third-party offer information and links to external sources. Purchases, downloads, keys, and giveaway claims are handled by those providers.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Does the tool send my files to an API?</h3>
+            <p>No files are used by this tool. CheapShark receives the game-title search and deal filters. GamerPower receives the giveaway platform, type, and sorting filters, while the giveaway title search is applied locally in your browser.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Internal links to existing gaming utilities -->
+
+    <section class="info-section">
+      <div class="container section-inner">
+
+        <div class="section-heading">
+          <h2>Explore more gaming utilities</h2>
+          <p>Other browser-based tools on K Tools HQ for gaming setup checks and settings.</p>
+        </div>
+
+        <div class="related-grid">
+          <a class="related-link" href="/sens-matcher">
+            <strong>FPS Sensitivity Matcher</strong>
+            <span>Compare eDPI and approximate cm/360 values across supported games.</span>
+          </a>
+
+          <a class="related-link" href="/hz-and-polling">
+            <strong>Monitor Hz & Mouse Polling Test</strong>
+            <span>Check browser-observed frame timing and pointer event intervals.</span>
+          </a>
+
+          <a class="related-link" href="/retro-gaming">
+            <strong>Retro Arcade Gaming Portal</strong>
+            <span>Explore retro-style games and display utilities.</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container attribution">
+      <span>
+        Deal data provided by
+        <a href="https://www.cheapshark.com/" target="_blank" rel="noopener noreferrer">CheapShark</a>.
+        Deal links use CheapShark's redirect service.
+      </span>
+
+      <span>
+        Giveaway data provided by
+        <a href="https://www.gamerpower.com/" target="_blank" rel="noopener noreferrer">GamerPower</a>
+        (attribution required by its API terms).
+      </span>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <div class="footer-brand">K TOOLS HQ</div>
+        <div>Independent browser utilities for creators, gamers and everyday tasks.</div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/guides">Guides</a>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </nav>
+
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  const CHEAPSHARK_API = 'https://www.cheapshark.com/api/1.0';
+  const GAMERPOWER_API = 'https://www.gamerpower.com/api';
+
+  const CACHE_TTL = 8 * 60 * 1000;
+  const PAGE_SIZE = 24;
+
+  const els = {
+    dealsTab: document.getElementById('dealsTab'),
+    giveawaysTab: document.getElementById('giveawaysTab'),
+    search: document.getElementById('searchInput'),
+    platform: document.getElementById('platformFilter'),
+    typePrice: document.getElementById('typePriceFilter'),
+    sort: document.getElementById('sortFilter'),
+    form: document.getElementById('filterForm'),
+    refresh: document.getElementById('refreshButton'),
+    summary: document.getElementById('resultsSummary'),
+    source: document.getElementById('sourceNote'),
+    grid: document.getElementById('resultsGrid'),
+    status: document.getElementById('statusBox'),
+    pagination: document.getElementById('paginationRow'),
+    loadMore: document.getElementById('loadMoreButton'),
+    dealsCount: document.getElementById('dealsCount'),
+    giveawaysCount: document.getElementById('giveawaysCount'),
+    panel: document.getElementById('resultsPanel')
+  };
+
+  let activeTab = 'deals';
+  let currentDealsPage = 0;
+  let currentDeals = [];
+  let currentGiveaways = [];
+  let allGiveaways = [];
+
+  let lastFetchedAt = {
+    deals: null,
+    giveaways: null
+  };
+
+  let activeRequest = 0;
+  const cache = new Map();
+
+  const platforms = [
+    ['', 'All platforms'],
+    ['pc', 'PC'],
+    ['steam', 'Steam'],
+    ['epic-games-store', 'Epic Games Store'],
+    ['gog', 'GOG'],
+    ['ps5', 'PlayStation 5'],
+    ['ps4', 'PlayStation 4'],
+    ['xbox-series-xs', 'Xbox Series X/S'],
+    ['xbox-one', 'Xbox One'],
+    ['switch', 'Nintendo Switch'],
+    ['android', 'Android'],
+    ['ios', 'iOS'],
+    ['itchio', 'itch.io'],
+    ['drm-free', 'DRM-free']
+  ];
+
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
+  }
+
+  function safeHttpsURL(value) {
+    try {
+      const url = new URL(String(value || ''));
+      return url.protocol === 'https:' ? url.href : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
+  function setStatus(title, message, isError = false) {
+    els.status.hidden = false;
+    els.status.classList.toggle('error', isError);
+    els.status.innerHTML =
+      `<strong>${escapeHTML(title)}</strong>${escapeHTML(message)}`;
+
+    els.grid.hidden = true;
+    els.pagination.hidden = true;
+  }
+
+  function setLoading(message = 'Contacting the data provider directly from your browser.') {
+    els.status.hidden = false;
+    els.status.classList.remove('error');
+    els.status.innerHTML =
+      `<strong>Loading offers…</strong>${escapeHTML(message)}`;
+
+    els.grid.hidden = true;
+    els.pagination.hidden = true;
+  }
+
+  function showResults() {
+    els.status.hidden = true;
+    els.grid.hidden = false;
+  }
+
+  async function fetchJSON(url, forceRefresh = false) {
+    const cached = cache.get(url);
+
+    if (
+      !forceRefresh &&
+      cached &&
+      Date.now() - cached.time < CACHE_TTL
+    ) {
+      return cached.data;
+    }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json'
+        },
+        signal: controller.signal,
+        cache: 'no-store',
+        credentials: 'omit'
+      });
+
+      if (!response.ok) {
+        const error = new Error(
+          response.status === 429
+            ? 'The data provider is receiving too many requests. Wait a little and try again.'
+            : `The data provider returned an error (${response.status}).`
+        );
+
+        error.status = response.status;
+
+        const retryAfter = response.headers.get('Retry-After');
+        if (retryAfter) error.retryAfter = retryAfter;
+
+        throw error;
+      }
+
+      // GamerPower uses HTTP 201 when there are no active giveaways.
+      if (
+        response.status === 201 &&
+        url.includes('gamerpower.com/api/giveaways')
+      ) {
+        const emptyData = [];
+
+        cache.set(url, {
+          data: emptyData,
+          time: Date.now()
+        });
+
+        return emptyData;
+      }
+
+      const data = await response.json();
+
+      // Prevent an unlimited in-memory cache.
+      if (cache.size >= 40) {
+        cache.delete(cache.keys().next().value);
+      }
+
+      cache.set(url, {
+        data,
+        time: Date.now()
+      });
+
+      return data;
+
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        throw new Error('The request took too long. Check your connection and try again.');
+      }
+
+      if (error instanceof TypeError) {
+        throw new Error('The browser could not reach this provider. It may be temporarily unavailable or blocking this request. Try again later.');
+      }
+
+      throw error;
+
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  function getQueryState() {
+    return {
+      search: els.search.value.trim().slice(0, 80),
+      platform: els.platform.value,
+      typePrice: els.typePrice.value,
+      sort: els.sort.value
+    };
+  }
+
+  function setOptions(select, entries) {
+    select.innerHTML = '';
+
+    entries.forEach(([value, label]) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = label;
+      select.appendChild(option);
+    });
+  }
+
+  function fillFilterOptions() {
+    setOptions(els.platform, [
+      ['', 'All PC stores']
+    ]);
+
+    setOptions(els.typePrice, [
+      ['', 'Any price'],
+      ['5', 'Up to $5 USD'],
+      ['10', 'Up to $10 USD'],
+      ['20', 'Up to $20 USD'],
+      ['30', 'Up to $30 USD']
+    ]);
+
+    setOptions(els.sort, [
+      ['DealRating', 'Best deal rating'],
+      ['Savings', 'Biggest discount'],
+      ['Price', 'Lowest price'],
+      ['Recent', 'Recently changed']
+    ]);
+  }
+
+  let storeNames = new Map();
+
+  function storeNameFor(id) {
+    return storeNames.get(String(id)) || '';
+  }
+
+  function populateStoreFilter() {
+    const previousStore = els.platform.value;
+    const storeOptions = [
+      ['', 'All PC stores']
+    ];
+
+    [...storeNames.entries()]
+      .sort((a, b) => a[1].localeCompare(b[1]))
+      .forEach(([id, name]) => {
+        storeOptions.push([id, name]);
+      });
+
+    setOptions(els.platform, storeOptions);
+
+    if (storeOptions.some(([value]) => value === previousStore)) {
+      els.platform.value = previousStore;
+    }
+
+    els.platform.setAttribute('aria-label', 'Store');
+  }
+
+  function configureFilters(tab) {
+    if (tab === 'deals') {
+      populateStoreFilter();
+
+      setOptions(els.typePrice, [
+        ['', 'Any price'],
+        ['5', 'Up to $5 USD'],
+        ['10', 'Up to $10 USD'],
+        ['20', 'Up to $20 USD'],
+        ['30', 'Up to $30 USD']
+      ]);
+
+      setOptions(els.sort, [
+        ['DealRating', 'Best deal rating'],
+        ['Savings', 'Biggest discount'],
+        ['Price', 'Lowest price'],
+        ['Recent', 'Recently changed']
+      ]);
+
+      els.typePrice.setAttribute(
+        'aria-label',
+        'Maximum price in US dollars'
+      );
+
+    } else {
+      setOptions(
+        els.platform,
+        platforms.map(([value, label]) => [value, label])
+      );
+
+      setOptions(els.typePrice, [
+        ['', 'All offer types'],
+        ['game', 'Full games'],
+        ['loot', 'In-game loot / DLC'],
+        ['beta', 'Beta / playtest access']
+      ]);
+
+      setOptions(els.sort, [
+        ['date', 'Newest first'],
+        ['value', 'Highest listed value'],
+        ['popularity', 'Most popular']
+      ]);
+
+      els.platform.setAttribute('aria-label', 'Giveaway platform');
+      els.typePrice.setAttribute('aria-label', 'Giveaway type');
+    }
+  }
+
+  function formatUSD(value) {
+    const amount = Number.parseFloat(value);
+
+    if (!Number.isFinite(amount)) {
+      return 'Price unavailable';
+    }
+
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 2
+    }).format(amount);
+  }
+
+  function formatDate(value) {
+    if (!value || value === 'N/A') {
+      return 'Expiry not listed';
+    }
+
+    const parsed = new Date(value);
+
+    if (Number.isNaN(parsed.getTime())) {
+      return 'Expiry not listed';
+    }
+
+    return `Ends ${parsed.toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    })}`;
+  }
+
+  function formatTime(value) {
+    if (!value) {
+      return 'Not checked yet';
+    }
+
+    return `Checked ${new Date(value).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    })}`;
+  }
+
+  function setSummary(count, source, updated) {
+    els.summary.innerHTML =
+      `<strong>${count}</strong> ${count === 1 ? 'result' : 'results'} found <span>· ${escapeHTML(updated)}</span>`;
+
+    els.source.textContent = source;
+  }
+
+  function renderDealCard(deal) {
+    const title = escapeHTML(deal.title || 'Untitled game');
+    const imageURL = safeHttpsURL(deal.thumb);
+
+    const sale = formatUSD(deal.salePrice);
+    const normal = formatUSD(deal.normalPrice);
+
+    const savingsNumber = Number.parseFloat(deal.savings);
+
+    const savings = Number.isFinite(savingsNumber)
+      ? `${Math.round(savingsNumber)}% off`
+      : 'Discount listed';
+
+    const rating = Number.parseFloat(deal.dealRating);
+
+    const store = escapeHTML(
+      deal.storeName ||
+      (deal.storeID ? `Store ${deal.storeID}` : 'PC store')
+    );
+
+    const rawDealID = String(deal.dealID || '');
+
+    let decodedDealID = rawDealID;
+
+    try {
+      decodedDealID = decodeURIComponent(rawDealID);
+    } catch (_) {}
+
+    const link =
+      `https://www.cheapshark.com/redirect?dealID=${encodeURIComponent(decodedDealID)}`;
+
+    const image = imageURL
+      ? `<img class="card-image" src="${escapeHTML(imageURL)}" alt="${title} game artwork" loading="lazy" referrerpolicy="no-referrer">`
+      : `<div class="placeholder-image" aria-hidden="true">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M6 3h12l3 6-9 12L3 9l3-6Z"/>
+            <path d="M3 9h18M9 3l3 18 3-18"/>
+          </svg>
+        </div>`;
+
+    return `
+      <article class="result-card">
+        ${image}
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">PC deal</span>
+            <span class="tag green">${escapeHTML(savings)}</span>
+          </div>
+
+          <h3 class="card-title">${title}</h3>
+
+          <p class="card-copy">
+            Listed at ${store}. Check the retailer page for regional price,
+            current stock, and redemption details.
+          </p>
+
+          <div class="price-row">
+            <span class="sale-price">${sale}</span>
+            <span class="normal-price">${normal}</span>
+          </div>
+
+          <div class="card-bottom">
+            <span class="card-meta">
+              ${Number.isFinite(rating)
+                ? `CheapShark deal rating: ${rating.toFixed(1)}/10`
+                : store}
+            </span>
+
+            <a class="deal-link"
+              href="${link}"
+              target="_blank"
+              rel="nofollow noopener noreferrer">
+              View deal <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderGiveawayCard(item) {
+    const title = escapeHTML(item.title || 'Gaming giveaway');
+    const imageURL = safeHttpsURL(item.thumbnail || item.image);
+
+    const image = imageURL
+      ? `<img class="card-image" src="${escapeHTML(imageURL)}" alt="${title} giveaway artwork" loading="lazy" referrerpolicy="no-referrer">`
+      : `<div class="placeholder-image" aria-hidden="true">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M20 12v8H4v-8M2 7h20v5H2zM12 7v13M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5C10 6 12 7 12 7Zm0 0h4.5A2.5 2.5 0 1 0 14 4.5C14 6 12 7 12 7Z"/>
+          </svg>
+        </div>`;
+
+    const rawPlatforms = String(item.platforms || 'Platform not listed');
+
+    const platformText = escapeHTML(
+      rawPlatforms.length > 62
+        ? `${rawPlatforms.slice(0, 59)}…`
+        : rawPlatforms
+    );
+
+    const type = String(item.type || 'game').toLowerCase();
+
+    const typeLabel =
+      type === 'loot'
+        ? 'In-game loot'
+        : type === 'beta'
+          ? 'Beta / playtest'
+          : 'Full game';
+
+    const worth =
+      item.worth && item.worth !== 'N/A'
+        ? escapeHTML(item.worth)
+        : 'Value not listed';
+
+    const date = formatDate(item.end_date);
+
+    const link =
+      safeHttpsURL(item.open_giveaway_url) ||
+      safeHttpsURL(item.gamerpower_url) ||
+      'https://www.gamerpower.com/';
+
+    const description = escapeHTML(
+      item.description ||
+      'Open the source page to read the offer details and eligibility requirements.'
+    );
+
+    return `
+      <article class="result-card">
+        ${image}
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag">${escapeHTML(typeLabel)}</span>
+            <span class="tag green">Giveaway</span>
+          </div>
+
+          <h3 class="card-title">${title}</h3>
+
+          <p class="card-copy">${description}</p>
+
+          <div class="price-row">
+            <span class="sale-price" style="font-size:15px">Free offer</span>
+            <span class="normal-price" style="text-decoration:none">${worth}</span>
+          </div>
+
+          <div class="card-bottom">
+            <span class="card-meta">
+              ${platformText}<br>${escapeHTML(date)}
+            </span>
+
+            <a class="deal-link"
+              href="${escapeHTML(link)}"
+              target="_blank"
+              rel="nofollow noopener noreferrer">
+              View offer <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  async function loadDeals(forceRefresh = false, append = false) {
+    const requestId = ++activeRequest;
+
+    if (!append) {
+      currentDealsPage = 0;
+      currentDeals = [];
+      setLoading('Loading PC game prices from CheapShark.');
+    } else {
+      els.loadMore.disabled = true;
+      els.loadMore.textContent = 'Loading…';
+    }
+
+    const filters = getQueryState();
+
+    const params = new URLSearchParams({
+      pageSize: String(PAGE_SIZE),
+      pageNumber: String(currentDealsPage),
+      sortBy: filters.sort || 'DealRating',
+      desc: filters.sort === 'Price' ? '0' : '1',
+      onSale: '1'
+    });
+
+    if (filters.search) {
+      params.set('title', filters.search);
+    }
+
+    if (filters.platform) {
+      params.set('storeID', filters.platform);
+    }
+
+    if (filters.typePrice) {
+      params.set('upperPrice', filters.typePrice);
+    }
+
+    const url = `${CHEAPSHARK_API}/deals?${params.toString()}`;
+
+    try {
+      const data = await fetchJSON(url, forceRefresh);
+
+      if (requestId !== activeRequest) {
+        return;
+      }
+
+      if (!Array.isArray(data)) {
+        throw new Error('CheapShark returned an unexpected response. Please try again later.');
+      }
+
+      const newDeals = data.map(deal => ({
+        ...deal,
+        storeName: storeNameFor(deal.storeID)
+      }));
+
+      currentDeals = append
+        ? currentDeals.concat(newDeals)
+        : newDeals;
+
+      lastFetchedAt.deals = Date.now();
+
+      els.dealsCount.textContent = String(currentDeals.length);
+      els.grid.innerHTML = currentDeals.map(renderDealCard).join('');
+
+      setSummary(
+        currentDeals.length,
+        'Source: CheapShark · Prices in USD',
+        formatTime(lastFetchedAt.deals)
+      );
+
+      showResults();
+
+      // If a full page is returned, allow another request.
+      els.pagination.hidden = newDeals.length < PAGE_SIZE;
+
+      els.loadMore.disabled = false;
+      els.loadMore.textContent = 'Load more results';
+
+      if (!currentDeals.length) {
+        setStatus(
+          'No deals found',
+          'Try a different title, store, or maximum price.'
+        );
+      }
+
+    } catch (error) {
+      if (requestId !== activeRequest) {
+        return;
+      }
+
+      els.loadMore.disabled = false;
+      els.loadMore.textContent = 'Load more results';
+
+      if (append) {
+        currentDealsPage = Math.max(0, currentDealsPage - 1);
+      }
+
+      if (append && currentDeals.length) {
+        els.status.hidden = false;
+        els.status.classList.add('error');
+        els.status.innerHTML =
+          `<strong>Could not load more deals</strong>${escapeHTML(error.message)} You can retry or open <a href="https://www.cheapshark.com/" target="_blank" rel="noopener noreferrer" style="color:#c7d2fe;text-decoration:underline">CheapShark</a>.`;
+
+        els.grid.hidden = false;
+
+      } else {
+        setStatus(
+          'Could not load PC game deals',
+          `${error.message} You can open CheapShark directly to check current listings.`,
+          true
+        );
+
+        els.status.insertAdjacentHTML(
+          'beforeend',
+          ' <a href="https://www.cheapshark.com/" target="_blank" rel="noopener noreferrer" style="color:#c7d2fe;text-decoration:underline">Open CheapShark</a>'
+        );
+
+        setSummary(0, 'Source: CheapShark', 'Not available');
+      }
+    }
+  }
+
+  async function loadStores() {
+    try {
+      const stores = await fetchJSON(`${CHEAPSHARK_API}/stores`);
+
+      if (Array.isArray(stores)) {
+        storeNames = new Map(
+          stores
+            .filter(store =>
+              String(store.isActive) === '1' ||
+              store.isActive === true
+            )
+            .map(store => [
+              String(store.storeID),
+              String(store.storeName || `Store ${store.storeID}`)
+            ])
+        );
+
+        if (activeTab === 'deals') {
+          populateStoreFilter();
+        }
+      }
+
+    } catch (_) {
+      // If the store list is unavailable, visitors can still browse all PC stores.
+    }
+  }
+
+  async function loadGiveaways(forceRefresh = false) {
+    const requestId = ++activeRequest;
+
+    setLoading('Loading active giveaways from GamerPower.');
+
+    const filters = getQueryState();
+    const params = new URLSearchParams();
+
+    if (filters.platform) {
+      params.set('platform', filters.platform);
+    }
+
+    if (filters.typePrice) {
+      params.set('type', filters.typePrice);
+    }
+
+    params.set('sort-by', filters.sort || 'date');
+
+    const url =
+      `${GAMERPOWER_API}/giveaways${params.toString() ? `?${params.toString()}` : ''}`;
+
+    try {
+      const data = await fetchJSON(url, forceRefresh);
+
+      if (requestId !== activeRequest) {
+        return;
+      }
+
+      if (!Array.isArray(data)) {
+        if (data && (data.status === 201 || data.status === '201')) {
+          allGiveaways = [];
+        } else {
+          throw new Error('GamerPower returned an unexpected response. Please try again later.');
+        }
+      } else {
+        allGiveaways = data;
+      }
+
+      const query = filters.search.toLowerCase();
+
+      currentGiveaways = query
+        ? allGiveaways.filter(item =>
+            `${item.title || ''} ${item.description || ''} ${item.platforms || ''}`
+              .toLowerCase()
+              .includes(query)
+          )
+        : allGiveaways;
+
+      lastFetchedAt.giveaways = Date.now();
+
+      els.giveawaysCount.textContent = String(currentGiveaways.length);
+
+      els.grid.innerHTML =
+        currentGiveaways.map(renderGiveawayCard).join('');
+
+      setSummary(
+        currentGiveaways.length,
+        'Source: GamerPower · Active listings',
+        formatTime(lastFetchedAt.giveaways)
+      );
+
+      showResults();
+      els.pagination.hidden = true;
+
+      if (!currentGiveaways.length) {
+        setStatus(
+          'No matching giveaways found',
+          'Try another search, platform, or giveaway type. Offers can also end or become unavailable.'
+        );
+      }
+
+    } catch (error) {
+      if (requestId !== activeRequest) {
+        return;
+      }
+
+      setStatus(
+        'Could not load giveaways',
+        `${error.message} You can visit GamerPower directly to see its current listings.`,
+        true
+      );
+
+      els.status.insertAdjacentHTML(
+        'beforeend',
+        ' <a href="https://www.gamerpower.com/" target="_blank" rel="noopener noreferrer" style="color:#c7d2fe;text-decoration:underline">Open GamerPower</a>'
+      );
+
+      setSummary(0, 'Source: GamerPower', 'Not available');
+    }
+  }
+
+  function activateTab(tab, forceRefresh = false) {
+    activeTab = tab;
+
+    els.dealsTab.setAttribute(
+      'aria-selected',
+      String(tab === 'deals')
+    );
+
+    els.giveawaysTab.setAttribute(
+      'aria-selected',
+      String(tab === 'giveaways')
+    );
+
+    els.panel.setAttribute(
+      'aria-labelledby',
+      tab === 'deals' ? 'dealsTab' : 'giveawaysTab'
+    );
+
+    configureFilters(tab);
+    els.search.value = '';
+
+    if (tab === 'deals') {
+      loadDeals(forceRefresh);
+    } else {
+      loadGiveaways(forceRefresh);
+    }
+  }
+
+  function trackToolEvent(action, mode) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', action, {
+        tool_name: 'gaming_deals_freebies_finder',
+        mode
+      });
+    }
+  }
+
+  els.dealsTab.addEventListener('click', () => {
+    if (activeTab !== 'deals') {
+      trackToolEvent('gaming_tab_change', 'deals');
+      activateTab('deals');
+    }
+  });
+
+  els.giveawaysTab.addEventListener('click', () => {
+    if (activeTab !== 'giveaways') {
+      trackToolEvent('gaming_tab_change', 'giveaways');
+      activateTab('giveaways');
+    }
+  });
+
+  els.form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    trackToolEvent('gaming_offer_search', activeTab);
+
+    if (activeTab === 'deals') {
+      loadDeals(true);
+    } else {
+      loadGiveaways(false);
+    }
+  });
+
+  els.refresh.addEventListener('click', () => {
+    if (activeTab === 'deals') {
+      loadDeals(true);
+    } else {
+      loadGiveaways(true);
+    }
+  });
+
+  // Replace unavailable external artwork with a local placeholder.
+  els.grid.addEventListener('error', event => {
+    const image = event.target;
+
+    if (
+      !(image instanceof HTMLImageElement) ||
+      !image.classList.contains('card-image')
+    ) {
+      return;
+    }
+
+    const fallback = document.createElement('div');
+    fallback.className = 'placeholder-image';
+    fallback.setAttribute('aria-hidden', 'true');
+
+    fallback.innerHTML =
+      '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3h12l3 6-9 12L3 9l3-6Z"/><path d="M3 9h18M9 3l3 18 3-18"/></svg>';
+
+    image.replaceWith(fallback);
+  }, true);
+
+  els.grid.addEventListener('click', event => {
+    const link = event.target.closest('a.deal-link');
+
+    if (link) {
+      trackToolEvent('gaming_offer_click', activeTab);
+    }
+  });
+
+  els.loadMore.addEventListener('click', () => {
+    if (activeTab !== 'deals') {
+      return;
+    }
+
+    currentDealsPage += 1;
+    loadDeals(false, true);
+  });
+
+  fillFilterOptions();
+  configureFilters('deals');
+
+  // Load deals immediately. Store names are loaded separately so a slow
+  // store-list request does not delay the first set of game results.
+  loadDeals();
+  loadStores();
+
+})();
+</script>
+
+</body>
+</html>
