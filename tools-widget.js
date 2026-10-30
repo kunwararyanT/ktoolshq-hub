@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('related-tools');
   if (!container) return;
@@ -76,21 +77,44 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
     },
     {
-      title: "image Size Reducer",
+      title: "Image Size Reducer",
       path: "/image-size-reducer",
       desc: "Try to reduce image size to a target; very small targets may affect dimensions or quality.",
       icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>`
+    },
+    {
+      title: "Gaming Deals & Freebies Finder",
+      path: "/gaming-deals",
+      desc: "Find PC game discounts in USD, compare listed deals, and explore active gaming giveaways across supported platforms.",
+      icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 11h4M8 9v4m7.5-2.5h.01m2.5 2h.01M7 6h10a4 4 0 013.8 5.2l-1.1 3.7a2.7 2.7 0 01-4.5 1.2l-1.4-1.3h-3.6l-1.4 1.3a2.7 2.7 0 01-4.5-1.2l-1.1-3.7A4 4 0 017 6Z"></path></svg>`
     }
   ];
 
   const currentPath = window.location.pathname.replace(/\/$/, "");
-  const eligibleTools = allTools.filter(tool => tool.path !== currentPath && tool.path !== currentPath + ".html");
+
+  const eligibleTools = allTools.filter(tool =>
+    tool.path !== currentPath &&
+    tool.path !== currentPath + ".html"
+  );
+
   // Stable per-page ordering avoids reshuffling related links on every visit.
-  const pageSeed = [...currentPath].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  const pageSeed = [...currentPath].reduce(
+    (sum, ch) => sum + ch.charCodeAt(0),
+    0
+  );
+
   const selectedTools = [...eligibleTools]
     .sort((a, b) => {
-      const scoreA = [...(a.path + a.title)].reduce((sum, ch) => sum + ch.charCodeAt(0), pageSeed);
-      const scoreB = [...(b.path + b.title)].reduce((sum, ch) => sum + ch.charCodeAt(0), pageSeed);
+      const scoreA = [...(a.path + a.title)].reduce(
+        (sum, ch) => sum + ch.charCodeAt(0),
+        pageSeed
+      );
+
+      const scoreB = [...(b.path + b.title)].reduce(
+        (sum, ch) => sum + ch.charCodeAt(0),
+        pageSeed
+      );
+
       return scoreA - scoreB || a.title.localeCompare(b.title);
     })
     .slice(0, 3);
@@ -105,8 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xs text-zinc-400">Processing varies by tool; see each utility for its limits and dependencies.</p>
           </div>
         </div>
+
         <a href="/" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-indigo-400 bg-indigo-500/10 hover:bg-indigo-500 hover:text-white border border-indigo-500/20 rounded-lg transition-all duration-200">
-          Explore All 13+ Tools
+          Explore All 14+ Tools
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
       </div>
@@ -120,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </span>
               <h4 class="font-semibold text-zinc-200 text-sm group-hover:text-indigo-300 transition-colors">${tool.title}</h4>
             </div>
+
             <p class="text-xs text-zinc-400 leading-relaxed">${tool.desc}</p>
           </a>
         `).join('')}
